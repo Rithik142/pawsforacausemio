@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Contact | Paws for a Cause</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+
+  <!-- fixed header -->
+  <header>
+    <a href="index.html" class="logo">PAWS FOR A CAUSE</a>
+    <nav>
+      <div class="hamburger">☰</div>
+      <ul class="nav-list">
+        <li><a href="mission.html">Our Mission</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="involved.html">Get Involved</a></li>
+        <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="events.html">Events</a></li>
+          </ul>
+    </nav>
+    <a href="donate.html" class="btn-donate">Donate Now</a>
+  </header>
+
+  <!-- main content wrapped for Locomotive/scroll animations -->
+  <main data-scroll-container>
+    <div class="container">
+<section class="contact-section">
+  <h1>Contact Us</h1>
+  <div class="contact-content">
+    <!-- LEFT SIDEBAR -->
+    <!-- contact.html -->
+<aside class="contact-info">
+  <img src="images/dog-6961236.jpg" alt="Happy dog" class="contact-img" />
+  <h2>Get in Touch</h2>
+  <p>Feel free to reach out with any questions, ideas, or to volunteer! We’re always happy to hear from fellow animal lovers.</p>
+
+  <div class="socials">
+    <a href="…" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener">Instagram</a>
+    <a href="…" target="_blank" rel="noopener">Twitter</a>
+  </div>
+</aside>
+
+
+
+    <!-- RIGHT FORM -->
+<div class="contact-form">
+  <form
+    id="contactForm"
+    action="https://formspree.io/f/mblklzkb"
+    method="post"
+  >
+    <!-- custom subject line in the email you receive -->
+    <input type="hidden" name="_subject" value="Someone Contacted Us" />
+
+    <!-- disable Formspree’s built-in CAPTCHA (optional) -->
+    <input type="hidden" name="_captcha" value="false" />
+
+    <div class="two-col">
+      <label>
+        First Name
+        <input type="text" name="firstName" placeholder="Your first name" required>
+      </label>
+      <label>
+        Last Name
+        <input type="text" name="lastName" placeholder="Your last name" required>
+      </label>
+    </div>
+
+    <label>
+      Email
+      <!-- tells Formspree where to reply -->
+      <input type="email" name="_replyto" placeholder="you@example.com" required>
+    </label>
+
+    <label>
+      Subject
+      <input type="text" name="subject" placeholder="What’s this about?" required>
+    </label>
+
+    <label>
+      Message
+      <textarea name="message" rows="5" placeholder="Your message…" required></textarea>
+    </label>
+
+    <button type="submit" class="btn-submit btn-bounce">Send Message</button>
+
+    <!-- Inline status message -->
+    <div id="formStatus" aria-live="polite" style="margin-top:1rem;"></div>
+  </form>
+</div>
+
+
+
+  </div>
+</section>
+
+
+    </div>
+  </main>
+
+  <!-- fixed footer -->
+  <footer>
+    <p>&copy; 2025 Paws for a Cause</p>
+    <div class="social">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -10,34 +10,27 @@
   --footer-height: 80px;
   --transition: 0.3s ease;
 }
-
-* {
-  margin: 0;
-  padding: 0;
+*, *::before, *::after {
+  margin: 0; padding: 0;
   box-sizing: border-box;
 }
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 body {
   font-family: 'Poppins', sans-serif;
   background: var(--dark-bg);
   color: var(--light-text);
   min-height: 100vh;
-  position: relative;
   padding-top: var(--header-height);
   padding-bottom: var(--footer-height);
   overflow-x: hidden;
+  position: relative;
 }
 a {
   color: inherit;
   text-decoration: none;
+  position: relative;
 }
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
+img { display: block; max-width: 100%; height: auto; }
 
 /* ==========================================================================
    2. FIXED HEADER & FOOTER
@@ -53,7 +46,7 @@ header {
   padding: 0 2rem;
   z-index: 1000;
 }
-header .logo {
+.logo {
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 2px;
@@ -71,8 +64,8 @@ footer {
   z-index: 1000;
 }
 footer p {
-  margin-bottom: 0.5rem;
   font-size: 0.9rem;
+  margin-bottom: 0.5rem;
 }
 footer .social a {
   margin: 0 0.5rem;
@@ -84,25 +77,76 @@ footer .social a:hover {
 }
 
 /* ==========================================================================
-   3. LOCOMOTIVE SCROLL
+   3. NAVIGATION & MOBILE MENU
    ========================================================================== */
-/* Wrap your <main> content in [data-scroll-container], then: */
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-list li { position: relative; }
+.nav-list a {
+  padding: 0.5rem;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+.nav-list a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--primary);
+  transition: width var(--transition);
+}
+.nav-list a:hover::after { width: 100%; }
+.btn-donate, .btn {
+  background: var(--primary);
+  color: var(--dark-bg);
+  padding: 0.7rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: transform var(--transition), opacity var(--transition);
+}
+.btn-donate:hover, .btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .nav-list {
+    position: absolute;
+    top: var(--header-height);
+    right: 2rem;
+    flex-direction: column;
+    background: var(--dark-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    width: 220px;
+    display: none;
+  }
+  .nav-list.show { display: flex; }
+  .hamburger { display: block; }
+}
+
+/* ==========================================================================
+   4. SCROLL CONTAINER
+   ========================================================================== */
 [data-scroll-container] {
-  overflow: hidden; /* locomotive will handle scrolling */
+  overflow: hidden; /* Locomotive Scroll container */
   position: relative;
 }
 
 /* ==========================================================================
-   4. GLOBAL CONTAINERS & HELPERS
+   5. GLOBAL CONTAINERS & REVEAL UTILITY
    ========================================================================== */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
-}
-.hidden {
-  visibility: hidden !important;
-  opacity: 0 !important;
 }
 .reveal {
   opacity: 0;
@@ -115,97 +159,7 @@ footer .social a:hover {
 }
 
 /* ==========================================================================
-   5. NAVIGATION & MULTI‑LEVEL MENU
-   ========================================================================== */
-nav {
-  display: flex;
-}
-.nav-list {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-.nav-list li {
-  position: relative;
-}
-.nav-list a {
-  font-weight: 500;
-  padding: 0.5rem;
-  transition: color var(--transition);
-}
-.nav-list a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px; left: 0;
-  width: 0; height: 2px;
-  background: var(--primary);
-  transition: width var(--transition);
-}
-.nav-list a:hover::after,
-.nav-list li.open > a::after {
-  width: 100%;
-}
-.has-submenu > a::after {
-  content: ' ▾';
-  font-size: 0.75rem;
-  margin-left: 0.25rem;
-}
-.submenu {
-  position: absolute;
-  top: 100%; left: 0;
-  background: var(--dark-bg);
-  list-style: none;
-  padding: 1rem;
-  min-width: 200px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 500;
-}
-li.open > .submenu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-/* nested submenu */
-.submenu .has-submenu {
-  margin-bottom: 0.5rem;
-}
-.submenu .submenu {
-  top: 0; left: 100%;
-}
-
-/* ==========================================================================
-   6. HAMBURGER (MOBILE NAV)
-   ========================================================================== */
-.hamburger {
-  display: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-@media (max-width: 768px) {
-  .nav-list {
-    display: none;
-    position: absolute;
-    top: var(--header-height);
-    right: 2rem;
-    flex-direction: column;
-    background: var(--dark-bg);
-    padding: 1rem;
-    border-radius: 8px;
-    width: 220px;
-  }
-  .nav-list.show {
-    display: flex;
-  }
-  .hamburger {
-    display: block;
-  }
-}
-
-/* ==========================================================================
-   7. HERO SECTION
+   6. HERO SECTION
    ========================================================================== */
 .hero {
   display: flex;
@@ -214,8 +168,23 @@ li.open > .submenu {
   gap: 3rem;
   flex-wrap: wrap;
 }
-.hero-text {
-  flex: 1 1 45%;
+.hero-text, .hero-image {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.hero-text.visible, .hero-image.visible {
+  opacity: 1;
+  transform: none;
+}
+.hero-text { flex: 1 1 45%; }
+.hero-text h1 {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.hero-text p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
 }
 .hero-image {
   flex: 1 1 50%;
@@ -227,39 +196,29 @@ li.open > .submenu {
   border-radius: 8px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.3);
 }
-.hero-text h1 {
-  font-size: 3.5rem;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-}
-.hero-text p {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-}
-.hero-text .btn {
-  background: var(--primary);
-  color: var(--dark-bg);
-  padding: 0.7rem 1.5rem;
-  border-radius: 4px;
-  font-weight: 600;
-  transition: transform var(--transition);
-}
-.hero-text .btn:hover {
-  transform: translateY(-3px);
-}
 
-/* Scroll‑reveal on hero */
-.hero-text, .hero-image {
-  opacity: 0;
-  transform: translateY(30px);
+/* ==========================================================================
+   7. CARD LAYOUT & HOVER
+   ========================================================================== */
+.card {
+  background: var(--light-text);
+  color: var(--dark-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.hero-text.visible, .hero-image.visible {
-  opacity: 1;
-  transform: none;
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+}
+.card img {
+  width: 100%;
+  object-fit: cover;
 }
 
 /* ==========================================================================
-   8. PUPS CAROUSEL (HORIZONTAL SCROLL)
+   8. PUPS CAROUSEL
    ========================================================================== */
 .pups {
   background: var(--primary);
@@ -270,109 +229,43 @@ li.open > .submenu {
   text-align: center;
   font-size: 2.75rem;
   margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.pups.visible h2 {
+  opacity: 1;
+  transform: none;
 }
 .pups .card-grid {
   display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
   gap: 1.5rem;
+  overflow-x: auto;
   padding: 1rem 2rem;
   scroll-snap-type: x mandatory;
 }
 .pups .card {
   flex: 0 0 300px;
-  background: var(--light-text);
-  color: var(--dark-bg);
-  border-radius: 8px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   scroll-snap-align: start;
-  overflow: hidden;
 }
 .pups .card img {
-  width: 100%;
-  aspect-ratio: 4/3;      /* 4:3 ratio, adjust as you like */
-  object-fit: cover;
-}
-
-.pups .card h3 {
-  margin: 1rem;
-}
-.pups .card p {
-  margin: 0 1rem 1rem;
-}
-
-/* hide Scrollbar */
-.pups .card-grid::-webkit-scrollbar {
-  height: 6px;
-}
-.pups .card-grid::-webkit-scrollbar-thumb {
-  background: rgba(34,34,34,0.5);
-  border-radius: 3px;
+  height: 180px;
+  aspect-ratio: 4/3;
 }
 
 /* ==========================================================================
-   9. GSAP SLIDER STRUCTURE
+   9. MISSION SECTION
    ========================================================================== */
-/*
-   HTML:
-   <div class="slider-container">
-     <div class="slide">…</div>
-     <div class="slide">…</div>
-     …
-     <button id="prevBtn">‹</button>
-     <button id="nextBtn">›</button>
-   </div>
-*/
-.slider-container {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  max-width: 1000px;
-  margin: 3rem auto;
-  height: 400px;
-}
-.slide {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  pointer-events: none;
-}
-.slide.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-#prevBtn, #nextBtn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--primary);
-  border: none;
-  padding: 0.5rem 1rem;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-#prevBtn { left: 1rem; }
-#nextBtn { right: 1rem; }
-
-/* ==========================================================================
-   10. MISSION, TEAM & SERVICES
-   ========================================================================== */
-.mission-section,
-.team-section,
-.services-section {
-  margin: 3rem 0;
-}
 .mission-section {
   display: flex;
   gap: 4rem;
   flex-wrap: wrap-reverse;
+  margin: 3rem 0;
 }
-.mission-section .mission-image-large {
+.mission-image-large {
   flex: 1 1 55%;
 }
-.mission-section .mission-text {
+.mission-text {
   flex: 1 1 40%;
 }
 .mission-text h2 {
@@ -380,108 +273,68 @@ li.open > .submenu {
   color: var(--primary);
   margin-bottom: 1rem;
 }
-.services-section ul {
-  list-style: disc inside;
-  gap: 1rem;
-  display: flex;
-  flex-direction: column;
+.mission-text p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 1.1rem;
 }
 
-/* Team */
-.team-section h2 {
-  text-align: center;
-  font-size: 2.75rem;
-  color: var(--primary);
-  margin-bottom: 2rem;
-}
-.team-section .card-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-/* ── Make team cards match pup card image styling ── */
-/* ==============================
-   TEAM SECTION — 2×2 CENTERED GRID
-   ============================== */
+/* ==========================================================================
+   10. TEAM SECTION (2×2 GRID)
+   ========================================================================== */
 .team-section {
   text-align: center;
   margin: 3rem 0;
 }
-
-.team-section h2 {
-  font-size: 2.75rem;
-  color: var(--primary);
+.team-section > h1 {
+  font-size: clamp(4rem, 7vw, 5rem);
   margin-bottom: 1.5rem;
+  line-height: 1.1;
 }
-
-/* Center the grid and limit its width */
 .team-section .card-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* two columns */
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  justify-items: center;                /* center cards in each cell */
-  max-width: 900px;                     /* adjust as needed */
-  margin: 0 auto;                       /* center grid within container */
+  max-width: 900px;
+  margin: 0 auto;
   padding: 0 1rem;
 }
-
-/* Make each card stretch to fill its cell */
-.team-section .card {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background: var(--light-text);
-  color: var(--dark-bg);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-
-/* Crop team photos to match pup cards */
 .team-section .card img {
-  width: 100%;
   height: 180px;
   object-fit: cover;
-  display: block;
 }
-
-/* Text content below the photo */
 .team-section .card h3,
 .team-section .card p {
   padding: 0 1rem;
 }
 
-/* ──────────────────────────────────────────────────────────
-   ONLY enlarge the “Meet the Team” <h1> inside .team-section
-   ────────────────────────────────────────────────────────── */
-.team-section > h1 {
-  font-size: clamp(4rem, 7vw, 5rem) !important;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
+/* ==========================================================================
+   11. SERVICES SECTION
+   ========================================================================== */
+.services-section {
+  margin: 3rem 0;
 }
-
-
-
-/* Responsive: single column on narrow screens */
-@media (max-width: 768px) {
-  .team-section .card-grid {
-    grid-template-columns: 1fr;
-  }
+.services-section h2 {
+  text-align: center;
+  font-size: 2.75rem;
+  color: var(--primary);
+  margin-bottom: 2rem;
 }
-
-
+.services-section ul {
+  list-style: disc inside;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
 /* ==========================================================================
-   11. GET INVOLVED & LOGIN FORMS
+   12. GET INVOLVED SECTION
    ========================================================================== */
-.involved-section,
-.login-container {
+.involved-section {
   margin: 3rem auto;
   max-width: 800px;
 }
-.involved-section h2,
-.login-section h2 {
+.involved-section h2 {
   text-align: center;
   color: var(--primary);
   font-size: 2.75rem;
@@ -492,7 +345,10 @@ li.open > .submenu {
   gap: 2rem;
   flex-wrap: wrap;
 }
-.info, .contact-form {
+.info {
+  flex: 1 1 45%;
+}
+.involved-section .contact-form {
   flex: 1 1 45%;
 }
 .two-col {
@@ -502,43 +358,43 @@ li.open > .submenu {
 .two-col label {
   flex: 1;
 }
-.contact-form label {
+label {
+  font-weight: 500;
   display: flex;
   flex-direction: column;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
 }
-.contact-form input,
-.contact-form textarea {
+input, textarea {
   width: 100%;
   padding: 0.75rem;
   border: none;
   border-radius: 4px;
+  margin-top: 0.25rem;
   font-family: inherit;
   font-size: 1rem;
-  margin-top: 0.25rem;
 }
-.btn-submit,
-.btn-donate {
-  background: var(--primary);
-  color: var(--dark-bg);
-  padding: 0.75rem 2rem;
-  border: none;
-  border-radius: 4px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform var(--transition), opacity var(--transition);
+
+/* ==========================================================================
+   13. LOGIN SECTION
+   ========================================================================== */
+.login-section {
+  margin: 4rem 0;
 }
-.btn-submit:hover,
-.btn-donate:hover {
-  transform: translateY(-3px);
-  opacity: 0.9;
+.login-section h1 {
+  text-align: center;
+  color: var(--primary);
+  font-size: clamp(3rem, 6vw, 5rem);
+  margin-bottom: 2rem;
+}
+.login-form {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 .login-buttons {
   display: flex;
   gap: 1rem;
-  justify-content: center;
-  margin-top: 1rem;
 }
 .btn-cancel {
   display: inline-block;
@@ -557,7 +413,81 @@ li.open > .submenu {
 }
 
 /* ==========================================================================
-   12. BUTTON TILT & BOUNCE EFFECT
+   14. CONTACT SECTION
+   ========================================================================== */
+.contact-section {
+  margin: 4rem 0;
+}
+.contact-section h1 {
+  text-align: center;
+  color: var(--primary);
+  font-size: clamp(3.5rem, 6vw, 5rem);
+  margin-bottom: 2rem;
+}
+.contact-content {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.contact-info {
+  flex: 0 0 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+.info-list {
+  list-style: none;
+  margin: 1rem 0;
+}
+.info-list li {
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+.socials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.socials a {
+  padding: 0.6rem 1rem;
+  background: var(--primary);
+  color: var(--dark-bg);
+  font-weight: 600;
+  text-align: center;
+  border-radius: 4px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+.socials a:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+.contact-form {
+  flex: 1 1 0;
+}
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.btn-submit {
+  align-self: flex-start;
+  padding: 0.75rem 2rem;
+  background: var(--primary);
+  color: var(--dark-bg);
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--transition), opacity var(--transition);
+}
+.btn-submit:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   15. BUTTON TILT & BOUNCE
    ========================================================================== */
 .btn-tilt {
   display: inline-block;
@@ -566,39 +496,588 @@ li.open > .submenu {
   transition: transform 0.3s ease;
 }
 .btn-tilt:hover {
-  animation: tiltBounce 1s infinite alternate;
-}
-@keyframes tiltBounce {
-  to {
-    transform: perspective(800px)
-               rotateX(4deg)
-               rotateY(4deg)
-               scale(1.05);
-  }
-}
-
-/* Continuous bounce on all primary buttons (optional) */
-.btn-bounce {
-  animation: buttonBounce 1.2s infinite alternate;
+  transform: perspective(800px) rotateX(4deg) rotateY(4deg) scale(1.03);
 }
 @keyframes buttonBounce {
-  to { transform: translateY(-5px) scale(1.02); }
+  0%,20%,50%,80%,100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+  60% { transform: translateY(-4px); }
+}
+.btn-bounce {
+  animation: buttonBounce 2s infinite ease;
+}
+.btn-bounce:hover {
+  animation: buttonBounce 0.6s ease;
 }
 
 /* ==========================================================================
-   13. RESPONSIVE ADJUSTMENTS
+   16. RESPONSIVE BREAKPOINTS
    ========================================================================== */
 @media (max-width: 1024px) {
   .hero { flex-direction: column-reverse; }
-  .hero-text,
-  .hero-image img { max-width: 90%; }
+  .hero-image img, .hero-text { max-width: 90%; }
 }
 @media (max-width: 900px) {
   .mission-section { flex-direction: column; gap: 2rem; }
 }
 @media (max-width: 768px) {
-  .info-form, .contact-form, .team-section .card-grid {
+  .info-form,
+  .contact-content,
+  .login-form { flex-direction: column; }
+  .contact-info, .contact-form, .team-section .card-grid { width: 100%; }
+  .two-col { flex-direction: column; }
+}
+/* ─── CONTACT IMAGE & SPACING TWEAKS ─── */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;            /* less vertical white space */
+  flex: 0 0 260px;      /* fixed sidebar width */
+}
+
+.contact-info .contact-img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+}
+
+/* tighten up the gap between columns */
+.contact-content {
+  display: flex;
+  gap: 2rem;            /* smaller than before */
+  flex-wrap: wrap;
+}
+
+/* keep form and sidebar closer on desktop */
+@media (min-width: 900px) {
+  .contact-content {
+    gap: 1.5rem;
+  }
+}
+/* ----- LEFT SIDEBAR LAYOUT ----- */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;               /* consistent spacing */
+  flex: 0 0 260px;         /* fixed sidebar width */
+}
+
+.contact-img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* push socials to the very bottom of the column */
+.socials {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+/* style each social link as a pill */
+.socials a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: var(--dark-bg);
+  border-radius: 4px;
+  font-weight: 600;
+  transition: transform var(--transition), opacity var(--transition);
+}
+.socials a:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* tighten up overall contact layout */
+.contact-content {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+@media (min-width: 900px) {
+  .contact-content {
+    gap: 1.5rem;
+  }
+}
+/* ==========================================================================
+   CONTACT PAGE — CLEANED UP STYLES
+   ========================================================================== */
+.contact-section {
+  margin: 4rem 0;
+}
+.contact-section h1 {
+  text-align: center;
+  color: var(--primary);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 2rem;
+}
+
+.contact-content {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* ─── SIDEBAR ─── */
+.contact-info {
+  flex: 0 0 300px;            /* fixed sidebar width */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact-img {
+  width: 100%;
+  max-height: 300px;          /* dog photo height limit */
+  border-radius: 8px;
+  object-fit: cover;
+}
+.contact-info h2 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+.info-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.info-list li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* push socials to bottom */
+.socials {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.socials a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: var(--dark-bg);
+  border-radius: 4px;
+  font-weight: 600;
+  text-align: center;
+  transition: transform var(--transition), opacity var(--transition);
+}
+.socials a:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* ─── FORM ─── */
+.contact-form {
+  flex: 1 1 0;
+  min-width: 300px;
+}
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.two-col {
+  display: flex;
+  gap: 1rem;
+}
+.two-col label,
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+.contact-form input,
+.contact-form textarea {
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+.btn-submit {
+  align-self: flex-start;
+  background: var(--primary);
+  color: var(--dark-bg);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--transition), opacity var(--transition);
+}
+.btn-submit:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* ─── RESPONSIVE COLLAPSE ─── */
+@media (max-width: 900px) {
+  .contact-content {
     flex-direction: column;
-    align-items: center;
+    gap: 1.5rem;
+  }
+  .contact-info,
+  .contact-form {
+    flex: 1 1 100%;
+  }
+}
+/* ─── TIDY UP SIDEBAR SOCIAL BUTTONS ─── */
+.socials {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;              /* a bit more breathing room */
+  margin-top: auto;       /* still push to bottom */
+}
+
+.socials a {
+  display: block;         /* full‐width pills */
+  width: 100%;
+  max-width: 260px;       /* match your sidebar width */
+  padding: 0.75rem 1.25rem;
+  background: var(--primary);
+  color: var(--dark-bg);
+  border-radius: 999px;   /* fully pill‑shaped */
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background var(--transition), transform var(--transition);
+}
+
+.socials a:hover {
+  background: var(--light-text);
+  color: var(--dark-bg);
+  transform: translateX(4px);  /* subtle slide on hover */
+}
+/*  ── Make the <a> wrapping each card act like a block ── */
+.card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   TEAM BIO SECTIONS
+   ========================================================================== */
+
+/* Each bio sits in its own padded “row” and can be jumped to via its ID */
+.bio-section {
+  /* push content below fixed header & leave bottom gap */
+  padding: calc(var(--header-height) + 1rem) 1rem 3rem;
+  scroll-margin-top: var(--header-height);
+  max-width: 800px;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Highlight briefly when targetted via #anchor */
+.bio-section:target {
+  animation: highlight 1s ease-in-out forwards;
+}
+@keyframes highlight {
+  from { background: rgba(229,198,168,0.2); }
+  to   { background: transparent; }
+}
+
+/* Flex wrapper: image + text */
+.bio-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap; /* stacks on mobile */
+}
+
+/* ── IMAGE COLUMN ── */
+.bio-img {
+  flex: 0 0 300px;  /* fixed width */
+}
+.bio-img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+/* ── TEXT COLUMN ── */
+.bio-text {
+  flex: 1 1 auto;   /* fill remaining space */
+}
+.bio-text h2 {
+  font-size: 2.25rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+.bio-text em {
+  display: block;
+  font-style: italic;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+.bio-text p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* ── STACK ON NARROW SCREENS ── */
+@media (max-width: 768px) {
+  .bio-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .bio-img,
+  .bio-text {
+    flex: 1 1 auto;
+  }
+}
+/* ==========================================================================
+   PROFILE SECTIONS (Meet Our Pups detail panels)
+   — clicking a card (href="#name") will smooth‑scroll here, just below the fixed header
+   ========================================================================== */
+.profile-section {
+  /* ensure it never hides under the fixed header */
+  scroll-margin-top: var(--header-height);
+  /* extra top padding so content isn’t jammed under the header */
+  padding-top: calc(var(--header-height) + 1rem);
+  margin: 4rem 0;        /* space before/after each profile */
+}
+
+/* two‑column layout: image + text */
+.profile-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;       /* will stack on narrow screens */
+  max-width: 1000px;
+  margin: 0 auto;        /* center within page */
+}
+
+.profile-img {
+  flex: 0 0 300px;       /* fixed image column width */
+}
+.profile-img img {
+  width: 100%;
+  max-height: 350px;     /* prevent runaway size */
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.profile-text {
+  flex: 1 1 calc(100% - 300px);
+}
+.profile-text h2 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+.profile-text em {
+  display: block;
+  margin-bottom: 1rem;
+  font-style: italic;
+  color: #ddd;
+}
+.profile-text p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* brief highlight animation when landed via its anchor */
+.profile-section:target {
+  animation: highlight 1s ease-in-out forwards;
+}
+@keyframes highlight {
+  from { background: rgba(229,198,168,0.2); }
+  to   { background: transparent; }
+}
+
+/* stack image above text on small screens */
+@media (max-width: 768px) {
+  .profile-content {
+    flex-direction: column;
+  }
+  .profile-img,
+  .profile-text {
+    flex: 1 1 100%;
+  }
+}
+
+
+/* ==========================================================================
+   PUPS CAROUSEL (INFINITE AUTO‑SCROLL)
+   ========================================================================== */
+.pups {
+  background: var(--primary);
+  color: var(--dark-bg);
+  padding: 4rem 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.pups-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  /* NO flex, NO width control for the cards! */
+}
+
+.card-carousel {
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  width: max-content;   /* allow infinite scroll */
+  min-width: 100vw;     /* ensures all cards can be visible */
+  animation: scrollCarousel 20s linear infinite;
+}
+
+.pups .card {
+  flex: 0 0 300px;
+  background: var(--light-text);
+  color: var(--dark-bg);
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  overflow: hidden;
+  text-decoration: none;
+}
+.pups .card img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+
+.card-carousel:hover .card-grid,
+.card-grid:hover {
+  animation-play-state: paused !important;
+}
+
+
+/* keyframes: shift left by the width of one full set (5 cards + 4 gaps) */
+@keyframes scrollCarousel {
+  0%   { transform: translateX(0); }
+  100% {
+    transform: translateX(
+      calc(-1 * (5 * 300px + 4 * 1.5rem))
+    );
+  }
+}
+/* ==========================================================================
+   HOME‑PAGE PUPS CAROUSEL (only this one scrolls)
+   ========================================================================== */
+#home-pups .card-grid {
+  display: flex;
+  flex-wrap: nowrap;           /* keep originals + duplicates in one row */
+  overflow: hidden;            /* hide native scrollbar */
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  animation: scrollCarousel 20s linear infinite;
+}
+
+#home-pups .card-grid:hover {
+  animation-play-state: paused;  /* pause on hover */
+}
+
+/* keyframes: shift left by exactly one “set” (5 cards + 4 gaps) */
+@keyframes scrollCarousel {
+  0%   { transform: translateX(0); }
+  100% {
+    transform: translateX(
+      calc(-1 * (5 * 300px + 4 * 1.5rem))
+    );
+  }
+}
+
+/* ==========================================================================
+   TEAM SECTION — STATIC 2×2 GRID (NO CAROUSEL)
+   ========================================================================== */
+.team-section .card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 2rem auto 4rem;   /* center and space top/bottom */
+  overflow: visible;        /* ensure nothing is clipped */
+  animation: none !important; /* kill any leftover scrolling animation */
+}
+
+/* make each card a regular flex‑column box */
+.team-section .card {
+  display: flex;
+  flex-direction: column;
+  background: var(--light-text);
+  color: var(--dark-bg);
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  overflow: hidden;
+  text-decoration: none;
+}
+
+/* fixed image height so cards stay consistent */
+.team-section .card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* card text padding */
+.team-section .card h3,
+.team-section .card p {
+  margin: 0 1rem;
+}
+
+/* title sits just above the bottom padding */
+.team-section .card h3 {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+}
+
+/* smaller description text */
+.team-section .card p {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+/* collapse to one column on narrow screens */
+@media (max-width: 768px) {
+  .team-section .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* TEAM SECTION — STATIC 2×2 GRID */
+.team-section .team-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 2rem auto 4rem;
+  overflow: visible;
+  animation: none;
+}
+
+@media (max-width: 768px) {
+  .team-section .team-card-grid {
+    grid-template-columns: 1fr;
   }
 }
