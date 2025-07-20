@@ -11,18 +11,21 @@ window.addEventListener('DOMContentLoaded', () => {
     menu.classList.toggle('show');
   });
 
-  // ── 3) SCROLL‑REVEAL ANIMATIONS ──
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.25 });
-  document.querySelectorAll(
-    '.hero-text, .hero-image, .pups h2, .card, .profile-content'
-  ).forEach(el => observer.observe(el));
+ // ── 3) SCROLL‑REVEAL ANIMATIONS ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.25 });
+
+// now include your services section and service-card
+document.querySelectorAll(
+  '.hero-text, .hero-image, .pups h2, .card, .profile-content, .services-section h1, .service-card'
+).forEach(el => observer.observe(el));
+
 
   // ── 4) AJAX CONTACT FORM VIA FORMSPREE ──
   const form   = document.getElementById('contactForm');
@@ -100,5 +103,23 @@ window.addEventListener('DOMContentLoaded', () => {
     // start it up
     startAutoScroll();
   }
+
+  // ── 7) SCROLL‑REVEAL FOR EVENTS PAGE ──
+  document.querySelectorAll(
+    '.events-hero, .events-list h2, .events-list .card, .event-detail'
+  ).forEach(el => observer.observe(el));
+
+  // ── 8) SMOOTH‑SCROLL FOR EVENT LINKS ──
+  document.querySelectorAll('a[href^="#event-"], .btn-back').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      const top = target.getBoundingClientRect().top
+                + window.pageYOffset
+                - headerH;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
 
 }); // end DOMContentLoaded

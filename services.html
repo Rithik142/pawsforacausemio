@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Services | Paws for a Cause</title>
+  <meta charset="UTF‑8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Our Work | Paws for a Cause</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
     rel="stylesheet"
@@ -14,14 +14,13 @@
 <body>
   <!-- HEADER -->
   <header>
-    <a href="index.html" class = "logo">PAWS FOR A CAUSE</a>
+    <a href="index.html" class="logo">PAWS FOR A CAUSE</a>
     <nav>
-       <ul class="nav-list">
+      <ul class="nav-list">
         <li><a href="mission.html">Our Mission</a></li>
-        <li><a href="team.html">About us</a></li>
-        <li><a href="services.html">Our Work</a></li>
+        <li><a href="team.html">About Us</a></li>
+        <li><a href="services.html" class="active">Our Work</a></li>
         <li><a href="involved.html">Get Involved</a></li>
-        <li><a href="blog.html">Partners</a></li>
         <li><a href="contact.html">Contact Us</a></li>
         <li><a href="events.html">Events</a></li>
       </ul>
@@ -32,28 +31,41 @@
 
   <!-- MAIN -->
   <main>
-    <div class="container">
-      <section class="services-section">
-        <h2>Our Services</h2>
-        <ul>
-          <li><strong>Adoption Fairs &amp; Spotlights</strong> – Connecting loving owners with pets in need.</li>
-          <li><strong>Foster Network</strong> – Temporary homes for animals awaiting their forever families.</li>
-          <li><strong>Community Workshops</strong> – Pet-care tips, training sessions, and rescue stories.</li>
-          <li><strong>Medical Grants</strong> – Funding life-saving surgeries and treatments.</li>
-          <li><strong>Partnerships</strong> – Teaming up with local businesses to support shelters.</li>
-        </ul>
-      </section>
-    </div>
+    <section class="services-section container">
+      <h1 class="reveal">Our Work</h1>
+
+      <div class="services-grid">
+    
+
+        <div class="service-card reveal">
+          <h3>Animal Toolkit</h3>
+          <p>Toolkits that guide you through animal care and educate you about everything that you need to know.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <h3>Partnerships</h3>
+          <p>Working with local businesses to raise funds and resources for shelters.</p>
+        </div>
+
+        <!-- ← EVENTS MUST LIVE *inside* the same grid container! →
+             Otherwise it won’t pick up the .services-grid layout. -->
+        <div class="service-card reveal">
+          <h3>Events</h3>
+          <p>Upcoming Paws for a Cause meetups, adoption drives, and fundraisers—join us!</p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- FOOTER -->
-  <footer>
+<footer>
     <p>&copy; 2025 Paws for a Cause</p>
     <div class="social">
-      <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
-      <a href="#">Twitter</a>
+ <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:pawsforacausemi@gmail.com">Email</a>
     </div>
   </footer>
+</body>
 </body>
 </html>

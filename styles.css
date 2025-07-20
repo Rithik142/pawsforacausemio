@@ -1081,3 +1081,710 @@ input, textarea {
     grid-template-columns: 1fr;
   }
 }
+/* ── EVENTS HERO ── */
+.events-hero {
+  display: flex; flex-wrap: wrap-reverse;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+.events-hero .hero-text {
+  flex: 1 1 320px;
+  padding: 1rem;
+}
+.events-hero .hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.events-hero .hero-text p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+.events-hero .hero-image {
+  flex: 1 1 320px;
+  text-align: center;
+  padding: 1rem;
+}
+.events-hero .hero-image img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* ── EVENTS CARD GRID ── */
+.events-list {
+  background: var(--primary);
+  color: var(--dark-bg);
+  padding: 3rem 1rem;
+}
+.events-list h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+.events-list .card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+.events-list .card {
+  width: 280px;
+  background: var(--light-bg);
+  color: var(--text-dark);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  text-decoration: none;
+  transition: transform var(--transition),
+              box-shadow var(--transition);
+}
+.events-list .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+.events-list .card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.events-list .card-body {
+  padding: 1rem;
+}
+.events-list .card-body h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+.events-list .card-body p {
+  font-size: 0.95rem;
+  opacity: 0.75;
+}
+
+/* ── EVENT DETAIL PANELS ── */
+.event-detail {
+  background: var(--dark-bg);
+  color: var(--text-light);
+  padding: calc(var(--header-height) + 2rem) 1rem 3rem;
+}
+.event-detail h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.event-detail p {
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+.btn-back {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--primary);
+  text-decoration: none;
+  transition: opacity var(--transition);
+}
+.btn-back:hover {
+  opacity: 0.8;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .events-hero { flex-direction: column; }
+  .events-list .card { width: 100%; max-width: 400px; }
+}
+/* ── SERVICES SECTION ───────────────────────────────────────────── */
+.services-section {
+  padding: 4rem 1rem;
+}
+.services-section h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: var(--primary);
+  margin-bottom: 2rem;
+}
+
+/* grid of cards, responsive */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* card base */
+.service-card {
+  background: var(--light-text);
+  color: var(--dark-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: default;
+}
+
+/* hover effect */
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+/* small screens: one column */
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ==========================================================================
+   Services Section
+   ========================================================================== */
+.services-section {
+  max-width: 1200px;          /* cap the overall width */
+  margin: 0 auto;             /* center on the page */
+  padding: 4rem 1rem;         /* breathing room top/bottom and sides */
+  text-align: center;         /* center the heading */
+}
+
+.services-section h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: var(--light-text);
+}
+
+/* grid of cards */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  align-items: stretch;       /* make all cards the same height */
+}
+
+/* individual card styling */
+.service-card {
+  background: var(--light-bg);
+  border-radius: 8px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  text-align: left;
+}
+
+/* give each card a subtle accent color */
+.service-card:nth-child(1) { --card-accent: rgba(229,198,168,0.2); }
+.service-card:nth-child(2) { --card-accent: rgba(168,229,198,0.2); }
+.service-card:nth-child(3) { --card-accent: rgba(198,168,229,0.2); }
+.service-card:nth-child(4) { --card-accent: rgba(229,168,198,0.2); }
+.service-card:nth-child(5) { --card-accent: rgba(198,229,168,0.2); }
+
+/* apply accent on hover */
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  background-color: var(--card-accent);
+}
+
+/* card title & body */
+.service-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--primary);
+}
+
+.service-card p {
+  margin: 0;
+  line-height: 1.5;
+  color: var(--dark-bg);
+}
+
+/* responsive tweaks */
+@media (max-width: 600px) {
+  .services-section h1 {
+    font-size: 2.25rem;
+  }
+  .service-card {
+    padding: 1.5rem 1rem;
+  }
+}
+/* center the section title */
+.services-section h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* enforce a nice responsive grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto 4rem;
+}
+
+/* base card styling (applies to all service-card, including Events) */
+.service-card {
+  background-color: var(--light-text);
+  color: var(--dark-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: 
+    transform 0.3s ease, 
+    box-shadow 0.3s ease, 
+    background-color 0.3s ease;
+}
+
+/* hover state for every card */
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  /* optional accent if you want a little color change: */
+  /* background-color: rgba(229,198,168,0.2); */
+}
+
+/* ensure your headings inside cards look tight */
+.service-card h3 {
+  margin-bottom: 0.75rem;
+}
+/* ――― About “Background” Section ――― */
+.about-background {
+  text-align: center;                /* center the heading & paragraphs */
+  max-width: 800px;                  /* cap the width for easy reading */
+  margin: 4rem auto;                 /* vertical spacing + center block */
+  padding: 0 1rem;                   /* small side padding on mobile */
+}
+.about-background h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+.about-background p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #ddd;
+}
+
+/* ――― Team Grid ――― */
+.team-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto 4rem;              /* center + space below */
+}
+.team-grid .card {
+  padding: 1.5rem;
+  border-radius: 8px;
+  background: var(--light-text);
+  color: var(--dark-bg);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.team-grid .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+}
+
+/* ensure your container class centers content too: */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+/* ── FORCE 4‑COLUMN LAYOUT FOR TEAM CARDS ── */
+.team-section .team-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;     /* center the whole grid */
+}
+
+/* collapse to one column on small screens */
+@media (max-width: 768px) {
+  .team-section .team-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+/* ── TEAM SECTION — FORCE 4‑COLUMN GRID ── */
+.team-section .team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* exactly 4 columns */
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* single‑column on narrow screens */
+@media (max-width: 768px) {
+  .team-section .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ── TEAM SECTION — FORCE 4‑COLUMN GRID WITH FIXED‑HEIGHT CARDS ── */
+.team-section .team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  /* always 4 columns */
+  gap: 2rem;
+  max-width: 1200px;                      /* adjust to whatever max you like */
+  margin: 0 auto;                         /* center the grid */
+}
+
+.team-section .team-grid .card {
+  background: var(--light-text);
+  color: var(--dark-bg);
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 240px;        /* fixed height for all cards */
+  text-align: center;
+}
+
+/* collapse to one column on narrow screens, let height be auto */
+@media (max-width: 768px) {
+  .team-section .team-grid {
+    grid-template-columns: 1fr;
+  }
+  .team-section .team-grid .card {
+    height: auto;
+  }
+}
+/* ── TEAM SECTION — BIGGER CARDS + PHOTO AREA ── */
+.team-section .team-grid {
+  display: grid;
+  /* flexible 4‑column layout that shrinks to fit */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;            /* more breathing room */
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.team-section .team-grid .card {
+  background: var(--light-text);
+  color: var(--dark-bg);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  /* make all cards the same minimum height */
+  min-height: 360px;
+}
+
+/* if you include an <img> in each card, this reserves its space */
+.team-section .team-grid .card img {
+  width: 100%;
+  max-height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+/* card title & role spacing */
+.team-section .team-grid .card h3 {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 1.25rem;
+}
+.team-section .team-grid .card p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* MOBILE: stack into one or two columns */
+@media (max-width: 768px) {
+  .team-section .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+  .team-section .team-grid .card {
+    min-height: auto;
+  }
+}
+/* ── MEET THE TEAM (static 4‑column grid) ── */
+.team-section {
+  padding: 4rem 0;
+}
+.team-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* strictly target team‑grid only */
+.team-section .team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1280px;    /* or whatever fits your design */
+  margin: 0 auto;       /* center it */
+  justify-items: center;/* center each card in its cell */
+}
+
+/* force the cards to be full‑width of the grid cell */
+.team-section .team-grid .card-link {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}
+
+/* style each card */
+.team-section .team-grid .card {
+  background: var(--light-text);
+  color: var(--dark-bg);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  padding: 1.5rem;
+  text-align: center;
+  /* fixed height so all match */
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* hover lift */
+.team-section .team-grid .card-link:hover .card {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+}
+
+/* make room for a headshot if you like */
+.team-section .team-grid .card img {
+  width: 100%;
+  max-height: 140px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+/* MOBILE: collapse to 2 columns, then 1 */
+@media (max-width: 1024px) {
+  .team-section .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .team-section .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ensure the pups carousel animation only lives on .pups */
+.pups .card-grid {
+  animation: scrollCarousel 20s linear infinite;
+}
+/* ---------- card hover lift for both pups & team cards ---------- */
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+/* ————————————————————————————————
+/* ── OUR STORY TWO‑COLUMN LAYOUT ── */
+.our-story {
+  padding: 4rem 1rem;
+  max-width: 1100px;
+  margin: 4rem auto;
+  color: var(--light-text);
+}
+.our-story h2 {
+  font-size: 3rem;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+.reveal.visible .our-story h2 {
+  animation: fadeSlideDown 0.8s ease-out forwards;
+}
+
+.story-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap-reverse;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible .story-content {
+  opacity: 1;
+  transform: none;
+}
+
+.story-text {
+  flex: 1 1 350px;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.story-image {
+  flex: 1 1 300px;
+  text-align: center;
+}
+.story-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* Animations */
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .story-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .story-text {
+    text-align: center;
+  }
+}
+/* ─── Our Story Section ─── */
+.our-story {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 2rem 1rem;
+  background: var(--dark-bg);
+}
+
+/* Image column */
+.our-story .story-img {
+  flex: 0 0 40%;
+  max-width: 400px;
+}
+.our-story .story-img img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* Text column */
+.our-story .story-text {
+  flex: 1;
+  color: var(--light-text);
+  text-align: right;
+}
+
+/* Heading */
+.our-story h2 {
+  font-size: clamp(2.5rem, 6vw, 3rem);
+  color: var(--primary);
+  margin-bottom: 1rem;
+  /* keep the h2 centered between both columns */
+  text-align: center;
+}
+
+/* Paragraphs */
+.our-story .story-text p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  max-width: 600px;
+  margin-left: auto;   /* push the text block to the right */
+}
+
+/* Responsive: stack on narrow screens */
+@media (max-width: 768px) {
+  .our-story {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .our-story .story-text p {
+    margin-left: 0;
+  }
+  .our-story .story-img {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+}
+/* ── Our Work — Bigger Cards ── */
+.work-section {
+  padding: 4rem 1rem;
+}
+
+.work-section h2 {
+  text-align: center;
+  font-size: clamp(3rem, 6vw, 5rem);
+  margin-bottom: 2.5rem;
+  color: var(--light-text);
+}
+
+/* force a responsive 3‑column layout that scales up */
+.work-section .work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+  padding: 0 1rem;
+}
+
+/* enlarge the cards */
+.work-section .card {
+  background: var(--light-text);
+  color: var(--dark-bg);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  padding: 2rem 1.5rem;
+  min-height: 300px;             /* make them taller */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Bigger title inside each card */
+.work-section .card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--primary);
+}
+
+/* Slightly larger body copy */
+.work-section .card p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+/* hover lift */
+.work-section .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+}
+
+/* collapse gracefully on small screens */
+@media (max-width: 600px) {
+  .work-section .work-grid {
+    grid-template-columns: 1fr;
+  }
+}
