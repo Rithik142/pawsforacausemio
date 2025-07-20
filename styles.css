@@ -1788,3 +1788,69 @@ input, textarea {
     grid-template-columns: 1fr;
   }
 }
+/* ──────────────────────────────────────────────────────────────────── */
+/*                         HERO COMPONENT                             */
+/* ──────────────────────────────────────────────────────────────────── */
+.hero {
+  padding: 4rem 1rem;
+}
+.hero__inner {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+/* text block */
+.hero__text {
+  flex: 1 1 400px;
+  color: var(--light-text);
+}
+.hero__text h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 1rem;
+}
+.hero__text p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+/* button in hero */
+.btn-hero {
+  display: inline-block;
+  background: var(--primary);
+  color: var(--dark-bg);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: transform var(--transition), opacity var(--transition);
+}
+.btn-hero:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+/* image block */
+.hero__image {
+  flex: 1 1 400px;
+  text-align: center;
+}
+.hero__image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* ── MODIFIERS for alternating layout ── */
+.hero--left .hero__text  { order: 1; }
+.hero--left .hero__image { order: 2; }
+.hero--right .hero__text  { order: 2; }
+.hero--right .hero__image { order: 1; }
+
+/* Responsive collapse */
+@media (max-width: 768px) {
+  .hero__inner { flex-direction: column-reverse; text-align: center; }
+  .hero--right .hero__inner { flex-direction: column-reverse; }
+  .hero__text, .hero__image { order: unset; }
+}

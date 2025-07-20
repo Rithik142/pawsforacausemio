@@ -1,203 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF‑8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Paws for a Cause</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="/styles.css"/>
-    <script src="scripts.js" defer></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="scripts.js" defer></script>
 </head>
 <body>
   <!-- HEADER -->
   <header>
-    <a href="index.html" class = "logo">PAWS FOR A CAUSE</a>
+    <a href="index.html" class="logo">PAWS FOR A CAUSE</a>
     <nav>
-         <ul class="nav-list">
-        <li><a href="mission.html">Our Mission</a></li>
-        <li><a href="team.html">About us</a></li>
-        <li><a href="services.html">Our Services</a></li>
+      <ul class="nav-list">
+        <li><a href="team.html">About Us</a></li>
+        <li><a href="services.html">Our Work</a></li>
         <li><a href="involved.html">Get Involved</a></li>
         <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="events.html">Events</a></li>
       </ul>
     </nav>
     <a href="donate.html" class="btn-donate">Donate Now</a>
     <div class="hamburger">☰</div>
   </header>
 
-  <!-- MAIN -->
+  <!-- MAIN CONTENT -->
   <main>
-    <div class="container">
-      <!-- Hero -->
-      <section class="hero" id="home">
-        <div class="hero-text visible">
-          <h1>Join us to support now</h1> <p>Bring home a new fully trained and vaccinated family member.</p>
-          <a href="involved.html" class="btn">Get Involved</a>
+
+    <!-- HERO: Home (always left‑text / right‑image) -->
+    <section class="hero hero--left" id="home">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <h1>Join us to support now</h1>
+          <p>Bring home a new fully trained and vaccinated family member.</p>
+          <a href="involved.html" class="btn-hero">Get Involved</a>
         </div>
-        <div class="hero-image visible">
+        <div class="hero__image">
           <img src="images/dog.png" alt="Happy dog">
         </div>
-      </section>
-
-       <!-- Meet Our Pups -->
-<!-- ==============================
-     Meet Our Pups (Home)
-     ============================== -->
-<!-- Meet Our Pups (only once!) -->
-
-<section class="pups" id="home-pups">
-  <div class="pups-inner">
-    <h2 class="reveal">Meet Our Pups</h2>
-    <div class="card-carousel">
-      <div class="card-grid">
-         <a href="#pedro"    class="card reveal">
-      <img src="images/graydog.jpg"   alt="Izzy the dog">
-      <h3>Izzy</h3>
-      <p>Calm and wise, Izzy is perfect for someone looking for a relaxed companion.</p>
-    </a>
-    <a href="#jasmine"  class="card reveal">
-      <img src="images/cutedog.jpg"   alt="Shin the dog">
-      <h3>Shin</h3>
-      <p>Playful and patient, Shin loves kids and keeps them on their toes.</p>
-    </a>
-    <a href="#michael"  class="card reveal">
-      <img src="images/flowerdog.jpg" alt="Mike the dog">
-      <h3>Mike</h3>
-      <p>Energetic and adventurous, Mike is up for any weekend outing.</p>
-    </a>
-    <a href="#ash"      class="card reveal">
-      <img src="images/Gold.jpg"      alt="Ash the dog">
-      <h3>Ash</h3>
-      <p>Full of energy and always seeking adventure, Ash is ready for anything.</p>
-    </a>
-    <a href="#nero"     class="card reveal">
-      <img src="images/GermanDog.jpg" alt="Nero the dog">
-      <h3>Nero</h3>
-      <p>Eager to explore and fueled by curiosity, Nero is always up for adventure.</p>
-    </a>
-
-    <!-- duplicate set for seamless looping -->
-    <a href="#pedro"    class="card reveal">
-      <!-- same content as above -->
-      <img src="images/graydog.jpg"   alt="Izzy the dog">
-      <h3>Izzy</h3>
-      <p>Calm and wise, Izzy is perfect for someone looking for a relaxed companion.</p>
-    </a>
-    <a href="#jasmine"  class="card reveal">
-      <img src="images/cutedog.jpg"   alt="Shin the dog">
-      <h3>Shin</h3>
-      <p>Playful and patient, Jasmine loves kids and keeps them on their toes.</p>
-    </a>
-    <a href="#michael"  class="card reveal">
-      <img src="images/flowerdog.jpg" alt="Mike the dog">
-      <h3>Mike</h3>
-      <p>Energetic and adventurous, Mike is up for any weekend outing.</p>
-    </a>
-    <a href="#ash"      class="card reveal">
-      <img src="images/Gold.jpg"      alt="Ash the dog">
-      <h3>Ash</h3>
-      <p>Full of energy and always seeking adventure, Ash is ready for anything.</p>
-    </a>
-    <a href="#nero"     class="card reveal">
-      <img src="images/GermanDog.jpg" alt="Nero the dog">
-      <h3>Nero</h3>
-      <p>Eager to explore and fueled by curiosity, Nero is always up for adventure.</p>
-    </a>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
+    <!-- HERO: About Us (text on right, image on left) -->
+    <section class="hero hero--right" id="about">
+      <div class="container hero__inner">
+        <div class="hero__image">
+          <img src="images/adoption‑fair.jpg" alt="Volunteers at an adoption fair">
+        </div>
+        <div class="hero__text">
+          <h1>About Us</h1>
+          <p>Paws for a Cause is a youth‑led nonprofit founded on July 16, 2025, by a group of high school juniors in Okemos, Michigan, after witnessing firsthand the struggles animals face both locally and in other parts of the world we’ve traveled. Moved by what we saw, we created this organization to promote animal adoption, fostering, education, community outreach, youth involvement, and fundraising for critical medical care. From welfare to outreach, every integral part of the organization is led by teens. Our mission is to make animal welfare a priority in modern society and to give young people a voice in that change. Whether we’re raising funds for animals, hosting adoption events, or educating peers, we are committed to improving animal lives—one paw at a time.</p>
+          <a href="team.html" class="btn-hero">About Us</a>
+        </div>
+      </div>
+    </section>
 
+    <!-- HERO: Our Work (text left, image right) -->
+    <section class="hero hero--left" id="work">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <h1>Our Work</h1>
+          <p>At Paws for a Cause, we bring together caring neighbors, volunteers, and local businesses to help animals who need a second chance. We organize fun community events and simple awareness campaigns to shine a spotlight on pets who are often overlooked. Through these efforts, we raise funds for adoptions, support new pet owners, strengthen shelters, and cover life‑saving surgeries. By partnering with local sponsors and inviting everyone to join our mission, we build a welcoming network of animal lovers. Together, we can make our community a kinder place and give every animal a safe, loving home.</p>
+          <a href="services.html" class="btn-hero">Animal Toolkit</a>
+           <a href="services.html" class="btn-hero">Partnerships</a>
+            <a href="services.html" class="btn-hero">Events</a>
+        </div>
+        <div class="hero__image">
+          <img src="images/our‑work.jpg" alt="Community event">
+        </div>
+      </div>
+    </section>
 
-<!-- ==============================
-     Pup Profiles (Anchored)
-     ============================== -->
-
-<!-- Pedro’s profile -->
-<section id="pedro" class="profile-section">
-  <div class="profile-content reveal">
-    <div class="profile-img">
-      <img src="images/graydog.jpg" alt="Pedro the dog">
-    </div>
-    <div class="profile-text">
-      <h2>Pedro</h2>
-      <p><em>Relaxed Companion</em></p>
-      <p>Pedro loves long naps in the sun and is the perfect calm partner for any family. He’s fully vaccinated and house–trained.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Jasmine’s profile -->
-<section id="jasmine" class="profile-section">
-  <div class="profile-content reveal">
-    <div class="profile-img">
-      <img src="images/cutedog.jpg" alt="Jasmine the dog">
-    </div>
-    <div class="profile-text">
-      <h2>Jasmine</h2>
-      <p><em>Playful Friend</em></p>
-      <p>Jasmine is full of energy—she loves kids, fetch, and long walks at the park. She’s up to date on her shots and ready for a new home.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Michael’s profile -->
-<section id="michael" class="profile-section">
-  <div class="profile-content reveal">
-    <div class="profile-img">
-      <img src="images/flowerdog.jpg" alt="Michael the dog">
-    </div>
-    <div class="profile-text">
-      <h2>Michael</h2>
-      <p><em>Active Buddy</em></p>
-      <p>Michael is a bundle of joy—he loves outdoor play, hiking trails, and meeting other dogs. He’s spayed/neutered, microchipped, and eager for a forever home.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Ash’s profile -->
-<section id="ash" class="profile-section">
-  <div class="profile-content reveal">
-    <div class="profile-img">
-      <img src="images/Gold.jpg" alt="Ash the dog">
-    </div>
-    <div class="profile-text">
-      <h2>Ash</h2>
-      <p><em>Speedy Friend</em></p>
-      <p>Ash is lightning-fast at fetch and will keep you on your toes. She’s heartworm‑negative, vaccinated, and dreams of a family who loves adventure.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Nero’s profile -->
-<section id="nero" class="profile-section">
-  <div class="profile-content reveal">
-    <div class="profile-img">
-      <img src="images/GermanDog.jpg" alt="Nero the dog">
-    </div>
-    <div class="profile-text">
-      <h2>Nero</h2>
-      <p><em>Curious Explorer</em></p>
-      <p>Nero has a nose for discovery—he adores wanderings in the woods and sniffing out new trails. He’s crate‑trained, neutered, and ready for his next adventure buddy.</p>
-    </div>
-  </div>
-</section>
-
-<!-- add one <section> per pup -->
-
-
-
+  <section class="hero hero--right" id="about">
+      <div class="container hero__inner">
+        <div class="hero__image">
+          <img src="images/adoption‑fair.jpg" alt="Volunteers at an adoption fair">
+        </div>
+        <div class="hero__text">
+          <h1>Contact Us</h1>
+          <p>Paws for a Cause is a youth‑led nonprofit founded on July 16, 2025, by a group of high school juniors in Okemos, Michigan, after witnessing firsthand the struggles animals face both locally and in other parts of the world we’ve traveled. Moved by what we saw, we created this organization to promote animal adoption, fostering, education, community outreach, youth involvement, and fundraising for critical medical care. From welfare to outreach, every integral part of the organization is led by teens. Our mission is to make animal welfare a priority in modern society and to give young people a voice in that change. Whether we’re raising funds for animals, hosting adoption events, or educating peers, we are committed to improving animal lives—one paw at a time.</p>
+          <a href="contact.html" class="btn-hero">Contact Us</a>
+        </div>
+      </div>
+    </section> 
+  </main>
 
   <!-- FOOTER -->
-<footer>
+  <footer>
     <p>&copy; 2025 Paws for a Cause</p>
     <div class="social">
- <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener">Instagram</a>
       <a href="mailto:pawsforacausemi@gmail.com">Email</a>
     </div>
