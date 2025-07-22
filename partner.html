@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partner With Us | Paws for a Cause</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    .form-status{
+      display:none;
+      margin:2rem 0 0;
+      text-align:center;
+      font-weight:600;
+      line-height:1.5;
+    }
+    .form-status.success{ color:var(--primary); }
+    .form-status.error{   color:#ff6b6b; }
+  </style>
+
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo" style="font-size:1.6rem;">PAWS FOR A CAUSE</a>
+    <nav>
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="team.html">About Us</a></li>
+        <li><a href="services.html">Our Work</a></li>
+<li class="has-dd">
+  <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
+  <ul class="dropdown" role="menu">
+    <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
+    <li><a href="partner.html" role="menuitem">Partner</a></li>
+  </ul>
+</li>
+
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <a href="donate.html" class="btn-donate">Donate Now</a>
+    <div class="hamburger">☰</div>
+  </header>
+
+  <main>
+    <section class="form-hero container reveal">
+      <h1 class="section-heading"><span>Partner</span> With Us</h1>
+      <p class="lede">
+        Businesses, clubs, and organizations make our mission possible—through sponsorships, co‑hosted events, in‑kind donations, and outreach. Let’s create impact together.
+      </p>
+    </section>
+
+    <section class="form-section container reveal">
+      <form class="contact-form big-form"
+            id="partner-form"
+            action="https://formspree.io/f/xgvzaynb" 
+            method="POST"
+            accept-charset="UTF-8">
+
+        <input type="hidden" name="_subject" value="New Partnership Form Submission">
+        <input type="hidden" name="_captcha" value="false">
+
+        <div class="form-row two">
+          <label>Organization / Business Name
+            <input type="text" name="org" required>
+          </label>
+          <label>Your Name
+            <input type="text" name="contactName" required>
+          </label>
+        </div>
+
+        <div class="form-row two">
+          <label>Email
+            <input type="email" name="email" required>
+          </label>
+          <label>Phone (optional)
+            <input type="tel" name="phone" placeholder="(xxx) xxx‑xxxx">
+          </label>
+        </div>
+
+        <label>Website / Social (optional)
+          <input type="url" name="url" placeholder="https://">
+        </label>
+
+        <fieldset class="check-group">
+          <legend>Ways you’d like to partner (check all that apply)</legend>
+          <label><input type="checkbox" name="partnerType[]" value="sponsor"> Financial sponsorship</label>
+          <label><input type="checkbox" name="partnerType[]" value="host"> Host or co‑host an event</label>
+          <label><input type="checkbox" name="partnerType[]" value="inkind"> In‑kind donations (food, supplies, printing, etc.)</label>
+          <label><input type="checkbox" name="partnerType[]" value="promo"> Promote us to your audience / employees</label>
+          <label><input type="checkbox" name="partnerType[]" value="other"> Other (describe below)</label>
+        </fieldset>
+
+        <label>Tell us more about your idea
+          <textarea name="message" rows="6" placeholder="What are you thinking? Timeline, budget, etc."></textarea>
+        </label>
+
+        <label class="optin">
+          <input type="checkbox" name="consent" id="partner-consent" required>
+          <span>I agree to receive further contact from Paws for a Cause regarding partnership opportunities.</span>
+        </label>
+
+        <button type="submit" class="btn-submit" id="partner-submit">Send Partnership Form</button>
+      </form>
+
+      <p id="partner-status" class="form-status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Paws for a Cause</p>
+    <div class="social">
+      <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:pawsforacausemi@gmail.com">Email</a>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const form   = document.getElementById('partner-form');
+      const status = document.getElementById('partner-status');
+      const btn    = document.getElementById('partner-submit');
+      const consent= document.getElementById('partner-consent');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Browser validation first
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        // Explicit consent check (extra safety)
+        if (!consent.checked) {
+          status.textContent = 'Please agree to be contacted to continue.';
+          status.className   = 'form-status error';
+          status.style.display = 'block';
+          consent.focus();
+          return;
+        }
+
+        status.textContent   = '';
+        status.className     = 'form-status';
+        status.style.display = 'none';
+
+        const original = btn.textContent;
+        btn.disabled   = true;
+        btn.textContent = 'Sending…';
+
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (res.ok) {
+            form.reset();
+            status.textContent = 'Thanks! Your form was sent. We’ll reach out soon 🐾';
+            status.classList.add('success');
+          } else {
+            const data = await res.json();
+            const msg = data.errors ? data.errors.map(e => e.message).join(', ') : 'Please try again.';
+            throw new Error(msg);
+          }
+        } catch (err) {
+          status.textContent = 'Oops—something went wrong. ' + err.message;
+          status.classList.add('error');
+        } finally {
+          status.style.display = 'block';
+          status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          btn.disabled = false;
+          btn.textContent = original;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

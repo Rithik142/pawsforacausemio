@@ -3155,3 +3155,515 @@ footer .social a:hover {
   height: 180px;
   object-fit: cover;
 }
+/* second team card's img */
+.team-section .card:nth-child(2) img{
+  height: auto !important;
+  max-height: 210px;
+  object-fit: contain !important;
+  background:#fff;
+  padding:6px;
+}
+/* ─── Get Involved: put Age in the same row and make it small ─── */
+.name-row{
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+  align-items:flex-end;
+}
+.name-row label{
+  flex:1 1 0;                 /* first & last name stretch */
+}
+.name-row label.age{
+  flex:0 0 110px;             /* fixed narrow age field */
+  max-width:110px;
+}
+
+/* mobile: stack all three full width */
+@media (max-width:768px){
+  .name-row label,
+  .name-row label.age{
+    flex:1 1 100%;
+    max-width:none;
+  }
+}
+/* ── Opt‑in checkbox style ── */
+.optin{
+  display:flex;
+  gap:.6rem;
+  align-items:flex-start;
+  font-size:.9rem;
+  line-height:1.45;
+  color: var(--light-text);
+  margin-top:.5rem;
+}
+.optin input{
+  width:18px;
+  height:18px;
+  accent-color: var(--primary);   /* modern browsers */
+  cursor:pointer;
+  margin-top:2px;
+}
+.optin span{
+  cursor:pointer;
+}
+
+/* mobile tweak */
+@media (max-width:768px){
+  .optin{ font-size:.95rem; }
+}
+/* --- Fix "Why We Started" title not showing --- */
+.our-story.reveal,
+.our-story .section-title {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+/* prettier section headlines */
+.fancy-title{
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 1.25rem;
+  color: var(--light-text);
+  position: relative;
+  padding-left: 2.75rem;          /* room for the paw */
+}
+.fancy-title span{
+  color: var(--primary);          /* highlight first word */
+}
+
+/* paw icon + underline bar */
+.fancy-title::before{
+  content: "🐾";
+  position: absolute;
+  left: 0;
+  top: -0.15rem;
+  font-size: 1.9rem;
+  line-height: 1;
+  opacity: .9;
+}
+.fancy-title::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 72px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 3px;
+}
+/* ───────── WHY BLOCK ───────── */
+.why-block{
+  max-width: 1000px;
+  margin: 6rem auto 5rem;
+  background: rgba(255,255,255,0.03);
+  border-radius: 16px;
+  padding: 3rem 3.5rem 2.75rem;
+  box-shadow: 0 8px 28px rgba(0,0,0,.25);
+  position: relative;
+}
+.why-block::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:2.5rem;
+  width:4px;
+  height: calc(100% - 5rem);
+  background: var(--primary);
+  border-radius:2px;
+}
+
+.section-heading{
+  font-size: clamp(2.3rem, 5vw, 3.4rem);
+  font-weight: 800;
+  margin: 0 0 1.25rem;
+  line-height: 1.1;
+  color: var(--light-text);
+}
+.section-heading span{
+  color: var(--primary);
+}
+
+.lede{
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #ddd;
+  margin-bottom: 1.5rem;
+  max-width: 780px;
+}
+
+.why-list{
+  list-style: none;
+  margin: 0 0 2.2rem 0;
+  padding: 0;
+}
+.why-list li{
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 0.9rem;
+  line-height: 1.55;
+}
+.why-list li::before{
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: .1rem;
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+/* little stat row */
+.impact-row{
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.impact-item{
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  text-align: center;
+  flex: 0 0 140px;
+}
+.impact-item .num{
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+}
+.impact-item small{
+  display: block;
+  margin-top: 0.25rem;
+  font-size: .8rem;
+  letter-spacing: .5px;
+  opacity: .8;
+}
+
+/* ───────── VALUES BLOCK ───────── */
+.values-block{
+  max-width: 1100px;
+  margin: 5rem auto 6rem;
+  text-align: center;
+}
+.values-block .section-heading{
+  margin-bottom: 2.5rem;
+}
+.values-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: 2rem;
+}
+.value-card{
+  background: var(--light-text);
+  color: var(--dark-bg);
+  border-radius: 14px;
+  padding: 2rem 1.75rem 2.25rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.value-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(0,0,0,.28);
+}
+.value-card .emoji{
+  font-size: 2rem;
+  display: block;
+  margin-bottom: .75rem;
+}
+.value-card h3{
+  margin: 0 0 .5rem;
+  color: var(--dark-bg);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.value-card p{
+  margin: 0;
+  line-height: 1.55;
+  color: #333;
+}
+
+/* mobile tweaks */
+@media (max-width: 700px){
+  .why-block{
+    padding: 2.25rem 1.5rem 2rem;
+  }
+  .why-block::before{
+    top:1.8rem;
+    height: calc(100% - 3.6rem);
+  }
+  .impact-item{
+    flex: 1 1 100px;
+  }
+}
+/* ───────── NEW Get Involved layout ───────── */
+.gi-hero{
+  margin: 5rem auto 6rem;
+  max-width: 1050px;
+  text-align: left;
+}
+.gi-hero .section-heading{
+  margin-bottom: 1.25rem;
+}
+.gi-hero .lede{
+  margin-bottom: 1.75rem;
+  color:#ddd;
+  font-size:1.05rem;
+  line-height:1.6;
+  max-width: 760px;
+}
+.gi-steps{
+  list-style:none;
+  padding:0;
+  margin:0 0 2.5rem;
+}
+.gi-steps li{
+  margin-bottom:.9rem;
+  padding-left:1.6rem;
+  position:relative;
+  line-height:1.55;
+}
+.gi-steps li::before{
+  content:"✔";
+  position:absolute;
+  left:0;
+  top:.05rem;
+  color:var(--primary);
+}
+.gi-steps span{
+  font-weight:600;
+  color:var(--primary);
+}
+
+.cta-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap:2rem;
+  margin-bottom:2.5rem;
+}
+.cta-card{
+  background: rgba(255,255,255,0.05);
+  border-radius:14px;
+  padding:1.75rem 1.5rem 2rem;
+  box-shadow:0 8px 24px rgba(0,0,0,.2);
+  color:var(--light-text);
+  text-decoration:none;
+  transition:transform .25s ease, box-shadow .25s ease;
+  display:flex;
+  flex-direction:column;
+  gap:.6rem;
+}
+.cta-card h3{
+  margin:0;
+  font-size:1.35rem;
+  color:var(--primary);
+}
+.cta-card p{
+  margin:0 0 1rem;
+  line-height:1.55;
+  color:#ddd;
+}
+.cta-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 32px rgba(0,0,0,.28);
+}
+.btn-ghost{
+  display:inline-block;
+  background:var(--light-text);
+  color:var(--dark-bg);
+  padding:.6rem 1rem;
+  border-radius:6px;
+  font-weight:600;
+}
+
+/* stats row reuse */
+.impact-row{ display:flex; gap:2rem; flex-wrap:wrap; margin-top:1rem;}
+/* already defined earlier; keep if not */
+
+/* ───────── Form pages ───────── */
+.form-hero{
+  margin: 5rem auto 2rem;
+  max-width: 900px;
+  text-align:center;
+}
+.form-section{
+  margin: 0 auto 6rem;
+  max-width: 950px;
+}
+.big-form{
+  display:flex;
+  flex-direction:column;
+  gap:1.25rem;
+}
+.form-row{
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+.form-row.two > label{ flex:1 1 48%; }
+.form-row.three > label{ flex:1 1 30%; min-width:140px; }
+.check-group{
+  border:1px solid rgba(255,255,255,.08);
+  padding:1rem 1.25rem 1rem;
+  border-radius:8px;
+  display:flex;
+  flex-direction:column;
+  gap:.5rem;
+}
+.check-group legend{
+  padding:0 .25rem;
+  font-weight:600;
+  margin-bottom:.5rem;
+  color:var(--primary);
+}
+.check-group label{
+  font-weight:400;
+  display:flex;
+  gap:.5rem;
+  align-items:flex-start;
+}
+.optin{
+  display:flex;
+  gap:.65rem;
+  align-items:flex-start;
+  font-size:.9rem;
+  line-height:1.4;
+}
+.optin input{ margin-top:.2rem; }
+
+/* small button style */
+.btn-ghost, .btn-submit{
+  cursor:pointer;
+}
+
+/* responsive tweaks */
+@media(max-width:768px){
+  .gi-hero{ text-align:left; }
+  .cta-grid{ gap:1.25rem; }
+  .form-hero{ margin-top:4rem; }
+}
+/* ── NAV DROPDOWN ───────────────────────────────────── */
+.has-dd { position: relative; }
+.has-dd > a::after{
+  content:"";
+  border: 4px solid transparent;
+  border-top-color: var(--light-text);
+  margin-left: .35rem;
+  display: inline-block;
+  transform: translateY(-1px);
+}
+.has-dd > .dropdown{
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  background: var(--dark-bg);
+  border: 1px solid rgba(255,255,255,.06);
+  padding: .5rem 0;
+  box-shadow: 0 10px 24px rgba(0,0,0,.35);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: 1200;
+}
+.has-dd:hover > .dropdown,
+.has-dd:focus-within > .dropdown{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.dropdown a{
+  display: block;
+  padding: .6rem 1rem;
+  color: var(--light-text);
+  font-weight: 500;
+  transition: background var(--transition), color var(--transition);
+}
+.dropdown a:hover{
+  background: var(--primary);
+  color: var(--dark-bg);
+}
+
+/* Mobile: show dropdown when parent gets .open (set via JS) */
+@media (max-width: 768px){
+  .has-dd > .dropdown{
+    position: static;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    border: none;
+    box-shadow: none;
+    padding: 0 0 .5rem 1rem;
+    display: none;
+  }
+  .has-dd.open > .dropdown{ display: block; }
+}
+/* 1) Dropdown: show instantly, no fade/slide/rotate */
+.has-dd .caret { transition: none !important; transform: none !important; }
+.nav-list .dropdown {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* If you used display/opacity combo, just switch to display logic */
+.nav-list .dropdown { display: none; }
+.has-dd:hover .dropdown,
+.has-dd.open .dropdown { display: block; }
+
+/* 2) Kill scroll reveal animations globally */
+.reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+.reveal.visible { opacity: 1 !important; transform: none !important; }
+
+/* 3) Kill button bounce/tilt */
+.btn-bounce { animation: none !important; }
+.btn-tilt:hover { transform: none !important; }
+/* kill the tiny square under the dropdown trigger */
+.nav-list li.has-dd > a::after {
+  display: none !important;
+}
+/* Let the submenu escape the header box */
+header, nav, .nav-list { overflow: visible; }
+
+/* Position dropdown correctly and above everything */
+.nav-list li.has-dd { position: relative; }
+.nav-list li.has-dd .dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: var(--dark-bg);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+  min-width: 180px;
+  padding: 4px 0;
+  z-index: 2000;
+  display: none;              /* hidden by default */
+}
+
+/* Show on hover (or keep your JS toggle) */
+.nav-list li.has-dd:hover .dropdown,
+.nav-list li.has-dd:focus-within .dropdown {
+  display: block;
+}
+
+/* Remove the underline pseudo‑element for this link and submenu links */
+.nav-list li.has-dd > a::after,
+.nav-list li.has-dd .dropdown a::after {
+  display: none !important;
+}
+
+/* Dropdown item styling */
+.nav-list li.has-dd .dropdown li a {
+  display: block;
+  padding: 0.65rem 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.nav-list li.has-dd .dropdown li a:hover {
+  background: var(--primary);
+  color: var(--dark-bg);
+}

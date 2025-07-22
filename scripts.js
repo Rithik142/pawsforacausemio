@@ -11,6 +11,19 @@ window.addEventListener('DOMContentLoaded', () => {
     menu.classList.toggle('show');
   });
 
+  // ── 2b) MOBILE DROPDOWN FOR "GET INVOLVED" ──
+  // (Desktop hover is handled in CSS; this is tap-to-open on small screens.)
+  document.querySelectorAll('.has-dd > a').forEach(link => {
+    link.addEventListener('click', e => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const li = link.parentElement;
+        const expanded = li.classList.toggle('open');
+        link.setAttribute('aria-expanded', expanded);
+      }
+    });
+  });
+
   // ── 3) SCROLL‑REVEAL ANIMATIONS ──
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {

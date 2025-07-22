@@ -5,21 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Get Involved | Paws for a Cause</title>
 
-  <!-- Fonts & main CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-
   <script src="scripts.js" defer></script>
 </head>
 <body>
   <!-- HEADER -->
   <header>
-    <a href="index.html" class="logo" style="font-size: 1.6rem;">PAWS FOR A CAUSE</a>
+    <a href="index.html" class="logo" style="font-size:1.6rem;">PAWS FOR A CAUSE</a>
     <nav>
-      <ul class="nav-list">
+       <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
         <li><a href="team.html">About Us</a></li>
         <li><a href="services.html">Our Work</a></li>
-        <li><a href="involved.html" class="active">Get Involved</a></li>
+<li class="has-dd">
+  <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
+  <ul class="dropdown" role="menu">
+    <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
+    <li><a href="partner.html" role="menuitem">Partner</a></li>
+  </ul>
+</li>
+
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </nav>
@@ -29,59 +35,31 @@
 
   <!-- MAIN -->
   <main>
-<!-- was: <section class="involved-section"> -->
-<section id="get-involved" class="involved-section container">
+    <section id="get-involved" class="gi-hero container reveal">
+      <h1 class="section-heading"><span>Get</span> Involved</h1>
+      <p class="lede">
+        We launched in July 2025—and we’re still building the crew. If you care about animals, there’s a spot for you.
+      </p>
 
-      <h2>Get Involved</h2>
+      <ul class="gi-steps">
+        <li><span>Show up!</span> Fill out the form and come volunteer to show support!</li>
+        <li><span>Share the bark!</span> Repost, tag friends, and spread the word online.</li>
+        <li><span>Team up!</span> Have a club, small business, or sponsor lead? Let’s partner.</li>
+        <li><span>Drop supplies!</span> Blankets, food, toys—email us and we’ll coordinate.</li>
+      </ul>
 
-      <!-- GRID: left copy, right form -->
-      <div class="gi-grid">
-        <!-- LEFT COPY (no card) -->
-        <div class="gi-copy">
-          <p class="lead">
-            We launched in July 2025—and we’re still building the crew. If you care about animals, there’s a spot for you.
-          </p>
+      <div class="cta-grid">
+        <a href="volunteer.html" class="cta-card">
+          <h3>Volunteer</h3>
+          <p>Jump in for an event and help behind the scenes. Your support is all we need.</p>
+          <span class="btn btn-ghost">Fill the Volunteer Form →</span>
+        </a>
 
-          <ul class="gi-steps">
-            <li><span>Show up for an hour.</span> Help at an event or drive a pup—every hand counts.</li>
-            <li><span>Share the bark.</span> Repost, tag friends, and spread the word online.</li>
-            <li><span>Team up.</span> Have a club, small business, or sponsor lead? Let’s partner.</li>
-            <li><span>Drop supplies.</span> Blankets, food, toys—email us and we’ll coordinate.</li>
-          </ul>
-
-          <p class="cta-line">Tell us what you’re into below and we’ll plug you in.</p>
-        </div>
-
-        <!-- RIGHT FORM (same look as before) -->
-        <form class="contact-form gi-form" id="gi-form">
-          <div class="two-col">
-            <label>
-              First Name (required)
-              <input type="text" name="firstName" required />
-            </label>
-            <label>
-              Last Name (required)
-              <input type="text" name="lastName" required />
-            </label>
-          </div>
-
-          <label>
-            Email (required)
-            <input type="email" name="email" required />
-          </label>
-
-          <label>
-            Subject (required)
-            <input type="text" name="subject" required />
-          </label>
-
-          <label>
-            Message (required)
-            <textarea name="message" rows="6" required></textarea>
-          </label>
-
-          <button type="submit" class="btn-submit">Submit</button>
-        </form>
+        <a href="partner.html" class="cta-card">
+          <h3>Partner / Sponsor</h3>
+          <p>Run a business, intiative, lead a club, or want to fund a project? Let’s build something together.</p>
+          <span class="btn btn-ghost">Partner With Us →</span>
+        </a>
       </div>
     </section>
   </main>

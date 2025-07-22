@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Volunteer | Paws for a Cause</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="scripts.js" defer></script>
+
+  <style>
+    /* Tiny helper styles – safe to keep or move into styles.css */
+    .form-status{display:none;margin-top:1rem;font-weight:600;}
+    .form-status.success{color:var(--primary);}
+    .form-status.error{color:#ff6b6b;}
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo" style="font-size:1.6rem;">PAWS FOR A CAUSE</a>
+    <nav>
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="team.html">About Us</a></li>
+        <li><a href="services.html">Our Work</a></li>
+<li class="has-dd">
+  <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
+  <ul class="dropdown" role="menu">
+    <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
+    <li><a href="partner.html" role="menuitem">Partner</a></li>
+  </ul>
+</li>
+
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <a href="donate.html" class="btn-donate">Donate Now</a>
+    <div class="hamburger">☰</div>
+  </header>
+
+  <main>
+    <section class="form-hero container reveal">
+      <h1 class="section-heading"><span>Volunteer</span> With Us</h1>
+      <p class="lede">
+        From volunteer events to supply drives, we run on teen power. Tell us what you’re into and when you’re free—we’ll plug you in.
+      </p>
+    </section>
+
+    <section class="form-section container reveal">
+      <!-- SUCCESS / ERROR placeholders -->
+
+
+      <form class="contact-form big-form"
+            id="volunteer-form"
+            action="https://formspree.io/f/xnnzpvbv"
+            method="POST"
+            accept-charset="UTF-8">
+
+        <!-- (optional) custom subject for your inbox -->
+        <input type="hidden" name="_subject" value="New Volunteer Submission">
+
+        <div class="form-row three">
+          <label>First Name
+            <input type="text" name="firstName" required>
+          </label>
+          <label>Last Name
+            <input type="text" name="lastName" required>
+          </label>
+          <label>Age
+            <input type="number" name="age" min="10" max="120" required>
+          </label>
+        </div>
+
+        <div class="form-row two">
+          <label>Email
+            <input type="email" name="email" required>
+          </label>
+          <label>Phone (optional)
+            <input type="tel" name="phone" placeholder="(xxx) xxx‑xxxx">
+          </label>
+        </div>
+
+        <label>City / School (optional)
+          <input type="text" name="location">
+        </label>
+
+        <fieldset class="check-group">
+          <legend>How do you want to help? (check all that apply)</legend>
+          <label><input type="checkbox" name="help[]" value="events"> Event Volunteering</label>
+          <label><input type="checkbox" name="help[]" value="transport"> Donation of Supplies</label>
+             <label><input type="checkbox" name="time[]" value="summer"> Other</label>
+        </fieldset>
+
+        <fieldset class="check-group">
+          <legend>When are you generally available?</legend>
+          <label><input type="checkbox" name="time[]" value="weekdays"> Weekdays</label>
+          <label><input type="checkbox" name="time[]" value="weekends"> Weekends</label>
+          <label><input type="checkbox" name="time[]" value="summer"> Summer / school breaks</label>
+          <label><input type="checkbox" name="time[]" value="summer"> Other</label>
+        </fieldset>
+
+        <label>Anything else we should know?
+          <textarea name="message" rows="5" placeholder="Skills, ideas, or limits…"></textarea>
+        </label>
+
+        <label class="optin">
+          <input type="checkbox" name="consent" required>
+          <span>I agree to receive further contact from Paws for a Cause regarding my involvement.</span>
+        </label>
+
+        <button type="submit" class="btn-submit" id="vol-submit">Send Volunteer Form</button>
+      </form>
+
+      <p id="vol-status" class="form-status" aria-live="polite"></p>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Paws for a Cause</p>
+    <div class="social">
+      <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:pawsforacausemi@gmail.com">Email</a>
+    </div>
+  </footer>
+
+  <!-- Inline JS to keep it self-contained -->
+<p id="vol-status" class="form-status" aria-live="polite"></p>
+
+<script>
+(function () {
+  const form   = document.getElementById('volunteer-form');
+  const status = document.getElementById('vol-status');
+  const btn    = document.getElementById('vol-submit'); // add id to your button
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // reset status
+    status.textContent = '';
+    status.className   = 'form-status';
+    status.style.display = 'none';
+
+    // button state
+    if(btn){
+      btn.disabled = true;
+      var original = btn.textContent;
+      btn.textContent = 'Sending…';
+    }
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.reset();
+        status.textContent = 'Thanks! Your form was sent. We’ll reach out soon 🐾';
+        status.classList.add('success');
+        status.style.display = 'block';
+      } else {
+        const data = await res.json();
+        const msg = data.errors ? data.errors.map(e => e.message).join(', ') : 'Please try again.';
+        throw new Error(msg);
+      }
+    } catch (err) {
+      status.textContent = 'Oops—something went wrong. ' + err.message;
+      status.classList.add('error');
+      status.style.display = 'block';
+    } finally {
+      if(btn){
+        btn.disabled = false;
+        btn.textContent = original;
+      }
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
