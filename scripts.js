@@ -11,21 +11,19 @@ window.addEventListener('DOMContentLoaded', () => {
     menu.classList.toggle('show');
   });
 
- // ── 3) SCROLL‑REVEAL ANIMATIONS ──
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.25 });
+  // ── 3) SCROLL‑REVEAL ANIMATIONS ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.25 });
 
-// now include your services section and service-card
-document.querySelectorAll(
-  '.hero-text, .hero-image, .pups h2, .card, .profile-content, .services-section h1, .service-card'
-).forEach(el => observer.observe(el));
-
+  document.querySelectorAll(
+    '.hero-text, .hero-image, .pups h2, .card, .profile-content, .services-section h1, .service-card'
+  ).forEach(el => observer.observe(el));
 
   // ── 4) AJAX CONTACT FORM VIA FORMSPREE ──
   const form   = document.getElementById('contactForm');
@@ -85,7 +83,6 @@ document.querySelectorAll(
     const startAutoScroll = () => {
       scrollInterval = setInterval(() => {
         carousel.scrollLeft += speed;
-        // loop back to start when we hit the end
         if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {
           carousel.scrollLeft = 0;
         }
@@ -96,11 +93,9 @@ document.querySelectorAll(
       clearInterval(scrollInterval);
     };
 
-    // pause auto‑scroll on hover
     carousel.addEventListener('mouseenter', stopAutoScroll);
     carousel.addEventListener('mouseleave', startAutoScroll);
 
-    // start it up
     startAutoScroll();
   }
 
@@ -122,4 +117,16 @@ document.querySelectorAll(
     });
   });
 
-}); // end DOMContentLoaded
+  // ── 9) FIX EMAIL US BUTTON ALIGNMENT + HOVER EFFECT ──
+  const emailUsBtn = document.querySelector('.footer-contact-text .btn-submit');
+  if (emailUsBtn) {
+    emailUsBtn.style.marginTop = '1rem';
+    emailUsBtn.style.transition = 'transform 0.2s ease';
+    emailUsBtn.addEventListener('mouseenter', () => {
+      emailUsBtn.style.transform = 'translateY(-3px)';
+    });
+    emailUsBtn.addEventListener('mouseleave', () => {
+      emailUsBtn.style.transform = 'translateY(0)';
+    });
+  }
+});

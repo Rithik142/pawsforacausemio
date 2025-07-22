@@ -420,10 +420,11 @@ input, textarea {
 }
 .contact-section h1 {
   text-align: center;
-  color: var(--primary);
-  font-size: clamp(3.5rem, 6vw, 5rem);
+  font-size: 3rem;
   margin-bottom: 2rem;
 }
+
+
 .contact-content {
   display: flex;
   gap: 3rem;
@@ -1853,4 +1854,1304 @@ input, textarea {
   .hero__inner { flex-direction: column-reverse; text-align: center; }
   .hero--right .hero__inner { flex-direction: column-reverse; }
   .hero__text, .hero__image { order: unset; }
+}
+.contact-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding-block: 4rem;
+  align-items: flex-start;
+}
+
+.contact-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+}
+
+.contact-form, .contact-info {
+  flex: 1 1 45%;
+  min-width: 300px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: none;
+  background: #fff;
+  color: #000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.contact-form .two-col {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.contact-form .two-col label {
+  flex: 1 1 48%;
+}
+
+.btn-submit {
+  align-self: flex-start;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #d49e6a;
+}
+
+/* Optional: center form better on small screens */
+@media (max-width: 768px) {
+  .contact-content {
+    flex-direction: column;
+  }
+
+  .contact-form, .contact-info {
+    flex: 1 1 100%;
+  }
+
+  .btn-submit {
+    width: 100%;
+  }
+}
+.footer-contact {
+  margin-top: 4rem;
+  padding: 4rem 0;
+  border-top: 1px solid #333;
+}
+
+.footer-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.footer-contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-contact label {
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+}
+
+.footer-contact input,
+.footer-contact textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #fff;
+  color: #000;
+}
+
+.footer-contact .two-col {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-contact .two-col label {
+  flex: 1;
+}
+
+.footer-contact-text h1 {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+}
+
+.footer-contact-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #ccc;
+}
+
+.footer-contact .btn-submit {
+  background-color: #e3b18d;
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.footer-contact .btn-submit:hover {
+  background-color: #d59d75;
+}
+
+@media (max-width: 900px) {
+  .footer-contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-contact-text {
+    order: -1;
+  }
+
+  .footer-contact .btn-submit {
+    width: 100%;
+  }
+}
+.footer-contact-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.footer-contact-text h1 {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+}
+
+.footer-contact-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+
+.footer-contact-text .btn-submit {
+  width: fit-content;
+  padding: 0.75rem 1.5rem;
+  background-color: #e3b18d;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.footer-contact-text .btn-submit:hover {
+  background-color: #d59d75;
+  transform: translateY(-3px);
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+.our-story {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.story-img img {
+  max-width: 100%;
+  width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.story-text {
+  max-width: 800px;
+}
+
+.story-text h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.story-text p {
+  font-size: 1.125rem;
+  color: #ccc;
+  line-height: 1.75;
+}
+.our-story {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 4rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.story-img img {
+  max-width: 100%;
+  width: 450px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.story-text {
+  max-width: 600px;
+}
+
+.story-text h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.story-text p {
+  font-size: 1.125rem;
+  color: #ccc;
+  line-height: 1.75;
+}
+
+/* 👉 Desktop view: side-by-side layout */
+@media (min-width: 768px) {
+  .our-story {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .story-img, .story-text {
+    flex: 1;
+  }
+
+  .story-text h2,
+  .story-text p {
+    text-align: left;
+  }
+}
+.story-text h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #fff; /* ensure it's visible on dark background */
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+.our-story {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.story-img img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.story-text {
+  max-width: 600px;
+}
+
+.story-text h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.story-text p {
+  font-size: 1.125rem;
+  color: #ccc;
+  line-height: 1.75;
+  text-align: center;
+}
+
+/* 🖥 Desktop view: side-by-side layout */
+@media (min-width: 768px) {
+  .our-story {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
+
+  .story-text h2,
+  .story-text p {
+    text-align: left;
+  }
+
+  .story-img, .story-text {
+    flex: 1;
+  }
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.scroll-down-link {
+  display: block;
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 2rem auto;
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-down-link:hover {
+  opacity: 0.7;
+}
+.scroll-down-link {
+  display: block;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 2rem 0 -1rem;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-down-link:hover {
+  opacity: 0.6;
+}
+
+#how-we-help h2 {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+  color: var(--primary);
+}
+/* Section Title Style Fix */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+/* Responsive Fix */
+@media (min-width: 768px) {
+  .section-title {
+    text-align: left;
+  }
+}
+/* OUR STORY SECTION STYLES */
+
+.our-story {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: #1a1a1a; /* Dark background for contrast */
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.story-img img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.story-text {
+  max-width: 700px;
+  padding: 1rem;
+  color: #ccc;
+  text-align: center;
+}
+
+.story-text h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1rem;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+.story-text p {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: #ccc;
+}
+
+/* RESPONSIVE STYLES */
+@media (min-width: 768px) {
+  .our-story {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .story-text,
+  .story-img {
+    flex: 1;
+  }
+
+  .story-text h2,
+  .story-text p {
+    text-align: left;
+  }
+}
+/* ========== Base ========== */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #111;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ========== Header ========== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #111;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li a {
+  color: white;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.nav-list li a:hover,
+.nav-list li a.active {
+  color: #eac3a2;
+}
+
+.btn-donate {
+  background-color: #eac3a2;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #111;
+  transition: background-color 0.3s ease;
+}
+
+.btn-donate:hover {
+  background-color: #f5d1ab;
+}
+
+/* ========== Hero Section ========== */
+.team-hero {
+  text-align: center;
+  padding: 4rem 2rem 1rem;
+}
+
+.team-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.team-hero p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+/* ========== Team Grid ========== */
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3rem 2rem 4rem;
+}
+
+.card {
+  background-color: white;
+  color: black;
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+  width: 260px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.card h3 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* ========== Values Section ========== */
+.values-section {
+  text-align: center;
+  padding: 4rem 2rem 6rem;
+  background-color: #121212;
+}
+
+.values-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.value-item {
+  margin: 1.2rem auto;
+  max-width: 750px;
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.value-item strong {
+  display: inline-block;
+  width: 120px;
+  color: #fff;
+  font-weight: 600;
+  text-align: right;
+  margin-right: 12px;
+}
+
+/* ========== Footer ========== */
+footer {
+  background-color: #111;
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  border-top: 1px solid #222;
+}
+
+footer p {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+footer .social a {
+  margin: 0 0.75rem;
+  color: #eac3a2;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+footer .social a:hover {
+  color: #fff;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .team-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .value-item strong {
+    display: block;
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+  }
+}
+.team-grid-horizontal {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem;
+  text-align: center;
+}
+/* --- Contact heading override --- */
+.contact-section h1 {
+  color: #fff !important;          /* make it white */
+  text-align: center;               /* center the text */
+  width: fit-content;               /* shrink to text width */
+  margin: 0 auto 2rem;              /* center block itself */
+}
+.footer-contact-text h1 { color: #fff !important; text-align: center; margin: 0 auto 1rem; }
+/* === tighten space above Contact Us === */
+.contact-section {
+  margin-top: 1.25rem !important;   /* was 4rem */
+  padding-top: 0 !important;
+}
+.contact-section h1 {
+  margin-top: 0 !important;
+  color: #fff !important;
+  text-align: center;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* ── Get Involved: heading color & centering ── */
+.involved-section h2 {
+  color: var(--light-text) !important;   /* white instead of peach */
+  text-align: center !important;         /* center under the nav */
+  margin: calc(var(--header-height) + 1rem) auto 2rem !important;
+}
+
+/* ── Get Involved: constrain and center the whole section ── */
+.involved-section {
+  max-width: 1200px;    /* same max-width as hero/our-work */
+  margin: 0 auto 4rem;  /* center on page */
+  padding: 0 1rem;
+}
+
+/* ── Get Involved: two-column form & info ── */
+.info-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+/* make sure each half takes full width of its grid cell */
+.info,
+.involved-section .contact-form {
+  width: 100%;
+}
+/* =======================
+   GET INVOLVED – FORM RESET
+   ======================= */
+
+/* Keep the two-column split, but don't let the form span full width */
+.gi-grid{
+  grid-template-columns: minmax(320px,400px) auto;
+  gap: 3rem;
+}
+
+/* Restore original, narrower form look */
+.gi-form{
+  max-width: 560px;      /* tweak to taste */
+  margin-left: auto;     /* pushes it to the right column edge */
+  display: block;
+}
+
+/* Kill flex rules inherited from generic .contact-form */
+.involved-section .contact-form{
+  flex: initial;
+  width: auto;
+}
+
+/* Two first-name / last-name fields side by side */
+.gi-form .two-col{
+  display: flex;
+  gap: 1rem;
+}
+
+/* Inputs back to normal width inside our set container */
+.gi-form input,
+.gi-form textarea{
+  width: 100%;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Submit button consistent with the rest */
+.gi-form .btn-submit{
+  background: var(--primary);
+  color: var(--dark-bg);
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 1.6rem;
+  margin-top: .5rem;
+  transition: transform var(--transition), opacity var(--transition);
+}
+.gi-form .btn-submit:hover{
+  transform: translateY(-2px);
+  opacity: .9;
+}
+
+/* Mobile: full-width stack */
+@media (max-width: 900px){
+  .gi-grid{ grid-template-columns: 1fr; gap: 2rem; }
+  .gi-form{ max-width: 100%; margin: 0; }
+  .gi-form .two-col{ flex-direction: column; }
+}
+/* ================================
+   GET INVOLVED – LAYOUT & STYLES
+   (scoped so it won't touch other pages)
+   ================================ */
+
+.involved-section { margin: 4rem 0 6rem; }
+.gi-title{
+  text-align:center;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: var(--light-text);
+  margin-bottom: 2rem;
+}
+
+.gi-grid{
+  display: grid;
+  grid-template-columns: minmax(320px, 420px) 1fr;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+/* LEFT CARD */
+.gi-card{
+  background: var(--light-text);
+  color: var(--dark-text);
+  padding: 2rem 2.25rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.22);
+  line-height: 1.55;
+}
+.gi-card h3{
+  margin: 0 0 .6rem;
+  font-size: 1.15rem;
+  color: var(--primary);
+}
+.gi-list{
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+.gi-list li{
+  margin-bottom: .65rem;
+  display: flex;
+  gap: .5rem;
+}
+.gi-list li::before{
+  content: "✓";
+  color: var(--primary);
+  font-weight: 700;
+  margin-top: .15rem;
+}
+.gi-cta{
+  margin-top: 1.25rem;
+  font-weight: 500;
+  color: var(--dark-text);
+}
+
+/* FORM AREA */
+.gi-form{
+  max-width: 560px;
+  margin-left: auto;
+  display: block;
+}
+.gi-form .two-col{
+  display: flex;
+  gap: 1rem;
+}
+.gi-form label{
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-size: .95rem;
+}
+.gi-form input,
+.gi-form textarea{
+  width: 100%;
+  margin-top: .45rem;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  padding: .75rem 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.gi-form .btn-submit{
+  align-self: flex-start;
+  background: var(--primary);
+  color: var(--dark-bg);
+  border: none;
+  border-radius: 6px;
+  padding: .75rem 1.6rem;
+  margin-top: .6rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--transition), opacity var(--transition);
+}
+.gi-form .btn-submit:hover{
+  transform: translateY(-2px);
+  opacity: .9;
+}
+
+/* Mobile */
+@media (max-width: 900px){
+  .gi-grid{ grid-template-columns: 1fr; gap: 2rem; }
+  .gi-form{ max-width: 100%; margin: 0; }
+  .gi-form .two-col{ flex-direction: column; }
+}
+/* ====== GET INVOLVED – FINAL FIXES (override) ====== */
+
+/* Center the whole two‑column block and keep it narrow */
+.gi-grid{
+  max-width: 1100px;
+  margin: 0 auto;              /* centers */
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 360px 1fr;  /* left copy, right form */
+  gap: 2.75rem;
+  align-items: flex-start;
+}
+
+/* Left panel */
+.gi-card{
+  background: var(--light-text);
+  color: var(--dark-text);
+  padding: 2rem 2.25rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.22);
+  line-height: 1.55;
+  max-width: 420px;
+}
+
+/* Make bullets line up nicely */
+.gi-list{
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+.gi-list li{
+  margin-bottom: .65rem;
+  position: relative;
+  padding-left: 1.35rem;
+}
+.gi-list li::before{
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* Keep the form exactly like your other forms */
+.gi-form{
+  max-width: 560px;
+  margin: 0;                    /* kill the auto-right gap */
+}
+.gi-form .two-col{
+  display: flex;
+  gap: 1rem;
+}
+.gi-form label{
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-size: .95rem;
+}
+.gi-form input,
+.gi-form textarea{
+  margin-top: .45rem;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  padding: .75rem 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  font-family: inherit;
+  font-size: 1rem;
+}
+.gi-form .btn-submit{
+  align-self: flex-start;
+  background: var(--primary);
+  color: var(--dark-bg);
+  border: none;
+  border-radius: 6px;
+  padding: .75rem 1.6rem;
+  margin-top: .6rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--transition), opacity var(--transition);
+}
+.gi-form .btn-submit:hover{
+  transform: translateY(-2px);
+  opacity: .9;
+}
+
+/* Mobile stack */
+@media (max-width: 900px){
+  .gi-grid{
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .gi-form .two-col{ flex-direction: column; }
+}
+/* ===== GET INVOLVED — SIMPLE LEFT COLUMN, SAME FORM ===== */
+
+/* Layout stays centered */
+.gi-grid{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+/* Simple copy block (no card) */
+.gi-copy{
+  max-width: 420px;
+  padding: 0;
+  border-left: 4px solid var(--primary);
+  padding-left: 1.4rem;
+  color: var(--light-text);
+  line-height: 1.6;
+}
+
+.gi-copy .lead{
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  color: #ddd;
+}
+
+.gi-steps{
+  list-style: none;
+  margin: 1.25rem 0 1.5rem;
+  padding: 0;
+}
+.gi-steps li{
+  position: relative;
+  margin-bottom: .9rem;
+  padding-left: 1.4rem;
+}
+.gi-steps li::before{
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+.gi-steps li span{
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.cta-line{
+  margin-top: 1.25rem;
+  font-size: .95rem;
+  color: #ccc;
+}
+
+/* Keep your form styling consistent */
+.gi-form{
+  max-width: 560px;
+}
+.gi-form .two-col{
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.gi-form label{
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-size: .95rem;
+}
+.gi-form input,
+.gi-form textarea{
+  margin-top: .45rem;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  padding: .75rem 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  font-family: inherit;
+  font-size: 1rem;
+}
+.gi-form .btn-submit{
+  align-self: flex-start;
+  background: var(--primary);
+  color: var(--dark-bg);
+  border: none;
+  border-radius: 6px;
+  padding: .75rem 1.6rem;
+  margin-top: .6rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--transition), opacity var(--transition);
+}
+.gi-form .btn-submit:hover{
+  transform: translateY(-2px);
+  opacity: .9;
+}
+
+/* Mobile stack */
+@media (max-width: 900px){
+  .gi-grid{
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .gi-copy{
+    border-left: none;
+    border-top: 4px solid var(--primary);
+    padding-left: 0;
+    padding-top: 1.25rem;
+  }
+  .gi-form .two-col{ flex-direction: column; }
+}
+/* ── GET INVOLVED LAYOUT FIXES ───────────────────────────────────── */
+.involved-section.container{
+  /* pull content below fixed header & give bottom room */
+  padding: calc(var(--header-height) + 1.5rem) 1rem 5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.involved-section h2{
+  text-align: center;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 2.5rem;
+  color: var(--light-text);
+}
+
+/* centered 2‑column grid */
+.gi-grid{
+  max-width: 1050px;
+  margin: 0 auto;               /* center the grid block */
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* left copy: simple vertical rule for accent */
+.gi-copy{
+  border-left: 4px solid var(--primary);
+  padding-left: 1.25rem;
+  max-width: 520px;
+}
+.gi-copy .lead{
+  margin-bottom: 1.5rem;
+  line-height: 1.55;
+}
+.gi-steps{
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+}
+.gi-steps li{
+  margin-bottom: 0.9rem;
+  line-height: 1.45;
+  position: relative;
+  padding-left: 1.4rem;
+}
+.gi-steps li::before{
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--primary);
+  font-size: 0.95rem;
+}
+.gi-steps span{
+  font-weight: 600;
+}
+.cta-line{
+  margin-top: 1rem;
+  opacity: 0.85;
+}
+
+/* keep your original form styling */
+.gi-form{
+  width: 100%;
+}
+
+/* mobile: stack nicely */
+@media (max-width: 900px){
+  .gi-grid{
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .gi-copy{
+    border-left: none;
+    padding-left: 0;
+  }
+}
+/* ── GET INVOLVED vertical spacing fix ───────────────────────────── */
+#get-involved {                 /* give the section an id if you don't have one */
+  padding-top: 2rem !important; /* was calc(var(--header-height)+1.5rem) */
+  padding-bottom: 3.5rem !important;  /* tighten footer gap */
+}
+
+/* tighten heading-to-content gap */
+#get-involved h2{
+  margin-bottom: 1.75rem;
+}
+
+/* slightly closer columns */
+#get-involved .gi-grid{
+  gap: 2rem;
+}
+
+/* kill any accidental top/bottom margins in first/last text blocks */
+#get-involved .gi-copy > *:first-child{ margin-top: 0; }
+#get-involved .gi-copy > *:last-child{  margin-bottom: 0; }
+
+/* mobile tweak */
+@media (max-width: 900px){
+  #get-involved { padding-top: 1.25rem !important; padding-bottom: 3rem !important; }
+}
+/* ===== GET INVOLVED spacing fix ===== */
+#get-involved.involved-section{
+  margin: 0 auto 3rem !important;      /* was 3–4rem top & bottom */
+  padding-top: 0 !important;           /* body already has header padding */
+  padding-bottom: 2.5rem !important;   /* tighten above footer */
+}
+
+#get-involved h2{
+  margin: 0 0 1.5rem !important;       /* shrink gap under the title */
+}
+
+/* column gap & stray margins */
+#get-involved .gi-grid{ gap: 2rem !important; }
+#get-involved .gi-copy > *:first-child{ margin-top: 0 !important; }
+#get-involved .gi-copy > *:last-child{  margin-bottom: 0 !important; }
+
+@media (max-width: 900px){
+  #get-involved.involved-section{
+    margin: 0 auto 2.5rem !important;
+    padding-bottom: 2rem !important;
+  }
+}
+/* ===== TEAM BRIDGE SECTION ===== */
+.team-bridge{
+  max-width: 900px;
+  margin: 4rem auto 3rem;
+  padding: 0 1rem;
+}
+.team-bridge .bridge-copy{
+  border-left: 4px solid var(--primary);
+  padding-left: 1.5rem;
+}
+.team-bridge h2{
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+  color: var(--light-text);
+}
+.team-bridge p{
+  color: #ddd;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+.bridge-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.bridge-list li{
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.65rem;
+  line-height: 1.55;
+}
+.bridge-list li::before{
+  content: "✓";
+  color: var(--primary);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+/* default team photos */
+.team-section .card img{
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
 }
