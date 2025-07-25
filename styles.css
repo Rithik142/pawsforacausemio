@@ -196,6 +196,41 @@ footer .social a:hover {
   border-radius: 8px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.3);
 }
+/* ───────────────────────────────────────────────────────
+   BLURRED BACKGROUND HERO
+/* ───────────────────────────────────────────────────────
+   HERO (with blurred full‑bleed background & taller height)
+──────────────────────────────────────────────────────── */
+.homepage-hero.blurred-hero {
+  position: relative;
+  overflow: hidden;
+  /* make the section at least 90% of the viewport height */
+  min-height: 90vh;
+  /* or use a fixed height like height: 800px; */
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homepage-hero.blurred-hero .container {
+  position: relative;  /* sit on top of the ::before */
+  z-index: 1;
+  text-align: center;
+}
+
+.homepage-hero.blurred-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("images/Homepage.jpg") center/cover no-repeat;
+  /* blur + darken */
+  filter: blur(3.4px) brightness(0.85);
+  /* slight scale so edges don’t peek */
+  transform: scale(1.05);
+  z-index: 0;
+}
+
 
 /* ==========================================================================
    7. CARD LAYOUT & HOVER
@@ -217,41 +252,7 @@ footer .social a:hover {
   object-fit: cover;
 }
 
-/* ==========================================================================
-   8. PUPS CAROUSEL
-   ========================================================================== */
-.pups {
-  background: var(--primary);
-  color: var(--dark-bg);
-  padding: 4rem 0;
-}
-.pups h2 {
-  text-align: center;
-  font-size: 2.75rem;
-  margin-bottom: 2rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.pups.visible h2 {
-  opacity: 1;
-  transform: none;
-}
-.pups .card-grid {
-  display: flex;
-  gap: 1.5rem;
-  overflow-x: auto;
-  padding: 1rem 2rem;
-  scroll-snap-type: x mandatory;
-}
-.pups .card {
-  flex: 0 0 300px;
-  scroll-snap-align: start;
-}
-.pups .card img {
-  height: 180px;
-  aspect-ratio: 4/3;
-}
+
 
 /* ==========================================================================
    9. MISSION SECTION
@@ -912,101 +913,7 @@ input, textarea {
 }
 
 
-/* ==========================================================================
-   PUPS CAROUSEL (INFINITE AUTO‑SCROLL)
-   ========================================================================== */
-.pups {
-  background: var(--primary);
-  color: var(--dark-bg);
-  padding: 4rem 0;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
 
-.pups-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  /* NO flex, NO width control for the cards! */
-}
-
-.card-carousel {
-  overflow: hidden;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.card-grid {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 1.5rem;
-  width: max-content;   /* allow infinite scroll */
-  min-width: 100vw;     /* ensures all cards can be visible */
-  animation: scrollCarousel 20s linear infinite;
-}
-
-.pups .card {
-  flex: 0 0 300px;
-  background: var(--light-text);
-  color: var(--dark-bg);
-  border-radius: 8px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  overflow: hidden;
-  text-decoration: none;
-}
-.pups .card img {
-  width: 100%;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  display: block;
-}
-
-.card-carousel:hover .card-grid,
-.card-grid:hover {
-  animation-play-state: paused !important;
-}
-
-
-/* keyframes: shift left by the width of one full set (5 cards + 4 gaps) */
-@keyframes scrollCarousel {
-  0%   { transform: translateX(0); }
-  100% {
-    transform: translateX(
-      calc(-1 * (5 * 300px + 4 * 1.5rem))
-    );
-  }
-}
-/* ==========================================================================
-   HOME‑PAGE PUPS CAROUSEL (only this one scrolls)
-   ========================================================================== */
-#home-pups .card-grid {
-  display: flex;
-  flex-wrap: nowrap;           /* keep originals + duplicates in one row */
-  overflow: hidden;            /* hide native scrollbar */
-  gap: 1.5rem;
-  padding: 1rem 2rem;
-  animation: scrollCarousel 20s linear infinite;
-}
-
-#home-pups .card-grid:hover {
-  animation-play-state: paused;  /* pause on hover */
-}
-
-/* keyframes: shift left by exactly one “set” (5 cards + 4 gaps) */
-@keyframes scrollCarousel {
-  0%   { transform: translateX(0); }
-  100% {
-    transform: translateX(
-      calc(-1 * (5 * 300px + 4 * 1.5rem))
-    );
-  }
-}
 
 /* ==========================================================================
    TEAM SECTION — STATIC 2×2 GRID (NO CAROUSEL)
@@ -1121,12 +1028,15 @@ input, textarea {
   font-size: 2.5rem;
   margin-bottom: 2rem;
 }
-.events-list .card-grid {
-  display: flex;
-  flex-wrap: wrap;
+.events-list .card-grid,
+.pups .card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto‑fit, minmax(280px, 1fr));
   gap: 1.5rem;
-  justify-content: center;
+  overflow-x: visible;
+  white-space: normal;
 }
+
 .events-list .card {
   width: 280px;
   background: var(--light-bg);
@@ -1582,13 +1492,17 @@ input, textarea {
 }
 
 /* ensure the pups carousel animation only lives on .pups */
+
+
+/* ── kill the horizontal scroll & wrap cards into rows ── */
 .pups .card-grid {
-  animation: scrollCarousel 20s linear infinite;
+  display: grid;
+  grid-template-columns: repeat(auto‑fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  overflow-x: visible;   /* don’t allow sideways scrolling */
+  white-space: normal;    /* ensure items can wrap */
 }
-/* ---------- card hover lift for both pups & team cards ---------- */
-.card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+
 
 .card:hover {
   transform: translateY(-6px);
@@ -3667,3 +3581,1711 @@ header, nav, .nav-list { overflow: visible; }
   background: var(--primary);
   color: var(--dark-bg);
 }
+/* =========================
+   THEME VARIABLES
+   Dark is default (what you have now).
+   Light overrides live under [data-theme="light"].
+   ========================= */
+:root {
+  --bg: var(--dark-bg);       /* alias so we can swap easier */
+  --text: var(--light-text);
+  --card-bg: var(--light-text);
+  --card-text: var(--dark-bg);
+  --border-faint: rgba(255,255,255,.06);
+  --shadow-strong: 0 12px 32px rgba(0,0,0,.45);
+}
+
+/* Light theme overrides */
+:root[data-theme="light"] {
+  --dark-bg: #ffffff;
+  --light-text: #111111;
+  --dark-text: #222222;
+  --bg: #ffffff;
+  --text: #111111;
+  --card-bg: #f7f7f7;
+  --card-text: #111111;
+  --border-faint: rgba(0,0,0,.08);
+  --shadow-strong: 0 12px 28px rgba(0,0,0,.18);
+  --primary: #c99367;               /* optional: tweak accent if needed */
+}
+
+/* Global swaps */
+body {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  transition: background .3s ease, color .3s ease;
+}
+header, footer { background: var(--bg) !important; }
+.nav-list a:hover,
+.nav-list a.active { color: var(--primary) !important; }
+
+/* Cards & light surfaces */
+.card,
+.service-card,
+.value-card,
+.team-section .card,
+.pups .card,
+.work-section .card,
+.gi-card,
+.cta-card {
+  background: var(--card-bg) !important;
+  color: var(--card-text) !important;
+  box-shadow: 0 8px 16px rgba(0,0,0,.12);
+}
+
+/* Inputs & textareas */
+input, textarea {
+  background: var(--card-bg) !important;
+  color: var(--card-text) !important;
+}
+
+/* Dropdown */
+.nav-list li.has-dd .dropdown {
+  background: var(--bg) !important;
+  border: 1px solid var(--border-faint) !important;
+  box-shadow: var(--shadow-strong);
+}
+.nav-list li.has-dd .dropdown li a {
+  color: var(--text) !important;
+}
+.nav-list li.has-dd .dropdown li a:hover {
+  background: var(--primary) !important;
+  color: var(--dark-bg) !important;
+}
+
+/* Left-rule blocks (Why/bridge/gi-copy etc.) */
+.gi-copy,
+.team-bridge .bridge-copy,
+.why-block::before {
+  border-color: var(--primary) !important;
+}
+.why-block,
+.values-block,
+.why-block,
+.values-block,
+.why-block,
+.why-block li::before {
+  color: var(--text);
+}
+
+/* Buttons already use var(--primary); just ensure text contrast */
+.btn-donate, .btn, .btn-submit, .btn-hero, .btn-ghost {
+  color: var(--dark-bg) !important;
+}
+
+/* Theme toggle button */
+.theme-toggle{
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  border-radius: 999px;
+  padding: .35rem .65rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  display: flex;
+  gap: .25rem;
+  align-items: center;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.theme-toggle:hover{
+  background: var(--primary);
+  color: var(--dark-bg);
+}
+
+/* show only the correct icon */
+.icon-sun{ display: none; }
+:root[data-theme="light"] .icon-sun{ display: inline; }
+:root[data-theme="light"] .icon-moon{ display: none; }
+/* ================= THEME TOKENS ================= */
+:root[data-theme="dark"]{
+  --bg: #111;
+  --text: #fff;
+  --muted: #ccc;
+  --surface: #1a1a1a;
+  --card-bg: #fff;
+  --card-text: #111;
+  --primary: #e5c6a8;
+  --primary-text: #111;
+}
+:root[data-theme="light"]{
+  --bg: #fff;
+  --text: #111;
+  --muted: #555;
+  --surface: #f7f7f7;
+  --card-bg: #fff;     /* keep cards white in both if you like */
+  --card-text: #111;
+  --primary: #d8a476;  /* tweak for light mode */
+  --primary-text: #111;
+}
+
+/* ====== apply vars to core elements ====== */
+body{ background: var(--bg); color: var(--text); }
+header, footer{ background: var(--bg); color: var(--text); }
+.nav-list a{ color: var(--text); }
+.nav-list a:hover,
+.nav-list a.active{ color: var(--primary); }
+.nav-list a::after{ background: var(--primary); } /* underline bar */
+
+.btn, .btn-donate, .btn-submit,
+.btn-hero, .btn-ghost{
+  background: var(--primary);
+  color: var(--primary-text);
+}
+.btn:hover, .btn-donate:hover, .btn-submit:hover,
+.btn-hero:hover, .btn-ghost:hover{
+  opacity:.9;
+  transform: translateY(-2px);
+}
+
+/* cards/text that used hard-coded colors */
+.card{ background: var(--card-bg); color: var(--card-text); }
+.gi-copy, .lede, .story-text p, .value-item, .why-list li,
+.cta-card p{ color: var(--muted); }
+
+/* ─────────────────────────────────────────────────────────────
+   GLOBAL RESET FOR HEADER / NAV OVERFLOW
+───────────────────────────────────────────────────────────── */
+header, nav, .nav-list {
+  overflow: visible;
+  z-index: 1000;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   NORMAL “Donate” BUTTON (never full‑width)
+───────────────────────────────────────────────────────────── */
+.btn-donate {
+  display: inline-block;
+  width: auto;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   MOBILE (≤768px): SLIDING DRAWER NAV + INLINE DONATE
+───────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  /* 1) show the hamburger */
+  .hamburger {
+    display: block;
+    position: relative;
+    z-index: 2001;
+  }
+
+  /* 2) turn the nav-list into a side drawer off‑canvas */
+  nav .nav-list {
+    position: fixed;
+    top: var(--header-height);
+    left: -100%;
+    width: 80%;
+    max-width: 280px;
+    height: calc(100% - var(--header-height));
+    background: var(--dark-bg);
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+    transition: left 0.3s ease;
+    box-shadow: 4px 0 12px rgba(0,0,0,0.3);
+    z-index: 2000;
+  }
+  /* when “.show” gets toggled on by your JS */
+  nav .nav-list.show {
+    left: 0;
+  }
+
+  /* 3) style each link in the drawer */
+  nav .nav-list li {
+    margin: 0;
+  }
+  nav .nav-list li + li {
+    margin-top: 1rem;
+  }
+  nav .nav-list a {
+    font-size: 1.2rem;
+    padding: 0.5rem 0;
+    display: block;
+    line-height: 1.3;
+  }
+
+  /* 4) keep the Donate button inline in the header,
+        not floating over the page */
+  .btn-donate {
+    position: static !important;
+    margin-left: auto !important;
+    width: auto;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    z-index: 2001;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   EXTRA COMPACT DONATE ON VERY SMALL PHONES (≤400px)
+───────────────────────────────────────────────────────────── */
+@media (max-width: 400px) {
+  .btn-donate {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+  }
+}
+/* ────────────────────────────────────────────────────────
+   OUR WORK — GLOBAL SECTION SPACING
+───────────────────────────────────────────────────────── */
+.our-work-section {
+  margin: 4rem auto;
+  padding: 0 1rem;
+  max-width: 1200px;
+}
+.our-work-section .fancy-title {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+.our-work-section .fancy-title::before,
+.our-work-section .fancy-title::after {
+  /* disable the paw & underline you added earlier */
+  display: none !important;
+}
+
+
+/* ────────────────────────────────────────────────────────
+   1) IMPACT AT A GLANCE
+───────────────────────────────────────────────────────── */
+#impact .impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 2rem;
+  text-align: center;
+}
+#impact .impact-item {
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  padding: 2rem 1rem;
+}
+#impact .impact-item .num {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+
+/* ────────────────────────────────────────────────────────
+   2) ANNUAL CAMPAIGN
+───────────────────────────────────────────────────────── */
+#campaign .campaign-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+#campaign .campaign-content > div {
+  flex: 1 1 300px;
+}
+#campaign .campaign-content img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+
+/* ────────────────────────────────────────────────────────
+   3) HOW WE WORK PROCESS
+───────────────────────────────────────────────────────── */
+#process .process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+#process .process-step {
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+}
+#process .process-step .emoji {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+#process .process-step h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+
+/* ────────────────────────────────────────────────────────
+   4) RESOURCES & TOOLKITS
+───────────────────────────────────────────────────────── */
+#resources .resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+#resources .cta-card {
+  background: #fff;
+  color: #111;
+  border-radius: 8px;
+  padding: 1.75rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+#resources .cta-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.3);
+}
+
+
+/* ────────────────────────────────────────────────────────
+   5) FAQs LIST
+───────────────────────────────────────────────────────── */
+#faq .why-list {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+#faq .why-list li {
+  position: relative;
+  padding-left: 1.6rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+#faq .why-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  color: var(--primary);
+}
+
+/* ────────────────────────────────────────────────────────
+   RESPONSIVE TWEAKS
+───────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  #process .process-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+  }
+  #resources .resource-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/*────────────────────────────────────
+  HERO CTA
+────────────────────────────────────*/
+.hero-cta {
+  position: relative;
+  background: url('images/hero-bg.jpg') center/cover no-repeat;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  color: var(--light-text);
+}
+.hero-cta .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+.hero-content {
+  position: relative;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  z-index: 1;
+}
+.hero-content h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 1rem;
+}
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+.btn-primary {
+  background: var(--primary);
+  color: var(--dark-bg);
+  padding: .75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: opacity .2s ease;
+}
+.btn-primary:hover {
+  opacity: .9;
+}
+
+/*────────────────────────────────────
+  SPLIT IMAGE + TEXT
+────────────────────────────────────*/
+.split-section {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin: 4rem auto;
+}
+.split-section .split-image img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.split-text h2 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+.split-text p {
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: .6rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background .2s ease, color .2s ease;
+}
+.btn-secondary:hover {
+  background: var(--primary);
+  color: var(--dark-bg);
+}
+
+/*────────────────────────────────────
+  INFO BANDS
+────────────────────────────────────*/
+.info-bands .band {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 1.5rem;
+}
+.band--light {
+  background: #f5f5f5;
+}
+.band--alt {
+  background: #fde4d9;
+}
+.band-text h3 {
+  margin: 0 0 .5rem;
+  font-size: 1.4rem;
+  color: var(--dark-text);
+}
+.band-text p {
+  margin: 0;
+  line-height: 1.5;
+}
+.band-cta a {
+  min-width: 120px;
+}
+
+/*────────────────────────────────────
+  FEATURE SECTION
+────────────────────────────────────*/
+.feature-section {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin: 4rem auto;
+}
+.feature-text h2 {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+}
+.feature-list {
+  list-style: none;
+  margin: 1rem 0 1.5rem;
+  padding: 0;
+}
+.feature-list li {
+  margin-bottom: .75rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.feature-image img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/*────────────────────────────────────
+  NEWS GRID
+────────────────────────────────────*/
+.news-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 2rem;
+}
+.card {
+  background: var(--light-text);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.card h3 {
+  margin: 1rem;
+  font-size: 1.25rem;
+}
+.card p {
+  margin: 0 1rem 1rem;
+  color: #555;
+}
+.card .read-more {
+  display: block;
+  margin: 0 1rem 1rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/*────────────────────────────────────
+  RESPONSIVE
+────────────────────────────────────*/
+@media (max-width: 900px) {
+  .split-section,
+  .feature-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  .split-image, .feature-image { width: 100%; }
+  .split-text, .feature-text { width: 100%; }
+}
+/* ─── Quick‑link cards grid ───────────────────────────────────────── */
+.info-cards .card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+.info-cards .info-card {
+  display: block;
+  background: var(--light-text);
+  color: var(--dark-bg);
+  border-radius: 8px;
+  padding: 1.25rem 1rem;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.info-cards .info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+.info-cards .info-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  color: var(--primary);
+}
+.info-cards .info-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.88;
+}
+/* ensure it animates in with your reveal utility */
+.info-cards.reveal { opacity: 0; transform: translateY(20px); }
+.info-cards.reveal.visible {
+  opacity: 1; transform: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* ─── Tweak the "Our Story" strip to give it more breathing room ─── */
+.split-section {
+  padding: 4rem 0;
+}
+.split-section .split-image,
+.split-section .split-text {
+  flex: 1;
+}
+/* ── PUPS GRID: no more sideways scroll ── */
+.pups .card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  overflow-x: visible;   /* no horizontal scrollbar */
+  white-space: normal;    /* allow wrapping */
+}
+
+/* if you have a similar grid in News & Events */
+.events-list .card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  overflow-x: visible;
+  white-space: normal;
+}
+/* ─── LINK SECTIONS (alternating card + text rows) ─── */
+.link-sections {
+  margin: 4rem 0;
+}
+
+.link-block {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+.link-block.reverse {
+  flex-direction: row-reverse;
+}
+
+/* The little “card” on one side */
+.link-card {
+  background: var(--light-text);
+  color: var(--dark-bg);
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  flex: 0 0 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.link-card h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+.link-card p {
+  flex: 1;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  opacity: 0.85;
+}
+.btn-link {
+  margin-top: auto;
+  align-self: flex-start;
+  background: var(--primary);
+  color: var(--dark-bg);
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform var(--transition), opacity var(--transition);
+}
+.btn-link:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* The big explanatory text on the other side */
+.link-text {
+  flex: 1;
+}
+.link-text p {
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+/* STACK on mobile */
+@media (max-width: 768px) {
+  .link-block,
+  .link-block.reverse {
+    flex-direction: column;
+  }
+
+  .link-card {
+    width: 100%;
+    flex: none;
+  }
+}
+/* ── FEATURE SECTION REFINEMENTS ── */
+.features {
+  padding: 6rem 1rem;                /* more top & bottom space */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-row {
+  display: flex;
+  align-items: center;               /* vertically center card & text */
+  justify-content: space-between;
+  gap: 4rem;                         /* wider gap between columns */
+  margin-bottom: 5rem;               /* more space between rows */
+  flex-wrap: wrap;                   /* stack on mobile */
+}
+
+.feature-row:nth-child(even) {
+  flex-direction: row-reverse;       /* alternate left/right */
+}
+
+.feature-card,
+.feature-desc {
+  flex: 1 1 45%;                     /* each takes about half */
+  max-width: 500px;                  /* cap width so lines don’t get too long */
+}
+
+.feature-card {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.feature-card h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--primary);
+  font-size: 1.75rem;
+}
+
+.feature-card p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  color: #333;
+  font-size: 1rem;
+}
+
+.btn-link {
+  display: inline-block;
+  background: var(--primary);
+  color: var(--dark-bg);
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btn-link:hover {
+  background: #cfa17c;               /* slightly darker accent on hover */
+}
+
+.feature-desc p {
+  color: #ddd;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* Mobile breakpoint */
+@media (max-width: 768px) {
+  .feature-row {
+    flex-direction: column !important;  /* stack card/text */
+    gap: 2rem;
+  }
+  .feature-card,
+  .feature-desc {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+}
+/* ── 1) SECTION DIVIDER ───────────────────────────────────── */
+.section-divider {
+  /* widen or shrink as you like */
+  width: 60%;
+  margin: 6rem auto;          /* big gap above & below */
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ── 2) FEATURE BLOCK SPACING ─────────────────────────────── */
+.feature-block {
+  margin: 4rem 0;             /* space above & below all four rows */
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;                  /* space between each feature-row */
+}
+
+/* optional: add some padding inside each row */
+.feature-row {
+  align-items: center;
+  padding: 2rem 0;
+}
+.feature-row.reverse {
+  flex-direction: row-reverse;
+}
+
+/* ── 3) IMPACT & PROCESS GRIDS ───────────────────────────── */
+.impact-glance .container,
+.process-steps .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.impact-grid,
+.process-grid {
+  display: grid;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-items: center;      /* center each card/stat */
+}
+
+/* ── 4) CTA BANNER & NEWSLETTER ──────────────────────────── */
+.cta-banner .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 3rem 1rem;
+}
+
+.newsletter-signup .container {
+  text-align: center;
+  padding: 3rem 1rem 4rem;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  max-width: 500px;
+}
+
+.newsletter-form input {
+  flex: 1 1 200px;
+}
+
+/* ── 5) FOOTER CLEANUP ───────────────────────────────────── */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: var(--dark-bg);
+}
+
+footer p {
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+footer .social {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+footer .social a {
+  font-weight: 500;
+  transition: color var(--transition);
+}
+/* ───────────────────────────────────────────────────────
+   1) RE‑STYLE THE <HR> AS A SECTION DIVIDER
+──────────────────────────────────────────────────────── */
+main > hr {
+  margin: 6rem auto !important;       /* big gap above & below */
+  width: 80% !important;              /* shorten the line */
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ───────────────────────────────────────────────────────
+   2) ALTERNATING FEATURE ROWS
+──────────────────────────────────────────────────────── */
+.feature-block.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 0;              /* space above & below all rows */
+}
+
+/* tighten up <hr> spacing to create a clear break */
+main > hr {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin: 4rem 0;
+}
+
+.feature-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;                   /* gutter between columns */
+  margin: 3rem 0;              /* vertical breathing room */
+  flex-direction: row;
+}
+
+/* Remove any manual .reverse classes – this next rule handles flipping */
+.feature-block.container > .feature-row:nth-of-type(even) {
+  flex-direction: row-reverse;
+}
+
+/* force each side to share available space evenly */
+.feature-card,
+.feature-text {
+  flex: 1;
+  max-width: 540px;            /* Optional: limit extreme widths */
+}
+
+/* tighten and pace copy for readability */
+.feature-text p {
+  max-width: 28rem;
+  line-height: 1.6;
+}
+
+/* MOBILE: stack vertically and center text */
+@media (max-width: 768px) {
+  .feature-row {
+    flex-direction: column !important;
+    text-align: center;
+  }
+  .feature-card,
+  .feature-text {
+    max-width: 100%;
+  }
+}
+
+/* ───────────────────────────────────────────────────────
+   5) FOOTER CLEANUP
+──────────────────────────────────────────────────────── */
+footer {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+footer p {
+  margin: 0;
+}
+footer .social {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* ───────────────────────────────────────────────────────
+   4) CTA BANNER & NEWSLETTER ALIGNMENT
+──────────────────────────────────────────────────────── */
+.cta-banner .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 4rem 1rem;
+}
+
+#newsletter {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1.5rem auto 0;
+  max-width: 500px;
+}
+
+.newsletter-form input {
+  flex: 1 1 240px;
+  min-width: 240px;
+}
+/* ───────────────────────────────────────────────────────
+   HORIZONTAL BREAK SPACING
+──────────────────────────────────────────────────────── */
+main > hr {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin: 6rem 0;             /* extra space above & below */
+}
+
+/* ───────────────────────────────────────────────────────
+   ALTERNATING FEATURE ROWS
+──────────────────────────────────────────────────────── */
+.feature-block.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;            /* side‑padding for small screens */
+}
+
+.feature-block.container > .feature-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  margin: 4rem 0;              /* vertical breathing room */
+  flex-direction: row;         /* default card on left, text on right */
+}
+
+/* flip every even row */
+.feature-block.container > .feature-row:nth-of-type(even) {
+  flex-direction: row-reverse;
+}
+
+/* force equal widths & cap line‑length */
+.feature-block.container .feature-card,
+.feature-block.container .feature-text {
+  flex: 1;
+  max-width: 540px;
+}
+
+.feature-block.container .feature-text p {
+  max-width: 28rem;
+  line-height: 1.6;
+}
+
+/* stack on mobile */
+@media (max-width: 768px) {
+  .feature-block.container > .feature-row {
+    flex-direction: column !important;
+    text-align: center;
+  }
+  .feature-block.container .feature-card,
+  .feature-block.container .feature-text {
+    max-width: 100%;
+  }
+}
+
+/* ───────────────────────────────────────────────────────
+   CTA BANNER
+──────────────────────────────────────────────────────── */
+.cta-banner .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+/* ───────────────────────────────────────────────────────
+   NEWSLETTER SIGNUP
+──────────────────────────────────────────────────────── */
+.newsletter-signup {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.newsletter-signup .newsletter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  max-width: 500px;
+  margin: 1.5rem auto 0;
+}
+
+/* ───────────────────────────────────────────────────────
+   FOOTER
+──────────────────────────────────────────────────────── */
+footer {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+footer .social {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+/* ───────────────────────────────────────────────────────
+   Alternating Feature Rows
+──────────────────────────────────────────────────────── */
+.feature-block {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1rem;            /* space above & below */
+}
+
+.feature-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;                     /* gutter between columns */
+  margin-bottom: 3rem;           /* space between rows */
+  flex-direction: row;           /* default L→R */
+}
+
+/* flip when you add .reverse */
+.feature-row.reverse {
+  flex-direction: row-reverse;
+}
+
+/* equal widths for card & text columns */
+.feature-card,
+.feature-text {
+  flex: 1;
+  max-width: 540px;              /* prevent super-wide columns */
+}
+
+/* card styling */
+.feature-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+/* text column styling (on dark bg) */
+.feature-text p {
+  color: #eee;
+  line-height: 1.6;
+  max-width: 28rem;
+}
+
+/* kill bottom margin on last row */
+.feature-row:last-child {
+  margin-bottom: 0;
+}
+
+/* ───────────────────────────────────────────────────────
+   Responsive: stack on narrow screens
+──────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .feature-row {
+    flex-direction: column !important;
+    text-align: center;
+  }
+  .feature-card,
+  .feature-text {
+    max-width: 100%;
+  }
+}
+/*────────────────────────────────────────
+  1) SPACE OUT THE FEATURE BLOCK
+────────────────────────────────────────*/
+main > hr.section-divider {
+  /* give the divider more bottom‑margin, so the first card sits further down */
+  margin-bottom: 4rem;
+}
+
+.feature-block.container {
+  /* also bump the entire group down a touch */
+  margin-top: 2rem;
+}
+
+/*────────────────────────────────────────
+  2) PUSH IMPACT AT A GLANCE DOWN
+────────────────────────────────────────*/
+#impact {
+  /* add some top‑margin so your “Impact at a Glance” header has its own space */
+  margin-top: 6rem;
+}
+
+/*────────────────────────────────────────
+  3) CENTER THE NEWSLETTER FORM
+────────────────────────────────────────*/
+#newsletter .newsletter-form {
+  display: flex;
+  justify-content: center;  /* horizontally center input + button */
+  align-items: center;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 1.5rem auto 0;     /* auto‑center the whole form, add a little top space */
+}
+
+#newsletter .newsletter-form input {
+  /* give the input a fixed width so it and the button “hug” each other centrally */
+  flex: none;
+  width: 300px;
+}
+/* give all section titles consistent spacing */
+.section-title {
+  /* tweak this value until it matches your “Impact” spacing */
+  margin: 0 0 2.5rem;  
+}
+
+/* bump the process‑grid down a bit */
+#process .process-grid {
+  margin-top: 2.5rem;  /* match the section‑title’s bottom margin */
+}
+/* ─────────────────────────────────────────────────────────
+   CTA BANNER (Ready to Be a Hero…) 
+───────────────────────────────────────────────────────── */
+.cta-banner {
+  padding: 6rem 1rem;                   /* more breathing room above & below */
+}
+.cta-banner .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;                  /* center everything */
+  gap: 1.5rem;                          /* space between heading & buttons */
+}
+.cta-banner h2 {
+  margin: 0;                            /* remove default heading margins */
+}
+.cta-banner .btn-hero,
+.cta-banner .btn-donate {
+  min-width: 200px;                     /* uniform button width */
+  font-size: 1rem;
+}
+
+/* ─────────────────────────────────────────────────────────
+   NEWSLETTER SIGNUP (Stay in the Loop) 
+───────────────────────────────────────────────────────── */
+.newsletter-signup {
+  padding: 6rem 1rem;                   /* match CTA banner padding */
+}
+.newsletter-signup .container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;                   /* center heading & text */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;                          /* vertical gap between elements */
+}
+.newsletter-signup .section-title {
+  margin: 0;                            /* flush up against top of section */
+}
+.newsletter-signup p {
+  margin: 0;                            /* flush up against heading */
+}
+.newsletter-signup .newsletter-form {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  max-width: 500px;
+  justify-content: center;              /* center the form controls */
+}
+.newsletter-signup .newsletter-form input {
+  flex: 1;                              /* stretch the input */
+  padding: 0.75rem 1rem;
+}
+.newsletter-signup .newsletter-form button {
+  padding: 0.75rem 1.5rem;
+}
+
+/* ─────────────────────────────────────────────────────────
+   UNIVERSAL HR / DIVIDER SPACING 
+───────────────────────────────────────────────────────── */
+.section-divider,
+main > hr {
+  margin: 4rem 0;                       /* consistent top/bottom space around your <hr> */
+}
+/* 1. Reduce the vertical gap inside the CTA banner */
+.cta-banner .container {
+  gap: 1rem;               /* was 1.5rem */
+  padding-bottom: 6rem;  /* was 4rem—bring newsletter section up */
+}
+
+/* 2. Bring the newsletter section closer to the CTA */
+.newsletter-signup {
+  padding-top: 2.5rem;     /* was 6rem—pull it up */
+}
+
+/* 3. Tweak the <hr> under the newsletter (if you’re using one) */
+.section-divider,
+main > hr {
+  margin-top: 2rem;        /* was 4rem above the next section */
+  margin-bottom: 2rem;     /* was 4rem below the previous section */
+}
+/* 1) TIGHTEN CTA BANNER PADDING & MARGINS */
+.cta-banner {
+  /* keep top padding for breathing room, shrink bottom */
+  padding: 3rem 1rem 1.5rem;
+  margin-bottom: 0;             /* remove any extra bottom margin */
+}
+
+.cta-banner .container h2 {
+  margin-bottom: 0.75rem;       /* less gap beneath the heading */
+}
+
+.cta-banner .btn-hero,
+.cta-banner .btn-donate {
+  display: block;               /* stack them cleanly */
+  margin: 0.5rem auto;          /* small top/bottom gap and center */
+}
+
+/* 2) BRING NEWSLETTER UP CLOSER */
+#newsletter {
+  /* shrink top padding so it pulls up under the CTA */
+  padding: 1.5rem 1rem 4rem;
+  margin-top: 0;                /* remove any extra top margin */
+}
+
+/* 3) OPTIONAL: ADJUST THE <HR> IF YOU’RE USING ONE */
+main > hr.section-divider {
+  margin-top: 1rem;             /* smaller gutter above newsletter */
+  margin-bottom: 1rem;          /* smaller gutter below newsletter */
+}
+/* ───────────────────────────────────────────────────────
+   TIGHTEN GAP BETWEEN SECTION TITLES & THEIR GRIDS
+──────────────────────────────────────────────────────── */
+
+/* Give both section titles a predictable bottom margin */
+.section-title {
+  margin-bottom: 1.5rem;
+}
+
+/* Make sure the grids sit flush against that title margin */
+.impact-grid,
+.process-grid {
+  margin-top: 0;
+}
+
+/* If you still need more breathing room around the whole section: */
+/* (optional—tweak to taste) */
+#impact,
+#process {
+  padding-top: 3rem;    /* pulls the title up a bit */
+  padding-bottom: 3rem; /* evens out bottom spacing */
+}
+/* ───────────────────────────────────────────────────────
+   MORE SPACE BELOW THE FOOTER
+──────────────────────────────────────────────────────── */
+
+/* Option A: Just pad out the footer itself */
+footer {
+  padding-top: 3rem;    /* keep your existing top padding */
+  padding-bottom: 4rem; /* increase bottom padding */
+}
+
+/* Option B: Guarantee every page has room under the footer */
+body {
+  padding-bottom: 7rem; /* or more, as you like */
+}
+
+/* (You can use both if you want an even bigger gap) */
+/* ───────────────────────────────────────────────────────
+   Center all “fancy-title” section headings
+──────────────────────────────────────────────────────── */
+.our-work-section .fancy-title {
+  text-align: center;        /* center the text */
+  margin-left: auto;         /* ensure auto horizontal margins */
+  margin-right: auto;
+  margin-bottom: 2rem;       /* a little breathing room below */
+  max-width: 800px;           /* optional: limit the line‐length */
+  width: 100%;
+}
+
+/* if you’d like extra space above each section too: */
+.our-work-section {
+  padding-top: 4rem;
+}
+/* ① Pull in the divider’s bottom‐margin */
+hr.section-divider {
+  margin: 1.5rem 0 1.5rem !important; /* top/bottom margins */
+}
+
+/* ② Reduce the top padding for all .our-work-section blocks */
+.our-work-section {
+  padding-top: 1.5rem !important;
+}
+
+/* ③ Tweak the title spacing inside those sections */
+.our-work-section .fancy-title {
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
+}
+/* ───────────────────────────────────────────────────────
+   TIGHTEN HERO DIVIDER + SECTION TOP PADDING
+──────────────────────────────────────────────────────── */
+
+/* 1) Shrink the <hr> under the hero */
+main > hr.section-divider {
+  margin: 2rem 0 1rem !important;    /* less top & bottom space */
+}
+
+/* 2) Reduce the top‑padding on each .our-work-section */
+.our-work-section.container {
+  padding-top: 1.5rem !important;    /* pull sections up closer */
+}
+
+/* 3) Kill any stray title margins in those sections */
+.our-work-section .fancy-title {
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
+}
+/* ───────────────────────────────────────────────────────
+   TIGHTEN OUR‑WORK SECTIONS (IMPACT, CAMPAIGN, ETC.)
+──────────────────────────────────────────────────────── */
+
+/* 1) Center all .fancy-title headings and remove excess top/bottom margins */
+.our-work-section .fancy-title {
+  text-align: center;
+  margin: 0;               /* kill default margins */
+  padding-top: 1rem;       /* small pad above title */
+  padding-bottom: 0.5rem;  /* small pad below title */
+}
+
+/* 2) Pull up the grid/text under each title so the gap matches the title padding */
+.our-work-section .impact-grid,
+.our-work-section .campaign-content,
+.our-work-section .process-grid,
+.our-work-section .resource-grid,
+.our-work-section .why-list {
+  margin-top: 0.5rem;      /* match the bottom padding of the title */
+}
+
+/* 3) Reduce the section’s top padding so sections sit closer under your <hr> */
+.our-work-section.container {
+  padding-top: 2rem;       /* adjust to taste (was 4rem) */
+  padding-bottom: 3rem;    /* optional: keep bottom breathing room */
+}
+/* ───────────────────────────────────────────────────────
+   OVERRIDES FOR OUR‑WORK SECTIONS
+   (Paste at the very bottom of styles.css)
+──────────────────────────────────────────────────────── */
+
+/* 1) Reset and center the fancier headings */
+.our-work-section .fancy-title {
+  text-align: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 2) Reduce the top padding on each our‑work section */
+.our-work-section.container {
+  /* container adds padding by default—override it here */
+  padding-top: 1.5rem !important;    /* pull it up under the divider */
+  padding-bottom: 3rem !important;   /* keep some breathing room below */
+}
+
+/* 3) Give exactly 1rem between the heading and the content that follows */
+.our-work-section .fancy-title + * {
+  margin-top: 1rem !important;
+}
+
+/* 4) If you want special tweaks per section, you can target by ID: */
+/*
+#impact.our-work-section.container { padding-top: 1rem !important; }
+#campaign.our-work-section.container { padding-top: 1rem !important; }
+*/
+/* ───────────────────────────────────────────────────────
+   OUR‑WORK SECTION: TIGHTEN SPACING & CENTER TITLES
+   (Paste this at the very end of styles.css)
+──────────────────────────────────────────────────────── */
+
+/* 1) Center all fancy titles & give them a small bottom margin */
+.our-work-section .fancy-title {
+  text-align: center !important;
+  margin: 0 0 0.5rem !important;
+  padding: 0 !important;
+}
+
+/* 2) Reduce the top padding on each “our-work” section */
+#impact.our-work-section,
+#campaign.our-work-section,
+#process.our-work-section,
+#resources.our-work-section,
+#faq.our-work-section {
+  padding-top: 2rem !important;    /* was 4rem */
+  padding-bottom: 2rem !important; /* you can tweak this too */
+}
+
+/* 3) Give exactly 1rem between a title and its content */
+#impact .fancy-title + .impact-grid,
+#campaign .fancy-title + .campaign-content,
+#process .fancy-title + .process-grid,
+#resources .fancy-title + .lede,
+#resources .fancy-title + .resource-grid,
+#faq .fancy-title + .why-list {
+  margin-top: 1rem !important;
+}
+
+/* 4) Footer bottom‑padding so it never hugs the window edge */
+footer {
+  padding: 2rem 1rem !important;  /* up from 1.5rem or whatever */
+}
+
+/* 5) Alternating feature rows (homepage “About / Our Work / …”) */
+.feature-block > .feature-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 3rem 0;
+  flex-direction: row;            /* default */
+}
+.feature-block > .feature-row:nth-of-type(even) {
+  flex-direction: row-reverse !important;
+}
+
+/* force equal widths on card/text columns */
+.feature-row .feature-card,
+.feature-row .feature-text {
+  flex: 1;
+}
+
+/* tighten up text line‑length */
+.feature-text p {
+  max-width: 28rem;
+  line-height: 1.6;
+}
+
+/* stack on mobile */
+@media (max-width: 768px) {
+  .feature-row {
+    flex-direction: column !important;
+    text-align: center;
+  }
+  .feature-text p {
+    max-width: 100%;
+  }
+}
+/* ───────────────────────────────────────────────────────
+   FEATURE CARD REFINEMENTS
+──────────────────────────────────────────────────────── */
+.feature-card {
+  background: #fff;                          /* white on dark */
+  border-radius: 1rem;                       /* softer corners */
+  padding: 2rem;                             /* generous inner spacing */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* gentle depth */
+  transition: transform 0.25s ease, 
+              box-shadow 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);               
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+}
+
+.feature-card h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #111;
+}
+
+.feature-card p {
+  margin: 0 0 1.5rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.feature-card .btn-hero {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+
+/* if you have icons at the top, center them nicely: */
+.feature-card .emoji,
+.feature-card img {
+  display: block;
+  margin: 0 auto 1rem;
+  max-width: 3rem;
+}
+/* ───────────────────────────────────────────────────────
+   OVERRIDE: CENTER ALL OUR‑WORK SECTION TITLES
+──────────────────────────────────────────────────────── */
+.our-work-section .fancy-title {
+  display: block !important;           /* make sure it's a block */
+  width: 100% !important;              /* span the full container */
+  margin: 0 0 1rem !important;         /* reset top/bottom space */
+  text-align: center !important;       /* force centering */
+}
+/* ───────────────────────────────────────────────────────
+   OUR‑WORK: CENTER TITLES & TIGHTEN SPACING
+   (Place at the very end of styles.css)
+──────────────────────────────────────────────────────── */
+
+/* 1) Center all section titles */
+.our-work-section .fancy-title {
+  display: block !important;      /* ensure it spans full width */
+  margin: 0 auto 0.75rem !important;  /* 0 top, auto left/right, .75rem bottom */
+  text-align: center !important;  /* force the text to center */
+}
+
+/* 2) Pull those sections up under the <hr> */
+.our-work-section.container {
+  padding-top: 1.5rem !important;    /* was 4rem or similar */
+  padding-bottom: 3rem !important;   /* keep bottom breathing room */
+}
+
+/* 3) Uniform gap between a title and its content */
+.our-work-section .fancy-title + * {
+  margin-top: 1rem !important;
+}
+/* ───────────────────────────────────────────────────────
+   FORCE BOTH GRIDS TO SIT IN THE MIDDLE
+──────────────────────────────────────────────────────── */
+
+/* 1) Center the Impact grid within its container */
+#impact .impact-grid {
+  max-width: 900px !important;       /* make the grid narrower than full‑width */
+  margin: 0 auto !important;         /* auto‑center it */
+  justify-items: center !important;  /* center each card in its cell */
+}
+
+/* 2) Center the Annual Campaign two‑col grid */
+#campaign .campaign-content.two-col {
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  justify-items: center !important;  /* center content in each column */
+}
+
+/* ───────────────────────────────────────────────────────
+   ENSURE EACH CARD & COLUMN’S CONTENT IS CENTERED
+──────────────────────────────────────────────────────── */
+
+/* Impact cards: center icon, number, label */
+#impact .impact-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+/* Campaign columns: center image/text */
+#campaign .campaign-content.two-col > div {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+/* ───────────────────────────────────────────────────────
+   CENTER ALL OUR-WORK GRIDS & CONTENT
+──────────────────────────────────────────────────────── */
+
+/* 1. Narrow & center each grid inside its .container */
+#impact .impact-grid,
+#process .process-grid,
+#resources .resource-grid {
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  justify-items: center !important;  /* for CSS‑grid children */
+}
+
+/* 2. Force “How We Work” steps to center their content */
+#process .process-grid .process-step {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+/* 3. Center the Resources & Toolkits cards */
+#resources .resource-grid .cta-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+/* 4. Tweak the Annual Campaign two‑column layout */
+#campaign .campaign-content.two-col {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  justify-content: center !important;
+  align-items: center !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  gap: 2rem !important; /* spacing between text & image */
+}
+
+/* 4a. Ensure the text block and image block inside the campaign each center their inner content */
+#campaign .campaign-content.two-col > div {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+/* ───────────────────────────────────────────────────────
+   EXTRA: Make sure download button in Campaign is centered
+──────────────────────────────────────────────────────── */
+#campaign .btn-ghost {
+  margin: 1.5rem auto 0 !important;
+  display: inline-block !important;
+}
+
+/* ───────────────────────────────────────────────────────
+   LOWER CACHE PRIORITY FOR THE OLD OVERRIDES
+   (so none of your previous hacks win)
+──────────────────────────────────────────────────────── */
+/* you can leave this empty; it just forces your file to reload */

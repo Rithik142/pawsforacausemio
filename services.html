@@ -8,24 +8,22 @@
   <link rel="stylesheet" href="styles.css" />
   <script src="scripts.js" defer></script>
 </head>
-
 <body>
   <!-- HEADER -->
   <header>
-<a href="index.html" class="logo" style="font-size: 1.6rem;">PAWS FOR A CAUSE</a>
+    <a href="index.html" class="logo" style="font-size: 1.6rem;">PAWS FOR A CAUSE</a>
     <nav>
-       <ul class="nav-list">
+      <ul class="nav-list">
         <li><a href="index.html">Home</a></li>
         <li><a href="team.html">About Us</a></li>
-        <li><a href="services.html">Our Work</a></li>
-<li class="has-dd">
-  <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
-  <ul class="dropdown" role="menu">
-    <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
-    <li><a href="partner.html" role="menuitem">Partner</a></li>
-  </ul>
-</li>
-
+        <li><a href="services.html" class="active">Our Work</a></li>
+        <li class="has-dd">
+          <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
+          <ul class="dropdown" role="menu">
+            <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
+            <li><a href="partner.html" role="menuitem">Partner</a></li>
+          </ul>
+        </li>
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </nav>
@@ -35,29 +33,104 @@
 
   <!-- MAIN -->
   <main>
-    <!-- Services Section -->
-    <section class="services-section container">
-      <h1 class="reveal">Our Work</h1>
-      <div class="services-grid">
-        <div class="service-card reveal">
-          <h3>Animal Toolkit</h3>
-          <p>Step-by-step guides on responsible pet care, fostering, and adoption preparation—everything new or potential pet owners need to feel confident and informed.</p>
+    <!-- 1) Impact at a Glance -->
+    <section id="impact" class="our-work-section container">
+      <h2 class="fancy-title"><span>Our</span> Impact</h2>
+      <div class="impact-grid">
+        <div class="impact-item">
+          <span class="num">0</span>
+          <small>Animals Adopted</small>
         </div>
-
-        <div class="service-card reveal">
-          <h3>Partnerships</h3>
-          <p>We collaborate with generous organizations and sponsors who support our mission through funding, promotion, and shared outreach—all to uplift animal welfare and amplify youth-led advocacy.</p>
+        <div class="impact-item">
+          <span class="num">0</span>
+          <small>Volunteer Hours</small>
         </div>
-
-        <div class="service-card reveal">
-          <h3>Events</h3>
-          <p>From adoption drives and local fundraisers to educational meetups and community service, our events bring people and pets together—raising awareness and making a difference, one paw at a time.</p>
+        <div class="impact-item">
+          <span class="num">0</span>
+          <small>Supply Drives</small>
+        </div>
+        <div class="impact-item">
+          <span class="num">0</span>
+          <small>Partner Organizations</small>
         </div>
       </div>
     </section>
 
-    <!-- Why We Started Section -->
- 
+    <!-- 2) Signature Annual Campaign -->
+    <section id="campaign" class="our-work-section container">
+      <h2 class="fancy-title"><span>Annual</span> Campaign</h2>
+      <div class="campaign-content two-col reveal">
+        <div>
+          <p>Each summer we host our “Paws on the Go” pop‑up adoption events—connecting adoptable pets with families, providing free micro‑chipping, and running educational workshops for new owners.</p>
+          <ul class="why-list">
+            <li><strong>Free Resources:</strong> Adoption toolkits & aftercare guides.</li>
+            <li><strong>Community Hubs:</strong> 5+ pop‑ups across the region.</li>
+            <li><strong>Teen Leadership:</strong> Entirely planned & staffed by high school volunteers.</li>
+          </ul>
+          <a href="assets/PawsOnTheGo-Toolkit.pdf" class="btn-ghost" download>Download Event Toolkit</a>
+        </div>
+        <div class="reveal">
+          <img src="images/event-highlight.jpg" alt="Volunteers at a pop‑up event">
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) How We Work -->
+    <section id="process" class="our-work-section container">
+      <h2 class="fancy-title"><span>How</span> We Work</h2>
+      <div class="process-grid reveal">
+        <div class="process-step">
+          <div class="emoji">📝</div>
+          <h3>Plan</h3>
+          <p>Gather a team, set goals, and map out shelters to support.</p>
+        </div>
+        <div class="process-step">
+          <div class="emoji">🚚</div>
+          <h3>Mobilize</h3>
+          <p>Coordinate supply drives and volunteer shifts.</p>
+        </div>
+        <div class="process-step">
+          <div class="emoji">🤝</div>
+          <h3>Partner</h3>
+          <p>Collaborate with local businesses, clubs, and foster networks.</p>
+        </div>
+        <div class="process-step">
+          <div class="emoji">📣</div>
+          <h3>Share</h3>
+          <p>Amplify results on social media to grow our impact.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) Resources & Toolkits -->
+    <section id="resources" class="our-work-section container">
+      <h2 class="fancy-title"><span>Resources</span> & Toolkits</h2>
+      <p class="lede">Everything you need to host your own “Paws for a Cause” event.</p>
+      <div class="resource-grid reveal">
+        <a href="assets/volunteer-guide.pdf" class="cta-card" download>
+          <h3>Volunteer Guide</h3>
+          <p>Step‑by‑step handbook to your first shift.</p>
+        </a>
+        <a href="assets/drive-toolkit.pdf" class="cta-card" download>
+          <h3>Supply Drive Toolkit</h3>
+          <p>Checklists & templates for a smooth drive.</p>
+        </a>
+        <a href="#newsletter" class="cta-card btn-ghost">
+          <h3>Join Our Newsletter</h3>
+          <p>Stay in the loop on events and kits.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- 5) FAQs -->
+    <section id="faq" class="our-work-section container">
+      <h2 class="fancy-title"><span>FAQs</span></h2>
+      <ul class="why-list reveal">
+        <li><strong>How do I host an event?</strong> Fill out our online inquiry form and our teen coordinators will guide you.</li>
+        <li><strong>Can I start my own supply drive?</strong> Absolutely—download the Drive Toolkit above.</li>
+        <li><strong>What age do I need to be?</strong> Volunteers must be 13+, but anyone can share the campaign online!</li>
+      </ul>
+    </section>
   </main>
 
   <!-- FOOTER -->

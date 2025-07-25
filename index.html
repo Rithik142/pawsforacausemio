@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Paws for a Cause</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css"/>
   <script src="scripts.js" defer></script>
 </head>
-<body>  <!-- HEADER -->
+<body>
+  <!-- HEADER -->
   <header>
-<a href="index.html" class="logo" style="font-size: 1.6rem;">PAWS FOR A CAUSE</a>
+    <a href="index.html" class="logo">PAWS FOR A CAUSE</a>
     <nav>
-          <ul class="nav-list">
-        <li><a href="index.html">Home</a></li>
+      <ul class="nav-list">
+        <li><a href="index.html" class="active">Home</a></li>
         <li><a href="team.html">About Us</a></li>
         <li><a href="services.html">Our Work</a></li>
-<li class="has-dd">
-  <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
-  <ul class="dropdown" role="menu">
-    <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
-    <li><a href="partner.html" role="menuitem">Partner</a></li>
-  </ul>
-</li>
-
+        <li class="has-dd">
+          <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
+          <ul class="dropdown" role="menu">
+            <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
+            <li><a href="partner.html"  role="menuitem">Partner</a></li>
+          </ul>
+        </li>
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </nav>
@@ -31,101 +34,167 @@
     <div class="hamburger">☰</div>
   </header>
 
-  <!-- MAIN CONTENT -->
   <main>
-
-    <!-- HERO: Home -->
-    <section class="hero hero--left" id="home">
-      <div class="container hero__inner">
-        <div class="hero__text">
-          <h1>Join us to support now</h1>
-          <p>Bring home a new fully trained and vaccinated family member.</p>
-          <a href="volunteer.html" class="btn-hero">Be a Volunteer</a>
-            <a href="partner.html" class="btn-hero">Be a Partner</a>
-        </div>
-        <div class="hero__image">
-          <img src="images/graydog.jpg" alt="Happy dog">
-        </div>
+    <!-- HERO (unchanged) -->
+    <section class="homepage-hero blurred-hero" style="text-align:center; padding:6rem 1rem; background:#111;">
+      <div class="container">
+        <h1 style="font-size:clamp(2.5rem,6vw,4rem); color:#fff; margin-bottom:1rem;">
+          Serving Paws &amp;<br/>Hearts Together
+        </h1>
+        <p style="color:#ccc; margin-bottom:2rem;">
+          Join our teen-led movement to give every animal a second chance.
+        </p>
+        <a href="donate.html" class="btn-donate" style="font-size:1rem; padding:0.75rem 1.5rem;">
+          Donate Now
+        </a>
       </div>
     </section>
 
-    <!-- HERO: About Us -->
-    <section class="hero hero--right" id="about">
-      <div class="container hero__inner">
-        <div class="hero__image">
-          <img src="images/Gold.jpg" alt="Volunteers at an adoption fair">
-        </div>
-        <div class="hero__text">
-          <h1>About Us</h1>
-          <p>Paws for a Cause is a youth‑led nonprofit founded on July 16, 2025, by a group of high school juniors in Okemos, Michigan. We promote animal adoption, fostering, education, outreach, and fundraising for critical care—led entirely by teens. Whether hosting events or raising awareness, our mission is to improve animal lives—one paw at a time.</p>
-          <a href="team.html" class="btn-hero">About Us</a>
-        </div>
-      </div>
-    </section>
+    <!-- HORIZONTAL BREAK -->
+    <hr class="section-divider" />
 
-    <!-- HERO: Our Work -->
-    <section class="hero hero--left" id="work">
-      <div class="container hero__inner">
-        <div class="hero__text">
-          <h1>Our Work</h1>
-          <p>We unite volunteers, businesses, and animal lovers to support shelter pets. From adoption drives to fundraising for life‑saving care, we’re building a network of support. Join us at local events, fundraisers, and awareness campaigns to help give every animal a second chance.</p>
-          <a href="services.html" class="btn-hero">Animal Toolkit</a>
-          <a href="services.html" class="btn-hero">Partnerships</a>
-          <a href="services.html" class="btn-hero">Events</a>
-        </div>
-        <div class="hero__image">
-          <img src="images/flowerdog.jpg" alt="Community event">
-        </div>
-      </div>
-    </section>
+ <!-- ALTERNATING FEATURE BLOCKS -->
+<section class="feature-block container reveal">
+  <!-- 1) About Us (card on left, text on right) -->
+  <div class="feature-row">
+    <div class="feature-card">
+      <h2>About Us</h2>
+      <p>Meet the teens driving Paws for a Cause and learn our origin story.</p>
+      <a href="team.html" class="btn-hero">Meet the Team →</a>
+    </div>
+    <div class="feature-text">
+      <p>
+        Founded in July 2025 by a group of high‑schoolers in Okemos, Michigan,
+        Paws for a Cause is a youth‑run nonprofit on a mission to champion animal
+        welfare through adoption, education, and community outreach.
+      </p>
+    </div>
+  </div>
 
-    <!-- CONTACT SECTION (Improved) -->
-    <section class="footer-contact container">
-      <div class="footer-contact-grid">
-        <!-- Left Form -->
-        <form id="contactForm" action="https://formspree.io/f/mblklzkb" method="POST">
-          <input type="hidden" name="_subject" value="Someone Contacted Us" />
-          <input type="hidden" name="_captcha" value="false" />
+  <!-- 2) Our Work (card on right, text on left) -->
+  <div class="feature-row reverse">
+    <div class="feature-card">
+      <h2>Our Work</h2>
+      <p>Explore our Animal Toolkit, Partnerships, and Events—empowering animal welfare.</p>
+      <a href="services.html" class="btn-hero">See Our Toolkit →</a>
+    </div>
+    <div class="feature-text">
+      <p>
+        We unite volunteers, businesses, and animal lovers to support shelter
+        pets. From adoption drives to fundraising for life‑saving care, we’re
+        building a network of support and second chances.
+      </p>
+    </div>
+  </div>
 
-          <div class="two-col">
-            <label>
-              First Name
-              <input type="text" name="firstName" placeholder="Your first name" required />
-            </label>
-            <label>
-              Last Name
-              <input type="text" name="lastName" placeholder="Your last name" required />
-            </label>
+  <!-- 3) Get Involved (card on left, text on right) -->
+  <div class="feature-row">
+    <div class="feature-card">
+      <h2>Get Involved</h2>
+      <p>Volunteer, partner, or donate supplies—help us make a difference paw by paw.</p>
+      <a href="involved.html" class="btn-hero">Join Us →</a>
+    </div>
+    <div class="feature-text">
+      <p>
+        Whether you want to lend a hand at events, drive a supply collection,
+        or fund a project, there’s a spot for you—teens and adults welcome!
+      </p>
+    </div>
+  </div>
+
+  <!-- 4) Contact Us (card on right, text on left) -->
+  <div class="feature-row reverse">
+    <div class="feature-card">
+      <h2>Contact Us</h2>
+      <p>Questions or ideas? Drop us a line and we’ll get right back to you.</p>
+      <a href="contact.html" class="btn-hero">Send a Message →</a>
+    </div>
+    <div class="feature-text">
+      <p>
+        Our inbox is always open. Whether you’d like to collaborate, request
+        resources, or just say hello, we’re here to chat!
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+
+    <!-- Impact at a Glance -->
+    <section id="impact" class="impact-glance stripe stripe--light reveal">
+      <div class="container">
+        <h2 class="section-title">Impact at a Glance</h2>
+        <div class="impact-grid">
+          <div class="impact-item">
+            <span class="num">0</span>
+            <small>Animals Adopted</small>
           </div>
-
-          <label>
-            Email
-            <input type="email" name="_replyto" placeholder="you@example.com" required />
-          </label>
-
-          <label>
-            Subject
-            <input type="text" name="subject" placeholder="What’s this about?" required />
-          </label>
-
-          <label>
-            Message
-            <textarea name="message" rows="5" placeholder="Your message…" required></textarea>
-          </label>
-
-          <button type="submit" class="btn-submit btn-bounce">Send Message</button>
-          <div id="formStatus" aria-live="polite" style="margin-top:1rem;"></div>
-        </form>
-
-        <!-- Right Text -->
-        <div class="footer-contact-text">
-          <h1>Contact Us</h1>
-          <p>Paws for a Cause is a youth-led nonprofit based in Okemos, Michigan. We're dedicated to improving animal welfare through teen-led initiatives. Whether it’s fostering, fundraising, or community education, we believe every effort counts. Reach out to collaborate, volunteer, or learn more.</p>
-          <a href="mailto:pawsforacausemi@gmail.com" class="btn-submit">Email Us</a>
+          <div class="impact-item">
+            <span class="num">0</span>
+            <small>Volunteer Hours</small>
+          </div>
+          <div class="impact-item">
+            <span class="num">0</span>
+            <small>Supply Drives</small>
+          </div>
+          <div class="impact-item">
+            <span class="num">0</span>
+            <small>Partner Organizations</small>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- How We Work -->
+    <section id="process" class="process-steps stripe stripe--dark reveal">
+      <div class="container">
+        <h2 class="section-title">How We Work</h2>
+        <div class="process-grid">
+          <div class="process-step">
+            <span class="emoji">🔍</span>
+            <h3>Identify Needs</h3>
+            <p>Assess local shelter requirements.</p>
+          </div>
+          <div class="process-step">
+            <span class="emoji">📆</span>
+            <h3>Organize Events</h3>
+            <p>Plan adoption and supply drives.</p>
+          </div>
+          <div class="process-step">
+            <span class="emoji">📦</span>
+            <h3>Collect &amp; Deliver</h3>
+            <p>Gather supplies &amp; deliver to shelters.</p>
+          </div>
+          <div class="process-step">
+            <span class="emoji">🎓</span>
+            <h3>Train &amp; Educate</h3>
+            <p>Host workshops for new adopters.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner stripe stripe--accent reveal">
+      <div class="container" style="text-align:center;">
+        <h2>Ready to Be a Hero for Shelter Pets?</h2>
+        <a href="volunteer.html" class="btn-hero">Volunteer Now</a>
+        <a href="donate.html" class="btn-donate">Donate Supplies</a>
+      </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section id="newsletter" class="newsletter-signup stripe stripe--light reveal">
+      <div class="container">
+        <h2 class="section-title">Stay in the Loop</h2>
+        <p>Get our monthly rescue roundup and event invites.</p>
+        <form action="#" method="POST" class="newsletter-form">
+          <input type="email" name="email" placeholder="Your email address" required />
+          <button type="submit" class="btn-hero">Subscribe</button>
+        </form>
+      </div>
+    </section>
   </main>
 
   <!-- FOOTER -->
