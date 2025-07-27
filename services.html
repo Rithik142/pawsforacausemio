@@ -2,13 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF‑8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Work | Paws for a Cause</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="styles.css" />
   <script src="scripts.js" defer></script>
 </head>
 <body>
+
   <!-- HEADER -->
   <header>
     <a href="index.html" class="logo" style="font-size: 1.6rem;">PAWS FOR A CAUSE</a>
@@ -27,19 +31,99 @@
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </nav>
-    <a href="donate.html" class="btn-donate">Donate Now</a>
     <div class="hamburger">☰</div>
   </header>
+<section class="our-work-intro our-work-section">
+  <h1 class="fancy-title"><span>Explore</span> Our Work</h1>
+  <p class="lede" style="text-align: center; max-width: 800px; margin: 0 auto;">
+    Discover the impact we’re making through local events, volunteer efforts, supply drives, and educational toolkits. This page highlights the ways we bring our mission to life—and how you can get involved to help animals in need.
+  </p>
+</section>
 
-  <!-- MAIN -->
+
   <main>
+    <section id="events" class="our-work-section">
+  <h2 class="fancy-title">Events</h2>
+
+  <!-- filter bar -->
+  <div class="events-filter">
+    <label for="event-filter">Show</label>
+    <select id="event-filter">
+      <option value="upcoming-events">Upcoming Events</option>
+      <option value="past-events">Past Events</option>
+    </select>
+  </div>
+
+  <!-- upcoming -->
+  <ul id="upcoming-events" class="events-list">
+    <li>
+      <strong>To be added</strong>
+      <time datetime="tbd">tbd</time>
+    </li>
+    <li>
+      <strong>To be added</strong>
+      <time datetime="tbd">tbd</time>
+    </li>
+  </ul>
+
+  <!-- past (hidden by default) -->
+  <ul id="past-events" class="events-list" hidden>
+    <li>
+      <strong>To be added</strong>
+      <time datetime="tbd">tbd</time>
+    </li>
+    <li>
+      <strong>To be added</strong>
+      <time datetime="tbd">tbd</time>
+    </li>
+  </ul>
+</section>
+
+<!-- Partners Section -->
+<section id="partners" class="our-work-section">
+  <h2 class="fancy-title"><span>Our</span> Partners</h2>
+  <div class="partner-grid">
+    <div class="partner-card">
+      <img src="assets/partner1-logo.png" alt="Partner 1 Logo">
+      <h3>To be added</h3>
+      <p>tbd</p>
+    </div>
+    <div class="partner-card">
+      <img src="assets/partner2-logo.png" alt="Partner 2 Logo">
+      <h3>To be added</h3>
+      <p>tbd</p>
+    </div>
+    <div class="partner-card">
+      <img src="assets/partner3-logo.png" alt="Partner 3 Logo">
+      <h3>To be added</h3>
+      <p>tbd</p>
+    </div>
+  </div>
+</section>
+    <!-- 4) Resources & Toolkits -->
+   <section id="resources" class="our-work-section">
+  <h2 class="fancy-title"><span>Resources</span> &amp; Toolkits</h2>
+
+  <div class="resource-grid">
+    <a href="https://www.learningtogive.org/resources/advocacy-animals" class="cta-card" target="_blank" rel="noopener">
+      <h3>Youth Animal Involvement Toolkit</h3>
+      <p>Step‑by‑step guide on how the youth can get involved in animal welfare.</p>
+    </a>
+
+    <a href="https://humanepro.org/sites/default/files/documents/municipal-pet-policy-toolkit.pdf" class="cta-card" target="_blank" rel="noopener">
+      <h3>Pet Care Toolkit</h3>
+      <p>Everything you need to know about petcare.</p>
+    </a>
+  </div>
+</section>
+
     <!-- 1) Impact at a Glance -->
-    <section id="impact" class="our-work-section container">
+    <section id="impact" class="our-work-section">
       <h2 class="fancy-title"><span>Our</span> Impact</h2>
       <div class="impact-grid">
         <div class="impact-item">
           <span class="num">0</span>
-          <small>Animals Adopted</small>
+          <small>Animal Welfare Events</small>
         </div>
         <div class="impact-item">
           <span class="num">0</span>
@@ -56,79 +140,50 @@
       </div>
     </section>
 
-    <!-- 2) Signature Annual Campaign -->
-    <section id="campaign" class="our-work-section container">
-      <h2 class="fancy-title"><span>Annual</span> Campaign</h2>
-      <div class="campaign-content two-col reveal">
-        <div>
-          <p>Each summer we host our “Paws on the Go” pop‑up adoption events—connecting adoptable pets with families, providing free micro‑chipping, and running educational workshops for new owners.</p>
-          <ul class="why-list">
-            <li><strong>Free Resources:</strong> Adoption toolkits & aftercare guides.</li>
-            <li><strong>Community Hubs:</strong> 5+ pop‑ups across the region.</li>
-            <li><strong>Teen Leadership:</strong> Entirely planned & staffed by high school volunteers.</li>
-          </ul>
-          <a href="assets/PawsOnTheGo-Toolkit.pdf" class="btn-ghost" download>Download Event Toolkit</a>
-        </div>
-        <div class="reveal">
-          <img src="images/event-highlight.jpg" alt="Volunteers at a pop‑up event">
-        </div>
-      </div>
-    </section>
-
+    
     <!-- 3) How We Work -->
-    <section id="process" class="our-work-section container">
+    <section id="process" class="our-work-section">
       <h2 class="fancy-title"><span>How</span> We Work</h2>
-      <div class="process-grid reveal">
+      <div class="process-grid">
         <div class="process-step">
-          <div class="emoji">📝</div>
-          <h3>Plan</h3>
-          <p>Gather a team, set goals, and map out shelters to support.</p>
+          <span class="emoji">🐾</span>
+          <h3>Involvement</h3>
+          <p>We host community events to raise awareness and support for the animals you care about.</p>
         </div>
         <div class="process-step">
-          <div class="emoji">🚚</div>
+          <span class="emoji">🚚</span>
           <h3>Mobilize</h3>
           <p>Coordinate supply drives and volunteer shifts.</p>
         </div>
         <div class="process-step">
-          <div class="emoji">🤝</div>
+          <span class="emoji">🤝</span>
           <h3>Partner</h3>
           <p>Collaborate with local businesses, clubs, and foster networks.</p>
         </div>
         <div class="process-step">
-          <div class="emoji">📣</div>
+          <span class="emoji">📣</span>
           <h3>Share</h3>
           <p>Amplify results on social media to grow our impact.</p>
         </div>
       </div>
-    </section>
+    </section>    
 
-    <!-- 4) Resources & Toolkits -->
-    <section id="resources" class="our-work-section container">
-      <h2 class="fancy-title"><span>Resources</span> & Toolkits</h2>
-      <p class="lede">Everything you need to host your own “Paws for a Cause” event.</p>
-      <div class="resource-grid reveal">
-        <a href="assets/volunteer-guide.pdf" class="cta-card" download>
-          <h3>Volunteer Guide</h3>
-          <p>Step‑by‑step handbook to your first shift.</p>
-        </a>
-        <a href="assets/drive-toolkit.pdf" class="cta-card" download>
-          <h3>Supply Drive Toolkit</h3>
-          <p>Checklists & templates for a smooth drive.</p>
-        </a>
-        <a href="#newsletter" class="cta-card btn-ghost">
-          <h3>Join Our Newsletter</h3>
-          <p>Stay in the loop on events and kits.</p>
-        </a>
-      </div>
-    </section>
+
+<script>
+  document.getElementById('event-filter')
+    .addEventListener('change', function(){
+      const showUpcoming = this.value === 'upcoming';
+      document.getElementById('upcoming-events').hidden = !showUpcoming;
+      document.getElementById('past-events').hidden     =  showUpcoming;
+    });
+</script>
 
     <!-- 5) FAQs -->
-    <section id="faq" class="our-work-section container">
-      <h2 class="fancy-title"><span>FAQs</span></h2>
-      <ul class="why-list reveal">
-        <li><strong>How do I host an event?</strong> Fill out our online inquiry form and our teen coordinators will guide you.</li>
-        <li><strong>Can I start my own supply drive?</strong> Absolutely—download the Drive Toolkit above.</li>
-        <li><strong>What age do I need to be?</strong> Volunteers must be 13+, but anyone can share the campaign online!</li>
+    <section id="faq" class="our-work-section">
+      <h2 class="fancy-title">FAQs</h2>
+      <ul class="why-list faq-list">
+        <li><strong>How do I host an event or volunteer?</strong> Fill out our online inquiry form and our team coordinators will contact you.</li>
+        <li><strong>What age do I need to be?</strong> Volunteers can be any age, and can also contribute by sharing the campaign online!</li>
       </ul>
     </section>
   </main>
@@ -142,5 +197,6 @@
       <a href="mailto:pawsforacausemi@gmail.com">Email</a>
     </div>
   </footer>
+
 </body>
 </html>

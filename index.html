@@ -30,7 +30,6 @@
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </nav>
-    <a href="donate.html" class="btn-donate">Donate Now</a>
     <div class="hamburger">☰</div>
   </header>
 
@@ -44,9 +43,8 @@
         <p style="color:#ccc; margin-bottom:2rem;">
           Join our teen-led movement to give every animal a second chance.
         </p>
-        <a href="donate.html" class="btn-donate" style="font-size:1rem; padding:0.75rem 1.5rem;">
-          Donate Now
-        </a>
+       
+    
       </div>
     </section>
 
@@ -76,12 +74,12 @@
     <div class="feature-card">
       <h2>Our Work</h2>
       <p>Explore our Animal Toolkit, Partnerships, and Events—empowering animal welfare.</p>
-      <a href="services.html" class="btn-hero">See Our Toolkit →</a>
+      <a href="services.html" class="btn-hero">See What We Do →</a>
     </div>
     <div class="feature-text">
       <p>
-        We unite volunteers, businesses, and animal lovers to support shelter
-        pets. From adoption drives to fundraising for life‑saving care, we’re
+        We unite volunteers, businesses, and animal lovers to support
+        pets. From adoption drives to fundraising for animal welfare, we’re
         building a network of support and second chances.
       </p>
     </div>
@@ -178,33 +176,35 @@
     <!-- CTA Banner -->
     <section class="cta-banner stripe stripe--accent reveal">
       <div class="container" style="text-align:center;">
-        <h2>Ready to Be a Hero for Shelter Pets?</h2>
+        <h2>Ready to Be a Hero for Pets?</h2>
         <a href="volunteer.html" class="btn-hero">Volunteer Now</a>
-        <a href="donate.html" class="btn-donate">Donate Supplies</a>
       </div>
     </section>
 
     <!-- Newsletter Signup -->
-    <section id="newsletter" class="newsletter-signup stripe stripe--light reveal">
-      <div class="container">
-        <h2 class="section-title">Stay in the Loop</h2>
-        <p>Get our monthly rescue roundup and event invites.</p>
-        <form action="#" method="POST" class="newsletter-form">
-          <input type="email" name="email" placeholder="Your email address" required />
-          <button type="submit" class="btn-hero">Subscribe</button>
-        </form>
-      </div>
-    </section>
+  <section id="newsletter" class="newsletter-signup stripe stripe--light reveal">
+  <div class="container">
+    <h2 class="section-title">Stay In The Loop!</h2>
+    <p>Sign up for our newsletter to get monthly updates on our work and upcoming plans!</p>
+    <form id="subscribeForm" action="https://formspree.io/f/mwpqbkpq" method="POST" class="newsletter-form">
+      <input type="email" name="email" placeholder="Your email address" required />
+      <button type="submit" class="btn-hero">Subscribe</button>
+      <p id="subscribeStatus" class="form-status"></p>
+    </form>
+  </div>
+</section>
+
   </main>
 
   <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 Paws for a Cause</p>
+ <footer>
+    <p>&copy; 2025 Paws for a Cause | <a href="privacy.html">Privacy Policy</a></p>
     <div class="social">
       <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener">Instagram</a>
       <a href="mailto:pawsforacausemi@gmail.com">Email</a>
     </div>
   </footer>
+
 </body>
 </html>

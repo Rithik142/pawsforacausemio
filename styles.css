@@ -5289,3 +5289,1041 @@ footer {
    (so none of your previous hacks win)
 ──────────────────────────────────────────────────────── */
 /* you can leave this empty; it just forces your file to reload */
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/* 1) Target only your Impact & Campaign sections by ID:   */
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+#impact,
+#campaign {
+  /* equal padding above & below */
+  padding-top: 6rem !important;
+  padding-bottom: 6rem !important;
+}
+
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/* 2) Knock out any default margins on the <h2>, then add your own */
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+#impact .fancy-title,
+#campaign .fancy-title {
+  /* remove any browser/other margins */
+  margin: 0;
+  /* now drop it away from the content below */
+  margin-bottom: 3rem;
+}
+
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/* 3) Make sure your two‑column campaign layout lines up nicely  */
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+#campaign .campaign-content.two-col {
+  display: flex;             /* aways flex for two‑col */
+  align-items: flex-start;   /* or “center” if you want the image vertically centered to the text */
+  gap: 2rem;                 /* horizontal gap between columns */
+}
+/* ───────────────────────────────────────────────────────
+   OUR WORK: FORCE EVEN GAP & CENTER THE IMPACT GRID
+──────────────────────────────────────────────────────── */
+
+/* 1) Center the grid container itself, and give it a fixed top‑margin */
+#impact .impact-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr)) !important;
+  gap: 2rem !important;
+  /*— force the same 1.5rem above every card row —*/
+  margin: 1.5rem auto 0 auto !important;
+  /*— center the grid in its parent —*/
+  justify-content: center !important;
+}
+
+/* 2) Make sure each “animal tile” sits dead‑center in its cell */
+#impact .impact-item {
+  justify-self: center !important;
+}
+
+/* ───────────────────────────────────────────────────────
+   ALSO DO THE SAME FOR ANNUAL CAMPAIGN
+──────────────────────────────────────────────────────── */
+
+#campaign .campaign-content.two-col {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr)) !important;
+  gap: 2rem !important;
+  margin: 1.5rem auto 0 auto !important;
+  justify-content: center !important;
+}
+
+/* 3) Center the image inside its column */
+#campaign .campaign-content.two-col img {
+  display: block !important;
+  margin: 0 auto !important;
+}
+/* ───────────────────────────────────────────────────────
+   1) SECTION RESET
+──────────────────────────────────────────────────────── */
+.our-work-section.container {
+  /* tighten up overall section padding */
+  padding: 2rem 1rem !important;
+}
+
+/* ───────────────────────────────────────────────────────
+   2) CENTER & SPACE HEADINGS
+──────────────────────────────────────────────────────── */
+.our-work-section .fancy-title {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 0 0 1.5rem;      /* 1.5rem below every title */
+  padding: 0;
+}
+
+/* ───────────────────────────────────────────────────────
+   3) UNIFORM GRID LAYOUTS
+──────────────────────────────────────────────────────── */
+/* Applies to Impact, How We Work, Resources, FAQs lists, and the two‑col campaign */
+.impact-grid,
+.process-grid,
+.resource-grid,
+.faq .why-list,
+.campaign-content.two-col {
+  display: grid;
+  gap: 1.5rem;                  /* same gutter everywhere */
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;     /* center + 2rem below grid */
+}
+
+/* tweak column counts */
+.impact-grid,
+.process-grid,
+.resource-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.campaign-content.two-col {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* for the FAQ list, reset list-style & indent */
+.faq .why-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* ───────────────────────────────────────────────────────
+   4) CENTER ITEMS WITHIN GRID CELLS
+──────────────────────────────────────────────────────── */
+.impact-item,
+.process-step,
+.resource-grid > a,
+.faq .why-list > li,
+.campaign-content.two-col > div {
+  justify-self: center;
+}
+
+/* ───────────────────────────────────────────────────────
+   5) CAMPAIGN IMAGE CENTERING
+──────────────────────────────────────────────────────── */
+.campaign-content.two-col img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+/* ────────────────────────────────────────────────────────
+   OUR WORK PAGE ADDITIONAL STYLES
+───────────────────────────────────────────────────────── */
+
+/* Container for each section */
+.our-work-section {
+  margin: 4rem auto;
+  padding: 0 1rem;
+  max-width: 1200px;
+}
+
+/* Section headings with paw icon */
+.fancy-title {
+  position: relative;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--light-text);
+  padding-left: 2rem;
+}
+.fancy-title span {
+  color: var(--primary);
+}
+.fancy-title::before {
+  content: "🐾";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-0.2rem);
+  font-size: 2rem;
+  opacity: 0.9;
+}
+
+/* 1) Impact grid */
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+.impact-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 2rem 1rem;
+}
+.impact-item .num {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+/* 2) Annual Campaign two‑col layout */
+.campaign-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+.campaign-content .text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.campaign-content .text p {
+  line-height: 1.6;
+}
+.campaign-content .media img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* 3) How We Work steps */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+.process-step {
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+.process-step .emoji {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* 4) Resources & Toolkits cards */
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.cta-card {
+  background: var(--light-text);
+  color: var(--dark-bg);
+  border-radius: 8px;
+  padding: 1.75rem 1.5rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: center;
+}
+.cta-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+}
+.cta-card h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: var(--primary);
+}
+
+/* 5) FAQ list */
+.faq-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem auto 0;
+  max-width: 800px;
+}
+.faq-list li {
+  position: relative;
+  padding-left: 1.6rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+.faq-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  color: var(--primary);
+  font-size: 1rem;
+}
+.faq-list strong {
+  font-weight: 600;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .impact-grid,
+  .process-grid,
+  .resource-grid {
+    grid-template-columns: 1fr;
+  }
+  .campaign-content {
+    grid-template-columns: 1fr;
+  }
+}
+/* ───────────────────────────────────────────────────────
+   COMPLETE “OUR WORK” OVERRIDES (place at very bottom)
+──────────────────────────────────────────────────────── */
+
+/* 1) Center all section headings */
+#impact .fancy-title,
+#campaign .fancy-title,
+#process .fancy-title,
+#resources .fancy-title,
+#faq .fancy-title {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+  margin: 0 auto 1rem !important;
+  padding: 0 !important;
+}
+
+/* 2) Impact grid */
+#impact {
+  padding: 4rem 1rem !important;
+  margin: 4rem auto !important;
+}
+#impact .impact-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr)) !important;
+  gap: 2rem !important;
+  justify-items: center !important;
+  text-align: center !important;
+  max-width: 900px !important;
+  margin: 2rem auto 0 auto !important;
+}
+#impact .impact-item {
+  background: rgba(255,255,255,0.05) !important;
+  border-radius: 8px !important;
+  padding: 2rem 1rem !important;
+}
+#impact .impact-item .num {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: var(--primary) !important;
+  margin-bottom: .5rem !important;
+}
+
+/* 3) Annual Campaign */
+#campaign {
+  padding: 4rem 1rem !important;
+  margin: 4rem auto !important;
+}
+#campaign .campaign-content {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr)) !important;
+  gap: 2rem !important;
+  align-items: center !important;
+  max-width: 900px !important;
+  margin: 2rem auto 0 auto !important;
+}
+#campaign .campaign-content .text,
+#campaign .campaign-content .media {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+/* 4) How We Work */
+#process {
+  padding: 4rem 1rem !important;
+  margin: 4rem auto !important;
+}
+#process .process-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr)) !important;
+  gap: 2rem !important;
+  justify-items: center !important;
+  text-align: center !important;
+  max-width: 900px !important;
+  margin: 2rem auto 0 auto !important;
+}
+#process .process-step {
+  background: rgba(255,255,255,0.05) !important;
+  border-radius: 8px !important;
+  padding: 1.5rem !important;
+}
+
+/* 5) Resources & Toolkits */
+#resources {
+  padding: 4rem 1rem !important;
+  margin: 4rem auto !important;
+}
+#resources .resource-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr)) !important;
+  gap: 2rem !important;
+  max-width: 900px !important;
+  margin: 2rem auto 0 auto !important;
+}
+#resources .cta-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  background: var(--light-text) !important;
+  color: var(--dark-bg) !important;
+  border-radius: 8px !important;
+  padding: 1.75rem 1.5rem !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2) !important;
+}
+
+/* 6) FAQs */
+#faq {
+  padding: 4rem 1rem !important;
+  margin: 4rem auto !important;
+}
+#faq .faq-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 1.5rem auto 0 auto !important;
+  max-width: 800px !important;
+}
+#faq .faq-list li {
+  position: relative !important;
+  padding-left: 1.6rem !important;
+  margin-bottom: 1rem !important;
+  line-height: 1.5 !important;
+}
+#faq .faq-list li::before {
+  content: "✔" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0.15rem !important;
+  color: var(--primary) !important;
+  font-size: 1rem !important;
+}
+#faq .faq-list strong {
+  font-weight: 600 !important;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 768px) {
+  #impact .impact-grid,
+  #process .process-grid,
+  #resources .resource-grid,
+  #campaign .campaign-content {
+    grid-template-columns: 1fr !important;
+  }
+}
+/* ───────────────────────────────────────────────────────
+   1) SECTION RESET (drop .container qualifier)
+──────────────────────────────────────────────────────── */
+.our-work-section {
+  /* tighten up overall section padding */
+  padding: 2rem 1rem !important;
+}
+
+/* ───────────────────────────────────────────────────────
+   2) UNIFORM GRID LAYOUTS (FAQ selector fix)
+──────────────────────────────────────────────────────── */
+.impact-grid,
+.process-grid,
+.resource-grid,
+.campaign-content,
+.faq-list {
+  display: grid !important;
+  gap: 1.5rem !important;                  /* same gutter everywhere */
+  max-width: 1000px !important;
+  margin: 0 auto 2rem auto !important;     /* center + 2rem below grid */
+}
+
+/* tweak column counts */
+.impact-grid,
+.process-grid,
+.resource-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+}
+
+.campaign-content {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+}
+
+/* ───────────────────────────────────────────────────────
+   3) CENTER ITEMS WITHIN GRID CELLS
+──────────────────────────────────────────────────────── */
+.impact-item,
+.process-step,
+.resource-grid > a,
+.faq-list > li,
+.campaign-content > div {
+  justify-self: center !important;
+}
+
+/* ───────────────────────────────────────────────────────
+   4) CAMPAIGN IMAGE CENTERING
+──────────────────────────────────────────────────────── */
+.campaign-content img {
+  display: block !important;
+  margin: 0 auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* ───────────────────────────────────────────────────────
+   5) FAQ list styling (uses .faq-list now)
+──────────────────────────────────────────────────────── */
+.faq-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 1.5rem auto 0 auto !important;
+  max-width: 800px !important;
+}
+.faq-list li {
+  position: relative !important;
+  padding-left: 1.6rem !important;
+  margin-bottom: 1rem !important;
+  line-height: 1.5 !important;
+}
+.faq-list li::before {
+  content: "✔" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0.15rem !important;
+  color: var(--primary) !important;
+  font-size: 1rem !important;
+}
+.faq-list strong {
+  font-weight: 600 !important;
+}
+
+/* ───────────────────────────────────────────────────────
+   Responsive: stack on mobile
+──────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .impact-grid,
+  .process-grid,
+  .resource-grid,
+  .campaign-content {
+    grid-template-columns: 1fr !important;
+  }
+}
+/* ───────────────────────────────────────────────────────
+   CENTER & UNIFORMIZE RESOURCES & TOOLKITS GRID
+───────────────────────────────────────────────────────── */
+#resources {
+  /* tighten up and center the section itself */
+  padding: 4rem 1rem !important;
+  margin: 0 auto 4rem auto !important;
+}
+
+#resources .resource-grid {
+  display: grid !important;
+  /* exactly the same columns you use elsewhere */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 2rem !important;
+  justify-items: center !important;  /* center each card in its cell */
+  max-width: 900px !important;       /* cap the row width */
+  margin: 2rem auto 0 auto !important;
+}
+
+#resources .cta-card {
+  /* make every card fill its grid cell */
+  width: 100% !important;
+  max-width: 320px !important;       /* tweak this if you prefer slightly wider/narrower */
+}
+
+/* ensure the heading stays centered above it */
+#resources .fancy-title {
+  text-align: center !important;
+  margin-bottom: 1rem !important;
+}
+/* ───────────────────────────────────────────────────────
+   EVENTS: filter dropdown + plain list styling
+───────────────────────────────────────────────────────── */
+#events {
+  padding: 4rem 1rem;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+/* dropdown wrapper */
+.events-filter {
+  margin-bottom: 1.5rem;
+}
+
+/* simple, centered select */
+#event-filter {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  background: var(--light-text);
+  color: var(--dark-bg);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* reset the list so there’s no background block */
+.events-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 700px;
+  text-align: left;
+}
+
+/* style each line */
+.events-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--light-text);
+}
+
+/* remove that big orange fill */
+#events .events-list {
+  background: none !important;
+}
+
+/* strong text styling */
+.events-list li strong {
+  font-weight: 600;
+  margin-right: auto;
+}
+
+/* hide default focus outline if you want your own */
+#event-filter:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* responsive: full‑width on mobile */
+@media (max-width: 768px) {
+  #event-filter {
+    width: 100%;
+    max-width: 320px;
+  }
+  .events-list {
+    max-width: 100%;
+  }
+}
+/* ───────────────────────────────────────────────────────
+   EVENTS: nicer “Show ▼” + card‑style list
+───────────────────────────────────────────────────────── */
+
+#events {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+/* 1) Filter bar — inline label + select */
+.events-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+.events-filter label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--light-text);
+}
+.events-filter select {
+  appearance: none;
+  background: var(--dark-bg);
+  border: 1px solid var(--primary);
+  color: var(--light-text);
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.events-filter select:hover {
+  background: rgba(255,255,255,0.1);
+}
+.events-filter select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--primary);
+}
+
+/* 2) Grid of event‑cards */
+.events-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1000px;
+  text-align: left;
+}
+.events-list li {
+  background: var(--light-text);
+  color: var(--dark-bg);
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.events-list li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+/* 3) ✔ icon via pseudo */
+.events-list li::before {
+  content: "✔";
+  color: var(--primary);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.events-list li strong {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  flex: 1;
+}
+.events-list li time {
+  font-size: 0.9rem;
+  color: rgba(0,0,0,0.6);
+  margin-top: 1rem;
+  align-self: flex-end;
+}
+
+/* 4) Responsive tweaks */
+@media (max-width: 768px) {
+  .events-filter {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .events-list {
+    grid-template-columns: 1fr;
+  }
+}
+/* ───────────────────────────────────────────────────────
+   EVENTS: filter bar & card‑grid
+───────────────────────────────────────────────────────── */
+
+#events {
+  padding: 4rem 1rem;
+  text-align: center;
+  background: none;            /* remove any bg color */
+}
+
+.events-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+.events-filter label {
+  color: var(--light-text);
+  font-weight: 500;
+}
+.events-filter select {
+  appearance: none;
+  background: var(--dark-bg);
+  border: 1px solid var(--primary);
+  color: var(--light-text);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.events-filter select:hover {
+  background: rgba(255,255,255,0.1);
+}
+.events-filter select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--primary);
+}
+
+
+/* ───────────────────────────────────────────────────────
+   card‑style list
+───────────────────────────────────────────────────────── */
+.events-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1000px;
+  text-align: left;
+}
+
+.events-list li {
+  background: var(--light-text);
+  color: var(--dark-bg);
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.events-list li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+/* ✔ icon */
+.events-list li::before {
+  content: "✔";
+  color: var(--primary);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* title & date */
+.events-list li strong {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  flex: 1;
+}
+.events-list li time {
+  font-size: 0.9rem;
+  color: rgba(0,0,0,0.6);
+  margin-top: 1rem;
+  align-self: flex-end;
+}
+
+/* ───────────────────────────────────────────────────────
+   hide/show toggle (JS will use `hidden` attribute)
+───────────────────────────────────────────────────────── */
+.events-list[hidden] {
+  display: none !important;
+}
+
+/* ───────────────────────────────────────────────────────
+   responsive stacking
+───────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .events-filter {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .events-list {
+    grid-template-columns: 1fr;
+  }
+}
+/* ─── Events Filter Styling ─────────────────────────── */
+#events .filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  position: relative;
+  font-size: 1rem;
+  color: var(--light-text);
+}
+
+#events .filter-container label {
+  font-weight: 500;
+}
+
+#events .filter-container select {
+  /* reset the native look */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  padding: 0.5rem 1.5rem 0.5rem 0.75rem;
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+  border: 1px solid var(--primary);
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+/* show a custom arrow */
+#events .filter-container select {
+  background-image:
+    linear-gradient(var(--light-text) 0 0),
+    url("data:image/svg+xml;charset=UTF-8,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23e5c6a8'/%3E%3C/svg%3E");
+  background-repeat: no-repeat, no-repeat;
+  background-position: right 0.75rem center, 0 0;
+  background-size: auto, 10px 6px;
+}
+
+/* focus style */
+#events .filter-container select:focus {
+  box-shadow: 0 0 0 3px rgba(229,198,168,0.4);
+  border-color: var(--primary);
+}
+/* ───────────────────────────────────────────────────────
+   PARTNERS GRID
+──────────────────────────────────────────────────────── */
+.partner-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-items: center;
+  max-width: 1000px;
+  margin: 2rem auto 0 auto;
+  padding: 0 1rem;
+}
+
+.partner-card {
+  background-color: #1e1e1e; /* dark background for contrast */
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+  width: 100%;
+  max-width: 320px;
+}
+
+.partner-card:hover {
+  transform: translateY(-4px);
+}
+
+.partner-card img {
+  max-width: 100px;
+  margin-bottom: 1rem;
+}
+
+.partner-card h3 {
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.partner-card p {
+  font-size: 0.95rem;
+  color: #ddd;
+}
+/* ───────────── Privacy Page ───────────── */
+main.our-work-section {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  color: #fff;
+  line-height: 1.6;
+}
+
+main.our-work-section h1.fancy-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+main.our-work-section h2 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  color: var(--primary);
+}
+
+main.our-work-section ul {
+  padding-left: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+main.our-work-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+main.our-work-section a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+/* ─────────────────────────────────────────────────────────────
+   Privacy Policy Page Styling
+─────────────────────────────────────────────────────────────── */
+
+main.our-work-section {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.7;
+  color: #f9f9f9;
+}
+
+main.our-work-section h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+main.our-work-section h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: var(--primary); /* matches your gold tone */
+  font-weight: 600;
+}
+
+main.our-work-section p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+main.our-work-section ul {
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+main.our-work-section li {
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+}
+
+main.our-work-section a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+main.our-work-section a:hover {
+  text-decoration: none;
+}
+
+/* Adjust spacing for consistent feel */
+footer {
+  margin-top: 4rem;
+}
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem; /* Consistent size */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-light, #fff);
+  text-decoration: none;
+}
+.form-status {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--accent, #caa98b);
+  text-align: center;
+}

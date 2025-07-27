@@ -105,6 +105,7 @@ window.addEventListener('DOMContentLoaded', () => {
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
+
   // ── 9) FIX EMAIL US BUTTON ALIGNMENT + HOVER EFFECT ──
   const emailUsBtn = document.querySelector('.footer-contact-text .btn-submit');
   if (emailUsBtn) {
@@ -117,4 +118,49 @@ window.addEventListener('DOMContentLoaded', () => {
       emailUsBtn.style.transform = 'translateY(0)';
     });
   }
+
+  // ── 10) EVENTS FILTER DROPDOWN LOGIC ──
+  const filterSelect = document.getElementById('event-filter');
+  if (filterSelect) {
+    // on load, show the selected list only
+    const updateEvents = () => {
+      const val = filterSelect.value; // "upcoming-events" or "past-events"
+      document.querySelectorAll('#events .events-list').forEach(list => {
+        list.hidden = (list.id !== val);
+      });
+    };
+    filterSelect.addEventListener('change', updateEvents);
+    updateEvents();
+  }
 });
+// Newsletter form submission (AJAX)
+const subscribeForm = document.getElementById('subscribeForm');
+const subscribeStatus = document.getElementById('subscribeStatus');
+
+if (subscribeForm && subscribeStatus) {
+  subscribeForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    subscribeStatus.textContent = 'Subscribing...';
+
+    const formData = new FormData(subscribeForm);
+    try {
+      const res = await fetch(subscribeForm.action, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      });
+
+      if (res.ok) {
+        subscribeStatus.textContent = '✅ Thanks for subscribing!';
+        subscribeForm.reset();
+      } else {
+        subscribeStatus.textContent = '⚠️ There was an issue. Please try again.';
+      }
+    } catch (err) {
+      console.error(err);
+      subscribeStatus.textContent = '⚠️ Network error. Please try again later.';
+    }
+  });
+}
