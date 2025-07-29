@@ -14,16 +14,16 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── 2b) MOBILE DROPDOWN FOR "GET INVOLVED" ──
-  document.querySelectorAll('.has-dd > a').forEach(link => {
-    link.addEventListener('click', e => {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        const li = link.parentElement;
-        const expanded = li.classList.toggle('open');
-        link.setAttribute('aria-expanded', expanded);
-      }
-    });
+  // NEW: always toggle open/closed
+document.querySelectorAll('.has‑dd > a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();                      // stop it from navigating away
+    const li = e.currentTarget.parentElement;
+    const isOpen = li.classList.toggle('open');
+    link.setAttribute('aria‑expanded', isOpen);
   });
+});
+
 
   // ── 3) SCROLL‑REVEAL ANIMATIONS ──
   const observer = new IntersectionObserver((entries, obs) => {
