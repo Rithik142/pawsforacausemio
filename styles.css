@@ -6720,3 +6720,396 @@ nav .nav-list {
     font-size: 1.1rem;
   }
 }
+/* Partners section - uniform card layout */
+#partners {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.partner-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: start;
+  max-width: 1100px;
+  margin: 2.5rem auto 0 auto;
+  padding: 0 1rem;
+}
+
+/* Each card keeps consistent width and appearance */
+.partner-card {
+  flex: 0 1 360px;              /* fixed-ish width, shrinks on tight screens */
+  max-width: 360px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #f5f5f5;
+  min-height: 320px; /* keep visual balance even if content varies */
+}
+
+.partner-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+}
+
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.partner-logo {
+  width: 180px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Fallback if no image available (optional) */
+.partner-logo-placeholder {
+  width: 180px;
+  height: 90px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+/* Text inside card */
+.partner-card h3 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.1;
+  text-align: center;
+}
+
+.partner-card p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.3;
+  text-align: center;
+  color: #ddd;
+}
+
+/* Responsive fallback: stack on narrow viewports */
+@media (max-width: 880px) {
+  .partner-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+    min-height: auto;
+  }
+}
+.partner-card {
+  flex: 0 1 360px !important;
+  max-width: 360px !important;
+}
+/* ===== Bigger, responsive partner logos ===== */
+.partner-card .logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0 0.75rem;
+}
+
+/* enlarge logos, but keep aspect ratio; bump size on wider screens */
+.partner-logo {
+  width: 100%;
+  max-width: 260px;          /* primary display size */
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* even bigger on large viewports */
+@media (min-width: 1200px) {
+  .partner-logo {
+    max-width: 320px;
+  }
+}
+
+/* if something else is overriding it, force it */
+.partner-card .partner-logo {
+  max-width: 320px !important;
+}
+/* Partners grid: uniform columns */
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding: 0 1rem;
+}
+
+/* Card as a link */
+.partner-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* stretch so they all match height */
+  min-height: 360px; /* enforce even height */
+  text-align: center;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #fff;
+  text-decoration: none; /* remove underline */
+  position: relative;
+}
+
+.partner-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+}
+
+/* Logo container */
+.partner-card .logo-wrapper {
+  flex: 0 0 auto;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Logo image sizing */
+.partner-logo {
+  max-width: 240px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Partner title and info */
+.partner-card h3 {
+  margin: 0.25rem 0 0.5rem;
+  font-size: 1.8rem;
+  line-height: 1.1;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.partner-card p {
+  margin: 0;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 900px) {
+  .partner-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.partner-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 360px;
+  text-align: center;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  gap: 0.25rem; /* small consistent vertical spacing */
+}
+
+.partner-card .logo-wrapper {
+  margin-bottom: 0; /* remove extra gap */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.partner-logo {
+  max-width: 240px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 4px; /* minimal spacing to the title */
+}
+
+.partner-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.partner-card h3 {
+  margin: 0;
+  font-size: 1.75rem;
+  line-height: 1.1;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.partner-card p {
+  margin: 0;
+  font-size: 1rem;
+  color: #ddd;
+}
+.partner-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px; /* small vertical space between elements */
+  text-align: center;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+  color: #fff;
+  /* remove any justify-content: space-between if present */
+}
+
+.partner-card:hover {
+  transform: translateY(-4px);
+}
+
+.partner-card .logo-wrapper {
+  margin: 0;
+  /* ensure the logo sits tight above the title */
+}
+
+.partner-logo {
+  max-width: 220px;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0; /* no extra bottom margin */
+}
+
+.partner-card h3 {
+  margin: 0;
+  font-size: 1.75rem;
+  line-height: 1.1;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.partner-card p {
+  margin: 0;
+  font-size: 1rem;
+  color: #ddd;
+}
+.partner-card {
+  /* ensure items stack from the top, not spaced out */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem 1.25rem; /* tighter vertical padding */
+  gap: 4px; /* small controlled spacing */
+}
+
+.partner-logo,
+.partner-card img {
+  max-width: 220px;
+  width: auto;
+  height: auto;
+  margin: 0; /* remove extra bottom spacing */
+  display: block;
+}
+
+.partner-card h3 {
+  margin: 2px 0 0; /* eliminate large top margin */
+  font-size: 1.75rem;
+  line-height: 1.05;
+  font-weight: 700;
+}
+
+.partner-card p {
+  margin: 4px 0 0; /* close under the heading */
+  font-size: 1rem;
+}
+.partner-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 1rem;
+  background: #181818;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.28);
+  min-width: 320px;
+  min-height: 440px;
+}
+
+.partner-card .partner-logo {
+  display: block;
+  max-width: 190px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.9rem;   /* << controls spacing below logo! */
+  margin-top: 0;
+}
+
+.partner-info h3 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary, #e5c6a8);
+  line-height: 1.14;
+  text-align: center;
+  word-break: break-word;
+}
+
+.partner-info p {
+  margin: 0.4rem 0 0 0;
+  color: #eee;
+  font-size: 1.15rem;
+  text-align: center;
+}
+.partner-logo {
+  display: block;
+  width: 160px;
+  margin: 0 auto 0.3rem auto;
+}
+
+.partner-logo-caption {
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+.logo-county {
+  display: block;
+  color: #36a0da;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.55rem;
+  letter-spacing: 0.04em;
+  font-weight: 400;
+  margin-bottom: 0.1rem;
+}
+
+.logo-shelter {
+  display: block;
+  color: #18a2eb;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.6rem;
+}
