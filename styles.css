@@ -4852,7 +4852,10 @@ main > hr.section-divider {
 ───────────────────────────────────────────────────────── */
 .section-divider,
 main > hr {
-  margin: 4rem 0;                       /* consistent top/bottom space around your <hr> */
+  border: none;                /* Remove default browser style */
+  border-top: 1px solid #fff;  /* White line */
+  width: 100vw;                /* Full viewport width */
+  margin: 0 auto;              /* Center it horizontally */
 }
 /* 1. Reduce the vertical gap inside the CTA banner */
 .cta-banner .container {
@@ -7199,3 +7202,5 @@ nav .nav-list {
     padding: 0 0.2rem;
   }
 }
+.full-bleed-divider { background:#d4b595 !important; }
+
