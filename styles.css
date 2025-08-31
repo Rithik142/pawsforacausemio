@@ -7204,3 +7204,59 @@ nav .nav-list {
 }
 .full-bleed-divider { background:#d4b595 !important; }
 
+.partner-card img {
+  max-width: 180px;   /* increase width */
+  max-height: 120px;  /* increase height */
+  margin: 0 auto 1rem auto; /* center and give space below */
+  display: block;
+  object-fit: contain; /* ensures logos don’t stretch weirdly */
+}
+
+.partner-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem;
+  min-height: 320px;  /* ensures all cards are equal height */
+  text-align: center;
+}
+
+.partner-card h3 {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.partner-card p {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-top: 0.2rem;
+}
+.partner-card img {
+  max-width: 140px;   /* increase from 100px */
+  max-height: 140px;
+  margin-bottom: 1rem;
+  object-fit: contain; /* keeps proportions */
+}
+.partner-card img {
+  max-width: 150px;
+  max-height: 150px;
+  margin-bottom: 1rem;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.partner-card img:hover {
+  transform: scale(1.1);  /* small zoom on hover */
+}
+.partner-card img {
+  max-width: 160px;
+  max-height: 160px;
+}
+.partner-card img {
+  max-width: 180px;   /* consistent width */
+  max-height: 120px;  /* consistent height */
+  object-fit: contain; /* prevents stretching */
+  margin: 0 auto 1rem; /* centers logo with spacing below */
+  display: block;
+}
