@@ -198,3 +198,54 @@ if (subscribeForm && subscribeStatus) {
     }
   });
 }
+// ===== Youth Board Popup =====
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("youthBoardModal");
+  const closeBtn = document.getElementById("closeModalBtn");
+  const laterBtn = document.getElementById("maybeLaterBtn");
+  const applyBtn = document.getElementById("applyNowBtn");
+
+  // Change this to control how often it shows:
+  // "once" behavior: it won't show again after they close/apply
+  const STORAGE_KEY = "p4ac_youthboard_popup_seen";
+
+  function openModal() {
+    modal.classList.add("show");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden"; // prevent background scroll
+  }
+
+  function closeModal() {
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    localStorage.setItem(STORAGE_KEY, "true");
+  }
+
+  // Show popup only if not seen before
+  if (!localStorage.getItem(STORAGE_KEY)) {
+    // slight delay so it feels smoother on load
+    setTimeout(openModal, 700);
+  }
+
+  // Close actions
+  closeBtn?.addEventListener("click", closeModal);
+  laterBtn?.addEventListener("click", closeModal);
+
+  // If they click apply, mark as seen (so it won’t pop again)
+  applyBtn?.addEventListener("click", () => {
+    localStorage.setItem(STORAGE_KEY, "true");
+  });
+
+  // Close when clicking outside the modal
+  modal?.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Close on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("show")) {
+      closeModal();
+    }
+  });
+});

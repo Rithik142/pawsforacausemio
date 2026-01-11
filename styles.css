@@ -7260,3 +7260,832 @@ nav .nav-list {
   margin: 0 auto 1rem; /* centers logo with spacing below */
   display: block;
 }
+.youth-board-section {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.95)
+  );
+  padding: 3.5rem 1rem 4rem;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.apply-btn {
+  background: #f6c57a;
+  color: #111;
+  padding: 16px 38px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  transition: all 0.25s ease;
+}
+
+.apply-btn:hover {
+  background: #e9b45e;
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+.youth-board-caption {
+  text-align: center;
+  margin-top: 1.25rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.95rem;
+}
+.apply-btn {
+  background: #E3B25C;
+  color: #111;
+}
+
+.apply-btn:hover {
+  background: #D6A24A;
+}
+.apply-btn {
+  background: #ffffff;
+  color: #111;
+  padding: 16px 42px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  transition: all 0.25s ease;
+}
+
+.apply-btn:hover {
+  background: #f2f2f2;
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+/* ===== Popup Modal ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  z-index: 9999;
+}
+
+.modal-overlay.show {
+  display: flex;
+}
+
+.modal {
+  width: min(520px, 100%);
+  background: #0b0b0b;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 18px;
+  padding: 1.6rem 1.6rem 1.3rem;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.55);
+  position: relative;
+  color: #fff;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all 220ms ease;
+}
+
+.modal-overlay.show .modal {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.modal h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.modal-text {
+  margin: 0 0 1.2rem;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.5;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.modal-btn {
+  background: #ffffff;
+  color: #111;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.modal-btn:hover {
+  background: #f2f2f2;
+  transform: translateY(-2px);
+}
+
+.modal-secondary {
+  background: transparent;
+  color: rgba(255,255,255,0.85);
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 14px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-secondary:hover {
+  border-color: rgba(255,255,255,0.35);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background: rgba(255,255,255,0.14);
+}
+/* ===== Youth Board Page ===== */
+.yb-page { background: #0a0a0a; color: #fff; }
+
+.yb-container{
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.yb-hero{
+  padding: 4.5rem 0 3.5rem;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.85), #0a0a0a);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.yb-kicker{
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin: 0 0 0.8rem;
+}
+
+.yb-hero h1{
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 0.8rem;
+  font-weight: 800;
+}
+
+.yb-subtitle{
+  color: rgba(255,255,255,0.75);
+  max-width: 720px;
+  margin: 0 0 1.6rem;
+  line-height: 1.6;
+}
+
+.yb-cta-row{
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.yb-apply-btn{
+  background: #ffffff;
+  color: #111;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.yb-apply-btn:hover{
+  background: #f2f2f2;
+  transform: translateY(-2px);
+}
+
+.yb-secondary-btn{
+  background: transparent;
+  color: rgba(255,255,255,0.9);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 14px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.yb-secondary-btn:hover{
+  border-color: rgba(255,255,255,0.4);
+  transform: translateY(-2px);
+}
+
+.yb-note{
+  margin-top: 1rem;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.95rem;
+}
+
+.yb-section{
+  padding: 3.5rem 0;
+}
+
+.yb-section-alt{
+  background: #070707;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.yb-title{
+  font-size: 1.9rem;
+  margin: 0 0 0.8rem;
+  font-weight: 800;
+}
+
+.yb-text{
+  color: rgba(255,255,255,0.75);
+  margin: 0 0 1.75rem;
+  line-height: 1.6;
+}
+
+.yb-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.yb-card{
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 18px;
+  padding: 1.4rem 1.35rem;
+}
+
+.yb-card-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.yb-card h3{
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.yb-tag{
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.75);
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 6px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.yb-card-desc{
+  margin: 0 0 0.9rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.55;
+}
+
+.yb-list{
+  margin: 0;
+  padding-left: 1.15rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.yb-list li{
+  margin: 0.35rem 0;
+}
+
+.yb-split{
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.4rem;
+  align-items: start;
+}
+
+.yb-box{
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 18px;
+  padding: 1.4rem 1.35rem;
+}
+
+.yb-box h3{
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.yb-apply-btn-full{
+  width: 100%;
+  margin-top: 0.6rem;
+}
+
+/* Mobile */
+@media (max-width: 820px){
+  .yb-grid{ grid-template-columns: 1fr; }
+  .yb-split{ grid-template-columns: 1fr; }
+}
+/* =========================
+   Youth Board – Aesthetic Upgrade
+   ========================= */
+
+:root{
+  --yb-bg: #07090c;
+  --yb-panel: rgba(255,255,255,0.045);
+  --yb-panel-2: rgba(255,255,255,0.03);
+  --yb-border: rgba(255,255,255,0.09);
+  --yb-text: rgba(255,255,255,0.92);
+  --yb-muted: rgba(255,255,255,0.68);
+  --yb-soft: rgba(255,255,255,0.55);
+  --yb-white: #ffffff;
+  --yb-black: #0c0c0c;
+}
+
+.yb-page{
+  background: radial-gradient(1200px 700px at 15% 0%, rgba(255,255,255,0.06), transparent 55%),
+              radial-gradient(900px 600px at 85% 10%, rgba(255,255,255,0.04), transparent 55%),
+              var(--yb-bg);
+  color: var(--yb-text);
+}
+
+.yb-container{
+  width: min(1120px, 92%);
+  margin: 0 auto;
+}
+
+/* HERO */
+.yb-hero{
+  position: relative;
+  padding: 5.2rem 0 3.8rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  overflow: hidden;
+}
+
+.yb-hero::before{
+  content:"";
+  position:absolute;
+  inset:-200px -200px auto -200px;
+  height: 520px;
+  background:
+    radial-gradient(circle at 25% 40%, rgba(255,255,255,0.10), transparent 55%),
+    radial-gradient(circle at 70% 30%, rgba(255,255,255,0.07), transparent 55%);
+  filter: blur(2px);
+  pointer-events:none;
+}
+
+.yb-kicker{
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  margin: 0 0 0.9rem;
+}
+
+.yb-hero h1{
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1.08;
+  margin: 0 0 0.9rem;
+  font-weight: 850;
+}
+
+.yb-subtitle{
+  color: var(--yb-muted);
+  max-width: 760px;
+  margin: 0 0 1.7rem;
+  line-height: 1.65;
+  font-size: 1.05rem;
+}
+
+.yb-cta-row{
+  display:flex;
+  gap:0.85rem;
+  flex-wrap:wrap;
+  align-items:center;
+  margin-top: 0.4rem;
+}
+
+.yb-note{
+  margin-top: 1.15rem;
+  color: rgba(255,255,255,0.55);
+  font-size: 0.95rem;
+}
+
+/* BUTTONS */
+.yb-apply-btn{
+  background: var(--yb-white);
+  color: #111;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-weight: 850;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.40);
+}
+
+.yb-apply-btn:hover{
+  background: #f4f4f4;
+  transform: translateY(-2px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+}
+
+.yb-secondary-btn{
+  background: transparent;
+  color: rgba(255,255,255,0.9);
+  border: 1px solid rgba(255,255,255,0.22);
+  padding: 14px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.yb-secondary-btn:hover{
+  border-color: rgba(255,255,255,0.4);
+  transform: translateY(-2px);
+}
+
+/* SECTION HEADERS */
+.yb-section{
+  padding: 3.75rem 0;
+}
+
+.yb-title{
+  font-size: 2.0rem;
+  margin: 0 0 0.65rem;
+  font-weight: 850;
+  letter-spacing: -0.01em;
+}
+
+.yb-text{
+  color: var(--yb-muted);
+  margin: 0 0 2.1rem;
+  line-height: 1.65;
+}
+
+/* GRID */
+.yb-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+/* CARDS */
+.yb-card{
+  background: linear-gradient(180deg, var(--yb-panel), var(--yb-panel-2));
+  border: 1px solid var(--yb-border);
+  border-radius: 20px;
+  padding: 1.6rem 1.55rem;
+  box-shadow: 0 22px 70px rgba(0,0,0,0.35);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.yb-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: radial-gradient(700px 180px at 30% 0%, rgba(255,255,255,0.07), transparent 60%);
+  opacity: 0.7;
+  pointer-events:none;
+}
+
+.yb-card:hover{
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,0.16);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+}
+
+.yb-card-header{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.7rem;
+  position: relative;
+  z-index: 1;
+}
+
+.yb-card h3{
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 850;
+  letter-spacing: -0.01em;
+}
+
+.yb-tag{
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.72);
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 6px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  background: rgba(0,0,0,0.18);
+  backdrop-filter: blur(6px);
+}
+
+.yb-card-desc{
+  margin: 0 0 1.0rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* List nicer bullets */
+.yb-list{
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  color: rgba(255,255,255,0.8);
+  position: relative;
+  z-index: 1;
+}
+
+.yb-list li{
+  margin: 0.5rem 0;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.yb-list li::before{
+  content:"•";
+  position:absolute;
+  left: 0.35rem;
+  top: 0;
+  color: rgba(255,255,255,0.55);
+}
+
+/* ALT SECTION (the bottom split) */
+.yb-section-alt{
+  background: rgba(255,255,255,0.02);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.yb-split{
+  display:grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.4rem;
+  align-items: start;
+}
+
+.yb-box{
+  background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 20px;
+  padding: 1.6rem 1.55rem;
+  box-shadow: 0 22px 70px rgba(0,0,0,0.35);
+}
+
+.yb-box h3{
+  margin: 0 0 0.55rem;
+  font-size: 1.25rem;
+  font-weight: 850;
+}
+
+.yb-apply-btn-full{
+  width: 100%;
+  margin-top: 0.7rem;
+}
+
+/* MOBILE */
+@media (max-width: 820px){
+  .yb-hero{ padding: 4.2rem 0 3.2rem; }
+  .yb-grid{ grid-template-columns: 1fr; }
+  .yb-split{ grid-template-columns: 1fr; }
+}
+/* =========================
+   Youth Board – Brand Color Match ONLY
+   (Keeps haze & layout exactly the same)
+   ========================= */
+
+/* Accent variables */
+:root{
+  --pfc-accent: #F3D6A4;              /* warm cream */
+  --pfc-accent-soft: rgba(243,214,164,0.25);
+  --pfc-accent-faint: rgba(243,214,164,0.12);
+}
+
+/* HERO HAZE — warm it up */
+.yb-hero::before{
+  background:
+    radial-gradient(circle at 25% 40%, var(--pfc-accent-soft), transparent 55%),
+    radial-gradient(circle at 70% 30%, var(--pfc-accent-faint), transparent 55%);
+}
+
+/* SECTION TITLE */
+.yb-title{
+  color: #ffffff;
+}
+
+/* CARD BACKGROUNDS — subtle warm tint */
+.yb-card{
+  background: linear-gradient(
+    180deg,
+    rgba(243,214,164,0.07),
+    rgba(255,255,255,0.03)
+  );
+  border-color: rgba(243,214,164,0.25);
+}
+
+/* CARD HOVER — slightly warmer */
+.yb-card:hover{
+  background: linear-gradient(
+    180deg,
+    rgba(243,214,164,0.10),
+    rgba(255,255,255,0.04)
+  );
+}
+
+/* TAGS (Creates Posts / Gets Partners etc.) */
+.yb-tag{
+  background: rgba(243,214,164,0.12);
+  border-color: rgba(243,214,164,0.35);
+  color: #fbe8c8;
+}
+
+/* BULLET POINTS */
+.yb-list li::before{
+  color: rgba(243,214,164,0.7);
+}
+
+/* APPLY BUTTON — already white, add warmth */
+.yb-apply-btn{
+  background: #fffaf0;
+  color: #111;
+}
+
+/* SECONDARY BUTTON */
+.yb-secondary-btn{
+  border-color: rgba(243,214,164,0.4);
+  color: #fbe8c8;
+}
+
+/* SUBTEXT */
+.yb-text,
+.yb-card-desc{
+  color: rgba(255,255,255,0.78);
+}
+.yb-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* This creates a clean fade-out at the bottom */
+.yb-hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 140px;
+  background: linear-gradient(
+    to bottom,
+    rgba(7, 9, 12, 0),
+    #07090c 85%
+  );
+  pointer-events: none;
+}
+.yb-hero {
+  background:
+    radial-gradient(900px 420px at 20% 0%, rgba(243,214,164,0.18), transparent 60%),
+    radial-gradient(900px 420px at 80% 0%, rgba(243,214,164,0.12), transparent 60%),
+    linear-gradient(
+      180deg,
+      rgba(20, 18, 14, 0.95),
+      rgba(7, 9, 12, 0.92)
+    );
+  border-bottom-left-radius: 36px;
+  border-bottom-right-radius: 36px;
+  box-shadow:
+    inset 0 -1px 0 rgba(255,255,255,0.06),
+    0 30px 80px rgba(0,0,0,0.55);
+}
+.yb-hero::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,0.05);
+  pointer-events: none;
+}
+.yb-container {
+  max-width: 1080px;
+}
+/* =========================
+   Youth Board – Criteria section match
+   ========================= */
+
+/* Make this section feel like the same "system" as the cards */
+.yb-section-alt{
+  background: radial-gradient(900px 420px at 15% 30%, rgba(243,214,164,0.06), transparent 60%),
+              rgba(255,255,255,0.02);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Grid spacing consistent with the rest of the page */
+.yb-split{
+  gap: 2.2rem;
+  align-items: center;
+}
+
+/* Left side list: match card list style (clean bullets + spacing) */
+.yb-section-alt .yb-list{
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.yb-section-alt .yb-list li{
+  position: relative;
+  padding-left: 1.3rem;
+  margin: 0.55rem 0;
+  color: rgba(255,255,255,0.82);
+}
+
+.yb-section-alt .yb-list li::before{
+  content: "•";
+  position: absolute;
+  left: 0.35rem;
+  top: 0;
+  color: rgba(243,214,164,0.75);
+}
+
+/* Right box: make it match the role cards */
+.yb-box{
+  background: linear-gradient(180deg, rgba(243,214,164,0.07), rgba(255,255,255,0.03));
+  border: 1px solid rgba(243,214,164,0.25);
+  border-radius: 22px;
+  box-shadow: 0 22px 70px rgba(0,0,0,0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle top-corner highlight like the cards */
+.yb-box::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: radial-gradient(700px 220px at 20% 0%, rgba(255,255,255,0.10), transparent 60%);
+  pointer-events:none;
+  opacity: 0.55;
+}
+
+/* Box text color harmony */
+.yb-box p{
+  color: rgba(255,255,255,0.75);
+}
+
+/* Apply button: keep white but warm the tone so it matches */
+.yb-box .yb-apply-btn,
+.yb-box .yb-apply-btn-full{
+  background: #fffaf0;
+  border: 1px solid rgba(243,214,164,0.25);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.40);
+}
+
+.yb-box .yb-apply-btn:hover,
+.yb-box .yb-apply-btn-full:hover{
+  background: #fff3df;
+  transform: translateY(-2px);
+}
+
+/* On mobile, avoid awkward centering */
+@media (max-width: 820px){
+  .yb-split{
+    align-items: start;
+  }
+}
