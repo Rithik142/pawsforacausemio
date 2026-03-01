@@ -8101,10 +8101,71 @@ nav .nav-list {
   padding: 5.5rem 1rem;
 }
 
+.dog-intro {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: end;
+  overflow: hidden;
+  background: #020202;
+}
+
+.dog-intro__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(110deg, rgba(0, 0, 0, 0.64) 18%, rgba(0, 0, 0, 0.2) 58%, rgba(0, 0, 0, 0.68) 100%),
+    url('images/flowerdog.jpg') center 30% / cover no-repeat;
+  transform: scale(1.03);
+  animation: heroKenBurns 16s ease-in-out infinite alternate;
+}
+
+.dog-intro__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 22%, rgba(16, 185, 129, 0.3), transparent 42%);
+}
+
+.dog-intro__content {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 10vh;
+  max-width: 760px;
+}
+
+.dog-intro__eyebrow {
+  color: #86efac;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.84rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+}
+
+.dog-intro h1 {
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  line-height: 0.96;
+  margin: 0;
+  text-shadow: 0 14px 36px rgba(0, 0, 0, 0.5);
+}
+
+.dog-intro__motto {
+  margin-top: 0.95rem;
+  font-size: clamp(1.05rem, 3vw, 1.6rem);
+  color: #e2e8f0;
+  letter-spacing: 0.04em;
+}
+
+.dog-intro__scroll {
+  display: inline-flex;
+  margin-top: 1.2rem;
+}
+
 .landing-hero {
   position: relative;
   overflow: hidden;
   min-height: 88vh;
+  padding-top: 3rem;
   display: flex;
   align-items: center;
   background: radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.2), transparent 40%), #060606;
@@ -8342,7 +8403,16 @@ nav .nav-list {
   50% { opacity: 1; }
 }
 
+@keyframes heroKenBurns {
+  from { transform: scale(1.03); }
+  to { transform: scale(1.1); }
+}
+
 @media (max-width: 640px) {
+  .dog-intro__content {
+    padding-bottom: 7vh;
+  }
+
   .timeline::before { left: 15px; }
   .timeline-item { padding-left: 2.7rem; }
   .timeline-dot { left: 7px; }
@@ -8533,7 +8603,8 @@ body.intro-done .opening-overlay {
 @media (prefers-reduced-motion: reduce) {
   .opening-overlay,
   .opening-text,
-  .paw-drift span {
+  .paw-drift span,
+  .dog-intro__bg {
     animation: none !important;
     transition: none !important;
   }
