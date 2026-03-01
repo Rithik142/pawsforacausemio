@@ -8115,7 +8115,7 @@ nav .nav-list {
   inset: 0;
   background:
     linear-gradient(110deg, rgba(0, 0, 0, 0.64) 18%, rgba(0, 0, 0, 0.2) 58%, rgba(0, 0, 0, 0.68) 100%),
-    url('images/flowerdog.jpg') center 30% / cover no-repeat;
+    url('images/Homepage.jpg') center 30% / cover no-repeat;
   transform: scale(1.03);
   animation: heroKenBurns 16s ease-in-out infinite alternate;
 }
