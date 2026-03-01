@@ -8115,7 +8115,7 @@ nav .nav-list {
   inset: 0;
   background:
     linear-gradient(110deg, rgba(0, 0, 0, 0.64) 18%, rgba(0, 0, 0, 0.2) 58%, rgba(0, 0, 0, 0.68) 100%),
-    url('images/Homepage.jpg') center 30% / cover no-repeat;
+    url('images/flowerdog.jpg') center 30% / cover no-repeat;
   transform: scale(1.03);
   animation: heroKenBurns 16s ease-in-out infinite alternate;
 }
@@ -8878,14 +8878,59 @@ body.intro-done .opening-overlay {
 .team-page .value-card {
   border: 1px solid rgba(52, 211, 153, 0.28);
   border-radius: 1rem;
-  padding: 1.1rem;
-  background: rgba(5, 10, 8, 0.88);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  padding: 1.15rem;
+  background: linear-gradient(160deg, rgba(8, 20, 14, 0.95), rgba(4, 9, 7, 0.98)) !important;
+  color: #ecfdf5 !important;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(110, 231, 183, 0.1);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .team-page .value-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-6px) scale(1.01);
   border-color: rgba(110, 231, 183, 0.8);
+  box-shadow: 0 18px 34px rgba(16, 185, 129, 0.22), inset 0 1px 0 rgba(110, 231, 183, 0.25);
+}
+
+.team-page .values-block-v2 {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 82% 12%, rgba(16, 185, 129, 0.16), transparent 45%),
+    linear-gradient(165deg, rgba(5, 14, 10, 0.96), rgba(3, 8, 6, 0.98));
+}
+
+.team-page .values-block-v2::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(110, 231, 183, 0.05), transparent 25%);
+}
+
+.team-page .values-block-v2 .section-heading {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.35rem;
+}
+
+.team-page .values-block-v2 .value-card .emoji {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 0.7rem;
+  font-size: 1.45rem;
+  background: rgba(52, 211, 153, 0.16);
+  border: 1px solid rgba(110, 231, 183, 0.38);
+}
+
+.team-page .values-block-v2 .value-card h3 {
+  color: #f8fafc !important;
+  margin-bottom: 0.4rem;
+}
+
+.team-page .values-block-v2 .value-card p {
+  color: #bbcbdb !important;
 }
 
 @keyframes teamHeroDrift {
