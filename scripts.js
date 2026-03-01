@@ -14,12 +14,12 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── 2b) MOBILE DROPDOWN FOR "GET INVOLVED" ──
-  document.querySelectorAll('.has‑dd > a').forEach(link => {
+  document.querySelectorAll('.has-dd > a').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
       const li = e.currentTarget.parentElement;
       const isOpen = li.classList.toggle('open');
-      link.setAttribute('aria‑expanded', isOpen);
+      link.setAttribute('aria-expanded', isOpen);
     });
   });
 
