@@ -4,25 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us | Paws for a Cause</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=League+Spartan:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script src="scripts.js" defer></script>
 </head>
-<body>
-  <!-- HEADER -->
+<body class="team-page">
   <header>
     <a href="index.html" class="logo">PAWS FOR A CAUSE</a>
     <nav>
       <ul class="nav-list">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="team.html">About Us</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="team.html" class="active">About Us</a></li>
         <li><a href="youth-board.html">Youth Board</a></li>
         <li><a href="services.html">Our Work</a></li>
         <li class="has-dd">
           <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
           <ul class="dropdown" role="menu">
             <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
-            <li><a href="partner.html"  role="menuitem">Partner</a></li>
+            <li><a href="partner.html" role="menuitem">Partner</a></li>
           </ul>
         </li>
         <li><a href="contact.html">Contact Us</a></li>
@@ -31,94 +30,112 @@
     <div class="hamburger">☰</div>
   </header>
 
- <section class="our-story container reveal visible">
-
-
-      <div class="story-img">
-        <img src="images/image.png" alt="Volunteers at an adoption fair">
+  <main>
+    <section class="team-hero-v2 reveal">
+      <div class="team-hero-v2__orbs" aria-hidden="true">
+        <span></span><span></span><span></span>
       </div>
-      <div class="story-text">
-        <h2 class="section-title fancy-title"><span>Why</span> We Started</h2>
-
+      <div class="team-hero-v2__paws" aria-hidden="true">
+        <span>🐾</span><span>🐾</span><span>🐾</span><span>🐾</span><span>🐾</span>
+      </div>
+      <div class="container team-hero-v2__content">
+        <p class="team-hero-v2__eyebrow">Youth-led nonprofit • Michigan</p>
+        <h1>Meet the Team Behind the Mission</h1>
         <p>
-        Paws for a Cause is a teen-run nonprofit started July 16, 2025, in Okemos, MI, to champion animal welfare through adoption, fostering, education, and community outreach. Led entirely by high school juniors, it empowers youth to drive change—raising funds, hosting events, and improving animal lives one paw at a time.
+          Passionate youth leaders shaping a kinder world for animals through service,
+          education, and community-driven impact.
         </p>
+        <a class="btn-hero" href="#team-members">Meet Our Founders</a>
       </div>
     </section>
-  <!-- HERO TITLE -->
-  <section class="team-hero reveal">
-    <h1>Meet the Team Behind the Mission</h1>
-    <p>Passionate youth leaders shaping a kinder world for animals.</p>
-  </section>
 
-  <!-- TEAM CARDS -->
-  <section class="team-grid reveal" style="flex-wrap: nowrap; overflow-x: auto;">
-    <div class="card">
-      <img src="images/IMG_0575.JPG" alt="Tejas Valisetty">
-      <h3>Tejas Valisetty</h3>
-      <p>President of Operations</p>
-    </div>
-    <div class="card">
-    <img src="images/rithik.png" alt="Rithik Parthasarathy" class="team-photo portrait">
+    <section class="our-story-v2 container reveal" id="story">
+      <div class="our-story-v2__image">
+        <img src="images/image.png" alt="Volunteers at an adoption fair" />
+      </div>
+      <article class="our-story-v2__text">
+        <h2><span>Why</span> We Started</h2>
+        <p>
+          Paws for a Cause is a teen-run nonprofit started July 16, 2025, in Okemos, MI, to champion
+          animal welfare through adoption, fostering, education, and community outreach. Led entirely
+          by high school juniors, it empowers youth to drive change—raising funds, hosting events,
+          and improving animal lives one paw at a time.
+        </p>
+      </article>
+    </section>
 
-      <h3>Rithik Parthasarathy</h3>
-      <p>President of Records</p>
-    </div>
-    <div class="card">
-      <img src="images/IMG_0977.JPG" alt="Vaibhav Mahesha">
-      <h3>Vaibhav Mahesha</h3>
-      <p>President of Outreach</p>
-    </div>
-  </section>
-<!-- ===== TEAM BRIDGE SECTION (between cards and values) ===== -->
-<!-- WHY WE STARTED -->
-<section id="why" class="why-block reveal container">
-  <h2 class="section-heading"><span>Why</span> We Started</h2>
-  <p class="lede">
-    We’re a small, youth‑led crew that launched in July 2025 after seeing how many pets are left to fend for themselves. Paws for a Cause exists to make animal care and adoption easier—and give teens a voice in that work.
-  </p>
+    <section id="team-members" class="team-members-v2 container reveal">
+      <h2 class="section-title">Leadership Team</h2>
+      <div class="team-members-v2__grid">
+        <article class="team-member-card">
+          <img src="images/IMG_0575.JPG" alt="Tejas Valisetty" />
+          <div class="team-member-card__info">
+            <h3>Tejas Valisetty</h3>
+            <p>President of Operations</p>
+          </div>
+        </article>
+        <article class="team-member-card">
+          <img src="images/rithik.png" alt="Rithik Parthasarathy" class="team-photo portrait" />
+          <div class="team-member-card__info">
+            <h3>Rithik Parthasarathy</h3>
+            <p>President of Records</p>
+          </div>
+        </article>
+        <article class="team-member-card">
+          <img src="images/IMG_0977.JPG" alt="Vaibhav Mahesha" />
+          <div class="team-member-card__info">
+            <h3>Vaibhav Mahesha</h3>
+            <p>President of Outreach</p>
+          </div>
+        </article>
+      </div>
+    </section>
 
-  <ul class="why-list">
-    <li><strong>Real help, fast.</strong> Adoption events, foster support, and supply drives.</li>
-    <li><strong>Resources that stick.</strong> Toolkits for new pet owners and community education.</li>
-    <li><strong>Powered by teens.</strong> We plan, fundraise, and partner with local shelters and clubs.</li>
-    <li><strong>Growing together.</strong> Mentors & partners welcome—there’s room for everyone who cares.</li>
-  </ul>
+    <section id="why" class="why-block-v2 reveal container">
+      <h2 class="section-heading"><span>Why</span> We Started</h2>
+      <p class="lede">
+        We’re a small, youth-led crew that launched in July 2025 after seeing how many pets are left to
+        fend for themselves. Paws for a Cause exists to make animal care and adoption easier—and give
+        teens a voice in that work.
+      </p>
 
-  <div class="impact-row">
-    <div class="impact-item"><span class="num">2025</span><small>Founded</small></div>
-    <div class="impact-item"><span class="num">3</span><small>Teen Cofounders</small></div>
-    <div class="impact-item"><span class="num">∞</span><small>Paws to Help</small></div>
-  </div>
-</section>
+      <ul class="why-list">
+        <li><strong>Real help, fast.</strong> Adoption events, foster support, and supply drives.</li>
+        <li><strong>Resources that stick.</strong> Toolkits for new pet owners and community education.</li>
+        <li><strong>Powered by teens.</strong> We plan, fundraise, and partner with local shelters and clubs.</li>
+        <li><strong>Growing together.</strong> Mentors & partners welcome—there’s room for everyone who cares.</li>
+      </ul>
 
-<!-- WHAT WE STAND FOR -->
-<section id="values" class="values-block reveal container">
-  <h2 class="section-heading">What We Stand For</h2>
+      <div class="impact-row">
+        <div class="impact-item"><span class="num">2025</span><small>Founded</small></div>
+        <div class="impact-item"><span class="num">3</span><small>Teen Cofounders</small></div>
+        <div class="impact-item"><span class="num">∞</span><small>Paws to Help</small></div>
+      </div>
+    </section>
 
-  <div class="values-grid">
-    <div class="value-card">
-      <span class="emoji">❤️</span>
-      <h3>Compassion</h3>
-      <p>We lead with empathy and care for animals and each other.</p>
-    </div>
-    <div class="value-card">
-      <span class="emoji">🧭</span>
-      <h3>Leadership</h3>
-      <p>We empower youth to make a difference in their communities.</p>
-    </div>
-    <div class="value-card">
-      <span class="emoji">🐾</span>
-      <h3>Service</h3>
-      <p>We support shelters, foster families, and new pet owners with dedication.</p>
-    </div>
-  </div>
-</section>
+    <section id="values" class="values-block-v2 reveal container">
+      <h2 class="section-heading">What We Stand For</h2>
+      <div class="values-grid">
+        <article class="value-card">
+          <span class="emoji">❤️</span>
+          <h3>Compassion</h3>
+          <p>We lead with empathy and care for animals and each other.</p>
+        </article>
+        <article class="value-card">
+          <span class="emoji">🧭</span>
+          <h3>Leadership</h3>
+          <p>We empower youth to make a difference in their communities.</p>
+        </article>
+        <article class="value-card">
+          <span class="emoji">🐾</span>
+          <h3>Service</h3>
+          <p>We support shelters, foster families, and new pet owners with dedication.</p>
+        </article>
+      </div>
+    </section>
+  </main>
 
-
-
-  <!-- FOOTER -->
- <footer>
+  <footer>
     <p>&copy; 2025 Paws for a Cause | <a href="privacy.html">Privacy Policy</a></p>
     <div class="social">
       <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
@@ -126,6 +143,5 @@
       <a href="mailto:pawsforacausemi@gmail.com">Email</a>
     </div>
   </footer>
-
 </body>
 </html>

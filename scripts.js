@@ -14,12 +14,12 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── 2b) MOBILE DROPDOWN FOR "GET INVOLVED" ──
-  document.querySelectorAll('.has‑dd > a').forEach(link => {
+  document.querySelectorAll('.has-dd > a').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
       const li = e.currentTarget.parentElement;
       const isOpen = li.classList.toggle('open');
-      link.setAttribute('aria‑expanded', isOpen);
+      link.setAttribute('aria-expanded', isOpen);
     });
   });
 
@@ -205,6 +205,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const laterBtn = document.getElementById("maybeLaterBtn");
   const applyBtn = document.getElementById("applyNowBtn");
 
+  if (!modal) return;
+
   // Change this to control how often it shows:
   // "once" behavior: it won't show again after they close/apply
   const STORAGE_KEY = "p4ac_youthboard_popup_seen";
@@ -248,4 +250,46 @@ document.addEventListener("DOMContentLoaded", () => {
       closeModal();
     }
   });
+});
+
+
+// ===== Landing page interactions =====
+document.addEventListener('DOMContentLoaded', () => {
+  const flipCards = document.querySelectorAll('.flip-card');
+  flipCards.forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('is-flipped'));
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        card.classList.toggle('is-flipped');
+      }
+    });
+  });
+
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  if ('IntersectionObserver' in window && timelineItems.length > 0) {
+    const timelineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          timelineObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    timelineItems.forEach(item => timelineObserver.observe(item));
+  } else {
+    timelineItems.forEach(item => item.classList.add('visible'));
+  }
+});
+
+
+// ===== Opening animation lifecycle =====
+document.addEventListener('DOMContentLoaded', () => {
+  const finishIntro = () => document.body.classList.add('intro-done');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    finishIntro();
+    return;
+  }
+  setTimeout(finishIntro, 1350);
 });
