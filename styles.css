@@ -8779,6 +8779,7 @@ body.intro-done .opening-overlay {
 }
 
 .team-members-v2,
+.youth-board-v2,
 .why-block-v2,
 .values-block-v2 {
   padding-block: 4rem;
@@ -8819,6 +8820,81 @@ body.intro-done .opening-overlay {
 }
 
 .team-member-card__info p {
+  margin: 0.35rem 0 0;
+  color: #9ca3af;
+}
+
+.youth-board-v2 {
+  border: 1px solid rgba(52, 211, 153, 0.24);
+  border-radius: 1.1rem;
+  margin-bottom: 1.25rem;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(52, 211, 153, 0.16), transparent 40%),
+    linear-gradient(165deg, rgba(4, 13, 9, 0.95), rgba(4, 7, 6, 0.98));
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.32);
+}
+
+.youth-board-v2__header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 1.5rem;
+}
+
+.youth-board-v2__eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #6ee7b7;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.youth-board-v2__header .section-title {
+  margin: 0.45rem 0 0.65rem;
+}
+
+.youth-board-v2__mission {
+  margin: 0;
+  color: #cbd5e1;
+}
+
+.youth-board-v2__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.youth-card {
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(110, 231, 183, 0.3);
+  background: linear-gradient(165deg, rgba(6, 17, 13, 0.94), rgba(4, 8, 7, 0.98));
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.youth-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(110, 231, 183, 0.7);
+  box-shadow: 0 22px 44px rgba(16, 185, 129, 0.2);
+}
+
+.youth-card img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  display: block;
+}
+
+.youth-card__info {
+  padding: 1rem 1.1rem 1.2rem;
+}
+
+.youth-card__info h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.youth-card__info p {
   margin: 0.35rem 0 0;
   color: #9ca3af;
 }
@@ -8956,6 +9032,7 @@ body.intro-done .opening-overlay {
   }
 
   .team-members-v2__grid,
+  .youth-board-v2__grid,
   .team-page .values-grid,
   .team-page .impact-row {
     grid-template-columns: 1fr;
@@ -8968,4 +9045,367 @@ body.intro-done .opening-overlay {
   .team-hero-v2__paws span {
     animation: none !important;
   }
+}
+
+/* ===== Team placeholders + upgraded motion ===== */
+.team-photo-slot {
+  width: 100%;
+  aspect-ratio: 3/4;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #bbf7d0;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(52, 211, 153, 0.2), transparent 40%),
+    repeating-linear-gradient(
+      135deg,
+      rgba(4, 16, 12, 0.95),
+      rgba(4, 16, 12, 0.95) 12px,
+      rgba(8, 28, 19, 0.95) 12px,
+      rgba(8, 28, 19, 0.95) 24px
+    );
+}
+
+.team-photo-slot span {
+  border: 1px dashed rgba(110, 231, 183, 0.75);
+  border-radius: 999px;
+  padding: 0.5rem 0.85rem;
+  background: rgba(5, 20, 13, 0.8);
+}
+
+.team-member-card,
+.youth-card,
+.state-card,
+.region-card,
+.state-role-card {
+  animation: cardRise 0.8s ease both;
+}
+
+.team-members-v2__grid > *:nth-child(2),
+.youth-board-v2__grid > *:nth-child(2),
+.state-role-grid > *:nth-child(2),
+.state-grid__cards > *:nth-child(2),
+.mi-regions__grid > *:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.team-members-v2__grid > *:nth-child(3),
+.youth-board-v2__grid > *:nth-child(3),
+.state-role-grid > *:nth-child(3),
+.state-grid__cards > *:nth-child(3),
+.mi-regions__grid > *:nth-child(3) {
+  animation-delay: 0.22s;
+}
+
+.state-grid__cards > *:nth-child(4),
+.state-role-grid > *:nth-child(4),
+.mi-regions__grid > *:nth-child(4) {
+  animation-delay: 0.32s;
+}
+
+@keyframes cardRise {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== State Board page ===== */
+.state-board-page {
+  background: #030706;
+  color: #e5f7ef;
+}
+
+.state-board-page .logo,
+.state-board-page h1,
+.state-board-page h2,
+.state-board-page h3,
+.state-board-page .nav-list a {
+  font-family: 'League Spartan', sans-serif;
+}
+
+.state-hero {
+  position: relative;
+  min-height: 52vh;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.28), transparent 35%),
+    radial-gradient(circle at 80% 80%, rgba(6, 95, 70, 0.45), transparent 42%),
+    #050808;
+}
+
+.state-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2, 8, 6, 0.65), rgba(2, 8, 6, 0.9));
+  pointer-events: none;
+}
+
+.state-hero .container { position: relative; z-index: 1; }
+.state-hero__kicker { text-transform: uppercase; letter-spacing: 0.14em; color: #6ee7b7; font-weight: 700; }
+.state-hero h1 { font-size: clamp(2rem, 5vw, 4rem); margin: 0.5rem 0 0.7rem; }
+.state-hero p { color: #d1d5db; max-width: 65ch; }
+
+.state-board-roles,
+.state-grid,
+.mi-regions {
+  padding-block: 3.2rem;
+}
+
+.state-role-grid,
+.state-grid__cards,
+.mi-regions__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.state-role-card,
+.state-card,
+.region-card {
+  border: 1px solid rgba(110, 231, 183, 0.32);
+  border-radius: 1rem;
+  padding: 1.1rem;
+  background: linear-gradient(165deg, rgba(6, 17, 13, 0.92), rgba(3, 8, 7, 0.98));
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.32);
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.state-card h3,
+.region-card h3,
+.state-role-card h3 {
+  margin-top: 0;
+  color: #ecfdf5;
+}
+
+.state-card p,
+.region-card p,
+.state-role-card p {
+  margin: 0.35rem 0;
+  color: #cbd5e1;
+}
+
+.state-card span,
+.region-card span,
+.state-role-card span { color: #86efac; font-weight: 600; }
+
+.state-card ul {
+  margin: 0.7rem 0 0;
+  padding-left: 1rem;
+  color: #dbeafe;
+}
+
+.state-role-card:hover,
+.state-card:hover,
+.region-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(110, 231, 183, 0.72);
+  box-shadow: 0 22px 34px rgba(16, 185, 129, 0.2);
+}
+
+/* ===== Mobile nav reliability fix (all pages) ===== */
+@media (max-width: 900px) {
+  .hamburger {
+    display: block !important;
+    position: relative;
+    z-index: 1202;
+  }
+
+  header nav .nav-list {
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    width: min(82vw, 360px);
+    height: 100dvh;
+    display: flex !important;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 5rem 1rem 1rem;
+    margin: 0;
+    background: rgba(2, 9, 7, 0.98);
+    border-left: 1px solid rgba(110, 231, 183, 0.35);
+    transform: translateX(104%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 1201;
+  }
+
+  header nav .nav-list.show {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .has-dd > .dropdown {
+    position: static !important;
+    background: rgba(3, 14, 10, 0.95);
+    border: 1px solid rgba(110, 231, 183, 0.24);
+    margin-top: 0.45rem;
+  }
+
+  body.nav-open::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1200;
+  }
+
+  .state-role-grid,
+  .state-grid__cards,
+  .mi-regions__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Events page refresh ===== */
+.events-page-v2 {
+  background: #040706;
+  color: #e8faf1;
+}
+
+.events-page-v2 .logo,
+.events-page-v2 h1,
+.events-page-v2 h2,
+.events-page-v2 h3,
+.events-page-v2 .nav-list a {
+  font-family: 'League Spartan', sans-serif;
+}
+
+.events-hero-v2 {
+  min-height: 52vh;
+  display: grid;
+  align-items: center;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.25), transparent 40%),
+    linear-gradient(160deg, rgba(3, 10, 7, 0.98), rgba(2, 6, 5, 0.98));
+}
+
+.events-hero-v2__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #6ee7b7;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.events-hero-v2 h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 4rem);
+}
+
+.events-hero-v2 p {
+  color: #d1d5db;
+  max-width: 65ch;
+}
+
+.events-timeline-v2 {
+  padding-block: 3.4rem;
+}
+
+.events-v2-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.event-v2-card {
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(110, 231, 183, 0.3);
+  background: linear-gradient(165deg, rgba(5, 16, 12, 0.94), rgba(3, 9, 7, 0.98));
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.34);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-v2-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(110, 231, 183, 0.74);
+  box-shadow: 0 22px 40px rgba(16, 185, 129, 0.2);
+}
+
+.event-v2-media-slot {
+  width: 100%;
+  aspect-ratio: 4/3;
+  display: grid;
+  place-items: center;
+  color: #bbf7d0;
+  text-align: center;
+  padding: 1rem;
+  background:
+    radial-gradient(circle at 25% 22%, rgba(52, 211, 153, 0.19), transparent 40%),
+    repeating-linear-gradient(
+      -35deg,
+      rgba(5, 16, 12, 0.94),
+      rgba(5, 16, 12, 0.94) 14px,
+      rgba(8, 23, 17, 0.96) 14px,
+      rgba(8, 23, 17, 0.96) 28px
+    );
+}
+
+.event-v2-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+
+.event-v2-media-slot span {
+  border: 1px dashed rgba(110, 231, 183, 0.7);
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+}
+
+.event-v2-card__info {
+  padding: 1rem 1rem 1.2rem;
+}
+
+.event-v2-card__info h3 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.event-v2-date {
+  color: #86efac;
+  font-weight: 700;
+  margin: 0.45rem 0;
+}
+
+.event-v2-card__info p {
+  color: #d1d5db;
+}
+
+.state-photo-slot {
+  margin-top: 0.8rem;
+}
+
+@media (max-width: 980px) {
+  .events-v2-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.partner-logo-text {
+  width: 100%;
+  height: 100%;
+  min-height: 120px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-weight: 700;
+  color: #0f766e;
+  background: linear-gradient(160deg, rgba(236, 253, 245, 0.95), rgba(220, 252, 231, 0.95));
+  border: 1px dashed rgba(16, 185, 129, 0.55);
+  border-radius: 0.7rem;
+  padding: 0.6rem;
 }
