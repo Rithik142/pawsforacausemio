@@ -8,14 +8,40 @@ window.addEventListener('DOMContentLoaded', () => {
   const burger = document.querySelector('.hamburger');
   const menu   = document.querySelector('nav .nav-list');
   if (burger && menu) {
+    burger.setAttribute('aria-expanded', 'false');
     burger.addEventListener('click', () => {
-      menu.classList.toggle('show');
+      const isOpen = menu.classList.toggle('show');
+      burger.setAttribute('aria-expanded', String(isOpen));
+      document.body.classList.toggle('nav-open', isOpen);
+    });
+
+    // Close drawer when tapping a normal nav link on mobile
+    menu.querySelectorAll('a[href]:not([href="#"])').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.matchMedia('(max-width: 900px)').matches) {
+          menu.classList.remove('show');
+          burger.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('nav-open');
+        }
+      });
+    });
+
+    // Close if user taps outside
+    document.addEventListener('click', (event) => {
+      const clickedInsideHeader = event.target.closest('header');
+      if (!clickedInsideHeader && menu.classList.contains('show')) {
+        menu.classList.remove('show');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('nav-open');
+      }
     });
   }
 
   // ── 2b) MOBILE DROPDOWN FOR "GET INVOLVED" ──
   document.querySelectorAll('.has-dd > a').forEach(link => {
     link.addEventListener('click', e => {
+      const isMobile = window.matchMedia('(max-width: 900px)').matches;
+      if (!isMobile) return;
       e.preventDefault();
       const li = e.currentTarget.parentElement;
       const isOpen = li.classList.toggle('open');
