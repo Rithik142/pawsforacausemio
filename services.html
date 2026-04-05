@@ -21,6 +21,7 @@
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="team.html">About Us</a></li>
         <li><a href="youth-board.html">Youth Board</a></li>
+        <li><a href="state-board.html">State Board</a></li>
         <li><a href="services.html">Our Work</a></li>
         <li class="has-dd">
           <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
@@ -58,24 +59,24 @@
   <!-- upcoming -->
   <ul id="upcoming-events" class="events-list">
     <li>
-      <strong>To be added</strong>
-      <time datetime="tbd">tbd</time>
+      <strong>[Add upcoming event]</strong>
+      <time datetime="tbd">TBD • Location TBD</time>
     </li>
     <li>
-      <strong>To be added</strong>
-      <time datetime="tbd">tbd</time>
+      <strong>[Add upcoming event]</strong>
+      <time datetime="tbd">TBD • Location TBD</time>
     </li>
   </ul>
 
   <!-- past (hidden by default) -->
   <ul id="past-events" class="events-list" hidden>
     <li>
-      <strong>To be added</strong>
-      <time datetime="tbd">tbd</time>
+      <strong>Ingham County Animal Control &amp; Shelter Orientation</strong>
+      <time datetime="2026-01">600 Buhl St, Mason, MI 48854</time>
     </li>
     <li>
-      <strong>To be added</strong>
-      <time datetime="tbd">tbd</time>
+      <strong>Capital Area Humane Society Orientation</strong>
+      <time datetime="2026-01">7095 W Grand River Ave, Lansing, MI 48906</time>
     </li>
   </ul>
 </section>
@@ -92,6 +93,16 @@
       <div class="partner-info">
         <h3>Ingham County Animal Control & Shelter</h3>
         <p>600 Buhl St Mason, MI</p>
+      </div>
+    </a>
+
+    <a href="https://www.cahs-lansing.org/" class="partner-card" target="_blank" rel="noopener">
+      <div class="logo-wrapper">
+        <div class="partner-logo-text">Add CAHS Logo</div>
+      </div>
+      <div class="partner-info">
+        <h3>Capital Area Humane Society</h3>
+        <p>7095 W Grand River Ave, Lansing, MI 48906</p>
       </div>
     </a>
 
@@ -114,6 +125,26 @@
       <div class="partner-info">
         <h3>Wildside Rehabilitation & Education Center</h3>
         <p>8601 Houston Rd, Eaton Rapids, MI 48827</p>
+      </div>
+    </a>
+
+    <a href="https://lansingtelugu.org/" class="partner-card" target="_blank" rel="noopener">
+      <div class="logo-wrapper">
+        <div class="partner-logo-text">Add LTA Logo</div>
+      </div>
+      <div class="partner-info">
+        <h3>LTA (Lansing Telugu Association)</h3>
+        <p>Lansing, Michigan</p>
+      </div>
+    </a>
+
+    <a href="https://www.lansingtamilsangam.org/" class="partner-card" target="_blank" rel="noopener">
+      <div class="logo-wrapper">
+        <div class="partner-logo-text">Add LTS Logo</div>
+      </div>
+      <div class="partner-info">
+        <h3>LTS (Lansing Tamil Sangam)</h3>
+        <p>Lansing, Michigan</p>
       </div>
     </a>
   </div>
@@ -159,7 +190,7 @@
       <span class="impact-label">Supply Drives</span>
     </div>
     <div class="impact-card">
-      <span class="impact-number countup-number" data-target="5">0</span>
+      <span class="impact-number countup-number" data-target="7">0</span>
       <span class="impact-label">Partner Organizations</span>
     </div>
       <div class="impact-card">
@@ -200,7 +231,7 @@
 <script>
   document.getElementById('event-filter')
     .addEventListener('change', function(){
-      const showUpcoming = this.value === 'upcoming';
+      const showUpcoming = this.value === 'upcoming-events';
       document.getElementById('upcoming-events').hidden = !showUpcoming;
       document.getElementById('past-events').hidden     =  showUpcoming;
     });
