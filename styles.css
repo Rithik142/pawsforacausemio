@@ -9166,11 +9166,16 @@ body.intro-done .opening-overlay {
 }
 
 .state-role-grid,
-.state-grid__cards,
 .mi-regions__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(280px, 1fr));
   gap: 1.4rem;
+}
+
+.state-grid__cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 }
 
 .state-role-card,
@@ -9396,6 +9401,7 @@ body.intro-done .opening-overlay {
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
+  width: 100%;
 }
 
 .state-card h3 {
@@ -9407,10 +9413,10 @@ body.intro-done .opening-overlay {
 }
 
 .region-subgrid {
-  margin-top: 0.35rem;
+  margin-top: 0.45rem;
   display: grid;
   grid-template-columns: repeat(3, minmax(180px, 1fr));
-  gap: 0.8rem;
+  gap: 1rem;
 }
 
 .region-box {
@@ -9438,6 +9444,12 @@ body.intro-done .opening-overlay {
 }
 
 @media (max-width: 1100px) {
+  .region-subgrid {
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
   .region-subgrid {
     grid-template-columns: 1fr;
   }
