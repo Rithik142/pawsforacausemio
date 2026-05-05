@@ -4,9 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>State Board | Paws for a Cause</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=League+Spartan:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="theme-light.css" />
   <script src="scripts.js" defer></script>
+  <script src="state-board.js" defer></script>
 </head>
 <body class="state-board-page">
   <header>
@@ -15,7 +17,6 @@
       <ul class="nav-list">
         <li><a href="index.html">Home</a></li>
         <li><a href="team.html">About Us</a></li>
-        <li><a href="youth-board.html">Youth Board</a></li>
         <li><a href="state-board.html" class="active">State Board</a></li>
         <li><a href="services.html">Our Work</a></li>
         <li class="has-dd">
@@ -32,126 +33,338 @@
   </header>
 
   <main>
-    <section class="state-hero reveal">
-      <div class="container">
-        <p class="state-hero__kicker">Paws for a Cause • State Chapters</p>
-        <h1>State Chapter Network</h1>
-        <p>
-          Explore our state chapters in one organized view with dedicated space for chapter photos,
-          local leads, and chapter teams supporting animal welfare together.
-        </p>
+    <section class="sb-hero">
+      <div class="sb-hero__bg" aria-hidden="true"></div>
+      <p class="sb-hero__kicker state-hero__kicker">Our State Chapter Network</p>
+      <h1>Leading from every corner.</h1>
+      <p>
+        Each state is led by a State Director who guides regional chapters across their communities.
+        Together, they organize adoption events, supply drives, and youth-led advocacy for animal welfare.
+      </p>
+
+      <div class="sb-stats" aria-label="Network at a glance">
+        <span class="sb-stat"><strong>5</strong> States</span>
+        <span class="sb-stat"><strong>15</strong> Chapters</span>
+        <span class="sb-stat"><strong>20+</strong> Student Leaders</span>
       </div>
     </section>
 
-    <section class="state-grid container reveal">
-      <h2 class="section-title">State Chapters</h2>
-      <div class="state-grid__cards">
-        <article class="state-card">
-          <h3>Michigan</h3>
-          <p>State President: <span>[Update Name]</span></p>
-          <div class="region-subgrid">
-            <div class="region-box">
-              <h4>Lansing Region</h4>
-              <p>Region President: <span>[Name]</span></p>
-              <div class="team-photo-slot state-photo-slot"><span>➕ Add Lansing President Photo</span></div>
-            </div>
-            <div class="region-box">
-              <h4>Detroit Region</h4>
-              <p>Region President: <span>[Name]</span></p>
-              <div class="team-photo-slot state-photo-slot"><span>➕ Add Detroit President Photo</span></div>
-            </div>
-            <div class="region-box">
-              <h4>Grand Rapids Region</h4>
-              <p>Region President: <span>[Name]</span></p>
-              <div class="team-photo-slot state-photo-slot"><span>➕ Add Grand Rapids President Photo</span></div>
+    <div class="sb-filters" role="tablist" aria-label="Filter by state">
+      <button class="sb-pill is-active" data-filter="all" role="tab" aria-selected="true">All States</button>
+      <button class="sb-pill" data-filter="michigan" role="tab">Michigan</button>
+      <button class="sb-pill" data-filter="north-carolina" role="tab">North Carolina</button>
+      <button class="sb-pill" data-filter="new-jersey" role="tab">New Jersey</button>
+      <button class="sb-pill" data-filter="florida" role="tab">Florida</button>
+      <button class="sb-pill" data-filter="connecticut" role="tab">Connecticut</button>
+    </div>
+
+    <section class="sb-states" aria-label="State chapters">
+
+      <!-- MICHIGAN -->
+      <article class="sb-state" data-state="michigan">
+        <div class="sb-state__ribbon" aria-hidden="true"></div>
+        <header class="sb-state__head">
+          <div class="sb-state__avatar" role="img" aria-label="Photo of Michigan State Director">
+            Add State<br/>Director Photo
+          </div>
+          <div class="sb-state__meta">
+            <span class="sb-state__flag">🌟 Michigan State</span>
+            <h2 class="sb-state__name">Michigan</h2>
+            <p class="sb-state__lead">
+              State Director: <strong>[Update Name]</strong>
+              <span class="sb-tag-tba">TBA</span>
+            </p>
+            <div class="sb-state__stats">
+              <div><span>3</span><span>Regions</span></div>
+              <div><span>~12</span><span>Volunteers</span></div>
+              <div><span>2025</span><span>Founded</span></div>
             </div>
           </div>
-        </article>
-        <article class="state-card">
-          <h3>North Carolina</h3>
-          <p>State President: <span>[Update Name]</span></p>
-          <div class="region-subgrid">
-            <div class="region-box">
-              <h4>Charlotte Region</h4>
-              <p>Region President: <span>[Name]</span></p>
-              <div class="team-photo-slot state-photo-slot"><span>➕ Add Charlotte President Photo</span></div>
-            </div>
-            <div class="region-box">
-              <h4>Raleigh Region</h4>
-              <p>Region President: <span>[Name]</span></p>
-              <div class="team-photo-slot state-photo-slot"><span>➕ Add Raleigh President Photo</span></div>
-            </div>
-            <div class="region-box">
-              <h4>Research Triangle Region</h4>
-              <p>Region President: <span>Yuuki Sahara</span></p>
-              <div class="team-photo-slot state-photo-slot"><span>➕ Add Research Triangle President Photo</span></div>
+        </header>
+        <div class="sb-chapters">
+          <div class="sb-chapter">
+            <div class="sb-chapter__city">Lansing Region</div>
+            <div class="sb-chapter__name">Lansing Chapter</div>
+            <div class="sb-chapter__role">Regional Chapter</div>
+            <div class="sb-chapter__person">
+              <div class="sb-chapter__avatar" aria-hidden="true">?</div>
+              <div>
+                <div class="sb-chapter__lead-name">[Name]</div>
+                <div class="sb-chapter__lead-role">Region President</div>
+              </div>
             </div>
           </div>
-        </article>
-        <article class="state-card">
-          <h3>New Jersey</h3>
-          <p>State President: <span>[Update Name]</span></p>
-          <div class="region-subgrid">
-            <div class="region-box">
-              <h4>Central Jersey Region</h4>
-              <p>Region President: <span>Avinash Jadhav</span></p>
-              <div class="team-photo-slot state-photo-slot"><span>➕ Add Central Jersey President Photo</span></div>
-            </div>
-            <div class="region-box">
-              <h4>Newark Region</h4>
-              <p>Region President: <span>[Name]</span></p>
-              <div class="team-photo-slot state-photo-slot"><span>➕ Add Newark President Photo</span></div>
-            </div>
-            <div class="region-box">
-              <h4>Jersey Shore Region</h4>
-              <p>Region President: <span>[Name]</span></p>
-              <div class="team-photo-slot state-photo-slot"><span>➕ Add Jersey Shore President Photo</span></div>
+          <div class="sb-chapter">
+            <div class="sb-chapter__city">Detroit Region</div>
+            <div class="sb-chapter__name">Detroit Chapter</div>
+            <div class="sb-chapter__role">Regional Chapter</div>
+            <div class="sb-chapter__person">
+              <div class="sb-chapter__avatar" aria-hidden="true">?</div>
+              <div>
+                <div class="sb-chapter__lead-name">[Name]</div>
+                <div class="sb-chapter__lead-role">Region President</div>
+              </div>
             </div>
           </div>
-        </article>
-        <article class="state-card">
-          <h3>Florida</h3>
-          <p>State President: <span>[Update Name]</span></p>
-          <div class="region-subgrid">
-            <div class="region-box">
-              <h4>Gainesville Region</h4>
-              <p>Region President: <span>Dharish Kalaisenthil</span></p>
-              <div class="team-photo-slot state-photo-slot"><span>➕ Add Gainesville President Photo</span></div>
-            </div>
-            <div class="region-box">
-              <h4>Orlando Region</h4>
-              <p>Region President: <span>[Name]</span></p>
-              <div class="team-photo-slot state-photo-slot"><span>➕ Add Orlando President Photo</span></div>
-            </div>
-            <div class="region-box">
-              <h4>Tampa Region</h4>
-              <p>Region President: <span>[Name]</span></p>
-              <div class="team-photo-slot state-photo-slot"><span>➕ Add Tampa President Photo</span></div>
+          <div class="sb-chapter">
+            <div class="sb-chapter__city">Grand Rapids Region</div>
+            <div class="sb-chapter__name">Grand Rapids Chapter</div>
+            <div class="sb-chapter__role">Regional Chapter</div>
+            <div class="sb-chapter__person">
+              <div class="sb-chapter__avatar" aria-hidden="true">?</div>
+              <div>
+                <div class="sb-chapter__lead-name">[Name]</div>
+                <div class="sb-chapter__lead-role">Region President</div>
+              </div>
             </div>
           </div>
-        </article>
-        <article class="state-card">
-          <h3>Connecticut</h3>
-          <p>State President: <span>[Update Name]</span></p>
-          <div class="region-subgrid">
-            <div class="region-box">
-              <h4>Hartford Region</h4>
-              <p>Region President: <span>Hanyasai Ram</span></p>
-              <div class="team-photo-slot state-photo-slot"><span>➕ Add Hartford President Photo</span></div>
-            </div>
-            <div class="region-box">
-              <h4>New Haven Region</h4>
-              <p>Region President: <span>Akshada B</span></p>
-              <div class="team-photo-slot state-photo-slot"><span>➕ Add New Haven President Photo</span></div>
-            </div>
-            <div class="region-box">
-              <h4>Fairfield County Region</h4>
-              <p>Region President: <span>[Name]</span></p>
-              <div class="team-photo-slot state-photo-slot"><span>➕ Add Fairfield County President Photo</span></div>
+        </div>
+      </article>
+
+      <!-- NORTH CAROLINA -->
+      <article class="sb-state" data-state="north-carolina">
+        <div class="sb-state__ribbon" aria-hidden="true"></div>
+        <header class="sb-state__head">
+          <div class="sb-state__avatar" role="img" aria-label="Photo of North Carolina State Director">
+            Add State<br/>Director Photo
+          </div>
+          <div class="sb-state__meta">
+            <span class="sb-state__flag">🌟 North Carolina State</span>
+            <h2 class="sb-state__name">North Carolina</h2>
+            <p class="sb-state__lead">
+              State Director: <strong>[Update Name]</strong>
+              <span class="sb-tag-tba">TBA</span>
+            </p>
+            <div class="sb-state__stats">
+              <div><span>3</span><span>Regions</span></div>
+              <div><span>~10</span><span>Volunteers</span></div>
+              <div><span>2025</span><span>Joined</span></div>
             </div>
           </div>
-        </article>
-      </div>
+        </header>
+        <div class="sb-chapters">
+          <div class="sb-chapter">
+            <div class="sb-chapter__city">Charlotte Region</div>
+            <div class="sb-chapter__name">Charlotte Chapter</div>
+            <div class="sb-chapter__role">Regional Chapter</div>
+            <div class="sb-chapter__person">
+              <div class="sb-chapter__avatar" aria-hidden="true">?</div>
+              <div>
+                <div class="sb-chapter__lead-name">[Name]</div>
+                <div class="sb-chapter__lead-role">Region President</div>
+              </div>
+            </div>
+          </div>
+          <div class="sb-chapter">
+            <div class="sb-chapter__city">Raleigh Region</div>
+            <div class="sb-chapter__name">Raleigh Chapter</div>
+            <div class="sb-chapter__role">Regional Chapter</div>
+            <div class="sb-chapter__person">
+              <div class="sb-chapter__avatar" aria-hidden="true">?</div>
+              <div>
+                <div class="sb-chapter__lead-name">[Name]</div>
+                <div class="sb-chapter__lead-role">Region President</div>
+              </div>
+            </div>
+          </div>
+          <div class="sb-chapter">
+            <div class="sb-chapter__city">Research Triangle Region</div>
+            <div class="sb-chapter__name">Research Triangle Chapter</div>
+            <div class="sb-chapter__role">Regional Chapter</div>
+            <div class="sb-chapter__person">
+              <div class="sb-chapter__avatar" aria-hidden="true">YS</div>
+              <div>
+                <div class="sb-chapter__lead-name">Yuuki Sahara</div>
+                <div class="sb-chapter__lead-role">Region President</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- NEW JERSEY -->
+      <article class="sb-state" data-state="new-jersey">
+        <div class="sb-state__ribbon" aria-hidden="true"></div>
+        <header class="sb-state__head">
+          <div class="sb-state__avatar" role="img" aria-label="Photo of New Jersey State Director">
+            Add State<br/>Director Photo
+          </div>
+          <div class="sb-state__meta">
+            <span class="sb-state__flag">🌟 New Jersey State</span>
+            <h2 class="sb-state__name">New Jersey</h2>
+            <p class="sb-state__lead">
+              State Director: <strong>[Update Name]</strong>
+              <span class="sb-tag-tba">TBA</span>
+            </p>
+            <div class="sb-state__stats">
+              <div><span>3</span><span>Regions</span></div>
+              <div><span>~9</span><span>Volunteers</span></div>
+              <div><span>2025</span><span>Joined</span></div>
+            </div>
+          </div>
+        </header>
+        <div class="sb-chapters">
+          <div class="sb-chapter">
+            <div class="sb-chapter__city">Central Jersey Region</div>
+            <div class="sb-chapter__name">Central Jersey Chapter</div>
+            <div class="sb-chapter__role">Regional Chapter</div>
+            <div class="sb-chapter__person">
+              <div class="sb-chapter__avatar" aria-hidden="true">AJ</div>
+              <div>
+                <div class="sb-chapter__lead-name">Avinash Jadhav</div>
+                <div class="sb-chapter__lead-role">Region President</div>
+              </div>
+            </div>
+          </div>
+          <div class="sb-chapter">
+            <div class="sb-chapter__city">Newark Region</div>
+            <div class="sb-chapter__name">Newark Chapter</div>
+            <div class="sb-chapter__role">Regional Chapter</div>
+            <div class="sb-chapter__person">
+              <div class="sb-chapter__avatar" aria-hidden="true">?</div>
+              <div>
+                <div class="sb-chapter__lead-name">[Name]</div>
+                <div class="sb-chapter__lead-role">Region President</div>
+              </div>
+            </div>
+          </div>
+          <div class="sb-chapter">
+            <div class="sb-chapter__city">Jersey Shore Region</div>
+            <div class="sb-chapter__name">Jersey Shore Chapter</div>
+            <div class="sb-chapter__role">Regional Chapter</div>
+            <div class="sb-chapter__person">
+              <div class="sb-chapter__avatar" aria-hidden="true">?</div>
+              <div>
+                <div class="sb-chapter__lead-name">[Name]</div>
+                <div class="sb-chapter__lead-role">Region President</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- FLORIDA -->
+      <article class="sb-state" data-state="florida">
+        <div class="sb-state__ribbon" aria-hidden="true"></div>
+        <header class="sb-state__head">
+          <div class="sb-state__avatar" role="img" aria-label="Photo of Florida State Director">
+            Add State<br/>Director Photo
+          </div>
+          <div class="sb-state__meta">
+            <span class="sb-state__flag">🌟 Florida State</span>
+            <h2 class="sb-state__name">Florida</h2>
+            <p class="sb-state__lead">
+              State Director: <strong>[Update Name]</strong>
+              <span class="sb-tag-tba">TBA</span>
+            </p>
+            <div class="sb-state__stats">
+              <div><span>3</span><span>Regions</span></div>
+              <div><span>~8</span><span>Volunteers</span></div>
+              <div><span>2025</span><span>Joined</span></div>
+            </div>
+          </div>
+        </header>
+        <div class="sb-chapters">
+          <div class="sb-chapter">
+            <div class="sb-chapter__city">Gainesville Region</div>
+            <div class="sb-chapter__name">Gainesville Chapter</div>
+            <div class="sb-chapter__role">Regional Chapter</div>
+            <div class="sb-chapter__person">
+              <div class="sb-chapter__avatar" aria-hidden="true">DK</div>
+              <div>
+                <div class="sb-chapter__lead-name">Dharish Kalaisenthil</div>
+                <div class="sb-chapter__lead-role">Region President</div>
+              </div>
+            </div>
+          </div>
+          <div class="sb-chapter">
+            <div class="sb-chapter__city">Orlando Region</div>
+            <div class="sb-chapter__name">Orlando Chapter</div>
+            <div class="sb-chapter__role">Regional Chapter</div>
+            <div class="sb-chapter__person">
+              <div class="sb-chapter__avatar" aria-hidden="true">?</div>
+              <div>
+                <div class="sb-chapter__lead-name">[Name]</div>
+                <div class="sb-chapter__lead-role">Region President</div>
+              </div>
+            </div>
+          </div>
+          <div class="sb-chapter">
+            <div class="sb-chapter__city">Tampa Region</div>
+            <div class="sb-chapter__name">Tampa Chapter</div>
+            <div class="sb-chapter__role">Regional Chapter</div>
+            <div class="sb-chapter__person">
+              <div class="sb-chapter__avatar" aria-hidden="true">?</div>
+              <div>
+                <div class="sb-chapter__lead-name">[Name]</div>
+                <div class="sb-chapter__lead-role">Region President</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CONNECTICUT -->
+      <article class="sb-state" data-state="connecticut">
+        <div class="sb-state__ribbon" aria-hidden="true"></div>
+        <header class="sb-state__head">
+          <div class="sb-state__avatar" role="img" aria-label="Photo of Connecticut State Director">
+            Add State<br/>Director Photo
+          </div>
+          <div class="sb-state__meta">
+            <span class="sb-state__flag">🌟 Connecticut State</span>
+            <h2 class="sb-state__name">Connecticut</h2>
+            <p class="sb-state__lead">
+              State Director: <strong>[Update Name]</strong>
+              <span class="sb-tag-tba">TBA</span>
+            </p>
+            <div class="sb-state__stats">
+              <div><span>3</span><span>Regions</span></div>
+              <div><span>~10</span><span>Volunteers</span></div>
+              <div><span>2025</span><span>Joined</span></div>
+            </div>
+          </div>
+        </header>
+        <div class="sb-chapters">
+          <div class="sb-chapter">
+            <div class="sb-chapter__city">Hartford Region</div>
+            <div class="sb-chapter__name">Hartford Chapter</div>
+            <div class="sb-chapter__role">Regional Chapter</div>
+            <div class="sb-chapter__person">
+              <div class="sb-chapter__avatar" aria-hidden="true">HR</div>
+              <div>
+                <div class="sb-chapter__lead-name">Hanyasai Ram</div>
+                <div class="sb-chapter__lead-role">Region President</div>
+              </div>
+            </div>
+          </div>
+          <div class="sb-chapter">
+            <div class="sb-chapter__city">New Haven Region</div>
+            <div class="sb-chapter__name">New Haven Chapter</div>
+            <div class="sb-chapter__role">Regional Chapter</div>
+            <div class="sb-chapter__person">
+              <div class="sb-chapter__avatar" aria-hidden="true">AB</div>
+              <div>
+                <div class="sb-chapter__lead-name">Akshada B</div>
+                <div class="sb-chapter__lead-role">Region President</div>
+              </div>
+            </div>
+          </div>
+          <div class="sb-chapter">
+            <div class="sb-chapter__city">Fairfield County Region</div>
+            <div class="sb-chapter__name">Fairfield County Chapter</div>
+            <div class="sb-chapter__role">Regional Chapter</div>
+            <div class="sb-chapter__person">
+              <div class="sb-chapter__avatar" aria-hidden="true">?</div>
+              <div>
+                <div class="sb-chapter__lead-name">[Name]</div>
+                <div class="sb-chapter__lead-role">Region President</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
     </section>
   </main>
 
