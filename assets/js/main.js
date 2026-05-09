@@ -1,14 +1,14 @@
 /* =========================================================================
-   Paws For A Cause Michigan — v2 Interactions
-   Purposeful motion only. No magnetic gimmicks. Custom strong easing curves
-   are in CSS. JS handles state + reveals + counters + nav + forms + filters.
+   Paws For A Cause Michigan, v3 Interactions
+   Light editorial. Forest green accent. More motion: scroll-progress,
+   parallax, sticky-stack, clip-path reveals, hero word-stagger.
    ========================================================================= */
 (function () {
   'use strict';
 
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ----- 1. Page curtain (open after first paint) ----- */
+  /* ----- 1. Page curtain ----- */
   const curtain = document.querySelector('[data-curtain]');
   if (curtain) {
     const open = () => curtain.classList.add('is-done');
@@ -17,13 +17,13 @@
     } else {
       window.addEventListener('load', () => setTimeout(open, 220), { once: true });
     }
-    setTimeout(() => { curtain.classList.add('is-done'); }, 2200);
+    setTimeout(() => curtain.classList.add('is-done'), 2200);
     curtain.addEventListener('transitionend', () => {
       if (curtain.classList.contains('is-done')) curtain.remove();
     });
   }
 
-  /* Legacy data-page-overlay (older pages): fade and remove */
+  /* Legacy data-page-overlay */
   const legacyOverlay = document.querySelector('[data-page-overlay]');
   if (legacyOverlay) {
     const finish = () => { legacyOverlay.classList.add('done'); setTimeout(() => legacyOverlay.remove(), 900); };
@@ -32,13 +32,23 @@
     setTimeout(finish, 2200);
   }
 
-  /* ----- 2. Nav scrolled state ----- */
-  const nav = document.querySelector('[data-nav]');
-  if (nav) {
-    const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 24);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-  }
+  /* ----- 2. Nav scrolled state + scroll-progress strip ----- */
+  const navShell = document.querySelector('.nav-shell');
+  let ticking = false;
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      if (navShell) navShell.classList.toggle('is-scrolled', y > 12);
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docH > 0 ? Math.min(100, (y / docH) * 100) : 0;
+      if (navShell) navShell.style.setProperty('--scroll-progress', pct + '%');
+      ticking = false;
+    });
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
 
   /* ----- 3. Mobile menu ----- */
   const burger = document.querySelector('[data-burger]');
@@ -61,7 +71,7 @@
     });
   }
 
-  /* ----- 4. Scroll-triggered reveals (IntersectionObserver) ----- */
+  /* ----- 4. Scroll-triggered reveals ----- */
   if (!reduced) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -72,23 +82,23 @@
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
 
-    document.querySelectorAll('.reveal, .reveal-up, .reveal-fade, .reveal-stagger, .reveal-clip, [data-fade-up]').forEach(el => io.observe(el));
+    document.querySelectorAll('.reveal, .reveal-up, .reveal-fade, .reveal-stagger, .reveal-clip, [data-fade-up]')
+      .forEach(el => io.observe(el));
 
-    // Legacy [data-stagger] containers behave like .reveal-stagger
     document.querySelectorAll('[data-stagger]').forEach(group => {
       group.classList.add('reveal-stagger');
       io.observe(group);
     });
 
-    // Set CSS index variable for stagger groups (children animate in sequence)
     document.querySelectorAll('.reveal-stagger').forEach(group => {
       Array.from(group.children).forEach((child, i) => child.style.setProperty('--i', i));
     });
   } else {
-    document.querySelectorAll('.reveal, .reveal-up, .reveal-fade, .reveal-stagger, .reveal-clip, [data-fade-up], [data-stagger]').forEach(el => el.classList.add('is-in'));
+    document.querySelectorAll('.reveal, .reveal-up, .reveal-fade, .reveal-stagger, .reveal-clip, [data-fade-up], [data-stagger]')
+      .forEach(el => el.classList.add('is-in'));
   }
 
-  /* ----- 5. Hero word reveal (CSS-driven, JS triggers timing) ----- */
+  /* ----- 5. Hero word reveal ----- */
   document.querySelectorAll('[data-hero-words] .word > span').forEach((span, i) => {
     span.style.transition = `transform 900ms cubic-bezier(0.23, 1, 0.32, 1) ${100 + i * 70}ms`;
     requestAnimationFrame(() => requestAnimationFrame(() => {
@@ -96,7 +106,7 @@
     }));
   });
 
-  /* ----- 6. Hero supporting elements fade in ----- */
+  /* ----- 6. Hero supporting fade-up ----- */
   document.querySelectorAll('[data-hero-up]').forEach((el, i) => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
@@ -107,7 +117,7 @@
     }));
   });
 
-  /* ----- 7. Animated counters (intersection-triggered) ----- */
+  /* ----- 7. Animated counters ----- */
   const counters = document.querySelectorAll('[data-counter]');
   if (counters.length) {
     const animate = (el) => {
@@ -116,7 +126,7 @@
       const suffix = el.dataset.counterSuffix || '';
       const prefix = el.dataset.counterPrefix || '';
       const start = performance.now();
-      const ease = (t) => 1 - Math.pow(1 - t, 4); // quart ease-out
+      const ease = (t) => 1 - Math.pow(1 - t, 4);
       const step = (now) => {
         const t = Math.min((now - start) / 1000 / duration, 1);
         const v = target * ease(t);
@@ -131,18 +141,15 @@
     counters.forEach(c => cio.observe(c));
   }
 
-  /* ----- 8. Pill-check toggle state (volunteer interests, donation use) ----- */
+  /* ----- 8. Pill-check toggles ----- */
   document.querySelectorAll('.pill-check').forEach(p => {
     const input = p.querySelector('input');
-    if (!input) {
-      // Filter buttons (no input). Active state controlled by data-filter-group below.
-      return;
-    }
+    if (!input) return;
     p.classList.toggle('is-checked', input.checked);
     input.addEventListener('change', () => p.classList.toggle('is-checked', input.checked));
   });
 
-  /* ----- 9. Filter groups (events, state board) ----- */
+  /* ----- 9. Filter groups ----- */
   document.querySelectorAll('[data-filter-group]').forEach(group => {
     const buttons = group.querySelectorAll('[data-filter]');
     const targetSelector = group.dataset.filterGroup;
@@ -159,7 +166,7 @@
     }));
   });
 
-  /* ----- 10. Forms (demo handler) ----- */
+  /* ----- 10. Forms ----- */
   document.querySelectorAll('[data-form]').forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -181,7 +188,7 @@
     });
   });
 
-  /* ----- 11. Newsletter inline form ----- */
+  /* ----- 11. Newsletter ----- */
   document.querySelectorAll('[data-newsletter]').forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -196,10 +203,10 @@
   /* ----- 12. Year stamp ----- */
   document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
 
-  /* ----- 13. Tilt on hero photo (CSS-driven, listens to mouse) ----- */
+  /* ----- 13. Hero photo tilt ----- */
   if (!reduced) {
     document.querySelectorAll('[data-tilt]').forEach(el => {
-      const max = 4; // degrees
+      const max = 4;
       el.addEventListener('mousemove', (e) => {
         const r = el.getBoundingClientRect();
         const x = (e.clientX - r.left) / r.width;
@@ -208,5 +215,27 @@
       });
       el.addEventListener('mouseleave', () => { el.style.transform = ''; });
     });
+  }
+
+  /* ----- 14. Parallax-on-scroll ----- */
+  if (!reduced) {
+    const items = document.querySelectorAll('[data-parallax]');
+    if (items.length) {
+      let raf = false;
+      const update = () => {
+        items.forEach(el => {
+          const speed = parseFloat(el.dataset.parallax) || 0.2;
+          const r = el.getBoundingClientRect();
+          const center = r.top + r.height / 2;
+          const offset = (window.innerHeight / 2 - center) * speed;
+          el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
+        });
+        raf = false;
+      };
+      const onP = () => { if (!raf) { raf = true; requestAnimationFrame(update); } };
+      window.addEventListener('scroll', onP, { passive: true });
+      window.addEventListener('resize', onP);
+      update();
+    }
   }
 })();
