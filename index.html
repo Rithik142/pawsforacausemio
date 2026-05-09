@@ -3,37 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Paws For A Cause Michigan — Youth-Led Animal Welfare Nonprofit</title>
-  <meta name="description" content="A 100% youth-led nonprofit serving Michigan's animals through adoption drives, shelter partnerships, supply campaigns, and community outreach. Volunteer, partner, or donate today.">
-  <meta name="theme-color" content="#08080c">
+  <title>Paws For A Cause Michigan, A Youth-Led Animal Welfare Nonprofit</title>
+  <meta name="description" content="A 100% youth-led nonprofit serving animals across Michigan and beyond. Adoption events, supply drives, shelter partnerships, and community outreach. Volunteer, partner, or donate.">
+  <meta name="theme-color" content="#f7f5ee">
   <meta property="og:title" content="Paws For A Cause Michigan">
-  <meta property="og:description" content="Serving Paws & Saving Hearts. Join Michigan's youth-led movement for animal welfare.">
+  <meta property="og:description" content="Serving paws. Saving hearts. Michigan's youth-led animal welfare movement.">
   <meta property="og:type" content="website">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <link rel="stylesheet" href="assets/css/main.css">
   <script src="assets/js/main.js" defer></script>
 </head>
 <body>
 
-<!-- Page-load overlay -->
-<div class="page-overlay" data-page-overlay>
-  <div class="page-overlay__mark">
-    <span>🐾</span><span>PAWS FOR A CAUSE</span>
-  </div>
+<!-- Page-load curtain -->
+<div class="curtain" data-curtain>
+  <div class="curtain__half"></div>
+  <div class="curtain__half"></div>
+  <div class="curtain__mark"><span><span class="curtain__dot"></span> PAWS FOR A CAUSE</span></div>
 </div>
 
-<!-- NAV -->
-<div class="nav-shell">
-  <nav class="nav" data-nav aria-label="Primary">
+<!-- NAV: full-width fixed top bar -->
+<header class="nav-shell" data-nav role="banner">
+  <nav class="nav" aria-label="Primary">
     <a href="index.html" class="nav__logo">
-      <span class="nav__logo-mark">🐾</span>
+      <span class="nav__logo-mark">P</span>
       <span>PAWS FOR A CAUSE</span>
     </a>
     <ul class="nav__links">
@@ -41,401 +38,400 @@
       <li><a href="about.html">About</a></li>
       <li><a href="team.html">Team</a></li>
       <li class="nav__has-dd">
-        <a href="involved.html" aria-haspopup="true">Get Involved ▾</a>
-        <ul class="nav__dd" role="menu">
-          <li><a href="volunteer.html">Volunteer</a></li>
-          <li><a href="partner.html">Partnerships</a></li>
-          <li><a href="state-board.html">State Board</a></li>
-        </ul>
+        <a href="involved.html">Get Involved</a>
+        <ul class="nav__dd"><li><a href="volunteer.html">Volunteer</a></li><li><a href="partner.html">Partnerships</a></li><li><a href="state-board.html">State Board</a></li></ul>
       </li>
       <li><a href="events.html">Events</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <a href="donate.html" class="nav__cta magnetic">Donate <span class="btn__arrow">→</span></a>
+    <a href="donate.html" class="nav__cta">Donate <span class="btn__arrow">→</span></a>
     <button class="nav__burger" data-burger aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
-</div>
+</header>
 
 <div class="mobile-menu" data-mobile-menu aria-hidden="true">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="team.html">Team</a>
-  <a href="involved.html">Get Involved</a>
-  <a href="volunteer.html">Volunteer</a>
-  <a href="events.html">Events</a>
-  <a href="partner.html">Partnerships</a>
-  <a href="contact.html">Contact</a>
-  <a href="donate.html" class="mobile-menu__cta">Donate</a>
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="team.html">Team</a>
+  <a href="involved.html">Get Involved</a><a href="volunteer.html">Volunteer</a>
+  <a href="events.html">Events</a><a href="partner.html">Partnerships</a>
+  <a href="contact.html">Contact</a><a href="donate.html" class="mobile-menu__cta">Donate</a>
 </div>
 
 <main>
 
   <!-- HERO -->
-  <section class="hero" aria-label="Welcome">
-    <div class="hero__bg">
-      <img src="images/Homepage.jpg" alt="" />
-    </div>
-    <span class="orb orb--1"></span>
-    <span class="orb orb--2"></span>
-    <span class="orb orb--3"></span>
-    <div class="paw-bg" aria-hidden="true">
-      <span style="top:14%;left:8%;animation-delay:0s">🐾</span>
-      <span style="top:32%;left:78%;animation-delay:2s">🐾</span>
-      <span style="top:60%;left:18%;animation-delay:4s">🐾</span>
-      <span style="top:75%;left:62%;animation-delay:6s">🐾</span>
-      <span style="top:24%;left:50%;animation-delay:8s">🐾</span>
-    </div>
-
-    <div class="container-x hero__content">
-      <span class="eyebrow" data-hero-up>100% Youth-Led · Michigan</span>
-      <h1 class="hero__title" data-hero-words>
-        <span class="word"><span>Serving</span></span>
-        <span class="word"><span>paws.</span></span><br>
-        <span class="word"><span>Saving</span></span>
-        <span class="word"><span class="text-gradient">hearts.</span></span>
-      </h1>
-      <p class="hero__sub" data-hero-up>
-        We're a 100% youth-led nonprofit rallying Michigan's next generation around animal welfare —
-        through rescue support, adoption events, supply drives, and community partnerships that
-        change lives one paw at a time.
-      </p>
-      <div class="hero__cta-row" data-hero-up>
-        <a href="volunteer.html" class="btn btn--primary magnetic">
-          Become a Volunteer <span class="btn__arrow">→</span>
-        </a>
-        <a href="donate.html" class="btn btn--ghost">
-          Support Our Mission
-        </a>
-      </div>
-
-      <div class="hero__metrics" data-hero-up>
-        <div class="hero__metric">
-          <strong><span data-counter="45" data-counter-suffix="+">0</span></strong>
-          <span>Volunteers Mobilized</span>
-        </div>
-        <div class="hero__metric">
-          <strong><span data-counter="600" data-counter-suffix="+">0</span></strong>
-          <span>Supplies Delivered</span>
-        </div>
-        <div class="hero__metric">
-          <strong><span data-counter="7">0</span></strong>
-          <span>Partner Organizations</span>
-        </div>
-        <div class="hero__metric">
-          <strong><span data-counter="5">0</span></strong>
-          <span>State Chapters</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero__scroll" aria-hidden="true">
-      <span>Scroll</span>
-      <div class="hero__scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- IMPACT -->
-  <section class="section" id="impact" aria-labelledby="impact-title">
-    <div class="container-x">
-      <div class="text-center mb-12 reveal-up">
-        <span class="eyebrow">Our Impact</span>
-        <h2 id="impact-title" class="section-title mt-4">Tangible change, measured in tails wagged.</h2>
-        <p class="section-lead">Every number below is a story — a shelter restocked, a volunteer trained,
-          a family that found their forever friend. This is what a youth-led movement looks like.</p>
-      </div>
-
-      <div class="stat-grid" data-stagger>
-        <div class="stat-card card-glow">
-          <span class="stat-card__icon">🐾</span>
-          <span class="stat-card__num"><span data-counter="45" data-counter-suffix="+">0</span></span>
-          <p class="stat-card__label">Active volunteers across our chapters</p>
-        </div>
-        <div class="stat-card card-glow">
-          <span class="stat-card__icon">📦</span>
-          <span class="stat-card__num"><span data-counter="600" data-counter-suffix="+">0</span></span>
-          <p class="stat-card__label">Supplies delivered to shelters &amp; rescues</p>
-        </div>
-        <div class="stat-card card-glow">
-          <span class="stat-card__icon">🏠</span>
-          <span class="stat-card__num"><span data-counter="7">0</span></span>
-          <p class="stat-card__label">Shelter &amp; community partnerships</p>
-        </div>
-        <div class="stat-card card-glow">
-          <span class="stat-card__icon">⭐</span>
-          <span class="stat-card__num"><span data-counter="5">0</span></span>
-          <p class="stat-card__label">State chapters in our growing network</p>
-        </div>
-        <div class="stat-card card-glow">
-          <span class="stat-card__icon">⏱</span>
-          <span class="stat-card__num"><span data-counter="320" data-counter-suffix="+">0</span></span>
-          <p class="stat-card__label">Volunteer hours logged this year</p>
-        </div>
-        <div class="stat-card card-glow">
-          <span class="stat-card__icon">🎯</span>
-          <span class="stat-card__num"><span data-counter="12">0</span></span>
-          <p class="stat-card__label">Animal welfare events organized</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STORY (split) -->
-  <section class="section" id="story" aria-labelledby="story-title">
-    <div class="container-x">
-      <div class="split">
-        <div class="split__visual reveal-up" data-parallax="0.3">
-          <img src="images/IMG_0977.JPG" alt="Volunteers at an adoption event">
-          <span class="split__visual-tag">📍 Okemos, Michigan · Founded July 2025</span>
-        </div>
-
-        <div class="reveal-up">
-          <span class="eyebrow">Our Story</span>
-          <h2 id="story-title" class="section-title mt-4">Started by teens who refused to look away.</h2>
-          <p class="text-[1.05rem] leading-relaxed mb-5">
-            Paws For A Cause was founded in July 2025 by three high-school juniors in Okemos, Michigan,
-            after they saw how many animals — in shelters, on streets, in their own neighborhoods —
-            simply needed someone to show up. So we did.
-          </p>
-          <p class="leading-relaxed mb-7">
-            Today we're a youth-led nonprofit organizing supply drives, fostering coordination,
-            adoption awareness, and community education — partnering with shelters and rescues
-            across the state to make Michigan kinder, one paw at a time.
-          </p>
-          <ul class="list-checks mb-8">
-            <li>Real, fast help — adoption events, supply drives, and foster support that ship in weeks, not years.</li>
-            <li>Resources that stick — toolkits and education for new pet owners and aspiring youth advocates.</li>
-            <li>Powered by youth — students plan, fundraise, and partner with shelters, clubs, and local businesses.</li>
-            <li>Built to grow — mentors, partners, and volunteers welcome. There's a place for everyone who cares.</li>
-          </ul>
-          <a href="about.html" class="btn btn--outline">Read our full story <span class="btn__arrow">→</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MISSION CARDS / WHAT WE DO -->
-  <section class="section" id="mission" aria-labelledby="mission-title">
-    <div class="container-x">
-      <div class="flex items-end justify-between flex-wrap gap-6 mb-10 reveal-up">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero__grid">
         <div>
-          <span class="eyebrow">What We Do</span>
-          <h2 id="mission-title" class="section-title mt-4">Four ways we show up for animals.</h2>
+          <span class="eyebrow" data-hero-up>100% Youth-Led, Michigan</span>
+          <h1 class="hero__title" data-hero-words style="margin-top:1.5rem;">
+            <span class="word"><span>Serving</span></span>
+            <span class="word"><span>paws,</span></span><br>
+            <span class="word"><span>saving</span></span>
+            <span class="word"><span class="italic">hearts.</span></span>
+          </h1>
+          <p class="hero__sub" data-hero-up>
+            We're a 100% youth-led nonprofit rallying Michigan's next generation around animal welfare. Rescue support, adoption events, supply drives, and the partnerships that turn good intentions into delivered outcomes.
+          </p>
+          <div class="hero__cta-row" data-hero-up>
+            <a href="volunteer.html" class="btn btn--primary"><span class="btn__label">Become a volunteer <span class="btn__arrow">→</span></span></a>
+            <a href="donate.html" class="btn btn--ghost"><span class="btn__label">Support our mission</span></a>
+          </div>
+
+          <div class="hero__strip" data-hero-up>
+            <div class="hero__strip-item">
+              <span class="hero__strip-num"><span data-counter="45" data-counter-suffix="+">0</span></span>
+              <span class="hero__strip-label">Volunteers</span>
+            </div>
+            <div class="hero__strip-item">
+              <span class="hero__strip-num"><span data-counter="600" data-counter-suffix="+">0</span></span>
+              <span class="hero__strip-label">Supplies delivered</span>
+            </div>
+            <div class="hero__strip-item">
+              <span class="hero__strip-num"><span data-counter="7">0</span></span>
+              <span class="hero__strip-label">Partner orgs</span>
+            </div>
+            <div class="hero__strip-item">
+              <span class="hero__strip-num"><span data-counter="5">0</span></span>
+              <span class="hero__strip-label">State chapters</span>
+            </div>
+          </div>
         </div>
-        <a href="involved.html" class="btn btn--outline">See all programs <span class="btn__arrow">→</span></a>
+
+        <div class="hero__visual" data-hero-up>
+          <div class="hero__photo" data-tilt>
+            <img src="images/Homepage.jpg" alt="A rescue dog at a community adoption event">
+            <span class="hero__photo-tag"><span style="width:6px;height:6px;background:var(--accent);border-radius:999px;display:inline-block;"></span> Live, supporting Michigan shelters</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__scroll-hint" aria-hidden="true">Scroll</div>
+  </section>
+
+  <!-- IMPACT  divided strip -->
+  <section class="section--tight">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Impact, in numbers</span>
+        <h2 class="section-head__title">Tangible change, measured in tails wagged.</h2>
+        <p class="lede">Every figure below is a story: a shelter restocked, a volunteer trained, a family that found a forever friend. This is what a youth-led movement looks like, audited from the ground.</p>
+      </div>
+      <div class="stat-strip reveal-stagger">
+        <div class="stat-strip__item">
+          <span class="stat-strip__num"><span class="stat-strip__caret">+</span><span data-counter="45">0</span></span>
+          <span class="stat-strip__label">Active volunteers across our chapters</span>
+        </div>
+        <div class="stat-strip__item">
+          <span class="stat-strip__num"><span class="stat-strip__caret">+</span><span data-counter="600">0</span></span>
+          <span class="stat-strip__label">Supplies delivered to shelters and rescues</span>
+        </div>
+        <div class="stat-strip__item">
+          <span class="stat-strip__num"><span data-counter="7">0</span></span>
+          <span class="stat-strip__label">Shelter and community partnerships</span>
+        </div>
+        <div class="stat-strip__item">
+          <span class="stat-strip__num"><span data-counter="5">0</span></span>
+          <span class="stat-strip__label">State chapters in our growing network</span>
+        </div>
+        <div class="stat-strip__item">
+          <span class="stat-strip__num"><span class="stat-strip__caret">+</span><span data-counter="320">0</span></span>
+          <span class="stat-strip__label">Volunteer hours logged this year</span>
+        </div>
+        <div class="stat-strip__item">
+          <span class="stat-strip__num"><span data-counter="12">0</span></span>
+          <span class="stat-strip__label">Animal welfare events organized</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY  zigzag with parallax photo -->
+  <section class="section">
+    <div class="wrap">
+      <div class="split">
+        <div class="reveal">
+          <span class="eyebrow">Our story</span>
+          <h2 class="section-head__title" style="margin-top:1.2rem;">Started by teens who refused to look away.</h2>
+          <p style="font-size:1.05rem; line-height:1.7; margin: 1rem 0;">
+            Paws For A Cause was founded in July 2025 by three high-school juniors in Okemos, Michigan. They had seen too many animals slip through the cracks in shelters, on streets, in their own neighborhoods. So they built a nonprofit that teens could lead and adults could trust.
+          </p>
+          <p class="lede" style="margin-bottom:2rem;">
+            Today we're a multi-state network organizing supply drives, fostering coordination, adoption awareness, and community education. The mission is simple: <span class="italic">no paw left behind.</span>
+          </p>
+          <ul class="list-checks" style="margin-bottom:2rem;">
+            <li><strong>Real, fast help.</strong> Adoption events, supply drives, foster support that ship in weeks, not years.</li>
+            <li><strong>Resources that stick.</strong> Toolkits and education for new pet owners and aspiring youth advocates.</li>
+            <li><strong>Powered by youth.</strong> Students plan, fundraise, and partner with shelters, clubs, and local businesses.</li>
+            <li><strong>Built to grow.</strong> Mentors, partners, and volunteers welcome. There's room for everyone who cares.</li>
+          </ul>
+          <a href="about.html" class="btn btn--quiet"><span class="btn__label">Read our full story <span class="btn__arrow">→</span></span></a>
+        </div>
+        <div class="split__photo reveal-clip" data-parallax="0.08">
+          <img src="images/IMG_0977.JPG" alt="Volunteers at an adoption event">
+          <span class="split__photo-tag">Okemos, MI · Founded 07.16.25</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO  bento grid -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">What we do</span>
+        <h2 class="section-head__title">Four ways we show up for animals.</h2>
+        <p class="lede">Different shapes of work, same shared mission: meet shelters where they are and bring real help.</p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5" data-stagger>
-        <article class="card card-glow">
-          <div class="w-12 h-12 rounded-xl mb-5 grid place-items-center" style="background: var(--accent-soft); color: var(--accent-2); font-size: 1.5rem;">🤝</div>
-          <h3 class="text-white">Adoption Events</h3>
-          <p class="text-sm">High-energy days that connect families with shelter pets ready for forever homes.</p>
+      <div class="bento reveal-stagger">
+        <article class="bento--wide bento--tall">
+          <span class="frame__icon" aria-hidden="true">01</span>
+          <h3 class="frame__title" style="font-size:1.4rem;">Adoption events</h3>
+          <p class="frame__body">High-energy days that connect families with shelter pets ready for forever homes. We bring the volunteers, the materials, and the warmth that makes adoption feel like welcoming family.</p>
+          <a href="involved.html" class="story-card__cta" style="margin-top:1.5rem;">Plan an event with us <span class="btn__arrow">→</span></a>
         </article>
-        <article class="card card-glow">
-          <div class="w-12 h-12 rounded-xl mb-5 grid place-items-center" style="background: var(--accent-soft); color: var(--accent-2); font-size: 1.5rem;">📦</div>
-          <h3 class="text-white">Supply Drives</h3>
-          <p class="text-sm">Food, blankets, toys, and essentials delivered to the shelters that need them most.</p>
+        <article>
+          <span class="frame__icon" aria-hidden="true">02</span>
+          <h3 class="frame__title">Supply drives</h3>
+          <p class="frame__body">Food, blankets, toys, and essentials, delivered to the shelters that need them most.</p>
         </article>
-        <article class="card card-glow">
-          <div class="w-12 h-12 rounded-xl mb-5 grid place-items-center" style="background: var(--accent-soft); color: var(--accent-2); font-size: 1.5rem;">🎓</div>
-          <h3 class="text-white">Youth Leadership</h3>
-          <p class="text-sm">Teens leading campaigns, partnerships, and education that ripple through communities.</p>
+        <article>
+          <span class="frame__icon" aria-hidden="true">03</span>
+          <h3 class="frame__title">Youth leadership</h3>
+          <p class="frame__body">Teens leading campaigns, partnerships, and education that ripple through communities.</p>
         </article>
-        <article class="card card-glow">
-          <div class="w-12 h-12 rounded-xl mb-5 grid place-items-center" style="background: var(--accent-soft); color: var(--accent-2); font-size: 1.5rem;">📣</div>
-          <h3 class="text-white">Community Outreach</h3>
-          <p class="text-sm">Awareness campaigns that turn neighbors into advocates, and bystanders into rescuers.</p>
+        <article class="bento--wide">
+          <span class="frame__icon" aria-hidden="true">04</span>
+          <h3 class="frame__title">Community outreach</h3>
+          <p class="frame__body">Awareness campaigns that turn neighbors into advocates, and bystanders into rescuers. We meet people where they are: schools, libraries, festivals, places of worship.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- TIMELINE / JOURNEY -->
-  <section class="section" id="journey" aria-labelledby="journey-title">
-    <div class="container-x">
-      <div class="text-center mb-12 reveal-up">
-        <span class="eyebrow">Our Journey</span>
-        <h2 id="journey-title" class="section-title mt-4">From a classroom idea to a statewide movement.</h2>
+  <!-- HOW WE WORK  sticky-stack scroll motion -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">How we work</span>
+        <h2 class="section-head__title">A four-step playbook, refined event by event.</h2>
+        <p class="lede">Every campaign moves through the same loop. Here is what that looks like in practice, scroll through.</p>
       </div>
+      <div class="stack">
+        <div class="stack__item reveal">
+          <div class="stack__num">01</div>
+          <div>
+            <h3 class="stack__title">Listen</h3>
+            <p class="stack__body">We start by talking to shelters and rescue partners. What do they actually need this month? Food, blankets, foster homes, volunteer hours? We write it down before we move.</p>
+          </div>
+        </div>
+        <div class="stack__item reveal">
+          <div class="stack__num">02</div>
+          <div>
+            <h3 class="stack__title">Mobilize</h3>
+            <p class="stack__body">We coordinate volunteers, set drop-off points, and rally schools, families, and sponsors. The goal is not noise. The goal is a list of confirmed people, places, and resources.</p>
+          </div>
+        </div>
+        <div class="stack__item reveal">
+          <div class="stack__num">03</div>
+          <div>
+            <h3 class="stack__title">Deliver</h3>
+            <p class="stack__body">We host the event, run the drive, train the volunteers, and hand-deliver supplies to partners. Photos and counts go up the same day.</p>
+          </div>
+        </div>
+        <div class="stack__item reveal">
+          <div class="stack__num">04</div>
+          <div>
+            <h3 class="stack__title">Share</h3>
+            <p class="stack__body">We report back, publicly. Numbers, photos, lessons learned. Then we do it again, better. Transparency is the foundation that lets the next campaign go farther.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <div class="timeline reveal-up">
+  <!-- TIMELINE -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Our journey</span>
+        <h2 class="section-head__title">From a classroom idea to a multi-state movement.</h2>
+      </div>
+      <div class="timeline reveal-stagger">
         <article class="timeline__item">
-          <div class="timeline__year">July 2025</div>
+          <div class="timeline__year">07.2025</div>
           <h3 class="timeline__title">Founded in Okemos</h3>
-          <p>Three high-school juniors launch Paws For A Cause, vowing to build something teens could lead — and adults could trust.</p>
+          <p>Three high-school juniors launch Paws For A Cause and vow to build something teens could lead, adults could trust.</p>
         </article>
         <article class="timeline__item">
           <div class="timeline__year">Fall 2025</div>
-          <h3 class="timeline__title">First Supply Drive</h3>
-          <p>Students and local businesses come together to deliver food, toys, and bedding to Mid-Michigan shelters.</p>
+          <h3 class="timeline__title">First supply drive</h3>
+          <p>Students and local businesses come together to deliver food, toys, and bedding to mid-Michigan shelters.</p>
         </article>
         <article class="timeline__item">
           <div class="timeline__year">Winter 2025</div>
-          <h3 class="timeline__title">Partnerships Begin</h3>
-          <p>Capital Area Humane Society, Ingham County Animal Control, MSU Animal Welfare Club and more join our network.</p>
+          <h3 class="timeline__title">Partnerships begin</h3>
+          <p>Capital Area Humane Society, Ingham County Animal Control, MSU Animal Welfare Club, and more join our network.</p>
         </article>
         <article class="timeline__item">
           <div class="timeline__year">2026 →</div>
-          <h3 class="timeline__title">Going Multi-State</h3>
-          <p>Expanding state chapters across Michigan, North Carolina, New Jersey, Florida, and Connecticut — with more coming soon.</p>
+          <h3 class="timeline__title">Going multi-state</h3>
+          <p>Expanding state chapters across Michigan, North Carolina, New Jersey, Florida, and Connecticut. More coming soon.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- FEATURED EVENTS -->
-  <section class="section" id="events" aria-labelledby="events-title">
-    <div class="container-x">
-      <div class="flex items-end justify-between flex-wrap gap-6 mb-10 reveal-up">
+  <!-- EVENTS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="flex between gap-3 reveal" style="align-items:flex-end; flex-wrap:wrap; margin-bottom:2.5rem;">
         <div>
-          <span class="eyebrow">Upcoming &amp; Recent</span>
-          <h2 id="events-title" class="section-title mt-4">Events bringing our community together.</h2>
+          <span class="eyebrow">Upcoming &amp; recent</span>
+          <h2 class="section-head__title" style="margin-top:1.2rem;">Events bringing community together.</h2>
         </div>
-        <a href="events.html" class="btn btn--outline">All events <span class="btn__arrow">→</span></a>
+        <a href="events.html" class="btn btn--quiet"><span class="btn__label">All events <span class="btn__arrow">→</span></span></a>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" data-stagger>
-        <article class="event-card">
-          <div class="event-card__media">
+      <div class="grid col-3 gap-2 reveal-stagger">
+        <article class="story-card">
+          <div class="story-card__media">
             <img src="images/cutedog.jpg" alt="">
-            <span class="event-card__badge">Upcoming</span>
-            <div class="event-card__date"><strong>TBA</strong><span>2026</span></div>
+            <span class="story-card__tag">Upcoming</span>
+            <span class="story-card__date">2026</span>
           </div>
-          <div class="event-card__body">
-            <div class="event-card__meta">
-              <span>📍 Capital Area, Michigan</span>
-              <span>👥 Open to all ages</span>
-            </div>
-            <h3 class="event-card__title">Spring Adoption Drive</h3>
-            <p class="text-sm">A weekend of meet-and-greets connecting adopters with our shelter partners.</p>
-            <a class="event-card__cta" href="events.html">View details <span class="btn__arrow">→</span></a>
+          <div class="story-card__body">
+            <div class="story-card__meta"><span>Capital Area, MI</span><span>All ages</span></div>
+            <h3 class="story-card__title">Spring adoption drive</h3>
+            <p class="muted" style="font-size:0.9rem;">A weekend of meet-and-greets connecting adopters with our shelter partners.</p>
+            <a class="story-card__cta" href="events.html">View details <span class="btn__arrow">→</span></a>
           </div>
         </article>
 
-        <article class="event-card">
-          <div class="event-card__media">
+        <article class="story-card">
+          <div class="story-card__media">
             <img src="images/graydog.jpg" alt="">
-            <span class="event-card__badge">Upcoming</span>
-            <div class="event-card__date"><strong>TBA</strong><span>2026</span></div>
+            <span class="story-card__tag">Upcoming</span>
+            <span class="story-card__date">2026</span>
           </div>
-          <div class="event-card__body">
-            <div class="event-card__meta">
-              <span>📍 Lansing, MI</span>
-              <span>📦 Supplies welcome</span>
-            </div>
-            <h3 class="event-card__title">Statewide Supply Drive</h3>
-            <p class="text-sm">Drop off food, toys, and bedding at partner locations across Michigan.</p>
-            <a class="event-card__cta" href="events.html">View details <span class="btn__arrow">→</span></a>
+          <div class="story-card__body">
+            <div class="story-card__meta"><span>Lansing, MI</span><span>Supplies welcome</span></div>
+            <h3 class="story-card__title">Statewide supply drive</h3>
+            <p class="muted" style="font-size:0.9rem;">Drop off food, toys, and bedding at partner locations across Michigan.</p>
+            <a class="story-card__cta" href="events.html">View details <span class="btn__arrow">→</span></a>
           </div>
         </article>
 
-        <article class="event-card">
-          <div class="event-card__media">
+        <article class="story-card">
+          <div class="story-card__media">
             <img src="images/Dogwoman.jpg" alt="">
-            <span class="event-card__badge">Past</span>
-            <div class="event-card__date"><strong>JAN</strong><span>2026</span></div>
+            <span class="story-card__tag">Past</span>
+            <span class="story-card__date">JAN 2026</span>
           </div>
-          <div class="event-card__body">
-            <div class="event-card__meta">
-              <span>📍 Mason, MI</span>
-              <span>🎓 Volunteer training</span>
-            </div>
-            <h3 class="event-card__title">ICACS Shelter Orientation</h3>
-            <p class="text-sm">Our team trained at Ingham County Animal Control — and got to work.</p>
-            <a class="event-card__cta" href="events.html">View recap <span class="btn__arrow">→</span></a>
+          <div class="story-card__body">
+            <div class="story-card__meta"><span>Mason, MI</span><span>Volunteer training</span></div>
+            <h3 class="story-card__title">ICACS shelter orientation</h3>
+            <p class="muted" style="font-size:0.9rem;">Our team trained at Ingham County Animal Control and got to work.</p>
+            <a class="story-card__cta" href="events.html">View recap <span class="btn__arrow">→</span></a>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- PARTNERS MARQUEE -->
-  <section class="section--tight" id="partners" aria-labelledby="partners-title">
-    <div class="container-x">
-      <div class="text-center mb-8 reveal-up">
-        <span class="eyebrow">Trusted Partners</span>
-        <h2 id="partners-title" class="section-title mt-4">Building Michigan's animal welfare network.</h2>
+  <!-- PARTNER MARQUEE -->
+  <section class="section--tight">
+    <div class="wrap reveal">
+      <div class="section-head" style="margin-bottom:1.5rem;">
+        <span class="eyebrow">Trusted partners</span>
+        <h2 class="section-head__title">Building Michigan's animal welfare network.</h2>
       </div>
     </div>
     <div class="marquee" aria-label="Partner organizations">
       <div class="marquee__track">
-        <span class="marquee__item">🏥 Ingham County Animal Control &amp; Shelter</span>
-        <span class="marquee__item">❤️ Capital Area Humane Society</span>
-        <span class="marquee__item">🎓 MSU Animal Welfare Club</span>
-        <span class="marquee__item">🦊 Wildside Rehabilitation Center</span>
-        <span class="marquee__item">🌟 Lansing Telugu Association</span>
-        <span class="marquee__item">🌟 Lansing Tamil Sangam</span>
-        <!-- duplicate for seamless loop -->
-        <span class="marquee__item">🏥 Ingham County Animal Control &amp; Shelter</span>
-        <span class="marquee__item">❤️ Capital Area Humane Society</span>
-        <span class="marquee__item">🎓 MSU Animal Welfare Club</span>
-        <span class="marquee__item">🦊 Wildside Rehabilitation Center</span>
-        <span class="marquee__item">🌟 Lansing Telugu Association</span>
-        <span class="marquee__item">🌟 Lansing Tamil Sangam</span>
+        <span class="marquee__item">Ingham County Animal Control &amp; Shelter</span>
+        <span class="marquee__sep">/</span>
+        <span class="marquee__item">Capital Area Humane Society</span>
+        <span class="marquee__sep">/</span>
+        <span class="marquee__item">MSU Animal Welfare Club</span>
+        <span class="marquee__sep">/</span>
+        <span class="marquee__item">Wildside Rehabilitation Center</span>
+        <span class="marquee__sep">/</span>
+        <span class="marquee__item">Lansing Telugu Association</span>
+        <span class="marquee__sep">/</span>
+        <span class="marquee__item">Lansing Tamil Sangam</span>
+        <span class="marquee__sep">/</span>
+        <span class="marquee__item">Ingham County Animal Control &amp; Shelter</span>
+        <span class="marquee__sep">/</span>
+        <span class="marquee__item">Capital Area Humane Society</span>
+        <span class="marquee__sep">/</span>
+        <span class="marquee__item">MSU Animal Welfare Club</span>
+        <span class="marquee__sep">/</span>
+        <span class="marquee__item">Wildside Rehabilitation Center</span>
+        <span class="marquee__sep">/</span>
+        <span class="marquee__item">Lansing Telugu Association</span>
+        <span class="marquee__sep">/</span>
+        <span class="marquee__item">Lansing Tamil Sangam</span>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="section" id="voices" aria-labelledby="voices-title">
-    <div class="container-x">
-      <div class="text-center mb-10 reveal-up">
-        <span class="eyebrow">Voices From The Field</span>
-        <h2 id="voices-title" class="section-title mt-4">Why our community shows up.</h2>
-      </div>
-    </div>
-    <div class="testi-track" tabindex="0" aria-label="Testimonials slider">
-      <article class="testi-card">
-        <p class="testi-card__quote">"Paws For A Cause showed up when we needed extra hands during our biggest intake of the season. Their volunteers were prepared, kind, and genuinely invested in the animals."</p>
-        <div class="testi-card__person">
-          <span class="testi-card__avatar">CA</span>
-          <div class="testi-card__name"><strong>Shelter Coordinator</strong><span>Capital Area Humane Society</span></div>
-        </div>
-      </article>
-      <article class="testi-card">
-        <p class="testi-card__quote">"I joined as a sophomore not knowing anyone. A year later I'm leading our chapter's supply drive — and I've never felt more useful in my life."</p>
-        <div class="testi-card__person">
-          <span class="testi-card__avatar">SR</span>
-          <div class="testi-card__name"><strong>Student Volunteer</strong><span>Lansing Region</span></div>
-        </div>
-      </article>
-      <article class="testi-card">
-        <p class="testi-card__quote">"What's special is that this is run by teens. They're sharper, more energetic, and more committed than half the boards I've sat on. Real change, real fast."</p>
-        <div class="testi-card__person">
-          <span class="testi-card__avatar">JK</span>
-          <div class="testi-card__name"><strong>Community Mentor</strong><span>Mid-Michigan</span></div>
-        </div>
-      </article>
-      <article class="testi-card">
-        <p class="testi-card__quote">"We adopted Daisy at one of their events. She's family now. The volunteers couldn't have made the day warmer or easier for our kids."</p>
-        <div class="testi-card__person">
-          <span class="testi-card__avatar">MP</span>
-          <div class="testi-card__name"><strong>Adoptive Family</strong><span>Okemos, MI</span></div>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- CTA BANNER -->
+  <!-- VOICES -->
   <section class="section">
-    <div class="container-x">
-      <div class="cta-banner reveal-up">
-        <span class="eyebrow mb-6">Ready to make tails wag?</span>
-        <h2 class="section-title mt-2 mb-4 max-w-3xl mx-auto">Your time, voice, or donation can transform a life today.</h2>
-        <p class="section-lead mb-8">Whether you have an hour, a dollar, or a network — there's a place for you in this movement.
-          Join the youth-led mission rewriting Michigan's animal welfare story.</p>
-        <div class="flex justify-center gap-3 flex-wrap">
-          <a href="volunteer.html" class="btn btn--primary magnetic">Volunteer with us <span class="btn__arrow">→</span></a>
-          <a href="donate.html" class="btn btn--ghost">Donate</a>
-          <a href="partner.html" class="btn btn--outline">Become a partner</a>
-        </div>
-
-        <div class="flex items-center justify-center gap-3 mt-8 text-sm" style="color: var(--text-muted);">
-          <div class="avatar-stack">
-            <span>R</span><span>T</span><span>V</span><span>+</span>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Voices from the field</span>
+        <h2 class="section-head__title">Why our community shows up.</h2>
+      </div>
+      <div class="quotes reveal-stagger">
+        <article class="quote">
+          <p class="quote__body">"Paws For A Cause showed up when we needed extra hands during our biggest intake of the season. Their volunteers were prepared, kind, and genuinely invested in the animals."</p>
+          <div class="quote__attr">
+            <span class="quote__avatar">CA</span>
+            <div><div class="quote__name">Shelter Coordinator</div><div class="quote__role">Capital Area Humane Society</div></div>
           </div>
-          <span>Joined by 45+ youth volunteers across 5 states</span>
+        </article>
+        <article class="quote">
+          <p class="quote__body">"I joined as a sophomore not knowing anyone. A year later I'm leading our chapter's supply drive, and I've never felt more useful in my life."</p>
+          <div class="quote__attr">
+            <span class="quote__avatar">SR</span>
+            <div><div class="quote__name">Student Volunteer</div><div class="quote__role">Lansing Region</div></div>
+          </div>
+        </article>
+        <article class="quote">
+          <p class="quote__body">"What's special is that this is run by teens. They're sharper, more energetic, and more committed than half the boards I've sat on. Real change, real fast."</p>
+          <div class="quote__attr">
+            <span class="quote__avatar">JK</span>
+            <div><div class="quote__name">Community Mentor</div><div class="quote__role">Mid-Michigan</div></div>
+          </div>
+        </article>
+        <article class="quote">
+          <p class="quote__body">"We adopted Daisy at one of their events. She's family now. The volunteers couldn't have made the day warmer or easier for our kids."</p>
+          <div class="quote__attr">
+            <span class="quote__avatar">MP</span>
+            <div><div class="quote__name">Adoptive Family</div><div class="quote__role">Okemos, MI</div></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="wrap">
+      <div class="cta-strip reveal">
+        <div>
+          <span class="eyebrow">Ready to make tails wag</span>
+          <h2 class="cta-strip__title" style="margin-top:1rem;">Your time, voice, or donation can transform a life today.</h2>
+          <p class="muted" style="margin-top:0.6rem; font-size:0.95rem;">Joined by 45+ youth volunteers across 5 states.</p>
+        </div>
+        <div class="cta-strip__actions">
+          <a href="volunteer.html" class="btn btn--primary"><span class="btn__label">Volunteer with us <span class="btn__arrow">→</span></span></a>
+          <a href="donate.html" class="btn btn--ghost"><span class="btn__label">Donate</span></a>
         </div>
       </div>
     </div>
@@ -445,46 +441,23 @@
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div class="container-x">
+  <div class="wrap">
     <div class="footer__grid">
       <div>
         <a href="index.html" class="nav__logo" style="margin-bottom:1.25rem;display:inline-flex;">
-          <span class="nav__logo-mark">🐾</span><span>PAWS FOR A CAUSE</span>
+          <span class="nav__logo-mark">P</span><span>PAWS FOR A CAUSE</span>
         </a>
-        <p style="font-size:0.92rem;max-width:320px;margin:1rem 0;">
-          A 100% youth-led nonprofit on a mission to make Michigan kinder for every animal — through adoption, advocacy, and action.
+        <p style="font-size:0.92rem; max-width:320px; margin:1rem 0;">
+          A 100% youth-led nonprofit on a mission to make Michigan kinder for every animal. Adoption, advocacy, action.
         </p>
         <form class="footer__newsletter" data-newsletter aria-label="Subscribe to our newsletter">
           <input type="email" placeholder="Get our newsletter" required aria-label="Email">
           <button type="submit">Subscribe</button>
         </form>
       </div>
-      <div>
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="team.html">Team</a></li>
-          <li><a href="state-board.html">State Board</a></li>
-          <li><a href="events.html">Events</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Take Action</h4>
-        <ul>
-          <li><a href="volunteer.html">Volunteer</a></li>
-          <li><a href="partner.html">Partnerships</a></li>
-          <li><a href="donate.html">Donate</a></li>
-          <li><a href="involved.html">Get Involved</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Connect</h4>
-        <ul>
-          <li><a href="mailto:pawsforacausemi@gmail.com">pawsforacausemi@gmail.com</a></li>
-          <li>Okemos, Michigan</li>
-        </ul>
+      <div><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="team.html">Team</a></li><li><a href="state-board.html">State Board</a></li><li><a href="events.html">Events</a></li></ul></div>
+      <div><h4>Take action</h4><ul><li><a href="volunteer.html">Volunteer</a></li><li><a href="partner.html">Partnerships</a></li><li><a href="donate.html">Donate</a></li><li><a href="involved.html">Get involved</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Connect</h4><ul><li><a href="mailto:pawsforacausemi@gmail.com">pawsforacausemi@gmail.com</a></li><li>Okemos, Michigan</li></ul>
         <div class="footer__socials" style="margin-top:1.25rem;">
           <a class="footer__social" href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
           <a class="footer__social" href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
@@ -493,9 +466,9 @@
       </div>
     </div>
     <div class="footer__bottom">
-      <p>© <span data-year>2026</span> Paws For A Cause Michigan · 100% youth-led, mission-driven</p>
-      <div style="display:flex;gap:1.25rem;">
-        <a href="privacy.html">Privacy Policy</a>
+      <p>© <span data-year>2026</span> Paws For A Cause Michigan. 100% youth-led, mission-driven.</p>
+      <div style="display:flex; gap:1.25rem;">
+        <a href="privacy.html">Privacy</a>
         <a href="contact.html">Contact</a>
       </div>
     </div>

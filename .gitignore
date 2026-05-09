@@ -1,0 +1,14 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local agent / skill workspace (installed via `npx skills add`)
+.agents/
+skills-lock.json
+
+# Local environment
+.env
+.env.local
+node_modules/
