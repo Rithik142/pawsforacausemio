@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Volunteer — Paws For A Cause Michigan</title>
+  <title>Volunteer, Paws For A Cause Michigan</title>
   <meta name="description" content="Sign up to volunteer with Paws For A Cause Michigan. Help with adoption events, supply drives, fostering coordination, and more across our state chapters.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
@@ -16,11 +16,11 @@
 </head>
 <body>
 
-<div class="page-overlay" data-page-overlay><div class="page-overlay__mark"><span>🐾</span><span>PAWS FOR A CAUSE</span></div></div>
+<div class="page-overlay" data-page-overlay><div class="page-overlay__mark"><span>PAWS FOR A CAUSE</span></div></div>
 
 <div class="nav-shell">
   <nav class="nav" data-nav>
-    <a href="index.html" class="nav__logo"><span class="nav__logo-mark">🐾</span><span>PAWS FOR A CAUSE</span></a>
+    <a href="index.html" class="nav__logo"><span class="nav__logo-mark">P</span><span>PAWS FOR A CAUSE</span></a>
     <ul class="nav__links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -31,7 +31,7 @@
       <li><a href="events.html">Events</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <a href="donate.html" class="nav__cta magnetic">Donate <span class="btn__arrow">→</span></a>
+    <a href="donate.html" class="nav__cta">Donate <span class="btn__arrow">→</span></a>
     <button class="nav__burger" data-burger><span></span><span></span><span></span></button>
   </nav>
 </div>
@@ -48,8 +48,8 @@
     <div class="container-x page-hero__content">
       <div class="page-crumb"><a href="index.html">Home</a> <span>/</span> <a href="involved.html">Get Involved</a> <span>/</span> <span>Volunteer</span></div>
       <span class="eyebrow" data-hero-up>Become A Volunteer</span>
-      <h1 class="page-hero__title mt-4" data-hero-up>Show up. <span class="text-gradient">Make a difference.</span></h1>
-      <p class="page-hero__sub" data-hero-up>Tell us a bit about yourself and we'll match you to a campaign within 48 hours. Open to volunteers of all ages — younger applicants will be paired with age-appropriate roles.</p>
+      <h1 class="page-hero__title mt-4" data-hero-up>Show up. <span class="italic">Make a difference.</span></h1>
+      <p class="page-hero__sub" data-hero-up>Tell us a bit about yourself and we'll match you to a campaign within 48 hours. Open to volunteers of all ages, younger applicants will be paired with age-appropriate roles.</p>
     </div>
   </section>
 
@@ -93,9 +93,9 @@
               <div class="field">
                 <label for="vol-availability">Hours per month</label>
                 <select id="vol-availability" name="availability">
-                  <option>1–3 hours</option>
-                  <option selected>4–8 hours</option>
-                  <option>9–15 hours</option>
+                  <option>1,3 hours</option>
+                  <option selected>4,8 hours</option>
+                  <option>9,15 hours</option>
                   <option>15+ hours</option>
                 </select>
               </div>
@@ -126,7 +126,7 @@
             </label>
 
             <div class="flex items-center gap-3 mt-4 flex-wrap">
-              <button type="submit" class="btn btn--primary magnetic">Submit application <span class="btn__arrow">→</span></button>
+              <button type="submit" class="btn btn--primary">Submit application <span class="btn__arrow">→</span></button>
               <p class="text-xs" style="color:var(--text-dim);">We'll respond within 48 hours.</p>
             </div>
             <p class="text-sm mt-3" data-form-status style="color:var(--accent-2);"></p>
@@ -149,7 +149,7 @@
             <span class="eyebrow">FAQ Quickfire</span>
             <details class="faq__item mt-5" open>
               <summary class="faq__q">How old do I need to be?<span class="faq__icon">+</span></summary>
-              <div class="faq__a">Volunteers can be any age — younger volunteers are paired with age-appropriate roles like supply sorting, social media, and event support.</div>
+              <div class="faq__a">Volunteers can be any age, younger volunteers are paired with age-appropriate roles like supply sorting, social media, and event support.</div>
             </details>
             <details class="faq__item mt-2">
               <summary class="faq__q">Do I need experience?<span class="faq__icon">+</span></summary>
@@ -179,12 +179,12 @@
         <h2 class="section-title mt-4">A spot for every kind of volunteer.</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" data-stagger>
-        <article class="card card-glow"><span class="chip mb-4">Events</span><h3 class="text-white">Event Day Volunteer</h3><p class="text-sm">Help run adoption events — registration, family check-ins, breakdown.</p></article>
+        <article class="card card-glow"><span class="chip mb-4">Events</span><h3 class="text-white">Event Day Volunteer</h3><p class="text-sm">Help run adoption events, registration, family check-ins, breakdown.</p></article>
         <article class="card card-glow"><span class="chip mb-4">Logistics</span><h3 class="text-white">Supply Coordinator</h3><p class="text-sm">Sort, pack, and deliver donated supplies to shelter partners.</p></article>
         <article class="card card-glow"><span class="chip mb-4">Remote</span><h3 class="text-white">Social Media Lead</h3><p class="text-sm">Run our Instagram, post campaign updates, grow our reach.</p></article>
         <article class="card card-glow"><span class="chip mb-4">Remote</span><h3 class="text-white">Graphic Designer</h3><p class="text-sm">Design flyers, social posts, and event branding.</p></article>
         <article class="card card-glow"><span class="chip mb-4">Field</span><h3 class="text-white">Shelter Shift Volunteer</h3><p class="text-sm">Get trained at partner shelters and contribute regular weekly hours.</p></article>
-        <article class="card card-glow"><span class="chip mb-4">Leadership</span><h3 class="text-white">Chapter President</h3><p class="text-sm">Lead a school or city chapter — coordinate volunteers, plan events.</p></article>
+        <article class="card card-glow"><span class="chip mb-4">Leadership</span><h3 class="text-white">Chapter President</h3><p class="text-sm">Lead a school or city chapter, coordinate volunteers, plan events.</p></article>
       </div>
     </div>
   </section>
@@ -194,8 +194,8 @@
   <div class="container-x">
     <div class="footer__grid">
       <div>
-        <a href="index.html" class="nav__logo" style="margin-bottom:1.25rem;display:inline-flex;"><span class="nav__logo-mark">🐾</span><span>PAWS FOR A CAUSE</span></a>
-        <p style="font-size:0.92rem;max-width:320px;margin:1rem 0;">A 100% youth-led nonprofit on a mission to make Michigan kinder for every animal — through adoption, advocacy, and action.</p>
+        <a href="index.html" class="nav__logo" style="margin-bottom:1.25rem;display:inline-flex;"><span class="nav__logo-mark">P</span><span>PAWS FOR A CAUSE</span></a>
+        <p style="font-size:0.92rem;max-width:320px;margin:1rem 0;">A 100% youth-led nonprofit on a mission to make Michigan kinder for every animal, through adoption, advocacy, and action.</p>
         <form class="footer__newsletter" data-newsletter><input type="email" placeholder="Get our newsletter" required><button type="submit">Subscribe</button></form>
       </div>
       <div><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="team.html">Team</a></li><li><a href="state-board.html">State Board</a></li><li><a href="events.html">Events</a></li></ul></div>
