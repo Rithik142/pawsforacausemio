@@ -84,6 +84,7 @@ body::before {
 
 main, header, footer, section { position: relative; }
 main { z-index: 1; }
+header.nav-shell { display: block; padding: 0; margin: 0; }
 
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
@@ -1797,3 +1798,366 @@ p  { color: var(--ink-soft); max-width: 68ch; }
 
 /* Tailwind text-white compatibility on subpages now means dark ink */
 .text-white { color: var(--ink) !important; }
+
+/* =========================================================================
+   v3.1 AESTHETIC FLOURISHES
+   Editorial markers, ornament dividers, drop caps, refined team cards,
+   pull quotes, photo strip gallery, animated heading underlines.
+   ========================================================================= */
+
+/* --- Section marker (small chapter number in the corner) --- */
+.section-marker {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 0.5rem;
+}
+.section-marker::before {
+  content: "§";
+  color: var(--accent);
+  font-style: italic;
+  font-size: 0.95rem;
+  font-family: 'Instrument Serif', serif;
+}
+
+/* --- Drop cap for opening paragraph --- */
+.dropcap {
+  position: relative;
+}
+.dropcap > p:first-of-type::first-letter,
+.dropcap::first-letter {
+  font-family: 'Instrument Serif', 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+  font-size: 4.6em;
+  line-height: 0.85;
+  float: left;
+  padding: 0.05em 0.12em 0 0;
+  margin: 0.05em 0.1em 0 -0.04em;
+}
+
+/* --- Ornament divider (small inline accent between sections) --- */
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  justify-content: center;
+  padding: 1rem 0;
+  color: var(--ink-mute);
+}
+.ornament::before, .ornament::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--hairline-strong), transparent);
+}
+.ornament__mark {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+}
+
+/* --- Pull quote (editorial massive italic) --- */
+.pull-quote {
+  position: relative;
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 5vw, 4rem);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  text-align: center;
+  margin: 0 auto;
+  max-width: 980px;
+}
+.pull-quote::before {
+  content: "\201C";
+  position: absolute;
+  top: 0.6rem; left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 6rem;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.35;
+  pointer-events: none;
+}
+.pull-quote__body {
+  font-family: 'Instrument Serif', 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  line-height: 1.2;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+  margin-bottom: 1.5rem;
+}
+.pull-quote__attr {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.pull-quote__attr::before {
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 1px;
+  background: var(--accent);
+  vertical-align: middle;
+  margin-right: 0.65rem;
+}
+
+/* --- Photo strip (horizontal asymmetric gallery) --- */
+.photo-strip {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.2fr;
+  gap: 0.85rem;
+  align-items: end;
+}
+@media (max-width: 760px) { .photo-strip { grid-template-columns: 1fr; } }
+.photo-strip__item {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+  background: var(--surface);
+  transition: transform 600ms var(--ease-out-strong),
+              box-shadow 600ms var(--ease-out-strong);
+}
+.photo-strip__item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px -30px rgba(31, 41, 32, 0.25);
+}
+.photo-strip__item:nth-child(1) { aspect-ratio: 4/5; }
+.photo-strip__item:nth-child(2) { aspect-ratio: 4/5; transform: translateY(2.5rem); }
+.photo-strip__item:nth-child(3) { aspect-ratio: 4/5; }
+@media (max-width: 760px) {
+  .photo-strip__item:nth-child(2) { transform: none; }
+  .photo-strip__item:nth-child(n) { aspect-ratio: 4/3; }
+}
+.photo-strip__item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 1200ms var(--ease-out-strong),
+              filter 600ms var(--ease-out-strong);
+  filter: saturate(1.05);
+}
+.photo-strip__item:hover img { transform: scale(1.06); }
+.photo-strip__caption {
+  position: absolute;
+  bottom: 0.8rem; left: 0.8rem;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: rgba(26, 32, 24, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+
+/* --- Animated heading underline (draws on scroll-in) --- */
+.heading-rule {
+  position: relative;
+  display: inline-block;
+}
+.heading-rule::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.3em;
+  height: 2px;
+  width: 100%;
+  background: var(--accent);
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1100ms var(--ease-out-strong) 200ms;
+}
+.reveal.is-in .heading-rule::after,
+.is-in .heading-rule::after,
+.heading-rule.is-in::after { clip-path: inset(0 0 0 0); }
+
+/* --- Compact team-card (smaller, horizontally oriented) --- */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+.team-card {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1.1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  transition: border-color 280ms var(--ease-out-strong),
+              transform 380ms var(--ease-out-strong),
+              box-shadow 380ms var(--ease-out-strong);
+  position: relative;
+  overflow: hidden;
+}
+.team-card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 1px solid var(--accent);
+  border-radius: inherit;
+  pointer-events: none;
+  clip-path: polygon(0 100%, 0 70%, 30% 70%, 30% 100%);
+  opacity: 0;
+  transition: opacity 320ms var(--ease-out-strong),
+              clip-path 480ms var(--ease-out-strong);
+}
+.team-card:hover {
+  border-color: var(--hairline-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -20px rgba(31, 41, 32, 0.20);
+}
+.team-card:hover::after {
+  opacity: 1;
+  clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
+}
+.team-card__photo {
+  aspect-ratio: 1 / 1;
+  width: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--surface-2);
+  border: 1px solid var(--hairline-strong);
+  display: grid; place-items: center;
+  position: relative;
+}
+.team-card__photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 800ms var(--ease-out-strong);
+}
+.team-card:hover .team-card__photo img { transform: scale(1.07); }
+.team-card__photo .placeholder, .team-photo-slot {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+.team-card__info { min-width: 0; }
+.team-card__role {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 0.25rem;
+}
+.team-card__name {
+  font-family: 'Geist', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 0.3rem;
+  line-height: 1.2;
+}
+.team-card__info p {
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin: 0;
+  max-width: none;
+}
+
+/* Wider variant: when team cards have longer bios, allow full-width row */
+.team-grid--wide {
+  grid-template-columns: 1fr;
+}
+.team-grid--wide .team-card {
+  grid-template-columns: 110px 1fr;
+}
+
+/* --- Manifesto strip (large editorial statement) --- */
+.manifesto {
+  padding: clamp(3rem, 7vw, 5.5rem) 0;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+.manifesto__line {
+  font-family: 'Geist', sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.6rem, 3.6vw, 2.6rem);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  max-width: 22ch;
+}
+.manifesto__line em {
+  font-family: 'Instrument Serif', 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+.manifesto__meta {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-top: 1rem;
+}
+
+/* --- Decorative SVG paw outline used in section markers --- */
+.paw-mark {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  color: var(--accent);
+  vertical-align: -2px;
+}
+
+/* --- Fix: scroll-margin so anchors don't hide under fixed nav --- */
+[id]:not(body) { scroll-margin-top: calc(var(--nav-h) + 24px); }
+
+/* --- Fix: hero overflow on small screens --- */
+@media (max-width: 640px) {
+  .hero { min-height: auto; padding: 3rem 0 4rem; }
+  .hero__photo { max-height: 70vh; }
+  .nav-shell { backdrop-filter: blur(6px); }
+}
+
+/* --- Fix: page-hero excess top padding now that body has padding-top --- */
+.page-hero { padding-top: clamp(2.5rem, 5vw, 4rem); }
+
+/* --- Fix: section padding sometimes doubles when sections are stacked --- */
+.section + .section { padding-top: clamp(3rem, 6vw, 5rem); }
+.section--tight + .section { padding-top: clamp(3rem, 6vw, 5rem); }
+
+/* --- Refinement: card hover stronger feedback for cardless sections --- */
+.story-card:hover .story-card__cta::after,
+.story-card:hover .event-card__cta::after { clip-path: inset(0 0 0 0); }
+
+/* --- Small accent bullet for ornament dots --- */
+.dot-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.dot-row::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 999px;
+  background: var(--accent);
+}
