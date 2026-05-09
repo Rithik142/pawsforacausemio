@@ -1,185 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Volunteer | Paws for a Cause</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="theme-light.css" />
-  <script src="scripts.js" defer></script>
-
-  <style>
-    /* Tiny helper styles – safe to keep or move into styles.css */
-    .form-status{display:none;margin-top:1rem;font-weight:600;}
-    .form-status.success{color:var(--primary);}
-    .form-status.error{color:#ff6b6b;}
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Volunteer — Paws For A Cause Michigan</title>
+  <meta name="description" content="Sign up to volunteer with Paws For A Cause Michigan. Help with adoption events, supply drives, fostering coordination, and more across our state chapters.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script src="assets/js/main.js" defer></script>
 </head>
 <body>
-  <header>
-    <a href="index.html" class="logo">PAWS FOR A CAUSE</a>
-    <nav>
-      <ul class="nav-list">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="team.html">About Us</a></li>
-        <li><a href="state-board.html">State Board</a></li>
-        <li><a href="services.html">Our Work</a></li>
-        <li class="has-dd">
-          <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
-          <ul class="dropdown" role="menu">
-            <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
-            <li><a href="partner.html"  role="menuitem">Partner</a></li>
-          </ul>
-        </li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </nav>
-    <div class="hamburger">☰</div>
-  </header>
 
-  <main>
-    <section class="form-hero container reveal">
-      <h1 class="section-heading"><span>Volunteer</span> With Us</h1>
-      <p class="lede">
-        From volunteer events to supply drives, we run on teen power. Tell us what you’re into and when you’re free—we’ll plug you in.
-      </p>
-    </section>
+<div class="page-overlay" data-page-overlay><div class="page-overlay__mark"><span>🐾</span><span>PAWS FOR A CAUSE</span></div></div>
 
-    <section class="form-section container reveal">
-      <!-- SUCCESS / ERROR placeholders -->
+<div class="nav-shell">
+  <nav class="nav" data-nav>
+    <a href="index.html" class="nav__logo"><span class="nav__logo-mark">🐾</span><span>PAWS FOR A CAUSE</span></a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li class="nav__has-dd"><a href="involved.html">Get Involved ▾</a>
+        <ul class="nav__dd"><li><a href="volunteer.html" class="active">Volunteer</a></li><li><a href="partner.html">Partnerships</a></li><li><a href="state-board.html">State Board</a></li></ul>
+      </li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="donate.html" class="nav__cta magnetic">Donate <span class="btn__arrow">→</span></a>
+    <button class="nav__burger" data-burger><span></span><span></span><span></span></button>
+  </nav>
+</div>
 
+<div class="mobile-menu" data-mobile-menu>
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="team.html">Team</a><a href="involved.html">Get Involved</a>
+  <a href="volunteer.html">Volunteer</a><a href="events.html">Events</a><a href="partner.html">Partnerships</a>
+  <a href="contact.html">Contact</a><a href="donate.html" class="mobile-menu__cta">Donate</a>
+</div>
 
-      <form class="contact-form big-form"
-            id="volunteer-form"
-            action="https://formspree.io/f/xnnzpvbv"
-            method="POST"
-            accept-charset="UTF-8">
-
-        <!-- (optional) custom subject for your inbox -->
-        <input type="hidden" name="_subject" value="New Volunteer Submission">
-
-        <div class="form-row three">
-          <label>First Name
-            <input type="text" name="firstName" required>
-          </label>
-          <label>Last Name
-            <input type="text" name="lastName" required>
-          </label>
-          <label>Age
-            <input type="number" name="age" min="10" max="120" required>
-          </label>
-        </div>
-
-        <div class="form-row two">
-          <label>Email
-            <input type="email" name="email" required>
-          </label>
-          <label>Phone (optional)
-            <input type="tel" name="phone" placeholder="(xxx) xxx‑xxxx">
-          </label>
-        </div>
-
-        <label>City / School (optional)
-          <input type="text" name="location">
-        </label>
-
-        <fieldset class="check-group">
-          <legend>How do you want to help? (check all that apply)</legend>
-          <label><input type="checkbox" name="help[]" value="events"> Event Volunteering</label>
-          <label><input type="checkbox" name="help[]" value="transport"> Donation of Supplies</label>
-             <label><input type="checkbox" name="time[]" value="summer"> Other</label>
-        </fieldset>
-
-        <fieldset class="check-group">
-          <legend>When are you generally available?</legend>
-          <label><input type="checkbox" name="time[]" value="weekdays"> Weekdays</label>
-          <label><input type="checkbox" name="time[]" value="weekends"> Weekends</label>
-          <label><input type="checkbox" name="time[]" value="summer"> Summer / school breaks</label>
-          <label><input type="checkbox" name="time[]" value="summer"> Other</label>
-        </fieldset>
-
-        <label>Anything else we should know?
-          <textarea name="message" rows="5" placeholder="Skills, ideas, or limits…"></textarea>
-        </label>
-
-        <label class="optin">
-          <input type="checkbox" name="consent" required>
-          <span>I agree to receive further contact from Paws for a Cause regarding my involvement.</span>
-        </label>
-
-        <button type="submit" class="btn-submit" id="vol-submit">Send Volunteer Form</button>
-      </form>
-
-      <p id="vol-status" class="form-status" aria-live="polite"></p>
-
-    </section>
-  </main>
-
- <footer>
-    <p>&copy; 2025 Paws for a Cause | <a href="privacy.html">Privacy Policy</a></p>
-    <div class="social">
-      <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
-      <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener">Instagram</a>
-      <a href="mailto:pawsforacausemi@gmail.com">Email</a>
+<main>
+  <section class="page-hero">
+    <div class="page-hero__bg"></div>
+    <div class="container-x page-hero__content">
+      <div class="page-crumb"><a href="index.html">Home</a> <span>/</span> <a href="involved.html">Get Involved</a> <span>/</span> <span>Volunteer</span></div>
+      <span class="eyebrow" data-hero-up>Become A Volunteer</span>
+      <h1 class="page-hero__title mt-4" data-hero-up>Show up. <span class="text-gradient">Make a difference.</span></h1>
+      <p class="page-hero__sub" data-hero-up>Tell us a bit about yourself and we'll match you to a campaign within 48 hours. Open to volunteers of all ages — younger applicants will be paired with age-appropriate roles.</p>
     </div>
-  </footer>
+  </section>
 
-  <!-- Inline JS to keep it self-contained -->
-<p id="vol-status" class="form-status" aria-live="polite"></p>
+  <!-- VOLUNTEER FORM + SIDEBAR -->
+  <section class="section">
+    <div class="container-x">
+      <div class="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-8">
 
-<script>
-(function () {
-  const form   = document.getElementById('volunteer-form');
-  const status = document.getElementById('vol-status');
-  const btn    = document.getElementById('vol-submit'); // add id to your button
+        <!-- FORM -->
+        <div class="form-card reveal-up">
+          <span class="eyebrow">Volunteer Application</span>
+          <h2 class="text-white mt-4 mb-2" style="font-size:1.6rem;">Tell us about you.</h2>
+          <p class="text-sm mb-7">Takes about 2 minutes. We'll follow up by email.</p>
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+          <form class="form-row" data-form>
+            <div class="form-row form-row--2">
+              <div class="field">
+                <label for="vol-first">First name</label>
+                <input id="vol-first" name="first" type="text" placeholder="Jane" required>
+              </div>
+              <div class="field">
+                <label for="vol-last">Last name</label>
+                <input id="vol-last" name="last" type="text" placeholder="Doe" required>
+              </div>
+            </div>
+            <div class="form-row form-row--2">
+              <div class="field">
+                <label for="vol-email">Email</label>
+                <input id="vol-email" name="email" type="email" placeholder="you@email.com" required>
+              </div>
+              <div class="field">
+                <label for="vol-age">Age</label>
+                <input id="vol-age" name="age" type="number" min="8" max="100" placeholder="16">
+              </div>
+            </div>
+            <div class="form-row form-row--2">
+              <div class="field">
+                <label for="vol-location">City &amp; State</label>
+                <input id="vol-location" name="location" type="text" placeholder="Lansing, MI" required>
+              </div>
+              <div class="field">
+                <label for="vol-availability">Hours per month</label>
+                <select id="vol-availability" name="availability">
+                  <option>1–3 hours</option>
+                  <option selected>4–8 hours</option>
+                  <option>9–15 hours</option>
+                  <option>15+ hours</option>
+                </select>
+              </div>
+            </div>
 
-    // reset status
-    status.textContent = '';
-    status.className   = 'form-status';
-    status.style.display = 'none';
+            <div class="field">
+              <label>What are you interested in? <span style="color:var(--text-dim);">(select any)</span></label>
+              <div class="pill-group">
+                <label class="pill-check"><input type="checkbox" name="interests" value="events"><span>🎪 Adoption events</span></label>
+                <label class="pill-check"><input type="checkbox" name="interests" value="drives"><span>📦 Supply drives</span></label>
+                <label class="pill-check"><input type="checkbox" name="interests" value="shelter"><span>🏥 Shelter shifts</span></label>
+                <label class="pill-check"><input type="checkbox" name="interests" value="foster"><span>🏠 Foster support</span></label>
+                <label class="pill-check"><input type="checkbox" name="interests" value="social"><span>📣 Social media</span></label>
+                <label class="pill-check"><input type="checkbox" name="interests" value="design"><span>🎨 Graphic design</span></label>
+                <label class="pill-check"><input type="checkbox" name="interests" value="fundraising"><span>💛 Fundraising</span></label>
+                <label class="pill-check"><input type="checkbox" name="interests" value="leadership"><span>🧭 Chapter leadership</span></label>
+              </div>
+            </div>
 
-    // button state
-    if(btn){
-      btn.disabled = true;
-      var original = btn.textContent;
-      btn.textContent = 'Sending…';
-    }
+            <div class="field">
+              <label for="vol-why">Why do you want to volunteer?</label>
+              <textarea id="vol-why" name="why" placeholder="Tell us what drew you to this mission..."></textarea>
+            </div>
 
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      });
+            <label class="field--check">
+              <input type="checkbox" name="updates" checked>
+              <span>Yes, send me email updates about events and campaigns. Unsubscribe anytime.</span>
+            </label>
 
-      if (res.ok) {
-        form.reset();
-        status.textContent = 'Thanks! Your form was sent. We’ll reach out soon 🐾';
-        status.classList.add('success');
-        status.style.display = 'block';
-      } else {
-        const data = await res.json();
-        const msg = data.errors ? data.errors.map(e => e.message).join(', ') : 'Please try again.';
-        throw new Error(msg);
-      }
-    } catch (err) {
-      status.textContent = 'Oops—something went wrong. ' + err.message;
-      status.classList.add('error');
-      status.style.display = 'block';
-    } finally {
-      if(btn){
-        btn.disabled = false;
-        btn.textContent = original;
-      }
-    }
-  });
-})();
-</script>
+            <div class="flex items-center gap-3 mt-4 flex-wrap">
+              <button type="submit" class="btn btn--primary magnetic">Submit application <span class="btn__arrow">→</span></button>
+              <p class="text-xs" style="color:var(--text-dim);">We'll respond within 48 hours.</p>
+            </div>
+            <p class="text-sm mt-3" data-form-status style="color:var(--accent-2);"></p>
+          </form>
+        </div>
 
+        <!-- SIDEBAR -->
+        <aside class="space-y-5">
+          <div class="card reveal-up">
+            <span class="eyebrow">What You Get</span>
+            <ul class="list-checks mt-5">
+              <li>Verified hours for school &amp; college applications</li>
+              <li>Direct mentorship from founders &amp; partners</li>
+              <li>A real role on a real campaign</li>
+              <li>Community of teen volunteers across the state</li>
+              <li>Path to chapter leadership if you want it</li>
+            </ul>
+          </div>
+          <div class="card reveal-up">
+            <span class="eyebrow">FAQ Quickfire</span>
+            <details class="faq__item mt-5" open>
+              <summary class="faq__q">How old do I need to be?<span class="faq__icon">+</span></summary>
+              <div class="faq__a">Volunteers can be any age — younger volunteers are paired with age-appropriate roles like supply sorting, social media, and event support.</div>
+            </details>
+            <details class="faq__item mt-2">
+              <summary class="faq__q">Do I need experience?<span class="faq__icon">+</span></summary>
+              <div class="faq__a">No. We provide orientation and on-the-job training. Just bring willingness and reliability.</div>
+            </details>
+            <details class="faq__item mt-2">
+              <summary class="faq__q">Is this remote or in-person?<span class="faq__icon">+</span></summary>
+              <div class="faq__a">Both. Some roles (social media, design, fundraising outreach) are fully remote; events and shelter shifts are in-person.</div>
+            </details>
+          </div>
+          <div class="card reveal-up" style="background:linear-gradient(160deg, rgba(249,115,22,0.08), rgba(255,255,255,0.01)); border-color:var(--accent-soft);">
+            <span class="eyebrow">Bigger Idea?</span>
+            <h3 class="text-white mt-4">Start your own chapter.</h3>
+            <p class="text-sm mt-2">If you want to lead a school or city chapter, get in touch with the founders directly.</p>
+            <a href="contact.html" class="btn btn--ghost mt-5 inline-flex">Contact founders <span class="btn__arrow">→</span></a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROLES PREVIEW -->
+  <section class="section">
+    <div class="container-x">
+      <div class="text-center mb-10 reveal-up">
+        <span class="eyebrow">Roles You Might Match</span>
+        <h2 class="section-title mt-4">A spot for every kind of volunteer.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" data-stagger>
+        <article class="card card-glow"><span class="chip mb-4">Events</span><h3 class="text-white">Event Day Volunteer</h3><p class="text-sm">Help run adoption events — registration, family check-ins, breakdown.</p></article>
+        <article class="card card-glow"><span class="chip mb-4">Logistics</span><h3 class="text-white">Supply Coordinator</h3><p class="text-sm">Sort, pack, and deliver donated supplies to shelter partners.</p></article>
+        <article class="card card-glow"><span class="chip mb-4">Remote</span><h3 class="text-white">Social Media Lead</h3><p class="text-sm">Run our Instagram, post campaign updates, grow our reach.</p></article>
+        <article class="card card-glow"><span class="chip mb-4">Remote</span><h3 class="text-white">Graphic Designer</h3><p class="text-sm">Design flyers, social posts, and event branding.</p></article>
+        <article class="card card-glow"><span class="chip mb-4">Field</span><h3 class="text-white">Shelter Shift Volunteer</h3><p class="text-sm">Get trained at partner shelters and contribute regular weekly hours.</p></article>
+        <article class="card card-glow"><span class="chip mb-4">Leadership</span><h3 class="text-white">Chapter President</h3><p class="text-sm">Lead a school or city chapter — coordinate volunteers, plan events.</p></article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container-x">
+    <div class="footer__grid">
+      <div>
+        <a href="index.html" class="nav__logo" style="margin-bottom:1.25rem;display:inline-flex;"><span class="nav__logo-mark">🐾</span><span>PAWS FOR A CAUSE</span></a>
+        <p style="font-size:0.92rem;max-width:320px;margin:1rem 0;">A 100% youth-led nonprofit on a mission to make Michigan kinder for every animal — through adoption, advocacy, and action.</p>
+        <form class="footer__newsletter" data-newsletter><input type="email" placeholder="Get our newsletter" required><button type="submit">Subscribe</button></form>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="team.html">Team</a></li><li><a href="state-board.html">State Board</a></li><li><a href="events.html">Events</a></li></ul></div>
+      <div><h4>Take Action</h4><ul><li><a href="volunteer.html">Volunteer</a></li><li><a href="partner.html">Partnerships</a></li><li><a href="donate.html">Donate</a></li><li><a href="involved.html">Get Involved</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Connect</h4><ul><li><a href="mailto:pawsforacausemi@gmail.com">pawsforacausemi@gmail.com</a></li><li>Okemos, Michigan</li></ul>
+        <div class="footer__socials" style="margin-top:1.25rem;">
+          <a class="footer__social" href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+          <a class="footer__social" href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+          <a class="footer__social" href="mailto:pawsforacausemi@gmail.com" aria-label="Email">@</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom"><p>© <span data-year>2026</span> Paws For A Cause Michigan · 100% youth-led, mission-driven</p>
+      <div style="display:flex;gap:1.25rem;"><a href="privacy.html">Privacy Policy</a><a href="contact.html">Contact</a></div>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
