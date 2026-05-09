@@ -1,137 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Contact | Paws for a Cause</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="styles.css"/>
-  <link rel="stylesheet" href="theme-light.css"/>
-  <script src="scripts.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact — Paws For A Cause Michigan</title>
+  <meta name="description" content="Get in touch with Paws For A Cause Michigan. Reach out about partnerships, volunteer opportunities, donations, or starting a chapter.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script src="assets/js/main.js" defer></script>
 </head>
 <body>
 
-  <!-- fixed header -->
-    <header>
-    <a href="index.html" class="logo">PAWS FOR A CAUSE</a>
-    <nav>
-      <ul class="nav-list">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="team.html">About Us</a></li>
-        <li><a href="state-board.html">State Board</a></li>
-        <li><a href="services.html">Our Work</a></li>
-        <li class="has-dd">
-          <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
-          <ul class="dropdown" role="menu">
-            <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
-            <li><a href="partner.html"  role="menuitem">Partner</a></li>
-          </ul>
-        </li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </nav>
-    <div class="hamburger">☰</div>
-  </header>
+<div class="page-overlay" data-page-overlay><div class="page-overlay__mark"><span>🐾</span><span>PAWS FOR A CAUSE</span></div></div>
 
-  <!-- main content wrapped for Locomotive/scroll animations -->
-  <main data-scroll-container>
-    <div class="container">
-<section class="contact-section">
-  <h1>Contact Us</h1>
-  <div class="contact-content">
-    <!-- LEFT SIDEBAR -->
-    <!-- contact.html -->
-<aside class="contact-info">
-  <img src="images/dog-6961236.jpg" alt="Happy dog" class="contact-img" />
-  <h2>Get in Touch</h2>
-  <p>Feel free to reach out with any questions or ideas! We’re always happy to hear from fellow animal lovers.</p>
-
-  <div class="socials">
-   <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
-    <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener">Instagram</a>
-   <a href="mailto:pawsforacausemi@gmail.com">Email</a>
-  </div>
-</aside>
-
-
-
-    <!-- RIGHT FORM -->
-<div class="contact-form">
-  <form
-    id="contactForm"
-    action="https://formspree.io/f/mblklzkb"
-    method="post"
-  >
-    <!-- custom subject line in the email you receive -->
-    <input type="hidden" name="_subject" value="Someone Contacted Us" />
-
-    <!-- disable Formspree’s built-in CAPTCHA (optional) -->
-    <input type="hidden" name="_captcha" value="false" />
-
-    <div class="two-col">
-      <label>
-        First Name
-        <input type="text" name="firstName" placeholder="Your first name" required>
-      </label>
-      <label>
-        Last Name
-        <input type="text" name="lastName" placeholder="Your last name" required>
-      </label>
-    </div>
-
-    <label>
-      Email
-      <!-- tells Formspree where to reply -->
-      <input type="email" name="_replyto" placeholder="you@example.com" required>
-    </label>
-
-    <label>
-      Subject
-      <input type="text" name="subject" placeholder="What’s this about?" required>
-    </label>
-
-    <label>
-      Message
-      <textarea name="message" rows="5" placeholder="Your message…" required></textarea>
-    </label>
-
-<label class="optin">
-  <input type="checkbox" name="consent" id="consent" required>
-
-  <span>I agree to receive further contact from Paws for a Cause on behalf of my involvement.</span>
-</label>
-
-    
-    <button type="submit" class="btn-submit btn-bounce">Send Message</button>
-
-    <!-- Inline status message -->
-    <div id="formStatus" aria-live="polite" style="margin-top:1rem;"></div>
-  </form>
+<div class="nav-shell">
+  <nav class="nav" data-nav>
+    <a href="index.html" class="nav__logo"><span class="nav__logo-mark">🐾</span><span>PAWS FOR A CAUSE</span></a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li class="nav__has-dd"><a href="involved.html">Get Involved ▾</a>
+        <ul class="nav__dd"><li><a href="volunteer.html">Volunteer</a></li><li><a href="partner.html">Partnerships</a></li><li><a href="state-board.html">State Board</a></li></ul>
+      </li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <a href="donate.html" class="nav__cta magnetic">Donate <span class="btn__arrow">→</span></a>
+    <button class="nav__burger" data-burger><span></span><span></span><span></span></button>
+  </nav>
 </div>
 
+<div class="mobile-menu" data-mobile-menu>
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="team.html">Team</a><a href="involved.html">Get Involved</a>
+  <a href="volunteer.html">Volunteer</a><a href="events.html">Events</a><a href="partner.html">Partnerships</a>
+  <a href="contact.html">Contact</a><a href="donate.html" class="mobile-menu__cta">Donate</a>
+</div>
 
+<main>
+  <section class="page-hero">
+    <div class="page-hero__bg"></div>
+    <div class="container-x page-hero__content">
+      <div class="page-crumb"><a href="index.html">Home</a> <span>/</span> <span>Contact</span></div>
+      <span class="eyebrow" data-hero-up>Get In Touch</span>
+      <h1 class="page-hero__title mt-4" data-hero-up>Let's <span class="text-gradient">talk</span>.</h1>
+      <p class="page-hero__sub" data-hero-up>Partnerships, press, donations, ideas, or just hello — we read everything and respond within 48 hours.</p>
+    </div>
+  </section>
 
+  <!-- CONTACT METHODS -->
+  <section class="section">
+    <div class="container-x">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10" data-stagger>
+        <a href="mailto:pawsforacausemi@gmail.com" class="card card-glow flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl grid place-items-center text-xl flex-shrink-0" style="background:var(--accent-soft);color:var(--accent-2);">✉️</div>
+          <div>
+            <span class="chip mb-2">Email</span>
+            <h3 class="text-white">pawsforacausemi@gmail.com</h3>
+            <p class="text-sm">Best for partnerships, press, &amp; donations</p>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener" class="card card-glow flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl grid place-items-center text-xl flex-shrink-0" style="background:var(--accent-soft);color:var(--accent-2);">📷</div>
+          <div>
+            <span class="chip mb-2">Instagram</span>
+            <h3 class="text-white">@pawsforacausemi</h3>
+            <p class="text-sm">DM for quick questions &amp; campaign updates</p>
+          </div>
+        </a>
+        <div class="card card-glow flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl grid place-items-center text-xl flex-shrink-0" style="background:var(--accent-soft);color:var(--accent-2);">📍</div>
+          <div>
+            <span class="chip mb-2">Based In</span>
+            <h3 class="text-white">Okemos, Michigan</h3>
+            <p class="text-sm">Serving partners across MI, NC, NJ, FL, CT</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8">
+        <div class="form-card reveal-up">
+          <span class="eyebrow">Send Us A Message</span>
+          <h2 class="text-white mt-4 mb-2" style="font-size:1.6rem;">We'd love to hear from you.</h2>
+          <p class="text-sm mb-7">Fill in the form and we'll route your message to the right person.</p>
+
+          <form class="form-row" data-form>
+            <div class="form-row form-row--2">
+              <div class="field"><label for="c-name">Name</label><input id="c-name" name="name" type="text" placeholder="Your name" required></div>
+              <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" placeholder="you@email.com" required></div>
+            </div>
+            <div class="form-row form-row--2">
+              <div class="field"><label for="c-org">Organization <span style="color:var(--text-dim);">(optional)</span></label><input id="c-org" name="org" type="text" placeholder="Shelter, school, business..."></div>
+              <div class="field">
+                <label for="c-topic">What's this about?</label>
+                <select id="c-topic" name="topic">
+                  <option>Volunteering</option>
+                  <option>Partnership / Sponsorship</option>
+                  <option>Donation question</option>
+                  <option>Press / Media</option>
+                  <option>Starting a chapter</option>
+                  <option>Just saying hi</option>
+                </select>
+              </div>
+            </div>
+            <div class="field"><label for="c-msg">Message</label><textarea id="c-msg" name="message" placeholder="Tell us how we can help..." required></textarea></div>
+            <div class="flex items-center gap-3 mt-2 flex-wrap">
+              <button type="submit" class="btn btn--primary magnetic">Send message <span class="btn__arrow">→</span></button>
+              <p class="text-xs" style="color:var(--text-dim);">Response within 48 hours.</p>
+            </div>
+            <p class="text-sm mt-3" data-form-status style="color:var(--accent-2);"></p>
+          </form>
+        </div>
+
+        <!-- FAQ -->
+        <aside class="reveal-up">
+          <span class="eyebrow">Frequently Asked</span>
+          <h2 class="text-white mt-4 mb-6" style="font-size:1.6rem;">Common questions, answered.</h2>
+          <div class="faq">
+            <details class="faq__item" open>
+              <summary class="faq__q">How can my school or business partner with you?<span class="faq__icon">+</span></summary>
+              <div class="faq__a">Visit our <a href="partner.html" style="color:var(--accent-2);">partnerships page</a> or message us with "Partnership" as the topic. We'll set up a 20-minute call to scope what makes sense.</div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">Are donations tax-deductible?<span class="faq__icon">+</span></summary>
+              <div class="faq__a">Email us for the latest on our nonprofit status and donation receipts. We're committed to transparency about how every dollar is spent.</div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">I want to host an event in my city. How?<span class="faq__icon">+</span></summary>
+              <div class="faq__a">Reach out via the form with "Starting a chapter" selected. We'll help you launch — playbooks, mentorship, partner intros included.</div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">How do I drop off supplies?<span class="faq__icon">+</span></summary>
+              <div class="faq__a">Drop-off locations rotate by drive. DM us on Instagram or email for the current list — we usually run drives quarterly.</div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">Can younger kids volunteer?<span class="faq__icon">+</span></summary>
+              <div class="faq__a">Absolutely. Younger volunteers are paired with age-appropriate roles like supply sorting, social media support, and event check-ins.</div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">Do you provide volunteer hour verification?<span class="faq__icon">+</span></summary>
+              <div class="faq__a">Yes — we issue verified hour letters for school and college applications. Just track your hours and request at the end of each month.</div>
+            </details>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container-x">
+      <div class="cta-banner reveal-up">
+        <h2 class="section-title mb-4 max-w-3xl mx-auto">Prefer to act over write?</h2>
+        <p class="section-lead mb-8">Skip the inbox and jump straight to a role.</p>
+        <div class="flex justify-center gap-3 flex-wrap">
+          <a href="volunteer.html" class="btn btn--primary magnetic">Volunteer <span class="btn__arrow">→</span></a>
+          <a href="donate.html" class="btn btn--ghost">Donate</a>
+          <a href="partner.html" class="btn btn--outline">Partner</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container-x">
+    <div class="footer__grid">
+      <div>
+        <a href="index.html" class="nav__logo" style="margin-bottom:1.25rem;display:inline-flex;"><span class="nav__logo-mark">🐾</span><span>PAWS FOR A CAUSE</span></a>
+        <p style="font-size:0.92rem;max-width:320px;margin:1rem 0;">A 100% youth-led nonprofit on a mission to make Michigan kinder for every animal — through adoption, advocacy, and action.</p>
+        <form class="footer__newsletter" data-newsletter><input type="email" placeholder="Get our newsletter" required><button type="submit">Subscribe</button></form>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="team.html">Team</a></li><li><a href="state-board.html">State Board</a></li><li><a href="events.html">Events</a></li></ul></div>
+      <div><h4>Take Action</h4><ul><li><a href="volunteer.html">Volunteer</a></li><li><a href="partner.html">Partnerships</a></li><li><a href="donate.html">Donate</a></li><li><a href="involved.html">Get Involved</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Connect</h4><ul><li><a href="mailto:pawsforacausemi@gmail.com">pawsforacausemi@gmail.com</a></li><li>Okemos, Michigan</li></ul>
+        <div class="footer__socials" style="margin-top:1.25rem;">
+          <a class="footer__social" href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+          <a class="footer__social" href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+          <a class="footer__social" href="mailto:pawsforacausemi@gmail.com" aria-label="Email">@</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom"><p>© <span data-year>2026</span> Paws For A Cause Michigan · 100% youth-led, mission-driven</p>
+      <div style="display:flex;gap:1.25rem;"><a href="privacy.html">Privacy Policy</a><a href="contact.html">Contact</a></div>
+    </div>
   </div>
-</section>
-
-
-    </div>
-  </main>
-
-  <!-- fixed footer -->
- <footer>
-    <p>&copy; 2025 Paws for a Cause | <a href="privacy.html">Privacy Policy</a></p>
-    <div class="social">
-      <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
-      <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener">Instagram</a>
-      <a href="mailto:pawsforacausemi@gmail.com">Email</a>
-    </div>
-  </footer>
-
-</body>
-
+</footer>
 </body>
 </html>

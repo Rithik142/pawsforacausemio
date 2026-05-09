@@ -1,128 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Get Involved | Paws for a Cause</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="theme-light.css" />
-  <script src="scripts.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Get Involved — Paws For A Cause Michigan</title>
+  <meta name="description" content="Volunteer, partner, donate, or start a chapter. Every way you can join Michigan's youth-led animal welfare movement.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script src="assets/js/main.js" defer></script>
 </head>
 <body>
-  <!-- HEADER -->
-  <header>
-    <a href="index.html" class="logo">PAWS FOR A CAUSE</a>
-    <nav>
-      <ul class="nav-list">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="team.html">About Us</a></li>
-        <li><a href="state-board.html">State Board</a></li>
-        <li><a href="services.html">Our Work</a></li>
-        <li class="has-dd">
-          <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
-          <ul class="dropdown" role="menu">
-            <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
-            <li><a href="partner.html"  role="menuitem">Partner</a></li>
-          </ul>
-        </li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </nav>
-    <div class="hamburger">☰</div>
-  </header>
 
+<div class="page-overlay" data-page-overlay><div class="page-overlay__mark"><span>🐾</span><span>PAWS FOR A CAUSE</span></div></div>
 
-  <!-- MAIN -->
-  <main>
-    <section id="get-involved" class="gi-hero container reveal">
-      <h1 class="section-heading"><span>Get</span> Involved</h1>
-      <p class="lede">
-        We launched in July 2025—and we’re still building the crew. If you care about animals, there’s a spot for you.
-      </p>
+<div class="nav-shell">
+  <nav class="nav" data-nav>
+    <a href="index.html" class="nav__logo"><span class="nav__logo-mark">🐾</span><span>PAWS FOR A CAUSE</span></a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li class="nav__has-dd"><a href="involved.html" class="active">Get Involved ▾</a>
+        <ul class="nav__dd"><li><a href="volunteer.html">Volunteer</a></li><li><a href="partner.html">Partnerships</a></li><li><a href="state-board.html">State Board</a></li></ul>
+      </li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="donate.html" class="nav__cta magnetic">Donate <span class="btn__arrow">→</span></a>
+    <button class="nav__burger" data-burger><span></span><span></span><span></span></button>
+  </nav>
+</div>
 
-      <ul class="gi-steps">
-        <li><span>Show up!</span> Fill out the form and come volunteer to show support!</li>
-        <li><span>Share the bark!</span> Repost, tag friends, and spread the word online.</li>
-        <li><span>Team up!</span> Have a club, small business, or sponsor lead? Let’s partner.</li>
-        <li><span>Drop supplies!</span> Blankets, food, toys—email us and we’ll coordinate.</li>
-      </ul>
+<div class="mobile-menu" data-mobile-menu>
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="team.html">Team</a><a href="involved.html">Get Involved</a>
+  <a href="volunteer.html">Volunteer</a><a href="events.html">Events</a><a href="partner.html">Partnerships</a>
+  <a href="contact.html">Contact</a><a href="donate.html" class="mobile-menu__cta">Donate</a>
+</div>
 
-      <div class="cta-grid">
-        <a href="volunteer.html" class="cta-card">
-          <h3>Volunteer</h3>
-          <p>Jump in for an event and help behind the scenes. Your support is all we need.</p>
-          <span class="btn btn-ghost">Fill the Volunteer Form →</span>
-        </a>
+<main>
+  <section class="page-hero">
+    <div class="page-hero__bg"></div>
+    <div class="container-x page-hero__content">
+      <div class="page-crumb"><a href="index.html">Home</a> <span>/</span> <span>Get Involved</span></div>
+      <span class="eyebrow" data-hero-up>Find Your Way In</span>
+      <h1 class="page-hero__title mt-4" data-hero-up>Six ways to <span class="text-gradient">change a life</span> this month.</h1>
+      <p class="page-hero__sub" data-hero-up>An hour, a dollar, a network — every contribution moves an animal closer to safety. Pick the path that fits.</p>
+    </div>
+  </section>
 
-        <a href="partner.html" class="cta-card">
-          <h3>Partner / Sponsor</h3>
-          <p>Run a business, intiative, lead a club, or want to fund a project? Let’s build something together.</p>
-          <span class="btn btn-ghost">Partner With Us →</span>
-        </a>
+  <section class="section">
+    <div class="container-x">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" data-stagger>
+        <article class="card card-glow flex flex-col">
+          <div class="w-14 h-14 rounded-2xl mb-5 grid place-items-center text-2xl" style="background:var(--accent-soft);color:var(--accent-2);">🙋</div>
+          <h3 class="text-white">Volunteer</h3>
+          <p class="text-sm flex-1">Run drives, work events, foster training, and shelter shifts. Open to all ages.</p>
+          <a href="volunteer.html" class="event-card__cta mt-4">Sign up <span class="btn__arrow">→</span></a>
+        </article>
+        <article class="card card-glow flex flex-col">
+          <div class="w-14 h-14 rounded-2xl mb-5 grid place-items-center text-2xl" style="background:var(--accent-soft);color:var(--accent-2);">🤝</div>
+          <h3 class="text-white">Partner</h3>
+          <p class="text-sm flex-1">For shelters, rescues, schools, and businesses ready to amplify our impact together.</p>
+          <a href="partner.html" class="event-card__cta mt-4">Become a partner <span class="btn__arrow">→</span></a>
+        </article>
+        <article class="card card-glow flex flex-col">
+          <div class="w-14 h-14 rounded-2xl mb-5 grid place-items-center text-2xl" style="background:var(--accent-soft);color:var(--accent-2);">💛</div>
+          <h3 class="text-white">Donate</h3>
+          <p class="text-sm flex-1">Every dollar goes to supplies, training, and on-the-ground campaigns. No fluff.</p>
+          <a href="donate.html" class="event-card__cta mt-4">Give now <span class="btn__arrow">→</span></a>
+        </article>
+        <article class="card card-glow flex flex-col">
+          <div class="w-14 h-14 rounded-2xl mb-5 grid place-items-center text-2xl" style="background:var(--accent-soft);color:var(--accent-2);">📦</div>
+          <h3 class="text-white">Donate Supplies</h3>
+          <p class="text-sm flex-1">Drop food, blankets, toys, leashes, and more at our partner shelter locations.</p>
+          <a href="contact.html" class="event-card__cta mt-4">Drop-off info <span class="btn__arrow">→</span></a>
+        </article>
+        <article class="card card-glow flex flex-col">
+          <div class="w-14 h-14 rounded-2xl mb-5 grid place-items-center text-2xl" style="background:var(--accent-soft);color:var(--accent-2);">🏛</div>
+          <h3 class="text-white">Start a Chapter</h3>
+          <p class="text-sm flex-1">Bring Paws For A Cause to your school, city, or state. We'll help you launch.</p>
+          <a href="contact.html" class="event-card__cta mt-4">Apply <span class="btn__arrow">→</span></a>
+        </article>
+        <article class="card card-glow flex flex-col">
+          <div class="w-14 h-14 rounded-2xl mb-5 grid place-items-center text-2xl" style="background:var(--accent-soft);color:var(--accent-2);">📣</div>
+          <h3 class="text-white">Share Our Mission</h3>
+          <p class="text-sm flex-1">Follow us on Instagram, share our campaigns, and tell one person who'd care.</p>
+          <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener" class="event-card__cta mt-4">Follow @pawsforacausemi <span class="btn__arrow">→</span></a>
+        </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="gi-yb-section reveal" id="youth-board" aria-labelledby="yb-apply-title">
-      <div class="gi-yb-card">
-        <div>
-          <p class="state-hero__kicker">Youth Board • Now Hiring Students</p>
-          <h2 id="yb-apply-title">Lead the Pack — Apply to Our Youth Board</h2>
-          <p class="lede">
-            Open to middle &amp; high schoolers. Help shape events, partnerships, and outreach that
-            change animal lives. Applications are reviewed on a rolling basis.
-          </p>
-          <ul class="gi-yb-roles">
-            <li>
-              <span>📣</span>
-              <span>
-                <strong>Social Media Manager</strong>
-                <small>Posts, reels, and storytelling</small>
-              </span>
-            </li>
-            <li>
-              <span>🤝</span>
-              <span>
-                <strong>Outreach Officer</strong>
-                <small>Sponsors &amp; partnerships</small>
-              </span>
-            </li>
-            <li>
-              <span>💰</span>
-              <span>
-                <strong>Treasurer</strong>
-                <small>Fundraisers &amp; budgets</small>
-              </span>
-            </li>
-            <li>
-              <span>✉️</span>
-              <span>
-                <strong>Secretary</strong>
-                <small>Volunteer comms &amp; updates</small>
-              </span>
-            </li>
+  <section class="section">
+    <div class="container-x">
+      <div class="split">
+        <div class="reveal-up">
+          <span class="eyebrow">Why Volunteer With Us</span>
+          <h2 class="section-title mt-4">Real responsibility. Real outcomes. Real community.</h2>
+          <ul class="list-checks mt-6">
+            <li><strong>Verified hours.</strong> Track and confirm volunteer hours for school and college applications.</li>
+            <li><strong>Mentorship that scales.</strong> Direct access to founders, partners, and shelter staff.</li>
+            <li><strong>Leadership ladder.</strong> Volunteer → Chapter Lead → Region President → State Director.</li>
+            <li><strong>Skills that travel.</strong> Event planning, fundraising, public speaking, project management.</li>
+            <li><strong>Community for life.</strong> A network of teens who care, working alongside each other.</li>
           </ul>
         </div>
-        <aside class="gi-yb-side">
-          <h3>Ready to apply?</h3>
-          <p>Five-minute application. We’ll email you if you’re selected for the next step.</p>
-          <a class="btn-light" href="https://docs.google.com/forms/d/e/1FAIpQLScvxJDhqgL3J39RJN0Bo0l67d-Hz0PmahAE4GYL3fdPzzrYmA/viewform?usp=header" target="_blank" rel="noopener noreferrer">
-            Apply for Youth Board →
-          </a>
-        </aside>
+        <div class="split__visual reveal-up" data-parallax="0.3">
+          <img src="images/flowerdog.jpg" alt="Volunteer with rescue dog">
+          <span class="split__visual-tag">🐾 You belong here</span>
+        </div>
       </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
- <footer>
-    <p>&copy; 2025 Paws for a Cause | <a href="privacy.html">Privacy Policy</a></p>
-    <div class="social">
-      <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
-      <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener">Instagram</a>
-      <a href="mailto:pawsforacausemi@gmail.com">Email</a>
     </div>
-  </footer>
+  </section>
+
+  <section class="section">
+    <div class="container-x">
+      <div class="text-center mb-12 reveal-up">
+        <span class="eyebrow">From Sign-Up to Service</span>
+        <h2 class="section-title mt-4">How getting involved works.</h2>
+      </div>
+      <div class="steps" data-stagger>
+        <article class="step"><div class="step__num">01</div><h3>Apply</h3><p>Fill out the volunteer or partner form. Takes 2 minutes.</p></article>
+        <article class="step"><div class="step__num">02</div><h3>Onboard</h3><p>We'll reach out within 48 hours with next steps and an orientation.</p></article>
+        <article class="step"><div class="step__num">03</div><h3>Match</h3><p>Get placed on a campaign that fits your interests, skills, and availability.</p></article>
+        <article class="step"><div class="step__num">04</div><h3>Show Up</h3><p>Run events, deliver supplies, and start logging real impact — and real hours.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-x">
+      <div class="cta-banner reveal-up">
+        <h2 class="section-title mb-4 max-w-3xl mx-auto">Stop waiting. Start somewhere.</h2>
+        <p class="section-lead mb-8">Pick a path. We'll handle the rest.</p>
+        <div class="flex justify-center gap-3 flex-wrap">
+          <a href="volunteer.html" class="btn btn--primary magnetic">Volunteer <span class="btn__arrow">→</span></a>
+          <a href="partner.html" class="btn btn--ghost">Partner with us</a>
+          <a href="donate.html" class="btn btn--outline">Donate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container-x">
+    <div class="footer__grid">
+      <div>
+        <a href="index.html" class="nav__logo" style="margin-bottom:1.25rem;display:inline-flex;"><span class="nav__logo-mark">🐾</span><span>PAWS FOR A CAUSE</span></a>
+        <p style="font-size:0.92rem;max-width:320px;margin:1rem 0;">A 100% youth-led nonprofit on a mission to make Michigan kinder for every animal — through adoption, advocacy, and action.</p>
+        <form class="footer__newsletter" data-newsletter><input type="email" placeholder="Get our newsletter" required><button type="submit">Subscribe</button></form>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="team.html">Team</a></li><li><a href="state-board.html">State Board</a></li><li><a href="events.html">Events</a></li></ul></div>
+      <div><h4>Take Action</h4><ul><li><a href="volunteer.html">Volunteer</a></li><li><a href="partner.html">Partnerships</a></li><li><a href="donate.html">Donate</a></li><li><a href="involved.html">Get Involved</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Connect</h4><ul><li><a href="mailto:pawsforacausemi@gmail.com">pawsforacausemi@gmail.com</a></li><li>Okemos, Michigan</li></ul>
+        <div class="footer__socials" style="margin-top:1.25rem;">
+          <a class="footer__social" href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+          <a class="footer__social" href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+          <a class="footer__social" href="mailto:pawsforacausemi@gmail.com" aria-label="Email">@</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom"><p>© <span data-year>2026</span> Paws For A Cause Michigan · 100% youth-led, mission-driven</p>
+      <div style="display:flex;gap:1.25rem;"><a href="privacy.html">Privacy Policy</a><a href="contact.html">Contact</a></div>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
