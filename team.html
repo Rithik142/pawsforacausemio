@@ -3,140 +3,189 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Team | Paws For A Cause</title>
-  <meta name="description" content="Meet the student co-founders of Paws For A Cause, a student-led animal welfare organization based in Michigan.">
-  <meta name="theme-color" content="#f7f5ee">
-  <meta property="og:title" content="Team | Paws For A Cause">
-  <meta property="og:description" content="The student co-founders behind Paws For A Cause.">
-
+  <title>Our Team — Paws For A Cause Michigan</title>
+  <meta name="description" content="Meet the youth leaders behind Paws For A Cause Michigan — founders, state directors, and chapter presidents shaping a kinder future for animals.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <link rel="stylesheet" href="assets/css/main.css">
   <script src="assets/js/main.js" defer></script>
 </head>
 <body>
 
-<a class="skip-link" href="#main">Skip to main content</a>
+<div class="page-overlay" data-page-overlay><div class="page-overlay__mark"><span>🐾</span><span>PAWS FOR A CAUSE</span></div></div>
 
-<header class="nav-shell" role="banner">
-  <nav class="nav" aria-label="Primary">
-    <a href="index.html" class="nav__logo"><span class="nav__logo-mark">P</span><span>Paws For A Cause</span></a>
+<div class="nav-shell">
+  <nav class="nav" data-nav>
+    <a href="index.html" class="nav__logo"><span class="nav__logo-mark">🐾</span><span>PAWS FOR A CAUSE</span></a>
     <ul class="nav__links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="team.html" class="active" aria-current="page">Team</a></li>
-      <li><a href="volunteer.html">Volunteer</a></li>
-      <li><a href="partner.html">Partners</a></li>
+      <li><a href="team.html" class="active">Team</a></li>
+      <li class="nav__has-dd"><a href="involved.html">Get Involved ▾</a>
+        <ul class="nav__dd"><li><a href="volunteer.html">Volunteer</a></li><li><a href="partner.html">Partnerships</a></li><li><a href="state-board.html">State Board</a></li></ul>
+      </li>
       <li><a href="events.html">Events</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <a href="donate.html" class="nav__cta">Donate <span class="btn__arrow" aria-hidden="true">→</span></a>
-    <button class="nav__burger" data-burger aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <a href="donate.html" class="nav__cta magnetic">Donate <span class="btn__arrow">→</span></a>
+    <button class="nav__burger" data-burger><span></span><span></span><span></span></button>
   </nav>
-</header>
-
-<div id="mobile-menu" class="mobile-menu" data-mobile-menu aria-hidden="true">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="team.html">Team</a>
-  <a href="volunteer.html">Volunteer</a>
-  <a href="partner.html">Partners</a>
-  <a href="events.html">Events</a>
-  <a href="contact.html">Contact</a>
-  <a href="donate.html" class="mobile-menu__cta">Donate</a>
 </div>
 
-<main id="main">
+<div class="mobile-menu" data-mobile-menu>
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="team.html">Team</a><a href="involved.html">Get Involved</a>
+  <a href="volunteer.html">Volunteer</a><a href="events.html">Events</a><a href="partner.html">Partnerships</a>
+  <a href="contact.html">Contact</a><a href="donate.html" class="mobile-menu__cta">Donate</a>
+</div>
+
+<main>
   <section class="page-hero">
-    <div class="wrap">
-      <div class="page-crumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <span>Team</span></div>
-      <span class="eyebrow">Our team</span>
-      <h1 class="page-hero__title mt-4">Three students, <span class="italic">one shared project</span>.</h1>
-      <p class="page-hero__sub">
-        Paws For A Cause was started in 2025 by three high school students in Okemos, Michigan. We are a small group, and we do this work alongside school, classes, and everything else students are doing.
+    <div class="page-hero__bg"></div>
+    <div class="container-x page-hero__content">
+      <div class="page-crumb"><a href="index.html">Home</a> <span>/</span> <span>Team</span></div>
+      <span class="eyebrow" data-hero-up>The Faces Behind The Mission</span>
+      <h1 class="page-hero__title mt-4" data-hero-up>Meet the team rewriting <span class="text-gradient">animal welfare</span>.</h1>
+      <p class="page-hero__sub" data-hero-up>
+        From founders to chapter leads — every person here is a student volunteer, working between school, sports, and homework, to help animals that can't help themselves.
       </p>
     </div>
   </section>
 
-  <!-- CO-FOUNDERS -->
+  <!-- FOUNDERS -->
   <section class="section">
-    <div class="wrap">
-      <div class="flex between gap-3 reveal" style="align-items:flex-end; flex-wrap:wrap; margin-bottom:2rem;">
+    <div class="container-x">
+      <div class="flex items-end justify-between flex-wrap gap-6 mb-10 reveal-up">
         <div>
-          <span class="eyebrow">Co-founders</span>
-          <h2 class="section-title" style="margin-top:1rem;">Who runs Paws For A Cause.</h2>
+          <span class="eyebrow">Founders</span>
+          <h2 class="section-title mt-4">The original three.</h2>
         </div>
-        <p class="subtle-note" style="max-width:30ch;">High school students who started the organization in 2025 and share the day-to-day work.</p>
+        <p class="text-sm max-w-md" style="color:var(--text-muted);">High-school juniors from Okemos, Michigan, who turned a classroom conversation into a multi-state nonprofit.</p>
       </div>
 
       <div class="team-grid" data-stagger>
         <article class="team-card">
-          <div class="team-card__photo"><span class="placeholder" aria-hidden="true">TV</span></div>
-          <div class="team-card__role">Co-founder · Operations</div>
-          <h3 class="team-card__name">Tejas Valisetty</h3>
-          <p>Helps coordinate partnerships, logistics for drives and events, and the day-to-day planning that keeps projects moving.</p>
+          <div class="team-card__photo">
+            <span class="placeholder">TV</span>
+          </div>
+          <div class="team-card__info">
+            <div class="team-card__role">President of Operations</div>
+            <h3 class="team-card__name">Tejas Valisetty</h3>
+            <p class="text-sm" style="color:var(--text-muted);">Builds the engine — partnerships, logistics, and the moving parts that get supplies where they need to go.</p>
+          </div>
         </article>
-
         <article class="team-card">
-          <div class="team-card__photo"><img src="images/rithik.png" alt="Rithik Parthasarathy"></div>
-          <div class="team-card__role">Co-founder · Records &amp; Technology</div>
-          <h3 class="team-card__name">Rithik Parthasarathy</h3>
-          <p>Helps coordinate outreach, the website, volunteer communication, records, and project planning.</p>
+          <div class="team-card__photo">
+            <img src="images/rithik.png" alt="Rithik Parthasarathy">
+          </div>
+          <div class="team-card__info">
+            <div class="team-card__role">President of Records</div>
+            <h3 class="team-card__name">Rithik Parthasarathy</h3>
+            <p class="text-sm" style="color:var(--text-muted);">Keeps us accountable — records, reporting, and the digital infrastructure behind every campaign.</p>
+          </div>
         </article>
-
         <article class="team-card">
-          <div class="team-card__photo"><span class="placeholder" aria-hidden="true">VM</span></div>
-          <div class="team-card__role">Co-founder · Outreach</div>
-          <h3 class="team-card__name">Vaibhav Mahesha</h3>
-          <p>Helps lead community outreach, social media, and conversations with partner organizations and schools.</p>
+          <div class="team-card__photo">
+            <span class="placeholder">VM</span>
+          </div>
+          <div class="team-card__info">
+            <div class="team-card__role">President of Outreach</div>
+            <h3 class="team-card__name">Vaibhav Mahesha</h3>
+            <p class="text-sm" style="color:var(--text-muted);">Tells our story — community outreach, social presence, and getting more teens off the sidelines.</p>
+          </div>
         </article>
-      </div>
-
-      <p class="subtle-note" style="margin-top:1.5rem;">
-        Headshots for some co-founders are not posted yet to keep things consistent. We will update this page over time.
-      </p>
-    </div>
-  </section>
-
-  <!-- VOLUNTEERS / OPEN ROLES -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Volunteers</span>
-        <h2 class="section-title">Students who help run our projects.</h2>
-        <p class="lede">A growing group of student volunteers helps run supply drives, events, and outreach. We don't publish their full names here for privacy, especially because many are minors.</p>
-      </div>
-      <div class="grid col-2 gap-3" style="gap:1rem;">
-        <div class="card">
-          <span class="eyebrow">Want to help?</span>
-          <h3 style="margin-top:0.8rem;">Apply to volunteer</h3>
-          <p style="margin-top:0.5rem;">Students of different ages can join, depending on the event and partner organization. Most volunteer roles are open to high school students; some are open to middle school students with parent or guardian permission.</p>
-          <a href="volunteer.html" class="btn btn--primary" style="margin-top:1rem;"><span class="btn__label">Volunteer with us <span class="btn__arrow" aria-hidden="true">→</span></span></a>
-        </div>
-        <div class="card">
-          <span class="eyebrow">Want to help lead?</span>
-          <h3 style="margin-top:0.8rem;">Start a local chapter or volunteer group</h3>
-          <p style="margin-top:0.5rem;">If you're a student interested in helping start a chapter at your school or in your area, get in touch. We're still developing our chapter model, so it will be a conversation, not a sign-up.</p>
-          <a href="chapter-expansion.html" class="btn btn--ghost" style="margin-top:1rem;"><span class="btn__label">About chapter expansion</span></a>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- STATE NETWORK -->
   <section class="section">
-    <div class="wrap">
-      <div class="cta-strip reveal">
-        <div>
-          <span class="eyebrow">Questions?</span>
-          <h2 class="cta-strip__title" style="margin-top:0.8rem;">Want to talk to one of the co-founders?</h2>
-          <p class="muted" style="margin-top:0.6rem; font-size:0.95rem; max-width:55ch;">
-            We try to respond within 2–3 school or business days.
+    <div class="container-x">
+      <div class="text-center mb-10 reveal-up">
+        <span class="eyebrow">State Directors</span>
+        <h2 class="section-title mt-4">Leadership in every state we serve.</h2>
+        <p class="section-lead">Each state is led by a State Director who guides regional chapter presidents and coordinates with shelters across their territory.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" data-stagger>
+        <article class="card card-glow">
+          <span class="chip mb-4">Michigan</span>
+          <h3 class="text-white">State Director</h3>
+          <p class="text-sm">3 regions · ~12 volunteers · Founded 2025</p>
+          <p class="text-xs mt-3" style="color:var(--text-dim);">TBA · See state-board for chapter leads</p>
+        </article>
+        <article class="card card-glow">
+          <span class="chip mb-4">North Carolina</span>
+          <h3 class="text-white">State Director</h3>
+          <p class="text-sm">3 regions · ~10 volunteers · Joined 2025</p>
+          <p class="text-xs mt-3" style="color:var(--text-dim);">TBA · Charlotte / Raleigh / Research Triangle</p>
+        </article>
+        <article class="card card-glow">
+          <span class="chip mb-4">New Jersey</span>
+          <h3 class="text-white">State Director</h3>
+          <p class="text-sm">3 regions · ~9 volunteers · Joined 2025</p>
+          <p class="text-xs mt-3" style="color:var(--text-dim);">TBA · Central / Newark / Jersey Shore</p>
+        </article>
+        <article class="card card-glow">
+          <span class="chip mb-4">Florida</span>
+          <h3 class="text-white">State Director</h3>
+          <p class="text-sm">3 regions · ~8 volunteers · Joined 2025</p>
+          <p class="text-xs mt-3" style="color:var(--text-dim);">TBA · Gainesville / Orlando / Tampa</p>
+        </article>
+        <article class="card card-glow">
+          <span class="chip mb-4">Connecticut</span>
+          <h3 class="text-white">State Director</h3>
+          <p class="text-sm">3 regions · ~10 volunteers · Joined 2025</p>
+          <p class="text-xs mt-3" style="color:var(--text-dim);">TBA · Hartford / New Haven / Fairfield</p>
+        </article>
+        <article class="card card-glow" style="background:linear-gradient(160deg, rgba(249,115,22,0.08), rgba(255,255,255,0.01)); border-color:var(--accent-soft);">
+          <span class="chip mb-4" style="background:var(--accent-soft);color:var(--accent-2);border-color:var(--accent-soft);">Open Role</span>
+          <h3 class="text-white">Become a State Director</h3>
+          <p class="text-sm">Lead a state, build a chapter network, and own the regional mission.</p>
+          <a href="contact.html" class="event-card__cta mt-3">Apply <span class="btn__arrow">→</span></a>
+        </article>
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="state-board.html" class="btn btn--outline">View full State Board <span class="btn__arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY THE TEAM -->
+  <section class="section">
+    <div class="container-x">
+      <div class="split">
+        <div class="reveal-up">
+          <span class="eyebrow">Why It Matters</span>
+          <h2 class="section-title mt-4">Built by teens, for animals — and for the next teen who wants to lead.</h2>
+          <p class="leading-relaxed mb-5">
+            We don't believe in symbolic youth representation. We believe in real campaigns, real budgets, and real responsibility. Every leader on this page runs something that ships outcomes shelters can measure.
           </p>
+          <p class="leading-relaxed mb-7">
+            If that sounds like the kind of team you'd want to join — get in touch. We're always looking for the next person who saw the problem, got mad, and decided to do something.
+          </p>
+          <a href="involved.html" class="btn btn--primary magnetic">See open roles <span class="btn__arrow">→</span></a>
         </div>
-        <div class="cta-strip__actions">
-          <a href="contact.html" class="btn btn--primary"><span class="btn__label">Contact us <span class="btn__arrow" aria-hidden="true">→</span></span></a>
+        <div class="split__visual reveal-up" data-parallax="0.3">
+          <img src="images/IMG_2073.jpg" alt="Team at an event">
+          <span class="split__visual-tag">Lansing community event · 2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-x">
+      <div class="cta-banner reveal-up">
+        <h2 class="section-title mb-4 max-w-3xl mx-auto">Want your name on this page?</h2>
+        <p class="section-lead mb-8">We're hiring volunteers, chapter leads, and state directors across the country.</p>
+        <div class="flex justify-center gap-3 flex-wrap">
+          <a href="volunteer.html" class="btn btn--primary magnetic">Apply to Volunteer <span class="btn__arrow">→</span></a>
+          <a href="contact.html" class="btn btn--ghost">Contact founders</a>
         </div>
       </div>
     </div>
@@ -144,53 +193,25 @@
 </main>
 
 <footer class="footer">
-  <div class="wrap">
+  <div class="container-x">
     <div class="footer__grid">
       <div>
-        <a href="index.html" class="nav__logo" style="margin-bottom:1.25rem;display:inline-flex;">
-          <span class="nav__logo-mark">P</span><span>Paws For A Cause</span>
-        </a>
-        <p style="font-size:0.92rem; max-width:340px; margin:1rem 0;">
-          A student-led animal welfare organization based in Michigan. We help students support local shelters, rescues, and community animal organizations.
-        </p>
+        <a href="index.html" class="nav__logo" style="margin-bottom:1.25rem;display:inline-flex;"><span class="nav__logo-mark">🐾</span><span>PAWS FOR A CAUSE</span></a>
+        <p style="font-size:0.92rem;max-width:320px;margin:1rem 0;">A 100% youth-led nonprofit on a mission to make Michigan kinder for every animal — through adoption, advocacy, and action.</p>
+        <form class="footer__newsletter" data-newsletter><input type="email" placeholder="Get our newsletter" required><button type="submit">Subscribe</button></form>
       </div>
-      <div>
-        <h4>Site</h4>
-        <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="team.html">Team</a></li>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="chapter-expansion.html">Chapter expansion</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Get involved</h4>
-        <ul>
-          <li><a href="volunteer.html">Volunteer</a></li>
-          <li><a href="partner.html">Partners</a></li>
-          <li><a href="donate.html">Donate or give supplies</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Connect</h4>
-        <ul>
-          <li><a href="mailto:pawsforacausemi@gmail.com">pawsforacausemi@gmail.com</a></li>
-          <li>Based in Okemos, Michigan</li>
-        </ul>
-        <div class="footer__socials" style="margin-top:1rem;">
-          <a class="footer__social" href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener" aria-label="Instagram (opens in new tab)">IG</a>
-          <a class="footer__social" href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook (opens in new tab)">FB</a>
+      <div><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="team.html">Team</a></li><li><a href="state-board.html">State Board</a></li><li><a href="events.html">Events</a></li></ul></div>
+      <div><h4>Take Action</h4><ul><li><a href="volunteer.html">Volunteer</a></li><li><a href="partner.html">Partnerships</a></li><li><a href="donate.html">Donate</a></li><li><a href="involved.html">Get Involved</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Connect</h4><ul><li><a href="mailto:pawsforacausemi@gmail.com">pawsforacausemi@gmail.com</a></li><li>Okemos, Michigan</li></ul>
+        <div class="footer__socials" style="margin-top:1.25rem;">
+          <a class="footer__social" href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+          <a class="footer__social" href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
           <a class="footer__social" href="mailto:pawsforacausemi@gmail.com" aria-label="Email">@</a>
         </div>
       </div>
     </div>
-    <div class="footer__bottom">
-      <p>© <span data-year>2026</span> Paws For A Cause · Student-led, based in Michigan. Please contact us for our current nonprofit and tax status.</p>
-      <div style="display:flex; gap:1.25rem;">
-        <a href="privacy.html">Privacy</a>
-        <a href="contact.html">Contact</a>
-      </div>
+    <div class="footer__bottom"><p>© <span data-year>2026</span> Paws For A Cause Michigan · 100% youth-led, mission-driven</p>
+      <div style="display:flex;gap:1.25rem;"><a href="privacy.html">Privacy Policy</a><a href="contact.html">Contact</a></div>
     </div>
   </div>
 </footer>
