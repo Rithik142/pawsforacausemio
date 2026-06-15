@@ -7113,3 +7113,186 @@ nav .nav-list {
   letter-spacing: 0.02em;
   margin-bottom: 0.6rem;
 }
+
+/* ==========================================================================
+   STATE BOARD PAGE
+   Clean, compact layout: state header full-width, regions in a row below.
+   Matches the site's dark + cream palette (no green).
+   ========================================================================== */
+.sb-page {
+  background: var(--dark-bg);
+  color: var(--light-text);
+}
+
+.sb-page main {
+  padding-bottom: 4rem;
+}
+
+/* ----- Hero ----- */
+.sb-hero {
+  padding: 3.5rem 0 2.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.sb-hero .container { max-width: 1100px; }
+.sb-kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-weight: 600;
+  margin: 0 0 0.6rem;
+}
+.sb-hero h1 {
+  font-size: clamp(2rem, 4.4vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0 0 0.85rem;
+  color: #fff;
+}
+.sb-intro {
+  max-width: 62ch;
+  color: #b8b8b8;
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+/* ----- States section ----- */
+.sb-states {
+  max-width: 1100px;
+  padding-top: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+/* Each state block */
+.sb-state {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.sb-state:last-child {
+  border-bottom: 0;
+  padding-bottom: 0.5rem;
+}
+
+.sb-state__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.sb-state__head h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #fff;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.85rem;
+}
+.sb-state__head h2::before {
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 2px;
+  background: var(--primary);
+  transform: translateY(-6px);
+  flex-shrink: 0;
+}
+.sb-state__lead {
+  margin: 0;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  font-size: 0.92rem;
+}
+.sb-lead__label {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.7rem;
+  color: #8a8a8a;
+}
+.sb-lead__name {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* Region row */
+.sb-region-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.sb-region {
+  padding: 1.05rem 1.1rem 1.15rem;
+  background: #181818;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: border-color var(--transition), transform var(--transition), background var(--transition);
+}
+.sb-region:hover {
+  border-color: rgba(229, 198, 168, 0.35);
+  background: #1c1c1c;
+  transform: translateY(-2px);
+}
+.sb-region h3 {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: #fff;
+  line-height: 1.25;
+}
+.sb-region__label {
+  margin: 0.25rem 0 0;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.66rem;
+  color: #8a8a8a;
+  font-weight: 500;
+}
+.sb-region__name {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--primary);
+  line-height: 1.35;
+}
+
+/* "To be announced" placeholder styling — quiet, not loud */
+.sb-name--tbd {
+  color: #9a9a9a;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Underline color reset for nav on this page (link underline uses --primary already) */
+
+/* ----- Responsive ----- */
+@media (max-width: 880px) {
+  .sb-region-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .sb-state__head {
+    align-items: flex-start;
+  }
+}
+@media (max-width: 560px) {
+  .sb-region-row {
+    grid-template-columns: 1fr;
+  }
+  .sb-hero { padding: 2.5rem 0 1.6rem; }
+  .sb-states { padding-top: 1.6rem; gap: 1.8rem; }
+  .sb-state { padding-bottom: 1.5rem; }
+}
