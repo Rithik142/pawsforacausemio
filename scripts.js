@@ -8,73 +8,22 @@ window.addEventListener('DOMContentLoaded', () => {
   const burger = document.querySelector('.hamburger');
   const menu   = document.querySelector('nav .nav-list');
   if (burger && menu) {
-    const applyMobileMenuState = (open) => {
-      if (!window.matchMedia('(max-width: 900px)').matches) return;
-      menu.style.display = 'flex';
-      menu.style.transform = open ? 'translateX(0)' : 'translateX(104%)';
-      menu.style.opacity = open ? '1' : '0';
-      menu.style.pointerEvents = open ? 'auto' : 'none';
-    };
-
-    // harden against conflicting legacy CSS rules
-    applyMobileMenuState(false);
-    burger.setAttribute('aria-expanded', 'false');
     burger.addEventListener('click', () => {
-      const isOpen = menu.classList.toggle('show');
-      burger.setAttribute('aria-expanded', String(isOpen));
-      document.body.classList.toggle('nav-open', isOpen);
-      applyMobileMenuState(isOpen);
-    });
-
-    // Close drawer when tapping a normal nav link on mobile
-    menu.querySelectorAll('a[href]:not([href="#"])').forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.matchMedia('(max-width: 900px)').matches) {
-          menu.classList.remove('show');
-          burger.setAttribute('aria-expanded', 'false');
-          document.body.classList.remove('nav-open');
-          applyMobileMenuState(false);
-        }
-      });
-    });
-
-    // Close if user taps outside
-    document.addEventListener('click', (event) => {
-      const clickedInsideHeader = event.target.closest('header');
-      if (!clickedInsideHeader && menu.classList.contains('show')) {
-        menu.classList.remove('show');
-        burger.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('nav-open');
-        applyMobileMenuState(false);
-      }
-    });
-
-    window.addEventListener('resize', () => {
-      if (!window.matchMedia('(max-width: 900px)').matches) {
-        menu.style.display = '';
-        menu.style.transform = '';
-        menu.style.opacity = '';
-        menu.style.pointerEvents = '';
-        menu.classList.remove('show');
-        burger.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('nav-open');
-      } else {
-        applyMobileMenuState(menu.classList.contains('show'));
-      }
+      menu.classList.toggle('show');
     });
   }
 
   // ── 2b) MOBILE DROPDOWN FOR "GET INVOLVED" ──
-  document.querySelectorAll('.has-dd > a').forEach(link => {
-    link.addEventListener('click', e => {
-      const isMobile = window.matchMedia('(max-width: 900px)').matches;
-      if (!isMobile) return;
-      e.preventDefault();
-      const li = e.currentTarget.parentElement;
-      const isOpen = li.classList.toggle('open');
-      link.setAttribute('aria-expanded', isOpen);
-    });
+  // NEW: always toggle open/closed
+document.querySelectorAll('.has‑dd > a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();                      // stop it from navigating away
+    const li = e.currentTarget.parentElement;
+    const isOpen = li.classList.toggle('open');
+    link.setAttribute('aria‑expanded', isOpen);
   });
+});
+
 
   // ── 3) SCROLL‑REVEAL ANIMATIONS ──
   const observer = new IntersectionObserver((entries, obs) => {
@@ -136,6 +85,9 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ── 6) (Removed) AUTO‑SCROLL PUPS CAROUSEL ──
+  // We’ve removed the setInterval code so your grids/cards will no longer auto‑scroll.
+
   // ── 7) SCROLL‑REVEAL FOR EVENTS PAGE ──
   document.querySelectorAll(
     '.events-hero, .events-list h2, .events-list .card, .event-detail'
@@ -170,8 +122,9 @@ window.addEventListener('DOMContentLoaded', () => {
   // ── 10) EVENTS FILTER DROPDOWN LOGIC ──
   const filterSelect = document.getElementById('event-filter');
   if (filterSelect) {
+    // on load, show the selected list only
     const updateEvents = () => {
-      const val = filterSelect.value;
+      const val = filterSelect.value; // "upcoming-events" or "past-events"
       document.querySelectorAll('#events .events-list').forEach(list => {
         list.hidden = (list.id !== val);
       });
@@ -179,47 +132,7 @@ window.addEventListener('DOMContentLoaded', () => {
     filterSelect.addEventListener('change', updateEvents);
     updateEvents();
   }
-
-  // ── 11) COUNTER-UP ANIMATION FOR STATS ──
-  const counters = document.querySelectorAll('.countup-number[data-target]');
-  const animateCounter = (el) => {
-    const target = parseInt(el.getAttribute('data-target'), 10) || 0;
-    const duration = 1400; // ms
-    let start = 0;
-    if (target === 0) {
-      el.textContent = '0';
-      return;
-    }
-    const step = (timestamp, startTime) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / duration, 1);
-      el.textContent = Math.floor(progress * target);
-      if (progress < 1) {
-        requestAnimationFrame(ts => step(ts, startTime));
-      } else {
-        el.textContent = target;
-      }
-    };
-    requestAnimationFrame(ts => step(ts));
-  };
-
-  // Only animate when the number enters the viewport
-  if ('IntersectionObserver' in window) {
-    const counterObs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          counterObs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    counters.forEach(el => counterObs.observe(el));
-  } else {
-    // Fallback: animate all immediately
-    counters.forEach(animateCounter);
-  }
 });
-
 // Newsletter form submission (AJAX)
 const subscribeForm = document.getElementById('subscribeForm');
 const subscribeStatus = document.getElementById('subscribeStatus');
@@ -251,98 +164,3 @@ if (subscribeForm && subscribeStatus) {
     }
   });
 }
-// ===== Youth Board Popup =====
-document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("youthBoardModal");
-  const closeBtn = document.getElementById("closeModalBtn");
-  const laterBtn = document.getElementById("maybeLaterBtn");
-  const applyBtn = document.getElementById("applyNowBtn");
-
-  if (!modal) return;
-
-  // Change this to control how often it shows:
-  // "once" behavior: it won't show again after they close/apply
-  const STORAGE_KEY = "p4ac_youthboard_popup_seen";
-
-  function openModal() {
-    modal.classList.add("show");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden"; // prevent background scroll
-  }
-
-  function closeModal() {
-    modal.classList.remove("show");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-    localStorage.setItem(STORAGE_KEY, "true");
-  }
-
-  // Show popup only if not seen before
-  if (!localStorage.getItem(STORAGE_KEY)) {
-    // slight delay so it feels smoother on load
-    setTimeout(openModal, 700);
-  }
-
-  // Close actions
-  closeBtn?.addEventListener("click", closeModal);
-  laterBtn?.addEventListener("click", closeModal);
-
-  // If they click apply, mark as seen (so it won’t pop again)
-  applyBtn?.addEventListener("click", () => {
-    localStorage.setItem(STORAGE_KEY, "true");
-  });
-
-  // Close when clicking outside the modal
-  modal?.addEventListener("click", (e) => {
-    if (e.target === modal) closeModal();
-  });
-
-  // Close on Escape key
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.classList.contains("show")) {
-      closeModal();
-    }
-  });
-});
-
-
-// ===== Landing page interactions =====
-document.addEventListener('DOMContentLoaded', () => {
-  const flipCards = document.querySelectorAll('.flip-card');
-  flipCards.forEach(card => {
-    card.addEventListener('click', () => card.classList.toggle('is-flipped'));
-    card.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        card.classList.toggle('is-flipped');
-      }
-    });
-  });
-
-  const timelineItems = document.querySelectorAll('.timeline-item');
-  if ('IntersectionObserver' in window && timelineItems.length > 0) {
-    const timelineObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          timelineObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-
-    timelineItems.forEach(item => timelineObserver.observe(item));
-  } else {
-    timelineItems.forEach(item => item.classList.add('visible'));
-  }
-});
-
-
-// ===== Opening animation lifecycle =====
-document.addEventListener('DOMContentLoaded', () => {
-  const finishIntro = () => document.body.classList.add('intro-done');
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    finishIntro();
-    return;
-  }
-  setTimeout(finishIntro, 1350);
-});
