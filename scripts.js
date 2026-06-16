@@ -24,7 +24,7 @@
     });
 
     /* ----- 2. Auto-reveal anything already in view; observe the rest ----- */
-    var revealEls = document.querySelectorAll('.reveal');
+    var revealEls = document.querySelectorAll('.reveal, .ip-reveal');
     if (prefersReducedMotion || !('IntersectionObserver' in window)) {
       revealEls.forEach(function (el) { el.classList.add('visible'); });
     } else {
@@ -46,6 +46,28 @@
         }
       });
     }
+
+    /* ----- 2b. Numbered process: progress line + active step ----- */
+    (function () {
+      var steps = document.querySelector('.ip-steps');
+      if (!steps) return;
+      var fill = steps.querySelector('.ip-steps__fill');
+      var items = Array.prototype.slice.call(steps.querySelectorAll('.ip-step'));
+      if (!items.length) return;
+      if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+        items.forEach(function (s) { s.classList.add('is-active'); });
+        if (fill) fill.style.height = '100%';
+        return;
+      }
+      var sio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) e.target.classList.add('is-active');
+        });
+        var activeCount = steps.querySelectorAll('.ip-step.is-active').length;
+        if (fill) fill.style.height = Math.round((activeCount / items.length) * 100) + '%';
+      }, { rootMargin: '0px 0px -45% 0px', threshold: 0.1 });
+      items.forEach(function (s) { sio.observe(s); });
+    })();
 
     /* ----- 3. Mobile nav toggle + accessibility ----- */
     var burger = document.querySelector('.hamburger');
@@ -261,35 +283,8 @@
       });
     }
 
-    /* ----- 8. Partner form (if present) ----- */
-    var partnerForm = document.getElementById('partner-form');
-    var partnerStatus = document.getElementById('partner-status');
-    if (partnerForm && partnerStatus) {
-      partnerForm.addEventListener('submit', function (e) {
-        if (!partnerForm.action) return;
-        e.preventDefault();
-        partnerStatus.textContent = 'Sending…';
-        var btn = document.getElementById('partner-submit') || partnerForm.querySelector('button[type="submit"]');
-        if (btn) btn.disabled = true;
-        var data = new FormData(partnerForm);
-        fetch(partnerForm.action, {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        }).then(function (res) {
-          if (res.ok) {
-            partnerStatus.textContent = '✓ Thanks — our team will follow up.';
-            partnerForm.reset();
-          } else {
-            partnerStatus.textContent = '⚠️ Something went wrong. Please email pawsforacausemi@gmail.com.';
-          }
-        }).catch(function () {
-          partnerStatus.textContent = '⚠️ Network error. Please email pawsforacausemi@gmail.com.';
-        }).finally(function () {
-          if (btn) btn.disabled = false;
-        });
-      });
-    }
+    /* ----- 8. Partner & volunteer forms handle their own submit inline
+       (see partner.html / volunteer.html) to avoid double submission. ----- */
 
     /* ----- 9. Mark active nav link based on current pathname ----- */
     try {

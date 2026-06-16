@@ -3,127 +3,199 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Volunteer | Paws for a Cause</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <title>Volunteer | PAWS FOR A CAUSE</title>
+  <meta name="description" content="Volunteer for animal welfare with PAWS FOR A CAUSE. Learn who can volunteer, how registration works, what to expect, and sign up to get matched with opportunities."/>
+  <meta name="theme-color" content="#050806"/>
+  <meta property="og:title" content="Volunteer | PAWS FOR A CAUSE"/>
+  <meta property="og:description" content="Find meaningful, organized ways to support shelters, rescues, and community programs in Michigan."/>
+  <meta property="og:type" content="website"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="assets/internal.css" />
   <script src="scripts.js" defer></script>
-
-  <style>
-    /* Tiny helper styles – safe to keep or move into styles.css */
-    .form-status{display:none;margin-top:1rem;font-weight:600;}
-    .form-status.success{color:var(--primary);}
-    .form-status.error{color:#ff6b6b;}
-  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <header>
-    <a href="index.html" class="logo" style="font-size:1.6rem;">PAWS FOR A CAUSE</a>
+    <a href="index.html" class="logo">PAWS FOR A CAUSE</a>
     <nav aria-label="Primary">
-      <ul class="nav-list">
+      <ul class="nav-list" id="primary-nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="team.html">About Us</a></li>
         <li><a href="state-board.html">State Board</a></li>
         <li><a href="services.html">Our Work</a></li>
         <li><a href="events.html">Events</a></li>
-<li class="has-dd">
-  <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
-  <ul class="dropdown" role="menu">
-    <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
-    <li><a href="partner.html" role="menuitem">Partner</a></li>
-  </ul>
-</li>
-
+        <li class="has-dd">
+          <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
+          <ul class="dropdown" role="menu">
+            <li><a href="volunteer.html" class="active" aria-current="page" role="menuitem">Volunteer</a></li>
+            <li><a href="partner.html" role="menuitem">Partner</a></li>
+          </ul>
+        </li>
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </nav>
-
     <a href="donate.html" class="btn-donate">Donate</a>
-
-    <div class="hamburger">☰</div>
+    <div class="hamburger" aria-label="Toggle navigation">☰</div>
   </header>
 
   <main id="main">
-    <section class="form-hero container reveal">
-      <h1 class="section-heading"><span>Volunteer</span> With Us</h1>
-      <p class="lede">
-        From volunteer events to supply drives, we run on teen power. Tell us what you’re into and when you’re free—we’ll plug you in.
-      </p>
+
+    <!-- HERO -->
+    <section class="ip-hero">
+      <span class="ip-hero__glow" aria-hidden="true"></span>
+      <div class="ip-container">
+        <div class="ip-hero__grid">
+          <div class="ip-hero__inner ip-reveal">
+            <p class="ip-eyebrow">Volunteer</p>
+            <h1 class="ip-h1">Volunteer for <span class="ip-accent">animal welfare</span></h1>
+            <p class="ip-lede">
+              Find organized, age-appropriate ways to support shelters, rescues, and community
+              programs. Tell us a little about yourself and we'll help match you with opportunities.
+            </p>
+            <div class="ip-hero__cta">
+              <a href="#signup" class="btn btn--primary">Sign up to volunteer
+                <svg class="ip-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </a>
+              <a href="events.html" class="btn btn--secondary">Browse the calendar</a>
+            </div>
+          </div>
+          <figure class="ip-figure ip-figure--tall ip-reveal d1">
+            <img src="images/cutedog.jpg" alt="A dog cared for by a partner organization" loading="eager" />
+            <figcaption class="ip-figure__tag">Real opportunities, real impact</figcaption>
+          </figure>
+        </div>
+      </div>
     </section>
 
-    <section class="form-section container reveal">
-      <!-- SUCCESS / ERROR placeholders -->
-
-
-      <form class="contact-form big-form"
-            id="volunteer-form"
-            action="https://formspree.io/f/xnnzpvbv"
-            method="POST"
-            accept-charset="UTF-8">
-
-        <!-- (optional) custom subject for your inbox -->
-        <input type="hidden" name="_subject" value="New Volunteer Submission">
-
-        <div class="form-row three">
-          <label>First Name
-            <input type="text" name="firstName" required>
-          </label>
-          <label>Last Name
-            <input type="text" name="lastName" required>
-          </label>
-          <label>Age
-            <input type="number" name="age" min="10" max="120" required>
-          </label>
+    <!-- WHAT TO KNOW -->
+    <section class="ip-section ip-section--surface">
+      <div class="ip-container">
+        <div class="ip-split">
+          <div class="ip-reveal">
+            <div class="ip-rule" aria-hidden="true"></div>
+            <p class="ip-eyebrow ip-eyebrow--pink">Before you start</p>
+            <h2 class="ip-h2">What to know</h2>
+            <p class="ip-body">
+              Opportunities vary by partner organization. Each event lists its own requirements, so
+              the details below are general guidance — always review the specific event before you go.
+            </p>
+          </div>
+          <div class="ip-values ip-reveal d1" style="border-top:0;">
+            <details class="ip-value" open>
+              <summary><span class="ip-value__n">—</span><span class="ip-value__t">Who can volunteer</span><svg class="ip-value__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+              <p class="ip-value__c">Students and community members are welcome. Some events have a minimum age set by the partner organization, and volunteers under 18 may need parent or guardian permission. Group and family volunteering is often available.</p>
+            </details>
+            <details class="ip-value">
+              <summary><span class="ip-value__n">—</span><span class="ip-value__t">Age &amp; guardian considerations</span><svg class="ip-value__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+              <p class="ip-value__c">When an event has an age minimum or requires guardian permission, it will be stated on the event. For minors, a parent or guardian may need to provide consent and contact information.</p>
+            </details>
+            <details class="ip-value">
+              <summary><span class="ip-value__n">—</span><span class="ip-value__t">Service hours</span><svg class="ip-value__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+              <p class="ip-value__c">Many opportunities can count toward school or club service-hour requirements. Let us know what your school needs and we'll do our best to provide appropriate documentation.</p>
+            </details>
+            <details class="ip-value">
+              <summary><span class="ip-value__n">—</span><span class="ip-value__t">Conduct &amp; preparation</span><svg class="ip-value__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+              <p class="ip-value__c">Follow partner guidelines and event leaders, treat animals and people with care, and arrive prepared. Each event notes what to wear or bring. If you need to cancel, let us know early so the spot can go to someone else.</p>
+            </details>
+            <details class="ip-value">
+              <summary><span class="ip-value__n">—</span><span class="ip-value__t">Accessibility &amp; accommodations</span><svg class="ip-value__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+              <p class="ip-value__c">Tell us about any accommodations that would help you participate, and we'll work with you and the partner organization where we can.</p>
+            </details>
+          </div>
         </div>
-
-        <div class="form-row two">
-          <label>Email
-            <input type="email" name="email" required>
-          </label>
-          <label>Phone (optional)
-            <input type="tel" name="phone" placeholder="(xxx) xxx‑xxxx">
-          </label>
-        </div>
-
-        <label>City / School (optional)
-          <input type="text" name="location">
-        </label>
-
-        <fieldset class="check-group">
-          <legend>How do you want to help? (check all that apply)</legend>
-          <label><input type="checkbox" name="help[]" value="events"> Event Volunteering</label>
-          <label><input type="checkbox" name="help[]" value="transport"> Donation of Supplies</label>
-             <label><input type="checkbox" name="time[]" value="summer"> Other</label>
-        </fieldset>
-
-        <fieldset class="check-group">
-          <legend>When are you generally available?</legend>
-          <label><input type="checkbox" name="time[]" value="weekdays"> Weekdays</label>
-          <label><input type="checkbox" name="time[]" value="weekends"> Weekends</label>
-          <label><input type="checkbox" name="time[]" value="summer"> Summer / school breaks</label>
-          <label><input type="checkbox" name="time[]" value="summer"> Other</label>
-        </fieldset>
-
-        <label>Anything else we should know?
-          <textarea name="message" rows="5" placeholder="Skills, ideas, or limits…"></textarea>
-        </label>
-
-        <label class="optin">
-          <input type="checkbox" name="consent" required>
-          <span>I agree to receive further contact from Paws for a Cause regarding my involvement.</span>
-        </label>
-
-        <button type="submit" class="btn-submit" id="vol-submit">Send Volunteer Form</button>
-      </form>
-
-      <p id="vol-status" class="form-status" aria-live="polite"></p>
-
+      </div>
     </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="ip-section">
+      <div class="ip-container">
+        <div class="ip-reveal" style="max-width:60ch; margin-bottom:2.5rem;">
+          <div class="ip-rule" aria-hidden="true"></div>
+          <p class="ip-eyebrow">How it works</p>
+          <h2 class="ip-h2">From sign-up to service</h2>
+        </div>
+        <ol class="ip-steps ip-reveal d1">
+          <span class="ip-steps__fill" aria-hidden="true"></span>
+          <li class="ip-step"><span class="ip-step__num">01</span><div class="ip-step__body"><h3 class="ip-h3">Explore opportunities</h3><p class="ip-body">Browse the events calendar or sign up below to be matched with opportunities that fit you.</p></div></li>
+          <li class="ip-step"><span class="ip-step__num">02</span><div class="ip-step__body"><h3 class="ip-h3">Review the requirements</h3><p class="ip-body">Check the event's age requirement, location, timing, and what to bring or wear.</p></div></li>
+          <li class="ip-step"><span class="ip-step__num">03</span><div class="ip-step__body"><h3 class="ip-h3">Register</h3><p class="ip-body">Submit your information. For minors, include a parent or guardian where required.</p></div></li>
+          <li class="ip-step"><span class="ip-step__num">04</span><div class="ip-step__body"><h3 class="ip-h3">Get confirmation</h3><p class="ip-body">A coordinator follows up by email to confirm your spot and share final details.</p></div></li>
+          <li class="ip-step"><span class="ip-step__num">05</span><div class="ip-step__body"><h3 class="ip-h3">Prepare &amp; serve</h3><p class="ip-body">Arrive ready, check in with the event leader, and complete your volunteer work.</p></div></li>
+          <li class="ip-step"><span class="ip-step__num">06</span><div class="ip-step__body"><h3 class="ip-h3">Keep going</h3><p class="ip-body">Come back for future opportunities — recurring volunteers make the biggest difference.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SIGNUP FORM -->
+    <section class="ip-section ip-section--surface" id="signup">
+      <div class="ip-container">
+        <div class="ip-split" style="align-items:start;">
+          <div class="ip-reveal" style="position:sticky; top:96px;">
+            <div class="ip-rule" aria-hidden="true"></div>
+            <p class="ip-eyebrow ip-eyebrow--pink">Sign up</p>
+            <h2 class="ip-h2">Tell us about you</h2>
+            <p class="ip-body">
+              We'll use this to match you with opportunities and follow up by email. Prefer to talk
+              first? <a class="ip-textlink" href="contact.html">Contact us</a> with any questions.
+            </p>
+          </div>
+
+          <form class="ip-form ip-reveal d1" id="volunteer-form"
+                action="https://formspree.io/f/xnnzpvbv" method="POST" accept-charset="UTF-8" novalidate>
+            <input type="hidden" name="_subject" value="New Volunteer Submission">
+            <div class="ip-form__grid">
+              <div class="ip-field--row">
+                <div class="ip-field"><label for="v-first">First name</label><input id="v-first" type="text" name="firstName" autocomplete="given-name" required></div>
+                <div class="ip-field"><label for="v-last">Last name</label><input id="v-last" type="text" name="lastName" autocomplete="family-name" required></div>
+              </div>
+              <div class="ip-field--row">
+                <div class="ip-field"><label for="v-email">Email</label><input id="v-email" type="email" name="email" autocomplete="email" required></div>
+                <div class="ip-field"><label for="v-age">Age</label><input id="v-age" type="number" name="age" min="10" max="120" inputmode="numeric" required></div>
+              </div>
+              <div class="ip-field--row">
+                <div class="ip-field"><label for="v-phone">Phone <span class="ip-hint">(optional)</span></label><input id="v-phone" type="tel" name="phone" autocomplete="tel"></div>
+                <div class="ip-field"><label for="v-loc">City / School <span class="ip-hint">(optional)</span></label><input id="v-loc" type="text" name="location"></div>
+              </div>
+              <div class="ip-field"><label for="v-guardian">Parent / guardian &amp; email if under 18 <span class="ip-hint">(optional)</span></label><input id="v-guardian" type="text" name="guardian" placeholder="Name and email"></div>
+
+              <fieldset class="ip-checks">
+                <legend>How would you like to help?</legend>
+                <label class="ip-check"><input type="checkbox" name="help[]" value="events"> Event volunteering</label>
+                <label class="ip-check"><input type="checkbox" name="help[]" value="supplies"> Supply drives</label>
+                <label class="ip-check"><input type="checkbox" name="help[]" value="outreach"> Outreach &amp; promotion</label>
+                <label class="ip-check"><input type="checkbox" name="help[]" value="other"> Something else</label>
+              </fieldset>
+
+              <fieldset class="ip-checks">
+                <legend>When are you generally available?</legend>
+                <label class="ip-check"><input type="checkbox" name="time[]" value="weekdays"> Weekdays</label>
+                <label class="ip-check"><input type="checkbox" name="time[]" value="weekends"> Weekends</label>
+                <label class="ip-check"><input type="checkbox" name="time[]" value="breaks"> Summer / school breaks</label>
+              </fieldset>
+
+              <div class="ip-field"><label for="v-msg">Anything else we should know? <span class="ip-hint">(skills, accommodations, group size)</span></label><textarea id="v-msg" name="message" rows="5"></textarea></div>
+
+              <label class="ip-check"><input type="checkbox" name="consent" required> I agree to be contacted by PAWS FOR A CAUSE about volunteering.</label>
+
+              <div>
+                <button type="submit" class="btn btn--primary" id="vol-submit">Send volunteer form
+                  <svg class="ip-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <p class="ip-form__status" id="vol-status" role="status" aria-live="polite"></p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
   </main>
 
- <footer>
+  <footer>
     <p>&copy; <span data-year>2026</span> PAWS FOR A CAUSE | <a href="privacy.html">Privacy Policy</a></p>
     <div class="social">
       <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="PAWS FOR A CAUSE on Facebook (opens in new tab)">Facebook</a>
@@ -133,59 +205,37 @@
     <p class="footer-note">A youth-led 501(c)(3) nonprofit organization based in Michigan.</p>
   </footer>
 
-  <!-- Inline JS to keep it self-contained -->
-<script>
-(function () {
-  const form   = document.getElementById('volunteer-form');
-  const status = document.getElementById('vol-status');
-  const btn    = document.getElementById('vol-submit');
-  if (!form || !status) return;
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    // reset status
-    status.textContent = '';
-    status.className   = 'form-status';
-    status.style.display = 'none';
-
-    // button state
-    if(btn){
-      btn.disabled = true;
-      var original = btn.textContent;
-      btn.textContent = 'Sending…';
-    }
-
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (res.ok) {
-        form.reset();
-        status.textContent = 'Thanks! Your form was sent. We’ll reach out soon 🐾';
-        status.classList.add('success');
-        status.style.display = 'block';
-      } else {
-        const data = await res.json();
-        const msg = data.errors ? data.errors.map(e => e.message).join(', ') : 'Please try again.';
-        throw new Error(msg);
-      }
-    } catch (err) {
-      status.textContent = 'Oops—something went wrong. ' + err.message;
-      status.classList.add('error');
-      status.style.display = 'block';
-    } finally {
-      if(btn){
-        btn.disabled = false;
-        btn.textContent = original;
-      }
-    }
-  });
-})();
-</script>
-
+  <script>
+  (function () {
+    var form = document.getElementById('volunteer-form');
+    var status = document.getElementById('vol-status');
+    var btn = document.getElementById('vol-submit');
+    if (!form || !status) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      status.textContent = ''; status.className = 'ip-form__status';
+      if (btn) btn.disabled = true;
+      var original = btn ? btn.innerHTML : '';
+      if (btn) btn.textContent = 'Sending…';
+      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(function (res) {
+          if (res.ok) {
+            form.reset();
+            status.textContent = 'Thank you — your form was sent. A coordinator will follow up by email.';
+            status.classList.add('is-success');
+          } else {
+            status.textContent = 'Something went wrong. Please email pawsforacausemi@gmail.com.';
+            status.classList.add('is-error');
+          }
+        })
+        .catch(function () {
+          status.textContent = 'Network error. Please email pawsforacausemi@gmail.com.';
+          status.classList.add('is-error');
+        })
+        .finally(function () { if (btn) { btn.disabled = false; btn.innerHTML = original; } });
+    });
+  })();
+  </script>
 </body>
 </html>

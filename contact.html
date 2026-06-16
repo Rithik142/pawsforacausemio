@@ -3,130 +3,146 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Contact | Paws for a Cause</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <title>Contact | PAWS FOR A CAUSE</title>
+  <meta name="description" content="Contact PAWS FOR A CAUSE about volunteering, events, partnerships, school collaboration, chapters, or donations. We're glad to hear from you."/>
+  <meta name="theme-color" content="#050806"/>
+  <meta property="og:title" content="Contact | PAWS FOR A CAUSE"/>
+  <meta property="og:description" content="Reach a youth-led 501(c)(3) animal-welfare nonprofit in Michigan."/>
+  <meta property="og:type" content="website"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="assets/internal.css"/>
   <script src="scripts.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-
-  <!-- fixed header -->
   <header>
-    <a href="index.html" class="logo" style="font-size: 1.6rem;">PAWS FOR A CAUSE</a>
+    <a href="index.html" class="logo">PAWS FOR A CAUSE</a>
     <nav aria-label="Primary">
-           <ul class="nav-list">
+      <ul class="nav-list" id="primary-nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="team.html">About Us</a></li>
         <li><a href="state-board.html">State Board</a></li>
         <li><a href="services.html">Our Work</a></li>
         <li><a href="events.html">Events</a></li>
-<li class="has-dd">
-  <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
-  <ul class="dropdown" role="menu">
-    <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
-    <li><a href="partner.html" role="menuitem">Partner</a></li>
-  </ul>
-</li>
-
-        <li><a href="contact.html">Contact Us</a></li>
+        <li class="has-dd">
+          <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
+          <ul class="dropdown" role="menu">
+            <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
+            <li><a href="partner.html" role="menuitem">Partner</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html" class="active" aria-current="page">Contact Us</a></li>
       </ul>
     </nav>
     <a href="donate.html" class="btn-donate">Donate</a>
-    <div class="hamburger">☰</div>
+    <div class="hamburger" aria-label="Toggle navigation">☰</div>
   </header>
 
-  <!-- main content wrapped for Locomotive/scroll animations -->
-  <main id="main" data-scroll-container>
-    <div class="container">
-<section class="contact-section">
-  <h1>Contact Us</h1>
-  <div class="contact-content">
-    <!-- LEFT SIDEBAR -->
-    <!-- contact.html -->
-<aside class="contact-info">
-  <img src="images/dog-6961236.jpg" alt="Happy dog" class="contact-img" />
-  <h2>Get in Touch</h2>
-  <p>Feel free to reach out with any questions or ideas! We’re always happy to hear from fellow animal lovers.</p>
+  <main id="main">
 
-  <div class="socials">
-   <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
-    <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener noreferrer">Instagram</a>
-   <a href="mailto:pawsforacausemi@gmail.com">Email</a>
-  </div>
-</aside>
+    <!-- HERO -->
+    <section class="ip-hero">
+      <span class="ip-hero__glow" aria-hidden="true"></span>
+      <div class="ip-container">
+        <div class="ip-hero__inner ip-reveal">
+          <p class="ip-eyebrow">Contact</p>
+          <h1 class="ip-h1">Let's <span class="ip-accent">talk</span></h1>
+          <p class="ip-lede">
+            Questions about volunteering, events, partnerships, schools, chapters, or donations?
+            Tell us a little about what you need and we'll point you in the right direction.
+          </p>
+        </div>
+      </div>
+    </section>
 
+    <section class="ip-section ip-section--surface">
+      <div class="ip-container">
+        <div class="ip-contact">
 
+          <!-- LEFT: guidance + methods -->
+          <aside class="ip-reveal">
+            <div class="ip-rule" aria-hidden="true"></div>
+            <h2 class="ip-h3" style="font-size:1.3rem;">How to reach us</h2>
+            <p class="ip-body" style="margin-bottom:1rem;">
+              We're a youth-led team, so we typically reply within a few days. Including your role
+              (volunteer, parent, shelter, school, business) helps us respond faster.
+            </p>
 
-    <!-- RIGHT FORM -->
-<div class="contact-form">
-  <form
-    id="contactForm"
-    action="https://formspree.io/f/mblklzkb"
-    method="post"
-  >
-    <!-- custom subject line in the email you receive -->
-    <input type="hidden" name="_subject" value="Someone Contacted Us" />
+            <div class="ip-contact__method">
+              <svg class="ip-contact__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div><h3>Email</h3><a href="mailto:pawsforacausemi@gmail.com">pawsforacausemi@gmail.com</a></div>
+            </div>
+            <div class="ip-contact__method">
+              <svg class="ip-contact__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+              <div><h3>Instagram</h3><a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener noreferrer">@pawsforacausemi</a></div>
+            </div>
+            <div class="ip-contact__method">
+              <svg class="ip-contact__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-5-7-11a7 7 0 1114 0c0 6-7 11-7 11z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="2"/></svg>
+              <div><h3>Based in</h3><p>Okemos, Michigan</p></div>
+            </div>
 
-    <!-- disable Formspree’s built-in CAPTCHA (optional) -->
-    <input type="hidden" name="_captcha" value="false" />
+            <p class="ip-label" style="margin-top:1.4rem;">Looking for something specific?</p>
+            <div class="ip-quicklinks">
+              <a href="events.html">Events</a>
+              <a href="volunteer.html">Volunteer</a>
+              <a href="partner.html">Partner</a>
+              <a href="donate.html">Donate</a>
+            </div>
+          </aside>
 
-    <div class="two-col">
-      <label>
-        First Name
-        <input type="text" name="firstName" placeholder="Your first name" required>
-      </label>
-      <label>
-        Last Name
-        <input type="text" name="lastName" placeholder="Your last name" required>
-      </label>
-    </div>
+          <!-- RIGHT: form -->
+          <form class="ip-form ip-reveal d1" id="contactForm"
+                action="https://formspree.io/f/mblklzkb" method="post" novalidate>
+            <input type="hidden" name="_subject" value="New Contact Message" />
+            <input type="hidden" name="_captcha" value="false" />
+            <div class="ip-form__grid">
+              <div class="ip-field--row">
+                <div class="ip-field"><label for="c-first">First name</label><input id="c-first" type="text" name="firstName" autocomplete="given-name" required></div>
+                <div class="ip-field"><label for="c-last">Last name</label><input id="c-last" type="text" name="lastName" autocomplete="family-name" required></div>
+              </div>
+              <div class="ip-field--row">
+                <div class="ip-field"><label for="c-email">Email</label><input id="c-email" type="email" name="_replyto" autocomplete="email" required></div>
+                <div class="ip-field"><label for="c-org">Organization <span class="ip-hint">(optional)</span></label><input id="c-org" type="text" name="organization"></div>
+              </div>
 
-    <label>
-      Email
-      <!-- tells Formspree where to reply -->
-      <input type="email" name="_replyto" placeholder="you@example.com" required>
-    </label>
+              <fieldset class="ip-field" style="border:0; padding:0; margin:0;">
+                <legend class="ip-label" style="margin-bottom:.5rem;">What's this about?</legend>
+                <div class="ip-chip-row">
+                  <label class="ip-chip"><input type="radio" name="topic" value="General" checked><span>General</span></label>
+                  <label class="ip-chip"><input type="radio" name="topic" value="Volunteer"><span>Volunteer</span></label>
+                  <label class="ip-chip"><input type="radio" name="topic" value="Event"><span>Event</span></label>
+                  <label class="ip-chip"><input type="radio" name="topic" value="Partnership"><span>Partnership</span></label>
+                  <label class="ip-chip"><input type="radio" name="topic" value="School or club"><span>School / club</span></label>
+                  <label class="ip-chip"><input type="radio" name="topic" value="Chapter"><span>Chapter</span></label>
+                  <label class="ip-chip"><input type="radio" name="topic" value="Donation"><span>Donation</span></label>
+                </div>
+              </fieldset>
 
-    <label>
-      Subject
-      <input type="text" name="subject" placeholder="What’s this about?" required>
-    </label>
+              <div class="ip-field"><label for="c-subject">Subject</label><input id="c-subject" type="text" name="subject" required></div>
+              <div class="ip-field"><label for="c-msg">Message</label><textarea id="c-msg" name="message" rows="6" required></textarea></div>
 
-    <label>
-      Message
-      <textarea name="message" rows="5" placeholder="Your message…" required></textarea>
-    </label>
+              <label class="ip-check"><input type="checkbox" name="consent" required> I agree to be contacted by PAWS FOR A CAUSE in reply to my message.</label>
 
-<label class="optin">
-  <input type="checkbox" name="consent" id="consent" required>
+              <div>
+                <button type="submit" class="btn btn--primary">Send message
+                  <svg class="ip-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="ip-form__status" id="formStatus" role="status" aria-live="polite"></div>
+              </div>
+            </div>
+          </form>
 
-  <span>I agree to receive further contact from Paws for a Cause on behalf of my involvement.</span>
-</label>
+        </div>
+      </div>
+    </section>
 
-    
-    <button type="submit" class="btn-submit btn-bounce">Send Message</button>
-
-    <!-- Inline status message -->
-    <div id="formStatus" aria-live="polite" style="margin-top:1rem;"></div>
-  </form>
-</div>
-
-
-
-  </div>
-</section>
-
-
-    </div>
   </main>
 
-  <!-- fixed footer -->
- <footer>
+  <footer>
     <p>&copy; <span data-year>2026</span> PAWS FOR A CAUSE | <a href="privacy.html">Privacy Policy</a></p>
     <div class="social">
       <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="PAWS FOR A CAUSE on Facebook (opens in new tab)">Facebook</a>
@@ -135,6 +151,5 @@
     </div>
     <p class="footer-note">A youth-led 501(c)(3) nonprofit organization based in Michigan.</p>
   </footer>
-
 </body>
 </html>

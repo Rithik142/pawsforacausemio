@@ -3,129 +3,274 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us | Paws for a Cause</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <title>About | PAWS FOR A CAUSE</title>
+  <meta name="description" content="PAWS FOR A CAUSE is a youth-led 501(c)(3) nonprofit in Michigan connecting volunteers, schools, shelters, rescues, and community organizations to strengthen animal welfare."/>
+  <meta name="theme-color" content="#050806"/>
+  <meta property="og:title" content="About | PAWS FOR A CAUSE"/>
+  <meta property="og:description" content="A youth-led 501(c)(3) nonprofit building a stronger community for animals across Michigan."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="images/IMG_0575.JPG"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="assets/internal.css" />
   <script src="scripts.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- HEADER -->
   <header>
-  <a href="index.html" class="logo">PAWS FOR A CAUSE</a>
-
-  <nav aria-label="Primary">
-    <ul class="nav-list">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="team.html">About Us</a></li>
-      <li><a href="state-board.html">State Board</a></li>
-      <li><a href="services.html">Our Work</a></li>
+    <a href="index.html" class="logo">PAWS FOR A CAUSE</a>
+    <nav aria-label="Primary">
+      <ul class="nav-list" id="primary-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="team.html" class="active" aria-current="page">About Us</a></li>
+        <li><a href="state-board.html">State Board</a></li>
+        <li><a href="services.html">Our Work</a></li>
         <li><a href="events.html">Events</a></li>
-      <li class="has-dd">
-        <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
-        <ul class="dropdown" role="menu">
-          <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
-          <li><a href="partner.html" role="menuitem">Partner</a></li>
-        </ul>
-      </li>
-      <li><a href="contact.html">Contact Us</a></li>
-    </ul>
-  </nav>
+        <li class="has-dd">
+          <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
+          <ul class="dropdown" role="menu">
+            <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
+            <li><a href="partner.html" role="menuitem">Partner</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <a href="donate.html" class="btn-donate">Donate</a>
+    <div class="hamburger" aria-label="Toggle navigation">☰</div>
+  </header>
 
-  <a href="donate.html" class="btn-donate">Donate</a>
+  <main id="main">
 
-  <div class="hamburger" aria-label="Toggle navigation">☰</div>
-</header>
-
-<main id="main">
- <section class="our-story container reveal visible">
-
-
-      <div class="story-img">
-        <img src="images/image.png" alt="Volunteers at an adoption fair">
+    <!-- HERO (split, image-led) -->
+    <section class="ip-hero">
+      <span class="ip-hero__glow" aria-hidden="true"></span>
+      <div class="ip-container">
+        <div class="ip-hero__grid">
+          <div class="ip-hero__inner ip-reveal">
+            <p class="ip-eyebrow">About PAWS FOR A CAUSE</p>
+            <h1 class="ip-h1">Building a stronger community <span class="ip-accent">for animals</span></h1>
+            <p class="ip-lede">
+              PAWS FOR A CAUSE is a youth-led 501(c)(3) nonprofit that connects volunteers,
+              schools, shelters, rescues, and community organizations to strengthen animal welfare.
+            </p>
+            <div class="ip-hero__cta">
+              <a href="involved.html" class="btn btn--primary">Get involved
+                <svg class="ip-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="services.html" class="btn btn--secondary">See our work</a>
+            </div>
+          </div>
+          <div class="ip-collage ip-reveal d1" aria-hidden="false">
+            <figure class="ip-figure"><img src="images/IMG_0575.JPG" alt="PAWS FOR A CAUSE volunteers at a community event" loading="eager" /></figure>
+            <figure class="ip-figure"><img src="images/flowerdog.jpg" alt="A rescue dog cared for by a partner organization" loading="lazy" /></figure>
+            <figure class="ip-figure"><img src="images/graydog.jpg" alt="A shelter dog awaiting adoption" loading="lazy" /></figure>
+            <span class="ip-collage__badge">501(c)(3)<small>Nonprofit · MI</small></span>
+          </div>
+        </div>
       </div>
-      <div class="story-text">
-        <h2 class="section-title fancy-title"><span>Why</span> We Started</h2>
+    </section>
 
-        <p>
-        Paws for a Cause is a teen-run nonprofit started July 16, 2025, in Okemos, MI, to champion animal welfare through adoption, fostering, education, and community outreach. Led entirely by high school juniors, it empowers youth to drive change—raising funds, hosting events, and improving animal lives one paw at a time.
+    <!-- WHY WE EXIST -->
+    <section class="ip-section ip-section--surface">
+      <div class="ip-container">
+        <div class="ip-split">
+          <div class="ip-reveal">
+            <div class="ip-rule" aria-hidden="true"></div>
+            <p class="ip-eyebrow ip-eyebrow--pink">Why we exist</p>
+            <h2 class="ip-h2">Shelters need more than funding. They need people.</h2>
+            <p class="ip-body">
+              Animal shelters and rescue organizations often need dependable volunteers, stronger
+              community awareness, help at events, assistance gathering supplies, and real
+              relationships with schools and local groups.
+            </p>
+            <p class="ip-body">
+              At the same time, many students and community members want to help animals but don't
+              know where to begin or which opportunities are right for them. PAWS FOR A CAUSE bridges
+              that gap — we create organized, age-appropriate ways for people to serve and we help
+              partner organizations reach more of their community.
+            </p>
+          </div>
+          <figure class="ip-figure ip-figure--tall ip-reveal d1">
+            <img src="images/Dogwoman.jpg" alt="A volunteer spending time with a dog at a partner shelter" loading="lazy" />
+            <figcaption class="ip-figure__tag">Volunteers in the community</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION / VISION -->
+    <section class="ip-section">
+      <div class="ip-container">
+        <div class="ip-reveal">
+          <p class="ip-eyebrow">What drives us</p>
+          <h2 class="ip-h2">Mission &amp; vision</h2>
+        </div>
+        <div class="ip-mv ip-reveal d1" style="margin-top:1.5rem;">
+          <div class="ip-mv__col">
+            <p class="ip-mv__label">Our mission</p>
+            <p>
+              We connect volunteers and community partners with animal welfare organizations that
+              need support. Through service, outreach, fundraising, education, and youth leadership,
+              we help shelters and rescues strengthen their programs and expand their community impact.
+            </p>
+          </div>
+          <div class="ip-mv__col">
+            <p class="ip-mv__label">Our vision</p>
+            <p>
+              Communities where every person who wants to help animals can find a meaningful way to
+              serve — and every animal welfare organization has the volunteers, resources, and
+              community support it needs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES (accordion) -->
+    <section class="ip-section ip-section--surface">
+      <div class="ip-container">
+        <div class="ip-split" style="align-items:start;">
+          <div class="ip-reveal" style="position:sticky; top:96px;">
+            <div class="ip-rule" aria-hidden="true"></div>
+            <p class="ip-eyebrow">What we stand for</p>
+            <h2 class="ip-h2">Our values</h2>
+            <p class="ip-body">Eight commitments that shape how we work with animals, volunteers, partners, and the communities we serve.</p>
+          </div>
+          <div class="ip-values ip-reveal d1">
+            <details class="ip-value" open>
+              <summary><span class="ip-value__n">01</span><span class="ip-value__t">Compassion</span><svg class="ip-value__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+              <p class="ip-value__c">We approach animals, volunteers, partners, and community members with empathy, patience, and respect.</p>
+            </details>
+            <details class="ip-value">
+              <summary><span class="ip-value__n">02</span><span class="ip-value__t">Service</span><svg class="ip-value__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+              <p class="ip-value__c">We focus on practical work that addresses real needs and creates meaningful support for animal welfare organizations.</p>
+            </details>
+            <details class="ip-value">
+              <summary><span class="ip-value__n">03</span><span class="ip-value__t">Collaboration</span><svg class="ip-value__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+              <p class="ip-value__c">We believe stronger results are possible when students, shelters, rescues, schools, businesses, and community groups work together.</p>
+            </details>
+            <details class="ip-value">
+              <summary><span class="ip-value__n">04</span><span class="ip-value__t">Youth Leadership</span><svg class="ip-value__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+              <p class="ip-value__c">We give young people meaningful responsibilities and opportunities to organize projects, build partnerships, and lead service initiatives.</p>
+            </details>
+            <details class="ip-value">
+              <summary><span class="ip-value__n">05</span><span class="ip-value__t">Responsibility</span><svg class="ip-value__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+              <p class="ip-value__c">We communicate clearly, protect the trust of our partners, and follow through on the commitments we make.</p>
+            </details>
+            <details class="ip-value">
+              <summary><span class="ip-value__n">06</span><span class="ip-value__t">Accessibility</span><svg class="ip-value__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+              <p class="ip-value__c">We work to create volunteer pathways for people with different ages, schedules, skills, and levels of experience.</p>
+            </details>
+            <details class="ip-value">
+              <summary><span class="ip-value__n">07</span><span class="ip-value__t">Community</span><svg class="ip-value__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+              <p class="ip-value__c">We build lasting relationships that help animal welfare organizations receive consistent support over time.</p>
+            </details>
+            <details class="ip-value">
+              <summary><span class="ip-value__n">08</span><span class="ip-value__t">Growth</span><svg class="ip-value__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+              <p class="ip-value__c">We keep learning from volunteers, partners, and the communities we serve so our programs become more useful and effective.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW OUR MODEL WORKS -->
+    <section class="ip-section">
+      <div class="ip-container">
+        <div class="ip-reveal" style="max-width:60ch; margin-bottom:2.5rem;">
+          <div class="ip-rule" aria-hidden="true"></div>
+          <p class="ip-eyebrow ip-eyebrow--pink">How our model works</p>
+          <h2 class="ip-h2">From a partner's need to community impact</h2>
+        </div>
+        <ol class="ip-steps ip-reveal d1">
+          <span class="ip-steps__fill" aria-hidden="true"></span>
+          <li class="ip-step"><span class="ip-step__num">01</span><div class="ip-step__body"><h3 class="ip-h3">Listen to partner needs</h3><p class="ip-body">We start by learning what a shelter, rescue, school, or community organization actually needs.</p></div></li>
+          <li class="ip-step"><span class="ip-step__num">02</span><div class="ip-step__body"><h3 class="ip-h3">Build the opportunity</h3><p class="ip-body">We shape that need into a clear event, campaign, supply drive, volunteer role, or outreach initiative.</p></div></li>
+          <li class="ip-step"><span class="ip-step__num">03</span><div class="ip-step__body"><h3 class="ip-h3">Recruit &amp; prepare volunteers</h3><p class="ip-body">We communicate requirements, promote the opportunity, organize signups, and help volunteers understand how to contribute.</p></div></li>
+          <li class="ip-step"><span class="ip-step__num">04</span><div class="ip-step__body"><h3 class="ip-h3">Support the work</h3><p class="ip-body">We assist with coordination, outreach, promotion, supplies, staffing, and other approved needs.</p></div></li>
+          <li class="ip-step"><span class="ip-step__num">05</span><div class="ip-step__body"><h3 class="ip-h3">Strengthen the relationship</h3><p class="ip-body">We gather feedback, improve future opportunities, and work toward consistent, long-term support.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section class="ip-section ip-section--surface">
+      <div class="ip-container">
+        <div class="ip-reveal" style="display:flex; justify-content:space-between; align-items:flex-end; gap:1.5rem; flex-wrap:wrap; margin-bottom:2rem;">
+          <div>
+            <div class="ip-rule" aria-hidden="true"></div>
+            <p class="ip-eyebrow">Youth-led leadership</p>
+            <h2 class="ip-h2">The students behind the work</h2>
+          </div>
+          <p class="ip-body" style="max-width:34ch; margin:0;">Founded July 16, 2025 in Okemos, Michigan by three high-school students who wanted a practical way to help local animals.</p>
+        </div>
+        <div class="ip-people ip-reveal d1">
+          <article class="ip-person">
+            <div class="ip-person__photo"><img src="images/IMG_0575.JPG" alt="Tejas Valisetty" /></div>
+            <p class="ip-person__role">Co-Founder · Operations</p>
+            <h3 class="ip-person__name">Tejas Valisetty</h3>
+            <p class="ip-person__bio">Coordinates partnerships and event logistics that connect volunteers with the organizations that need them.</p>
+          </article>
+          <article class="ip-person">
+            <div class="ip-person__photo"><img src="images/rithik.png" alt="Rithik Parthasarathy" /></div>
+            <p class="ip-person__role">Co-Founder · Records &amp; Technology</p>
+            <h3 class="ip-person__name">Rithik Parthasarathy</h3>
+            <p class="ip-person__bio">Leads the website, volunteer communication, and the records that keep the organization accountable.</p>
+          </article>
+          <article class="ip-person">
+            <div class="ip-person__photo"><img src="images/vaibhav-mahesha.png" alt="Vaibhav Mahesha" /></div>
+            <p class="ip-person__role">Co-Founder · Outreach</p>
+            <h3 class="ip-person__name">Vaibhav Mahesha</h3>
+            <p class="ip-person__bio">Leads community outreach and social media, helping partner programs reach more people.</p>
+          </article>
+        </div>
+        <p class="ip-body ip-reveal" style="margin-top:1.5rem;">
+          <a class="ip-textlink" href="state-board.html">See our regional &amp; state leadership
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </p>
       </div>
     </section>
-  <!-- HERO TITLE -->
-  <section class="team-hero reveal">
-    <h1>Meet the Team Behind the Mission</h1>
-    <p>Passionate youth leaders shaping a kinder world for animals.</p>
-  </section>
 
-  <!-- TEAM CARDS -->
-  <section class="team-grid reveal" style="flex-wrap: nowrap; overflow-x: auto;">
-    <div class="card">
-      <img src="images/IMG_0575.JPG" alt="Tejas Valisetty">
-      <h3>Tejas Valisetty</h3>
-      <p>President of Operations</p>
-    </div>
-    <div class="card">
-    <img src="images/rithik.png" alt="Rithik Parthasarathy" class="team-photo portrait">
+    <!-- 501(c)(3) callout -->
+    <section class="ip-section ip-section--tight">
+      <div class="ip-container">
+        <div class="ip-split ip-reveal">
+          <p class="ip-callout">A registered 501(c)(3) nonprofit, run by students, accountable to the community it serves.</p>
+          <p class="ip-body">
+            PAWS FOR A CAUSE is a youth-led 501(c)(3) nonprofit organization based in Michigan. We do
+            not operate a shelter or provide veterinary care — we support the shelters, rescues, and
+            organizations that do, by connecting them with volunteers and community resources. For
+            questions about our nonprofit status or how we work, please
+            <a class="ip-textlink" href="contact.html">contact us</a>.
+          </p>
+        </div>
+      </div>
+    </section>
 
-      <h3>Rithik Parthasarathy</h3>
-      <p>President of Records</p>
-    </div>
-    <div class="card">
-      <img src="images/Screenshot 2025-07-22 at 5.09.42 PM.png" alt="Vaibhav Mahesha">
-      <h3>Vaibhav Mahesha</h3>
-      <p>President of Outreach</p>
-    </div>
-  </section>
-<!-- ===== TEAM BRIDGE SECTION (between cards and values) ===== -->
-<!-- WHY WE STARTED -->
-<section id="why" class="why-block reveal container">
-  <h2 class="section-heading"><span>Why</span> We Started</h2>
-  <p class="lede">
-    We’re a small, youth‑led crew that launched in July 2025 after seeing how many pets are left to fend for themselves. Paws for a Cause exists to make animal care and adoption easier—and give teens a voice in that work.
-  </p>
+    <!-- CTA -->
+    <section class="ip-section ip-section--tight">
+      <div class="ip-container">
+        <div class="ip-cta ip-reveal">
+          <h2>See how we put this into practice</h2>
+          <p>Explore the programs and partnerships that turn our mission into real community support.</p>
+          <div class="ip-cta__btns">
+            <a href="services.html" class="btn btn--primary">Explore our work
+              <svg class="ip-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="involved.html" class="btn btn--secondary">Get involved</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <ul class="why-list">
-    <li><strong>Real help, fast.</strong> Adoption events, foster support, and supply drives.</li>
-    <li><strong>Resources that stick.</strong> Toolkits for new pet owners and community education.</li>
-    <li><strong>Powered by teens.</strong> We plan, fundraise, and partner with local shelters and clubs.</li>
-    <li><strong>Growing together.</strong> Mentors & partners welcome—there’s room for everyone who cares.</li>
-  </ul>
+  </main>
 
-  <div class="impact-row">
-    <div class="impact-item"><span class="num">2025</span><small>Founded</small></div>
-    <div class="impact-item"><span class="num">3</span><small>Teen Cofounders</small></div>
-    <div class="impact-item"><span class="num">∞</span><small>Paws to Help</small></div>
-  </div>
-</section>
-
-<!-- WHAT WE STAND FOR -->
-<section id="values" class="values-block reveal container">
-  <h2 class="section-heading">What We Stand For</h2>
-
-  <div class="values-grid">
-    <div class="value-card">
-      <span class="emoji">❤️</span>
-      <h3>Compassion</h3>
-      <p>We lead with empathy and care for animals and each other.</p>
-    </div>
-    <div class="value-card">
-      <span class="emoji">🧭</span>
-      <h3>Leadership</h3>
-      <p>We empower youth to make a difference in their communities.</p>
-    </div>
-    <div class="value-card">
-      <span class="emoji">🐾</span>
-      <h3>Service</h3>
-      <p>We support shelters, foster families, and new pet owners with dedication.</p>
-    </div>
-  </div>
-</section>
-</main>
-
-  <!-- FOOTER -->
- <footer>
+  <footer>
     <p>&copy; <span data-year>2026</span> PAWS FOR A CAUSE | <a href="privacy.html">Privacy Policy</a></p>
     <div class="social">
       <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="PAWS FOR A CAUSE on Facebook (opens in new tab)">Facebook</a>
@@ -134,6 +279,5 @@
     </div>
     <p class="footer-note">A youth-led 501(c)(3) nonprofit organization based in Michigan.</p>
   </footer>
-
 </body>
 </html>

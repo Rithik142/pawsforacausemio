@@ -279,7 +279,8 @@
   function renderEmptyState(mount, noData) {
     mount.innerHTML = "";
     mount.appendChild(el("div", { class: "pf-empty", role: "status" }, [
-      el("div", { class: "pf-empty__icon", "aria-hidden": "true" }, ["🐾"]),
+      el("div", { class: "pf-empty__icon", "aria-hidden": "true",
+        html: '<svg viewBox="0 0 24 24" fill="none" style="width:40px;height:40px"><rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M3 9h18M8 2v4M16 2v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>' }),
       el("h2", { class: "pf-empty__title" }, [
         noData ? "No upcoming events are posted yet"
                : "No events match your filters"
@@ -343,11 +344,11 @@
       : null;
 
     var meta = el("ul", { class: "pf-card__meta" }, [
-      start ? el("li", null, ["📅 " + fmtRange(start, end)]) : null,
+      start ? el("li", null, [fmtRange(start, end)]) : null,
       e.locationName ? el("li", null, [
-        "📍 " + e.locationName + (e.city ? " — " + e.city + (e.state ? ", " + e.state : "") : "")
+        e.locationName + (e.city ? " — " + e.city + (e.state ? ", " + e.state : "") : "")
       ]) : null,
-      e.category ? el("li", null, ["🏷️ " + e.category]) : null
+      e.category ? el("li", null, [e.category]) : null
     ].filter(Boolean));
 
     return el("li", { class: "pf-card" + (past ? " is-past" : "") }, [

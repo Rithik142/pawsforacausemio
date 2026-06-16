@@ -3,120 +3,184 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Partner With Us | Paws for a Cause</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <title>Partner With Us | PAWS FOR A CAUSE</title>
+  <meta name="description" content="Partner with PAWS FOR A CAUSE. We help shelters, rescues, schools, community groups, and businesses with volunteer recruitment, event support, supply drives, promotion, and more."/>
+  <meta name="theme-color" content="#050806"/>
+  <meta property="og:title" content="Partner With Us | PAWS FOR A CAUSE"/>
+  <meta property="og:description" content="Stronger support starts with collaboration. Build a partnership with a youth-led animal-welfare nonprofit."/>
+  <meta property="og:type" content="website"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-
-  <style>
-    .form-status{
-      display:none;
-      margin:2rem 0 0;
-      text-align:center;
-      font-weight:600;
-      line-height:1.5;
-    }
-    .form-status.success{ color:var(--primary); }
-    .form-status.error{   color:#ff6b6b; }
-  </style>
-
+  <link rel="stylesheet" href="assets/internal.css" />
   <script src="scripts.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <header>
-    <a href="index.html" class="logo" style="font-size:1.6rem;">PAWS FOR A CAUSE</a>
+    <a href="index.html" class="logo">PAWS FOR A CAUSE</a>
     <nav aria-label="Primary">
-      <ul class="nav-list">
+      <ul class="nav-list" id="primary-nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="team.html">About Us</a></li>
         <li><a href="state-board.html">State Board</a></li>
         <li><a href="services.html">Our Work</a></li>
         <li><a href="events.html">Events</a></li>
-<li class="has-dd">
-  <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
-  <ul class="dropdown" role="menu">
-    <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
-    <li><a href="partner.html" role="menuitem">Partner</a></li>
-  </ul>
-</li>
-
+        <li class="has-dd">
+          <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
+          <ul class="dropdown" role="menu">
+            <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
+            <li><a href="partner.html" class="active" aria-current="page" role="menuitem">Partner</a></li>
+          </ul>
+        </li>
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </nav>
-   
     <a href="donate.html" class="btn-donate">Donate</a>
-   
-    <div class="hamburger">☰</div>
+    <div class="hamburger" aria-label="Toggle navigation">☰</div>
   </header>
 
   <main id="main">
-    <section class="form-hero container reveal">
-      <h1 class="section-heading"><span>Partner</span> With Us</h1>
-      <p class="lede">
-        Businesses, clubs, and organizations make our mission possible—through sponsorships, co‑hosted events, in‑kind donations, and outreach. Let’s create impact together.
-      </p>
+
+    <!-- HERO -->
+    <section class="ip-hero">
+      <span class="ip-hero__glow" aria-hidden="true"></span>
+      <div class="ip-container">
+        <div class="ip-hero__grid">
+          <div class="ip-hero__inner ip-reveal">
+            <p class="ip-eyebrow">Partner with us</p>
+            <h1 class="ip-h1">Stronger support starts with <span class="ip-accent">collaboration</span></h1>
+            <p class="ip-lede">
+              We help animal shelters, rescues, schools, community groups, and businesses extend
+              their reach through volunteers, events, supply drives, fundraising, and outreach.
+            </p>
+            <div class="ip-hero__cta">
+              <a href="#inquiry" class="btn btn--primary">Start the conversation
+                <svg class="ip-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="services.html" class="btn btn--secondary">See our work</a>
+            </div>
+          </div>
+          <figure class="ip-figure ip-figure--tall ip-reveal d1">
+            <img src="images/GermanDog.jpg" alt="A dog supported through a partner organization" loading="eager" />
+            <figcaption class="ip-figure__tag">Working together for animals</figcaption>
+          </figure>
+        </div>
+      </div>
     </section>
 
-    <section class="form-section container reveal">
-      <form class="contact-form big-form"
-            id="partner-form"
-            action="https://formspree.io/f/xgvzaynb" 
-            method="POST"
-            accept-charset="UTF-8">
-
-        <input type="hidden" name="_subject" value="New Partnership Form Submission">
-        <input type="hidden" name="_captcha" value="false">
-
-        <div class="form-row two">
-          <label>Organization / Business Name
-            <input type="text" name="org" required>
-          </label>
-          <label>Your Name
-            <input type="text" name="contactName" required>
-          </label>
+    <!-- SUPPORT AREAS -->
+    <section class="ip-section ip-section--surface">
+      <div class="ip-container">
+        <div class="ip-reveal" style="margin-bottom:2rem;">
+          <div class="ip-rule" aria-hidden="true"></div>
+          <p class="ip-eyebrow ip-eyebrow--pink">How we support partners</p>
+          <h2 class="ip-h2">Ways we can help</h2>
         </div>
-
-        <div class="form-row two">
-          <label>Email
-            <input type="email" name="email" required>
-          </label>
-          <label>Phone (optional)
-            <input type="tel" name="phone" placeholder="(xxx) xxx‑xxxx">
-          </label>
+        <div class="ip-programs ip-reveal d1">
+          <div class="ip-prow"><span class="ip-prow__n">01</span><div><h3 class="ip-prow__t">Volunteer recruitment &amp; staffing</h3><p class="ip-prow__d">We promote your opportunity, organize signups, and bring prepared volunteers to support your events and programs.</p></div></div>
+          <div class="ip-prow"><span class="ip-prow__n">02</span><div><h3 class="ip-prow__t">Event promotion &amp; outreach</h3><p class="ip-prow__d">We help spread the word about events, volunteer needs, and adoptable animals across our website, social media, and school networks.</p></div></div>
+          <div class="ip-prow"><span class="ip-prow__n">03</span><div><h3 class="ip-prow__t">Supply &amp; food drives</h3><p class="ip-prow__d">We organize community collections for the specific, approved items your organization needs.</p></div></div>
+          <div class="ip-prow"><span class="ip-prow__n">04</span><div><h3 class="ip-prow__t">Fundraising campaigns</h3><p class="ip-prow__d">We help plan and promote approved community fundraisers that bring additional resources to your programs.</p></div></div>
+          <div class="ip-prow"><span class="ip-prow__n">05</span><div><h3 class="ip-prow__t">School &amp; youth engagement</h3><p class="ip-prow__d">We connect your needs with students and clubs looking for meaningful, organized service.</p></div></div>
+          <div class="ip-prow"><span class="ip-prow__n">06</span><div><h3 class="ip-prow__t">Recurring volunteer programs</h3><p class="ip-prow__d">We work toward consistent, ongoing support rather than one-time help.</p></div></div>
         </div>
-
-        <label>Website / Social (optional)
-          <input type="url" name="url" placeholder="https://">
-        </label>
-
-        <fieldset class="check-group">
-          <legend>Ways you’d like to partner (check all that apply)</legend>
-          <label><input type="checkbox" name="partnerType[]" value="sponsor"> Financial sponsorship</label>
-          <label><input type="checkbox" name="partnerType[]" value="host"> Host or co‑host an event</label>
-          <label><input type="checkbox" name="partnerType[]" value="inkind"> In‑kind donations (food, supplies, printing, etc.)</label>
-          <label><input type="checkbox" name="partnerType[]" value="promo"> Promote us to your audience / employees</label>
-          <label><input type="checkbox" name="partnerType[]" value="other"> Other (describe below)</label>
-        </fieldset>
-
-        <label>Tell us more about your idea
-          <textarea name="message" rows="6" placeholder="What are you thinking? Timeline, budget, etc."></textarea>
-        </label>
-
-        <label class="optin">
-          <input type="checkbox" name="consent" id="partner-consent" required>
-          <span>I agree to receive further contact from Paws for a Cause regarding partnership opportunities.</span>
-        </label>
-
-        <button type="submit" class="btn-submit" id="partner-submit">Send Partnership Form</button>
-      </form>
-
-      <p id="partner-status" class="form-status" aria-live="polite"></p>
+      </div>
     </section>
+
+    <!-- HOW PARTNERSHIP WORKS -->
+    <section class="ip-section">
+      <div class="ip-container">
+        <div class="ip-reveal" style="max-width:60ch; margin-bottom:2.5rem;">
+          <div class="ip-rule" aria-hidden="true"></div>
+          <p class="ip-eyebrow">The process</p>
+          <h2 class="ip-h2">How partnership works</h2>
+        </div>
+        <ol class="ip-steps ip-reveal d1">
+          <span class="ip-steps__fill" aria-hidden="true"></span>
+          <li class="ip-step"><span class="ip-step__num">01</span><div class="ip-step__body"><h3 class="ip-h3">Submit an inquiry</h3><p class="ip-body">Tell us about your organization and what you're working toward using the form below.</p></div></li>
+          <li class="ip-step"><span class="ip-step__num">02</span><div class="ip-step__body"><h3 class="ip-h3">Discuss your needs</h3><p class="ip-body">We'll talk through goals, timing, and what support would be most useful.</p></div></li>
+          <li class="ip-step"><span class="ip-step__num">03</span><div class="ip-step__body"><h3 class="ip-h3">Identify the right support</h3><p class="ip-body">Together we choose the volunteers, drive, event, or campaign that fits.</p></div></li>
+          <li class="ip-step"><span class="ip-step__num">04</span><div class="ip-step__body"><h3 class="ip-h3">Confirm responsibilities</h3><p class="ip-body">We agree on roles, requirements, and expectations for everyone involved.</p></div></li>
+          <li class="ip-step"><span class="ip-step__num">05</span><div class="ip-step__body"><h3 class="ip-h3">Promote &amp; coordinate</h3><p class="ip-body">We recruit, prepare, and coordinate so the initiative runs smoothly.</p></div></li>
+          <li class="ip-step"><span class="ip-step__num">06</span><div class="ip-step__body"><h3 class="ip-h3">Review &amp; build on it</h3><p class="ip-body">We gather feedback and look for ways to support you again.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- WHO PARTNERS -->
+    <section class="ip-section ip-section--surface">
+      <div class="ip-container">
+        <div class="ip-reveal" style="margin-bottom:1.5rem;">
+          <div class="ip-rule" aria-hidden="true"></div>
+          <p class="ip-eyebrow ip-eyebrow--pink">Who partners with us</p>
+          <h2 class="ip-h2">Partnership is open to many kinds of organizations</h2>
+        </div>
+        <div class="ip-audience ip-reveal d1">
+          <div class="ip-arow"><div class="ip-arow__t">Animal welfare partners</div><p class="ip-arow__d">Shelters and rescues seeking volunteers, event support, supply drives, and outreach.</p></div>
+          <div class="ip-arow"><div class="ip-arow__t">School partners</div><p class="ip-arow__d">Schools and clubs building recurring, organized service opportunities for students.</p></div>
+          <div class="ip-arow"><div class="ip-arow__t">Community partners</div><p class="ip-arow__d">Community organizations collaborating on events, education, and public outreach.</p></div>
+          <div class="ip-arow"><div class="ip-arow__t">Business supporters</div><p class="ip-arow__d">Local businesses offering sponsorship, in-kind contributions, or employee service projects.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INQUIRY FORM -->
+    <section class="ip-section" id="inquiry">
+      <div class="ip-container">
+        <div class="ip-split" style="align-items:start;">
+          <div class="ip-reveal" style="position:sticky; top:96px;">
+            <div class="ip-rule" aria-hidden="true"></div>
+            <p class="ip-eyebrow">Partnership inquiry</p>
+            <h2 class="ip-h2">Let's build something together</h2>
+            <p class="ip-body">Share a few details and we'll follow up to talk through how we can help. Only confirmed partners are listed publicly.</p>
+          </div>
+
+          <form class="ip-form ip-reveal d1" id="partner-form"
+                action="https://formspree.io/f/xgvzaynb" method="POST" accept-charset="UTF-8" novalidate>
+            <input type="hidden" name="_subject" value="New Partnership Inquiry">
+            <div class="ip-form__grid">
+              <div class="ip-field--row">
+                <div class="ip-field"><label for="p-org">Organization / business</label><input id="p-org" type="text" name="org" required></div>
+                <div class="ip-field"><label for="p-name">Your name</label><input id="p-name" type="text" name="contactName" autocomplete="name" required></div>
+              </div>
+              <div class="ip-field--row">
+                <div class="ip-field"><label for="p-email">Email</label><input id="p-email" type="email" name="email" autocomplete="email" required></div>
+                <div class="ip-field"><label for="p-phone">Phone <span class="ip-hint">(optional)</span></label><input id="p-phone" type="tel" name="phone" autocomplete="tel"></div>
+              </div>
+              <div class="ip-field"><label for="p-url">Website / social <span class="ip-hint">(optional)</span></label><input id="p-url" type="url" name="url" placeholder="https://"></div>
+
+              <fieldset class="ip-checks">
+                <legend>How would you like to partner? (select any)</legend>
+                <label class="ip-check"><input type="checkbox" name="partnerType[]" value="volunteers"> Volunteer recruitment / staffing</label>
+                <label class="ip-check"><input type="checkbox" name="partnerType[]" value="event"> Host or co-host an event</label>
+                <label class="ip-check"><input type="checkbox" name="partnerType[]" value="drive"> Supply or food drive</label>
+                <label class="ip-check"><input type="checkbox" name="partnerType[]" value="promo"> Promotion / outreach</label>
+                <label class="ip-check"><input type="checkbox" name="partnerType[]" value="sponsor"> Sponsorship / in-kind support</label>
+                <label class="ip-check"><input type="checkbox" name="partnerType[]" value="other"> Other (describe below)</label>
+              </fieldset>
+
+              <div class="ip-field"><label for="p-msg">Tell us about your idea</label><textarea id="p-msg" name="message" rows="6" placeholder="Goals, timing, and what support would help most."></textarea></div>
+
+              <label class="ip-check"><input type="checkbox" name="consent" id="partner-consent" required> I agree to be contacted by PAWS FOR A CAUSE about partnership opportunities.</label>
+
+              <div>
+                <button type="submit" class="btn btn--primary" id="partner-submit">Send partnership inquiry
+                  <svg class="ip-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <p class="ip-form__status" id="partner-status" role="status" aria-live="polite"></p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
   </main>
 
- <footer>
+  <footer>
     <p>&copy; <span data-year>2026</span> PAWS FOR A CAUSE | <a href="privacy.html">Privacy Policy</a></p>
     <div class="social">
       <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="PAWS FOR A CAUSE on Facebook (opens in new tab)">Facebook</a>
@@ -127,65 +191,38 @@
   </footer>
 
   <script>
-    (function(){
-      const form   = document.getElementById('partner-form');
-      const status = document.getElementById('partner-status');
-      const btn    = document.getElementById('partner-submit');
-      const consent= document.getElementById('partner-consent');
-
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        // Browser validation first
-        if (!form.checkValidity()) {
-          form.reportValidity();
-          return;
-        }
-
-        // Explicit consent check (extra safety)
-        if (!consent.checked) {
-          status.textContent = 'Please agree to be contacted to continue.';
-          status.className   = 'form-status error';
-          status.style.display = 'block';
-          consent.focus();
-          return;
-        }
-
-        status.textContent   = '';
-        status.className     = 'form-status';
-        status.style.display = 'none';
-
-        const original = btn.textContent;
-        btn.disabled   = true;
-        btn.textContent = 'Sending…';
-
-        try {
-          const res = await fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-          });
-
+  (function () {
+    var form = document.getElementById('partner-form');
+    var status = document.getElementById('partner-status');
+    var btn = document.getElementById('partner-submit');
+    var consent = document.getElementById('partner-consent');
+    if (!form || !status) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      if (consent && !consent.checked) { status.textContent = 'Please agree to be contacted to continue.'; status.className = 'ip-form__status is-error'; consent.focus(); return; }
+      status.textContent = ''; status.className = 'ip-form__status';
+      if (btn) btn.disabled = true;
+      var original = btn ? btn.innerHTML : '';
+      if (btn) btn.textContent = 'Sending…';
+      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(function (res) {
           if (res.ok) {
             form.reset();
-            status.textContent = 'Thanks! Your form was sent. We’ll reach out soon 🐾';
-            status.classList.add('success');
+            status.textContent = 'Thank you — your inquiry was sent. Our team will follow up soon.';
+            status.classList.add('is-success');
           } else {
-            const data = await res.json();
-            const msg = data.errors ? data.errors.map(e => e.message).join(', ') : 'Please try again.';
-            throw new Error(msg);
+            status.textContent = 'Something went wrong. Please email pawsforacausemi@gmail.com.';
+            status.classList.add('is-error');
           }
-        } catch (err) {
-          status.textContent = 'Oops—something went wrong. ' + err.message;
-          status.classList.add('error');
-        } finally {
-          status.style.display = 'block';
-          status.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          btn.disabled = false;
-          btn.textContent = original;
-        }
-      });
-    })();
+        })
+        .catch(function () {
+          status.textContent = 'Network error. Please email pawsforacausemi@gmail.com.';
+          status.classList.add('is-error');
+        })
+        .finally(function () { if (btn) { btn.disabled = false; btn.innerHTML = original; } });
+    });
+  })();
   </script>
 </body>
 </html>
