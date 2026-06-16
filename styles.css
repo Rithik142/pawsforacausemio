@@ -2,8 +2,8 @@
    1. VARIABLES & RESET
    ========================================================================== */
 :root {
-  --primary: #e5c6a8;
-  --dark-bg: #111;
+  --primary: #20d69a;        /* modernized: green (was cream #e5c6a8) */
+  --dark-bg: #050806;        /* modernized: near-black (was #111) */
   --light-text: #fff;
   --dark-text: #222;
   --header-height: 80px;
@@ -7886,3 +7886,179 @@ footer .social a:hover { color: var(--p-green); }
 
 /* Stop existing card hover from making impact cards on the homepage white;
    the new hv2 cards have their own class so .card legacy rules don't apply. */
+
+/* =========================================================================
+   MODERN THEME CONSOLIDATION (2026)
+   Brings legacy inner pages (About, Our Work, Get Involved, Contact, boards,
+   Donate shell) into the green/pink dark system used by the homepage.
+   Appended last so it wins the cascade. Uses shared --p-* tokens.
+   ========================================================================= */
+
+/* --- Global surface + rhythm --- */
+body { background: var(--p-bg); color: var(--p-text); }
+.our-work-section,
+section.our-work-section {
+  max-width: var(--p-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.1rem, 4vw, 2rem);
+}
+
+/* --- Section titles --- */
+.fancy-title,
+.our-work-section .fancy-title {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--p-text);
+  font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.fancy-title span,
+.our-work-section .fancy-title span { color: var(--p-green); }
+/* neutralize legacy decorative underlines that caused stray cream bars */
+.fancy-title::before, .fancy-title::after,
+.our-work-section .fancy-title::before, .our-work-section .fancy-title::after {
+  display: none !important;
+}
+.lede { color: var(--p-text-mute); line-height: 1.65; }
+
+/* --- Cards: partners, resources, impact, process, features --- */
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  max-width: var(--p-max);
+  margin: 0 auto;
+}
+.partner-card {
+  display: flex; align-items: center; gap: 1rem;
+  background: var(--p-surface) !important;
+  border: 1px solid var(--p-line) !important;
+  border-radius: var(--p-radius) !important;
+  padding: 1.2rem !important;
+  color: var(--p-text) !important;
+  box-shadow: none !important;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+.partner-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--p-green-line, rgba(32,214,154,.35)) !important;
+  background: var(--p-surface-2) !important;
+}
+.partner-card .logo-wrapper {
+  width: 64px; height: 64px; flex: 0 0 64px;
+  background: #fff; border-radius: 12px;
+  display: grid; place-items: center; padding: 8px; overflow: hidden;
+}
+.partner-card .partner-logo { max-width: 100%; max-height: 100%; object-fit: contain; }
+.partner-card .partner-info h3 { color: var(--p-text); font-size: 1rem; margin: 0 0 .2rem; }
+.partner-card .partner-info p { color: var(--p-text-mute); font-size: .85rem; margin: 0; }
+
+.resource-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 1rem; max-width: var(--p-max); margin: 0 auto;
+}
+.cta-card {
+  background: var(--p-surface) !important;
+  border: 1px solid var(--p-line) !important;
+  border-radius: var(--p-radius) !important;
+  padding: 1.5rem !important;
+  color: var(--p-text) !important;
+  transition: transform .2s ease, border-color .2s ease;
+}
+.cta-card:hover { transform: translateY(-3px); border-color: var(--p-pink-line, rgba(241,91,166,.28)) !important; }
+.cta-card h3 { color: var(--p-text); margin: 0 0 .4rem; }
+.cta-card p { color: var(--p-text-mute); }
+
+.impact-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+  gap: 1rem; max-width: var(--p-max); margin: 0 auto;
+}
+.impact-card {
+  background: var(--p-surface) !important;
+  border: 1px solid var(--p-line) !important;
+  border-radius: var(--p-radius) !important;
+  padding: 1.5rem 1rem !important;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.impact-card::before {
+  content:""; position:absolute; inset:0 0 auto 0; height:2px;
+  background: linear-gradient(90deg, var(--p-green), var(--p-pink)); opacity:.7;
+}
+.impact-card:hover { transform: translateY(-3px); border-color: var(--p-line-strong, rgba(255,255,255,.14)) !important; }
+.impact-number { display:block; font-size: clamp(1.8rem,3vw,2.4rem); font-weight: 800; color: var(--p-green); }
+.impact-label { display:block; color: var(--p-text-mute); font-size: .82rem; margin-top:.3rem; }
+
+.process-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1rem; max-width: var(--p-max); margin: 0 auto;
+}
+#process .process-step, .process-step {
+  background: var(--p-surface) !important;
+  border: 1px solid var(--p-line) !important;
+  border-radius: var(--p-radius) !important;
+  padding: 1.5rem !important;
+  text-align: center; color: var(--p-text) !important;
+}
+#process .process-step:nth-child(even):hover { border-color: var(--p-pink-line, rgba(241,91,166,.28)) !important; }
+#process .process-step:nth-child(odd):hover { border-color: var(--p-green-line, rgba(32,214,154,.35)) !important; }
+.process-step .emoji { font-size: 1.8rem; }
+.process-step h3 { color: var(--p-text); margin: .6rem 0 .3rem; }
+.process-step p { color: var(--p-text-mute); }
+
+/* --- Feature blocks (legacy homepage leftovers used elsewhere) --- */
+.feature-card {
+  background: var(--p-surface) !important;
+  border: 1px solid var(--p-line) !important;
+  border-radius: var(--p-radius) !important;
+  color: var(--p-text) !important;
+}
+.feature-card h3 { color: var(--p-text); }
+.feature-card p, .feature-text p { color: var(--p-text-mute); }
+
+/* --- FAQ / why lists --- */
+.why-list, .faq-list { max-width: 820px; margin: 0 auto; color: var(--p-text-mute); line-height: 1.7; }
+.why-list strong, .faq-list strong { color: var(--p-text); }
+
+/* --- Buttons unification --- */
+.btn-hero, .btn-submit {
+  background: var(--p-green) !important;
+  color: #062017 !important;
+  border: none !important;
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+  padding: .8rem 1.4rem !important;
+  transition: background .2s ease, transform .2s ease !important;
+}
+.btn-hero:hover, .btn-submit:hover {
+  background: var(--p-green-2) !important;
+  transform: translateY(-1px) !important;
+  opacity: 1 !important;
+}
+.btn-donate {
+  background: var(--p-green) !important;
+  color: #062017 !important;
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+}
+.btn-donate:hover { background: var(--p-green-2) !important; }
+
+/* --- Team / board cards keep light cards but modern frame --- */
+.team-hero h1 { color: var(--p-text); }
+.team-hero p { color: var(--p-text-mute); }
+
+/* --- Our Story sections --- */
+.our-story { color: var(--p-text); }
+.our-story h2 { color: var(--p-text); }
+.our-story .story-text p, .our-story p { color: var(--p-text-mute); }
+
+/* --- Page intros centered with breathing room --- */
+.our-work-intro { padding-top: clamp(3rem, 7vw, 5rem); }
+
+/* --- Reduced motion safety for any appended transitions --- */
+@media (prefers-reduced-motion: reduce) {
+  .partner-card, .cta-card, .impact-card, .process-step,
+  .btn-hero, .btn-submit, .btn-donate { transition: none !important; }
+}

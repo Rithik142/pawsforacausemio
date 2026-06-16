@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF‑8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Work | Paws for a Cause</title>
+  <title>Our Work | PAWS FOR A CAUSE</title>
+  <meta name="description" content="How PAWS FOR A CAUSE creates impact: volunteer mobilization, partner event support, supply drives, adoption outreach, fundraising, education, and youth leadership across Michigan."/>
+  <meta name="theme-color" content="#050806"/>
   <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="styles.css" />
@@ -14,16 +16,16 @@
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-
   <!-- HEADER -->
   <header>
-    <a href="index.html" class="logo" style="font-size: 1.6rem;">PAWS FOR A CAUSE</a>
+    <a href="index.html" class="logo">PAWS FOR A CAUSE</a>
     <nav aria-label="Primary">
-      <ul class="nav-list">
+      <ul class="nav-list" id="primary-nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="team.html">About Us</a></li>
         <li><a href="state-board.html">State Board</a></li>
-        <li><a href="services.html" class="active">Our Work</a></li>
+        <li><a href="services.html" class="active" aria-current="page">Our Work</a></li>
+        <li><a href="events.html">Events</a></li>
         <li class="has-dd">
           <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
           <ul class="dropdown" role="menu">
@@ -34,192 +36,172 @@
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </nav>
-    <div class="hamburger">☰</div>
+    <a href="donate.html" class="btn-donate">Donate</a>
+    <div class="hamburger" aria-label="Toggle navigation">☰</div>
   </header>
-<section class="our-work-intro our-work-section">
-  <h1 class="fancy-title"><span>Explore</span> Our Work</h1>
-  <p class="lede" style="text-align: center; max-width: 800px; margin: 0 auto;">
-    Discover the impact we’re making through local events, volunteer efforts, supply drives, and educational toolkits. This page highlights the ways we bring our mission to life—and how you can get involved to help animals in need.
-  </p>
-</section>
 
+  <section class="our-work-intro our-work-section">
+    <h1 class="fancy-title"><span>Explore</span> Our Work</h1>
+    <p class="lede" style="text-align:center; max-width:820px; margin:0 auto;">
+      PAWS FOR A CAUSE is a youth-led 501(c)(3) nonprofit. We do not operate a shelter — we
+      connect volunteers with shelters, rescues, schools, and community organizations, and help
+      our partners reach more people and animals through events, supply drives, fundraising,
+      and outreach.
+    </p>
+  </section>
 
   <main id="main">
-    <section id="events" class="our-work-section">
-  <h2 class="fancy-title">Events</h2>
 
-  <!-- filter bar -->
-  <div class="events-filter">
-    <label for="event-filter">Show</label>
-    <select id="event-filter">
-      <option value="upcoming-events">Upcoming Events</option>
-      <option value="past-events">Past Events</option>
-    </select>
-  </div>
-
-  <!-- upcoming -->
-  <ul id="upcoming-events" class="events-list">
-    <li>
-      <strong>To be added</strong>
-      <time datetime="tbd">tbd</time>
-    </li>
-    <li>
-      <strong>To be added</strong>
-      <time datetime="tbd">tbd</time>
-    </li>
-  </ul>
-
-  <!-- past (hidden by default) -->
-  <ul id="past-events" class="events-list" hidden>
-    <li>
-      <strong>To be added</strong>
-      <time datetime="tbd">tbd</time>
-    </li>
-    <li>
-      <strong>To be added</strong>
-      <time datetime="tbd">tbd</time>
-    </li>
-  </ul>
-</section>
-
-<!-- Partners Section -->
-<section id="partners" class="our-work-section">
-  <h2 class="fancy-title"><span>Our</span> Partners</h2>
-  <div class="partner-grid">
-    <!-- real partner with link -->
-    <a href="https://ac.ingham.org/" class="partner-card" target="_blank" rel="noopener noreferrer">
-      <div class="logo-wrapper">
-        <img src="images/ICACS Logos 2025_Multi_High Res-04.png" alt="Ingham County Animal Control & Shelter logo" class="partner-logo" />
-      </div>
-      <div class="partner-info">
-        <h3>Ingham County Animal Control & Shelter</h3>
-        <p>600 Buhl St Mason, MI</p>
-      </div>
-    </a>
-
-    <!-- placeholder partner 2 -->
-    <a href="https://example.org" class="partner-card" target="_blank" rel="noopener noreferrer">
-      <div class="logo-wrapper">
-        <img src="images/placeholder-partner2.png" alt="Partner 2 logo" class="partner-logo" />
-      </div>
-      <div class="partner-info">
-        <h3>Partner 2</h3>
-        <p>Coming Soon</p>
-      </div>
-    </a>
-
-    <!-- placeholder partner 3 -->
-    <a href="https://example.org" class="partner-card" target="_blank" rel="noopener noreferrer">
-      <div class="logo-wrapper">
-        <img src="images/placeholder-partner3.png" alt="Partner 3 logo" class="partner-logo" />
-      </div>
-      <div class="partner-info">
-        <h3>Partner 3</h3>
-        <p>To be added</p>
-      </div>
-    </a>
-  </div>
-</section>
-
-
-
-    <!-- 4) Resources & Toolkits -->
-   <section id="resources" class="our-work-section">
-  <h2 class="fancy-title"><span>Resources</span> &amp; Toolkits</h2>
-
-  <div class="resource-grid">
-    <a href="https://www.learningtogive.org/resources/advocacy-animals" class="cta-card" target="_blank" rel="noopener noreferrer">
-      <h3>Youth Animal Involvement Toolkit</h3>
-      <p>Step‑by‑step guide on how the youth can get involved in animal welfare.</p>
-    </a>
-
-    <a href="https://humanepro.org/sites/default/files/documents/municipal-pet-policy-toolkit.pdf" class="cta-card" target="_blank" rel="noopener noreferrer">
-      <h3>Pet Care Toolkit</h3>
-      <p>Everything you need to know about petcare.</p>
-    </a>
-  </div>
-</section>
-
-<section id="impact" class="our-work-section">
-  <h2 class="fancy-title">Impact at a Glance</h2>
-  <div class="impact-grid">
-    <div class="impact-card">
-      <span class="impact-number">14</span>
-      <span class="impact-label">Volunteers</span>
-    </div>
-    <div class="impact-card">
-      <span class="impact-number">0</span>
-      <span class="impact-label">Animal Welfare Events</span>
-    </div>
-    <div class="impact-card">
-      <span class="impact-number">0</span>
-      <span class="impact-label">Volunteer Hours</span>
-    </div>
-    <div class="impact-card">
-      <span class="impact-number">0</span>
-      <span class="impact-label">Supply Drives</span>
-    </div>
-    <div class="impact-card">
-      <span class="impact-number">0</span>
-      <span class="impact-label">Partner Organizations</span>
-    </div>
-      <div class="impact-card">
-      <span class="impact-number">2</span>
-      <span class="impact-label">Resources Provided</span>
-    </div>
-    </div>
-</section>
-
-    
-    <!-- 3) How We Work -->
-    <section id="process" class="our-work-section">
-      <h2 class="fancy-title"><span>How</span> We Work</h2>
+    <!-- WHAT WE DO -->
+    <section id="programs" class="our-work-section">
+      <h2 class="fancy-title"><span>How</span> We Create Impact</h2>
       <div class="process-grid">
         <div class="process-step">
-          <span class="emoji">🐾</span>
-          <h3>Involvement</h3>
-          <p>We host community events to raise awareness and support for the animals you care about.</p>
+          <span class="emoji" aria-hidden="true">🤝</span>
+          <h3>Volunteer Mobilization</h3>
+          <p>We connect students and community members with shelters and rescues that need dependable volunteers.</p>
         </div>
         <div class="process-step">
-          <span class="emoji">🚚</span>
-          <h3>Mobilize</h3>
-          <p>Coordinate supply drives and volunteer shifts.</p>
+          <span class="emoji" aria-hidden="true">🎪</span>
+          <h3>Partner Event Support</h3>
+          <p>We help staff and promote adoption events, vaccination clinics, and community programs.</p>
         </div>
         <div class="process-step">
-          <span class="emoji">🤝</span>
-          <h3>Partner</h3>
-          <p>Collaborate with local businesses, clubs, and foster networks.</p>
+          <span class="emoji" aria-hidden="true">📦</span>
+          <h3>Supply &amp; Food Drives</h3>
+          <p>We organize food, toy, bedding, and essential-supply drives for partner organizations.</p>
         </div>
         <div class="process-step">
-          <span class="emoji">📣</span>
-          <h3>Share</h3>
-          <p>Amplify results on social media to grow our impact.</p>
+          <span class="emoji" aria-hidden="true">📣</span>
+          <h3>Adoption Outreach</h3>
+          <p>We help share adoptable animals, partner needs, and important animal-welfare information.</p>
+        </div>
+        <div class="process-step">
+          <span class="emoji" aria-hidden="true">💚</span>
+          <h3>Fundraising</h3>
+          <p>We help raise resources for animal-welfare programs through community campaigns and collaborations.</p>
+        </div>
+        <div class="process-step">
+          <span class="emoji" aria-hidden="true">🌱</span>
+          <h3>Youth Leadership</h3>
+          <p>We give young people opportunities to organize projects, lead teams, and serve their communities.</p>
         </div>
       </div>
-    </section>    
+    </section>
 
+    <!-- EVENTS POINTER (real calendar lives on /events) -->
+    <section id="events" class="our-work-section">
+      <h2 class="fancy-title">Events &amp; Opportunities</h2>
+      <p class="lede" style="text-align:center; max-width:720px; margin:0 auto 1.5rem;">
+        Upcoming volunteer days, supply drives, and partner events are posted on our events
+        calendar as they're scheduled. New opportunities are added throughout the year.
+      </p>
+      <div style="text-align:center;">
+        <a href="events.html" class="btn-hero">View the events calendar →</a>
+      </div>
+    </section>
 
-<script>
-  document.getElementById('event-filter')
-    .addEventListener('change', function(){
-      const showUpcoming = this.value === 'upcoming';
-      document.getElementById('upcoming-events').hidden = !showUpcoming;
-      document.getElementById('past-events').hidden     =  showUpcoming;
-    });
-</script>
+    <!-- PARTNERS (confirmed only) -->
+    <section id="partners" class="our-work-section">
+      <h2 class="fancy-title"><span>Our</span> Partners</h2>
+      <p class="lede" style="text-align:center; max-width:720px; margin:0 auto 1.5rem;">
+        We collaborate with animal-welfare organizations across Michigan. Below are partners
+        we work with and reference in our programs.
+      </p>
+      <div class="partner-grid">
+        <a href="https://ac.ingham.org/" class="partner-card" target="_blank" rel="noopener noreferrer">
+          <div class="logo-wrapper">
+            <img src="images/ICACS Logos 2025_Multi_High Res-04.png" alt="Ingham County Animal Control &amp; Shelter logo" class="partner-logo" loading="lazy" />
+          </div>
+          <div class="partner-info">
+            <h3>Ingham County Animal Control &amp; Shelter</h3>
+            <p>600 Buhl St, Mason, MI</p>
+          </div>
+        </a>
 
-    <!-- 5) FAQs -->
+        <a href="https://www.cahs-lansing.org/" class="partner-card" target="_blank" rel="noopener noreferrer">
+          <div class="logo-wrapper">
+            <span style="font-weight:800; color:#0b6b4c;">CAHS</span>
+          </div>
+          <div class="partner-info">
+            <h3>Capital Area Humane Society</h3>
+            <p>Lansing, MI</p>
+          </div>
+        </a>
+
+        <div class="partner-card">
+          <div class="logo-wrapper"><span style="font-weight:800; color:#0b6b4c;">CFC</span></div>
+          <div class="partner-info">
+            <h3>Canines for a Change</h3>
+            <p>Michigan</p>
+          </div>
+        </div>
+
+        <div class="partner-card">
+          <div class="logo-wrapper"><span style="font-weight:800; color:#0b6b4c;">SCR</span></div>
+          <div class="partner-info">
+            <h3>Snaggletooth Cat Rescue</h3>
+            <p>Michigan</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section id="resources" class="our-work-section">
+      <h2 class="fancy-title"><span>Resources</span> &amp; Toolkits</h2>
+      <div class="resource-grid">
+        <a href="https://www.learningtogive.org/resources/advocacy-animals" class="cta-card" target="_blank" rel="noopener noreferrer">
+          <h3>Youth Animal Involvement Toolkit</h3>
+          <p>A step-by-step guide on how young people can get involved in animal welfare.</p>
+        </a>
+        <a href="https://humanepro.org/sites/default/files/documents/municipal-pet-policy-toolkit.pdf" class="cta-card" target="_blank" rel="noopener noreferrer">
+          <h3>Pet Care Toolkit</h3>
+          <p>Helpful, vetted information on responsible pet care.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- FOCUS AREAS (non-numerical; replaces unverified statistics) -->
+    <section id="focus" class="our-work-section">
+      <h2 class="fancy-title">Our Focus Right Now</h2>
+      <p class="lede" style="text-align:center; max-width:720px; margin:0 auto 1.5rem;">
+        As a young organization, we share honest focus areas rather than unverified numbers.
+        We'll publish verified impact metrics as our reporting matures.
+      </p>
+      <div class="impact-grid">
+        <div class="impact-card">
+          <span class="impact-label" style="font-size:1rem; color:var(--p-text); font-weight:700;">Volunteer connections</span>
+          <span class="impact-label">Matching students &amp; community members with partner needs</span>
+        </div>
+        <div class="impact-card">
+          <span class="impact-label" style="font-size:1rem; color:var(--p-text); font-weight:700;">Supply drives</span>
+          <span class="impact-label">Collecting essentials for shelters and rescues</span>
+        </div>
+        <div class="impact-card">
+          <span class="impact-label" style="font-size:1rem; color:var(--p-text); font-weight:700;">Partner support</span>
+          <span class="impact-label">Helping partners promote events and reach more people</span>
+        </div>
+        <div class="impact-card">
+          <span class="impact-label" style="font-size:1rem; color:var(--p-text); font-weight:700;">Youth leadership</span>
+          <span class="impact-label">Building leadership opportunities for young people</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
     <section id="faq" class="our-work-section">
       <h2 class="fancy-title">FAQs</h2>
       <ul class="why-list faq-list">
-        <li><strong>How do I host an event or volunteer?</strong> Fill out our online inquiry form and our team coordinators will contact you.</li>
-        <li><strong>What age do I need to be?</strong> Volunteers can be any age, and can also contribute by sharing the campaign online!</li>
+        <li><strong>How do I volunteer or host an event?</strong> Fill out our volunteer or contact form and our team will follow up with next steps.</li>
+        <li><strong>What age do I need to be?</strong> It depends on the event and partner organization. Many opportunities welcome students; some events have a minimum age, and minors may need parent or guardian permission.</li>
+        <li><strong>Does PAWS FOR A CAUSE run a shelter?</strong> No. We are a nonprofit that connects volunteers and supports the shelters, rescues, and organizations that care for animals.</li>
       </ul>
     </section>
   </main>
 
   <!-- FOOTER -->
- <footer>
+  <footer>
     <p>&copy; <span data-year>2026</span> PAWS FOR A CAUSE | <a href="privacy.html">Privacy Policy</a></p>
     <div class="social">
       <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="PAWS FOR A CAUSE on Facebook (opens in new tab)">Facebook</a>
@@ -228,7 +210,5 @@
     </div>
     <p class="footer-note">A youth-led 501(c)(3) nonprofit organization based in Michigan.</p>
   </footer>
-
-
 </body>
 </html>

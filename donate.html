@@ -2,55 +2,343 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Donate | Paws for a Cause</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Donate | PAWS FOR A CAUSE — Support Our Mission</title>
+  <meta name="description" content="Support PAWS FOR A CAUSE, a youth-led 501(c)(3) animal-welfare nonprofit in Michigan. Your gift helps empower volunteers, strengthen supply drives, and grow community programs."/>
+  <meta name="theme-color" content="#050806"/>
+
+  <meta property="og:title" content="Donate | PAWS FOR A CAUSE"/>
+  <meta property="og:description" content="Help empower volunteers and strengthen animal-welfare partners across Michigan. Every gift supports outreach, supply drives, and community programs."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://pawsforacausemi.org/donate.html"/>
+  <meta property="og:image" content="images/Homepage.jpg"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="assets/donate.css"/>
   <script src="scripts.js" defer></script>
+
+  <!--
+    ============================================================
+    HOW TO ENABLE A REAL DONATION PROVIDER LATER
+    ============================================================
+    Online giving is intentionally NOT live yet. No payment
+    provider, keys, or card collection exist on this site.
+
+    To turn on real online donations later:
+      1. Create a hosted donation page with a provider such as
+         Donorbox, Givebutter, or a Stripe Payment Link.
+      2. Copy the org's PUBLIC hosted donation URL.
+      3. Open assets/donate.js and set, near the top:
+            DONATION_CONFIG.provider = "donorbox"; // or "givebutter" / "stripe"
+            DONATION_CONFIG.url      = "https://YOUR-REAL-DONATION-URL";
+      4. Save. The Donate button will then open that hosted page
+         (with the chosen amount/frequency appended as query
+         params when the provider supports them).
+      5. Optionally point the provider's post-donation redirect
+         at /donate-success.html (donate-success.html).
+    No secret keys are stored in this static site; the hosted
+    provider handles all payment processing and receipts.
+    ============================================================
+  -->
 </head>
 <body>
+
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- HEADER -->
   <header>
-    <a href="index.html" class = "logo">PAWS FOR A CAUSE</a>
+    <a href="index.html" class="logo">PAWS FOR A CAUSE</a>
     <nav aria-label="Primary">
-        <ul class="nav-list">
+      <ul class="nav-list" id="primary-nav">
+        <li><a href="index.html">Home</a></li>
         <li><a href="team.html">About Us</a></li>
         <li><a href="state-board.html">State Board</a></li>
-        <li><a href="services.html" class="active">Our Work</a></li>
-        <li><a href="involved.html">Get Involved</a></li>
+        <li><a href="services.html">Our Work</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li class="has-dd">
+          <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
+          <ul class="dropdown" role="menu">
+            <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
+            <li><a href="partner.html"  role="menuitem">Partner</a></li>
+          </ul>
+        </li>
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </nav>
-    <a href="donate.html" class="btn-donate">Donate Now</a>
-    <div class="hamburger">☰</div>
+    <a href="donate.html" class="btn-donate" aria-current="page">Donate</a>
+    <div class="hamburger" aria-label="Toggle navigation">☰</div>
   </header>
 
-  <!-- MAIN -->
-  <main id="main">
-    <div class="container" style="max-width:600px; text-align:center;">
-      <section class="donate-section">
-        <h2>Support Our Cause</h2>
-        <p>Your donations fund adoptions, surgeries, and shelter improvements. Pick an amount or enter your own.</p>
-        <form class="donate-form">
-          <div class="donate-buttons">
-            <button type="button">$25</button>
-            <button type="button">$50</button>
-            <button type="button">$100</button>
+  <main id="main" class="donate">
+
+    <!-- HERO -->
+    <section class="donate-hero" aria-labelledby="donate-hero-title">
+      <div class="donate-hero__inner">
+        <p class="donate-eyebrow">Youth-led 501(c)(3) nonprofit · Michigan</p>
+        <h1 id="donate-hero-title">Support Our Mission</h1>
+        <p class="donate-hero__lead">
+          Your generosity helps a youth-led team empower volunteers and strengthen the
+          animal-welfare organizations that care for animals across Michigan. Every gift
+          supports outreach, supply drives, and community programs that make a real difference.
+        </p>
+      </div>
+    </section>
+
+    <!-- TWO-COLUMN GIVING LAYOUT -->
+    <section class="donate-layout" aria-label="Make a donation">
+      <div class="donate-grid">
+
+        <!-- LEFT: mission + impact (appears first when stacked on mobile) -->
+        <div class="donate-mission">
+          <p class="donate-eyebrow donate-eyebrow--pink">Why give</p>
+          <h2>Where your support goes</h2>
+          <p class="donate-lead-copy">
+            PAWS FOR A CAUSE connects students and community members with shelters, rescues,
+            schools, and community organizations. We do not operate a shelter or provide
+            veterinary care — instead, your support helps fuel the volunteer coordination,
+            supply drives, community programs, and outreach that help our partners do more.
+          </p>
+
+          <figure class="donate-figure">
+            <img
+              src="images/cutedog.jpg"
+              alt="A happy rescue dog supported by PAWS FOR A CAUSE volunteers"
+              loading="lazy"
+              width="1180" height="760"
+            />
+          </figure>
+
+          <h3 class="donate-impact__title">How your gift can help</h3>
+          <ul class="donate-impact" aria-label="Examples of how donations can help">
+            <li class="impact-card impact-card--green">
+              <span class="impact-card__amount">$10</span>
+              <p class="impact-card__text">can help support outreach materials and volunteer resources.</p>
+            </li>
+            <li class="impact-card impact-card--pink">
+              <span class="impact-card__amount">$25</span>
+              <p class="impact-card__text">can help strengthen supply-drive and community-program efforts.</p>
+            </li>
+            <li class="impact-card impact-card--green">
+              <span class="impact-card__amount">$50</span>
+              <p class="impact-card__text">can help support larger events, volunteer coordination, and partner needs.</p>
+            </li>
+            <li class="impact-card impact-card--pink">
+              <span class="impact-card__amount">$100</span>
+              <p class="impact-card__text">can help expand programs and increase community reach.</p>
+            </li>
+          </ul>
+
+          <p class="donate-impact__note">
+            Amounts are illustrative. Gifts support general programs rather than a guaranteed
+            line-item allocation.
+          </p>
+
+          <div class="donate-trust" role="note">
+            <span class="donate-trust__badge" aria-hidden="true">★</span>
+            <p>
+              PAWS FOR A CAUSE is a registered 501(c)(3) nonprofit organization based in Michigan.
+            </p>
           </div>
-          <input type="number" placeholder="Other amount" />
-          <button type="submit" class="btn-submit">Donate Now</button>
-        </form>
-      </section>
-    </div>
+        </div>
+
+        <!-- RIGHT: donation card -->
+        <aside class="donate-card" aria-labelledby="donate-card-title">
+          <div class="donate-card__head">
+            <h2 id="donate-card-title">Make a donation</h2>
+            <p>Choose an amount and frequency to get started.</p>
+          </div>
+
+          <!-- One-time vs Monthly toggle -->
+          <div class="donate-toggle" role="radiogroup" aria-label="Donation frequency">
+            <button type="button" class="freq-btn is-selected" data-freq="one-time" role="radio" aria-checked="true">
+              One-time
+            </button>
+            <button type="button" class="freq-btn" data-freq="monthly" role="radio" aria-checked="false">
+              Monthly
+            </button>
+          </div>
+
+          <!-- Amount presets -->
+          <fieldset class="donate-amounts">
+            <legend>Select an amount</legend>
+            <div class="amount-grid" role="radiogroup" aria-label="Donation amount">
+              <button type="button" class="amount-btn is-selected" data-amount="10" role="radio" aria-checked="true">$10</button>
+              <button type="button" class="amount-btn" data-amount="25" role="radio" aria-checked="false">$25</button>
+              <button type="button" class="amount-btn" data-amount="50" role="radio" aria-checked="false">$50</button>
+              <button type="button" class="amount-btn" data-amount="100" role="radio" aria-checked="false">$100</button>
+              <button type="button" class="amount-btn amount-btn--custom" data-amount="custom" role="radio" aria-checked="false">Custom</button>
+            </div>
+          </fieldset>
+
+          <!-- Custom amount input -->
+          <div class="donate-custom" id="customWrap" hidden>
+            <label for="customAmount">Custom amount (USD)</label>
+            <div class="donate-custom__field">
+              <span class="donate-custom__currency" aria-hidden="true">$</span>
+              <input
+                type="number"
+                id="customAmount"
+                name="customAmount"
+                inputmode="decimal"
+                min="1"
+                max="100000"
+                step="1"
+                placeholder="Enter amount"
+                aria-describedby="customError"
+              />
+            </div>
+            <p class="donate-error" id="customError" role="alert" aria-live="polite"></p>
+          </div>
+
+          <!-- Summary -->
+          <p class="donate-summary" aria-live="polite">
+            You're giving <strong id="summaryAmount">$10</strong> <span id="summaryFreq">one time</span>.
+          </p>
+
+          <!-- Primary action -->
+          <button type="button" class="donate-submit" id="donateBtn">
+            Donate
+          </button>
+
+          <!-- Configuration-required / fallback panel (shown when no provider is set) -->
+          <div class="donate-fallback" id="donateFallback">
+            <p class="donate-fallback__title">Online giving is being set up</p>
+            <p class="donate-fallback__text">
+              We're putting secure online giving in place. In the meantime, you can still help
+              right now — reach out about giving or jump straight into our programs.
+            </p>
+            <div class="donate-fallback__actions">
+              <a class="donate-fallback__btn donate-fallback__btn--primary"
+                 href="mailto:pawsforacausemi@gmail.com?subject=Donation%20Inquiry">
+                Email us about giving
+              </a>
+              <a class="donate-fallback__btn" href="involved.html">Get involved</a>
+              <a class="donate-fallback__btn" href="partner.html">Partner with us</a>
+            </div>
+          </div>
+
+          <p class="donate-card__secure">
+            Card details are never collected on this site. When online giving is enabled,
+            payments are handled securely by a trusted donation provider.
+          </p>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- OTHER WAYS TO SUPPORT -->
+    <section class="donate-other" aria-labelledby="other-title">
+      <div class="donate-section__inner">
+        <p class="donate-eyebrow">Beyond giving</p>
+        <h2 id="other-title">Other ways to support</h2>
+        <div class="other-grid">
+          <article class="other-card">
+            <div class="other-card__icon" aria-hidden="true">🤝</div>
+            <h3>Volunteer your time</h3>
+            <p>Join volunteer days and outreach events that directly support our partners.</p>
+            <a href="volunteer.html" class="other-card__link">Become a volunteer <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="other-card">
+            <div class="other-card__icon" aria-hidden="true">🏢</div>
+            <h3>Partner with us</h3>
+            <p>Shelters, rescues, schools, and businesses can team up to expand our impact.</p>
+            <a href="partner.html" class="other-card__link">Explore partnerships <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="other-card">
+            <div class="other-card__icon" aria-hidden="true">📦</div>
+            <h3>Donate supplies</h3>
+            <p>Contribute to supply drives for food, blankets, toys, and other partner needs.</p>
+            <a href="contact.html" class="other-card__link">Ask about supply drives <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="other-card">
+            <div class="other-card__icon" aria-hidden="true">📣</div>
+            <h3>Share &amp; spread awareness</h3>
+            <p>Follow and share our work to help more people discover animal-welfare opportunities.</p>
+            <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener noreferrer" class="other-card__link">
+              Follow on Instagram <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="donate-faq" aria-labelledby="faq-title">
+      <div class="donate-section__inner">
+        <p class="donate-eyebrow donate-eyebrow--pink">Good to know</p>
+        <h2 id="faq-title">Donation FAQ</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Can I donate online right now?</summary>
+            <p>
+              Secure online giving is being set up. Until it's live, you can email us about giving
+              at <a href="mailto:pawsforacausemi@gmail.com?subject=Donation%20Inquiry">pawsforacausemi@gmail.com</a>,
+              or support us by volunteering, partnering, or contributing to a supply drive.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>What do donations support?</summary>
+            <p>
+              Gifts support volunteer coordination, supply drives, community programs, and outreach.
+              PAWS FOR A CAUSE does not operate a shelter or provide veterinary care, so donations
+              are not used for adoptions, surgeries, or shelter facilities.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Are donations tax-deductible?</summary>
+            <p>
+              PAWS FOR A CAUSE is a registered 501(c)(3) nonprofit organization; please consult a
+              tax advisor regarding deductibility for your situation.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Will I receive a receipt?</summary>
+            <p>
+              When online giving is enabled, an email receipt is sent automatically by our donation
+              provider after a successful gift. For other contributions, email us and we'll follow up.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Is my payment information safe?</summary>
+            <p>
+              We never collect card details on this website. Online payments will be processed by a
+              trusted third-party donation provider on its own secure, hosted page.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRANSPARENCY / NONPROFIT INFO -->
+    <section class="donate-transparency" aria-labelledby="transparency-title">
+      <div class="donate-section__inner">
+        <div class="transparency-block">
+          <h2 id="transparency-title">Transparency &amp; nonprofit information</h2>
+          <p>
+            PAWS FOR A CAUSE is a registered 501(c)(3) nonprofit organization based in Michigan.
+            We are committed to honesty about our work: we publish accurate descriptions of our
+            programs and avoid inflated claims. Donations support general programs rather than a
+            guaranteed allocation to specific items.
+          </p>
+          <p>
+            Questions about giving or how funds are used? Email
+            <a href="mailto:pawsforacausemi@gmail.com?subject=Donation%20Inquiry">pawsforacausemi@gmail.com</a>.
+            Please consult a tax advisor regarding the deductibility of any gift.
+          </p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- FOOTER -->
-<footer>
+  <footer>
     <p>&copy; <span data-year>2026</span> PAWS FOR A CAUSE | <a href="privacy.html">Privacy Policy</a></p>
     <div class="social">
       <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="PAWS FOR A CAUSE on Facebook (opens in new tab)">Facebook</a>
@@ -59,5 +347,8 @@
     </div>
     <p class="footer-note">A youth-led 501(c)(3) nonprofit organization based in Michigan.</p>
   </footer>
+
+  <script src="assets/donate.js" defer></script>
+
 </body>
 </html>

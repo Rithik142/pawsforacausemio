@@ -3,59 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Events | Paws for a Cause</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-    rel="stylesheet"
-  />
-  <!-- use your existing stylesheet -->
+  <title>Events &amp; Volunteer Opportunities | PAWS FOR A CAUSE</title>
+  <meta name="description" content="Find upcoming events, community programs, supply drives, and volunteer opportunities organized with PAWS FOR A CAUSE animal-welfare partners across Michigan."/>
+  <meta name="theme-color" content="#050806"/>
+  <meta property="og:title" content="Events &amp; Volunteer Opportunities | PAWS FOR A CAUSE"/>
+  <meta property="og:description" content="Browse volunteer opportunities and community events with PAWS FOR A CAUSE, a youth-led 501(c)(3) animal-welfare nonprofit in Michigan."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://pawsforacausemi.org/events.html"/>
+  <meta property="og:image" content="images/Homepage.jpg"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles.css"/>
-  <!-- use your existing script -->
+  <link rel="stylesheet" href="assets/events.css"/>
   <script src="scripts.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- HEADER (reuse your header block) -->
-   <header>
-    <a href="index.html" class = "logo">PAWS FOR A CAUSE</a>
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="logo">PAWS FOR A CAUSE</a>
     <nav aria-label="Primary">
-        <ul class="nav-list">
+      <ul class="nav-list" id="primary-nav">
+        <li><a href="index.html">Home</a></li>
         <li><a href="team.html">About Us</a></li>
         <li><a href="state-board.html">State Board</a></li>
-        <li><a href="services.html" class="active">Our Work</a></li>
-        <li><a href="involved.html">Get Involved</a></li>
+        <li><a href="services.html">Our Work</a></li>
+        <li><a href="events.html" class="active" aria-current="page">Events</a></li>
+        <li class="has-dd">
+          <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
+          <ul class="dropdown" role="menu">
+            <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
+            <li><a href="partner.html"  role="menuitem">Partner</a></li>
+          </ul>
+        </li>
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </nav>
-    <a href="donate.html" class="btn-donate">Donate Now</a>
-    <div class="hamburger">☰</div>
+    <a href="donate.html" class="btn-donate">Donate</a>
+    <div class="hamburger" aria-label="Toggle navigation">☰</div>
   </header>
-  <!-- MAIN -->
+
   <main id="main">
-    <div class="container">
-
-            <section class="events-hero">
-        <h1>Events</h1>
-        <p style="max-width:60ch; color:#bbb;">
-          We post upcoming volunteer days, supply drives, and partner events on our Instagram as they're scheduled.
-          A full event archive will live here as it grows.
+    <section class="events-page-hero">
+      <div class="container">
+        <p class="events-eyebrow">Get involved</p>
+        <h1>Events &amp; Volunteer Opportunities</h1>
+        <p class="events-page-hero__lead">
+          Explore upcoming events, community programs, supply drives, and volunteer
+          opportunities organized with our animal-welfare partners across Michigan.
         </p>
-        <p style="margin-top:1.5rem;">
-          <a class="btn" href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener noreferrer">
-            Follow @pawsforacausemi for updates →
-          </a>
-          <a class="btn" href="contact.html" style="margin-left:0.5rem; background:transparent; border:1px solid rgba(255,255,255,0.2); color:#fff;">
-            Or get in touch
-          </a>
-        </p>
-      </section>
+      </div>
+    </section>
 
-    </div>
+    <section class="container events-app-wrap">
+      <!-- Mount point for the events experience (rendered by assets/events.js) -->
+      <div id="pf-events-app">
+        <div id="pf-browse">
+          <div id="pf-controls"></div>
+          <div id="pf-list"></div>
+          <div id="pf-calendar" hidden></div>
+        </div>
+        <div id="pf-detail" hidden></div>
+      </div>
+
+      <!-- No-JS fallback -->
+      <noscript>
+        <p style="color:var(--p-text-mute); max-width:60ch; margin:2rem auto;">
+          Our interactive events browser needs JavaScript. To see current opportunities,
+          follow <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener noreferrer" style="color:var(--p-green)">@pawsforacausemi</a>
+          or <a href="contact.html" style="color:var(--p-green)">contact us</a>.
+        </p>
+      </noscript>
+    </section>
   </main>
 
-  <!-- FOOTER (reuse your footer) -->
-<footer>
+  <!-- FOOTER -->
+  <footer>
     <p>&copy; <span data-year>2026</span> PAWS FOR A CAUSE | <a href="privacy.html">Privacy Policy</a></p>
     <div class="social">
       <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="PAWS FOR A CAUSE on Facebook (opens in new tab)">Facebook</a>
@@ -64,5 +90,9 @@
     </div>
     <p class="footer-note">A youth-led 501(c)(3) nonprofit organization based in Michigan.</p>
   </footer>
+
+  <!-- Data first, then the renderer -->
+  <script src="assets/events-data.js" defer></script>
+  <script src="assets/events.js" defer></script>
 </body>
 </html>
