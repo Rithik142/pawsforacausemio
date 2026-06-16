@@ -12,11 +12,13 @@
   <script src="scripts.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
 
   <!-- HEADER -->
   <header>
     <a href="index.html" class="logo" style="font-size: 1.6rem;">PAWS FOR A CAUSE</a>
-    <nav>
+    <nav aria-label="Primary">
       <ul class="nav-list">
         <li><a href="index.html">Home</a></li>
         <li><a href="team.html">About Us</a></li>
@@ -42,7 +44,7 @@
 </section>
 
 
-  <main>
+  <main id="main">
     <section id="events" class="our-work-section">
   <h2 class="fancy-title">Events</h2>
 
@@ -85,7 +87,7 @@
   <h2 class="fancy-title"><span>Our</span> Partners</h2>
   <div class="partner-grid">
     <!-- real partner with link -->
-    <a href="https://ac.ingham.org/" class="partner-card" target="_blank" rel="noopener">
+    <a href="https://ac.ingham.org/" class="partner-card" target="_blank" rel="noopener noreferrer">
       <div class="logo-wrapper">
         <img src="images/ICACS Logos 2025_Multi_High Res-04.png" alt="Ingham County Animal Control & Shelter logo" class="partner-logo" />
       </div>
@@ -96,7 +98,7 @@
     </a>
 
     <!-- placeholder partner 2 -->
-    <a href="https://example.org" class="partner-card" target="_blank" rel="noopener">
+    <a href="https://example.org" class="partner-card" target="_blank" rel="noopener noreferrer">
       <div class="logo-wrapper">
         <img src="images/placeholder-partner2.png" alt="Partner 2 logo" class="partner-logo" />
       </div>
@@ -107,7 +109,7 @@
     </a>
 
     <!-- placeholder partner 3 -->
-    <a href="https://example.org" class="partner-card" target="_blank" rel="noopener">
+    <a href="https://example.org" class="partner-card" target="_blank" rel="noopener noreferrer">
       <div class="logo-wrapper">
         <img src="images/placeholder-partner3.png" alt="Partner 3 logo" class="partner-logo" />
       </div>
@@ -126,12 +128,12 @@
   <h2 class="fancy-title"><span>Resources</span> &amp; Toolkits</h2>
 
   <div class="resource-grid">
-    <a href="https://www.learningtogive.org/resources/advocacy-animals" class="cta-card" target="_blank" rel="noopener">
+    <a href="https://www.learningtogive.org/resources/advocacy-animals" class="cta-card" target="_blank" rel="noopener noreferrer">
       <h3>Youth Animal Involvement Toolkit</h3>
       <p>Step‑by‑step guide on how the youth can get involved in animal welfare.</p>
     </a>
 
-    <a href="https://humanepro.org/sites/default/files/documents/municipal-pet-policy-toolkit.pdf" class="cta-card" target="_blank" rel="noopener">
+    <a href="https://humanepro.org/sites/default/files/documents/municipal-pet-policy-toolkit.pdf" class="cta-card" target="_blank" rel="noopener noreferrer">
       <h3>Pet Care Toolkit</h3>
       <p>Everything you need to know about petcare.</p>
     </a>
@@ -218,12 +220,13 @@
 
   <!-- FOOTER -->
  <footer>
-    <p>&copy; 2025 Paws for a Cause | <a href="privacy.html">Privacy Policy</a></p>
+    <p>&copy; <span data-year>2026</span> PAWS FOR A CAUSE | <a href="privacy.html">Privacy Policy</a></p>
     <div class="social">
-      <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
-      <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener">Instagram</a>
-      <a href="mailto:pawsforacausemi@gmail.com">Email</a>
+      <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="PAWS FOR A CAUSE on Facebook (opens in new tab)">Facebook</a>
+      <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener noreferrer" aria-label="PAWS FOR A CAUSE on Instagram (opens in new tab)">Instagram</a>
+      <a href="mailto:pawsforacausemi@gmail.com" aria-label="Email PAWS FOR A CAUSE">Email</a>
     </div>
+    <p class="footer-note">A youth-led 501(c)(3) nonprofit organization based in Michigan.</p>
   </footer>
 
 

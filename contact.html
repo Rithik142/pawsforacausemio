@@ -12,11 +12,13 @@
   <script src="scripts.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
 
   <!-- fixed header -->
   <header>
     <a href="index.html" class="logo" style="font-size: 1.6rem;">PAWS FOR A CAUSE</a>
-    <nav>
+    <nav aria-label="Primary">
            <ul class="nav-list">
         <li><a href="index.html">Home</a></li>
         <li><a href="team.html">About Us</a></li>
@@ -37,7 +39,7 @@
   </header>
 
   <!-- main content wrapped for Locomotive/scroll animations -->
-  <main data-scroll-container>
+  <main id="main" data-scroll-container>
     <div class="container">
 <section class="contact-section">
   <h1>Contact Us</h1>
@@ -50,8 +52,8 @@
   <p>Feel free to reach out with any questions or ideas! We’re always happy to hear from fellow animal lovers.</p>
 
   <div class="socials">
-   <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
-    <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener">Instagram</a>
+   <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
+    <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener noreferrer">Instagram</a>
    <a href="mailto:pawsforacausemi@gmail.com">Email</a>
   </div>
 </aside>
@@ -123,15 +125,14 @@
 
   <!-- fixed footer -->
  <footer>
-    <p>&copy; 2025 Paws for a Cause | <a href="privacy.html">Privacy Policy</a></p>
+    <p>&copy; <span data-year>2026</span> PAWS FOR A CAUSE | <a href="privacy.html">Privacy Policy</a></p>
     <div class="social">
-      <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
-      <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener">Instagram</a>
-      <a href="mailto:pawsforacausemi@gmail.com">Email</a>
+      <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="PAWS FOR A CAUSE on Facebook (opens in new tab)">Facebook</a>
+      <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener noreferrer" aria-label="PAWS FOR A CAUSE on Instagram (opens in new tab)">Instagram</a>
+      <a href="mailto:pawsforacausemi@gmail.com" aria-label="Email PAWS FOR A CAUSE">Email</a>
     </div>
+    <p class="footer-note">A youth-led 501(c)(3) nonprofit organization based in Michigan.</p>
   </footer>
-
-</body>
 
 </body>
 </html>

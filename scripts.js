@@ -1,166 +1,319 @@
-window.addEventListener('DOMContentLoaded', () => {
-  // ── 1) AUTO‑TRIGGER ALL .reveal ELEMENTS VISIBLE IMMEDIATELY ──
-  document.querySelectorAll('.reveal').forEach(el => {
-    el.classList.add('visible');
-  });
+/* ===========================================================================
+   PAWS FOR A CAUSE — site-wide interactions.
+   Keep small and dependency-free: nav, mobile menu, dropdowns, reveals,
+   forms (Formspree), year stamping, smooth scroll, reduced-motion handling.
+   =========================================================================== */
+(function () {
+  'use strict';
 
-  // ── 2) MOBILE NAV TOGGLE ──
-  const burger = document.querySelector('.hamburger');
-  const menu   = document.querySelector('nav .nav-list');
-  if (burger && menu) {
-    burger.addEventListener('click', () => {
-      menu.classList.toggle('show');
-    });
+  var prefersReducedMotion =
+    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function onReady(fn) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fn);
+    } else {
+      fn();
+    }
   }
 
-  // ── 2b) MOBILE DROPDOWN FOR "GET INVOLVED" ──
-  // NEW: always toggle open/closed
-document.querySelectorAll('.has‑dd > a').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();                      // stop it from navigating away
-    const li = e.currentTarget.parentElement;
-    const isOpen = li.classList.toggle('open');
-    link.setAttribute('aria‑expanded', isOpen);
-  });
-});
-
-
-  // ── 3) SCROLL‑REVEAL ANIMATIONS ──
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        obs.unobserve(entry.target);
-      }
+  onReady(function () {
+    /* ----- 1. Year stamp ----- */
+    document.querySelectorAll('[data-year]').forEach(function (el) {
+      el.textContent = String(new Date().getFullYear());
     });
-  }, { threshold: 0.25 });
 
-  document.querySelectorAll(
-    '.hero-text, .hero-image, .pups h2, .card, .profile-content, .services-section h1, .service-card'
-  ).forEach(el => observer.observe(el));
+    /* ----- 2. Auto-reveal anything already in view; observe the rest ----- */
+    var revealEls = document.querySelectorAll('.reveal');
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      revealEls.forEach(function (el) { el.classList.add('visible'); });
+    } else {
+      var io = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
 
-  // ── 4) AJAX CONTACT FORM VIA FORMSPREE ──
-  const form   = document.getElementById('contactForm');
-  const status = document.getElementById('formStatus');
-  if (form && status) {
-    form.addEventListener('submit', async e => {
-      e.preventDefault();
-      status.textContent = 'Sending…';
-      const data = new FormData(form);
-      try {
-        const res = await fetch(form.action, {
-          method: form.method,
+      revealEls.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) {
+          el.classList.add('visible');
+        } else {
+          io.observe(el);
+        }
+      });
+    }
+
+    /* ----- 3. Mobile nav toggle + accessibility ----- */
+    var burger = document.querySelector('.hamburger');
+    var menu = document.querySelector('nav .nav-list');
+    if (burger && menu) {
+      // promote burger to a real button-like control
+      if (!burger.hasAttribute('role')) burger.setAttribute('role', 'button');
+      if (!burger.hasAttribute('tabindex')) burger.setAttribute('tabindex', '0');
+      burger.setAttribute('aria-controls', 'primary-nav');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Toggle navigation');
+      if (!menu.id) menu.id = 'primary-nav';
+
+      function setMenuOpen(open) {
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        menu.classList.toggle('show', open);
+        document.body.classList.toggle('nav-open', open);
+        if (!open) {
+          // close any open dropdowns when menu closes
+          document.querySelectorAll('.has-dd.open').forEach(function (li) {
+            li.classList.remove('open');
+            var trigger = li.querySelector(':scope > a');
+            if (trigger) trigger.setAttribute('aria-expanded', 'false');
+          });
+        }
+      }
+
+      burger.addEventListener('click', function () {
+        setMenuOpen(!menu.classList.contains('show'));
+      });
+      burger.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setMenuOpen(!menu.classList.contains('show'));
+        }
+      });
+
+      // close menu on Escape
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && menu.classList.contains('show')) {
+          setMenuOpen(false);
+          burger.focus();
+        }
+      });
+
+      // close menu when clicking outside
+      document.addEventListener('click', function (e) {
+        if (!menu.classList.contains('show')) return;
+        var inside = menu.contains(e.target) || burger.contains(e.target);
+        if (!inside) setMenuOpen(false);
+      });
+
+      // close menu when a nav link is followed
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          // allow dropdown-trigger clicks to open dropdown on mobile (handled below)
+          if (a.closest('.has-dd') && a.parentElement.classList.contains('has-dd')) {
+            return;
+          }
+          setMenuOpen(false);
+        });
+      });
+    }
+
+    /* ----- 4. Dropdown ("Get Involved") — works on touch + keyboard ----- */
+    document.querySelectorAll('.has-dd').forEach(function (li) {
+      var trigger = li.querySelector(':scope > a');
+      var dropdown = li.querySelector(':scope > .dropdown');
+      if (!trigger || !dropdown) return;
+      trigger.setAttribute('aria-expanded', 'false');
+      trigger.setAttribute('aria-haspopup', 'true');
+
+      function closeOthers() {
+        document.querySelectorAll('.has-dd.open').forEach(function (other) {
+          if (other !== li) {
+            other.classList.remove('open');
+            var t = other.querySelector(':scope > a');
+            if (t) t.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      // On small screens trigger toggles dropdown (and prevents nav)
+      trigger.addEventListener('click', function (e) {
+        var isMobile = window.matchMedia('(max-width: 900px)').matches;
+        if (!isMobile) return; // desktop uses :hover/:focus-within
+        e.preventDefault();
+        closeOthers();
+        var nowOpen = li.classList.toggle('open');
+        trigger.setAttribute('aria-expanded', nowOpen ? 'true' : 'false');
+      });
+
+      // Keyboard support: open on Enter/Space
+      trigger.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          closeOthers();
+          var nowOpen = li.classList.toggle('open');
+          trigger.setAttribute('aria-expanded', nowOpen ? 'true' : 'false');
+          if (nowOpen) {
+            var first = dropdown.querySelector('a');
+            if (first) first.focus();
+          }
+        } else if (e.key === 'Escape') {
+          li.classList.remove('open');
+          trigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Keep aria-expanded in sync with desktop :hover/:focus-within state
+      li.addEventListener('mouseenter', function () {
+        trigger.setAttribute('aria-expanded', 'true');
+      });
+      li.addEventListener('mouseleave', function () {
+        if (!li.classList.contains('open')) {
+          trigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // close dropdown if focus leaves
+      li.addEventListener('focusout', function (e) {
+        if (!li.contains(e.relatedTarget)) {
+          li.classList.remove('open');
+          trigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    /* ----- 5. Smooth anchor scrolling that respects sticky header ----- */
+    var headerH = parseInt(
+      getComputedStyle(document.documentElement).getPropertyValue('--header-height'),
+      10
+    );
+    if (!Number.isFinite(headerH)) headerH = 80;
+
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var href = a.getAttribute('href');
+        if (!href || href === '#' || href.length < 2) return;
+        var target = document.querySelector(href);
+        if (!target) return;
+        e.preventDefault();
+        var top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 8;
+        window.scrollTo({
+          top: top,
+          behavior: prefersReducedMotion ? 'auto' : 'smooth'
+        });
+        // move focus for screen readers
+        if (!target.hasAttribute('tabindex')) {
+          target.setAttribute('tabindex', '-1');
+        }
+        target.focus({ preventScroll: true });
+      });
+    });
+
+    /* ----- 6. Contact form (Formspree, optional) ----- */
+    var contactForm = document.getElementById('contactForm');
+    var contactStatus = document.getElementById('formStatus');
+    if (contactForm && contactStatus) {
+      contactForm.addEventListener('submit', function (e) {
+        if (!contactForm.action) return; // browser default
+        e.preventDefault();
+        contactStatus.textContent = 'Sending…';
+        var btn = contactForm.querySelector('button[type="submit"]');
+        if (btn) btn.disabled = true;
+        var data = new FormData(contactForm);
+        fetch(contactForm.action, {
+          method: contactForm.method || 'POST',
           body: data,
           headers: { 'Accept': 'application/json' }
+        }).then(function (res) {
+          if (res.ok) {
+            contactStatus.textContent = '✓ Thanks for your message — we will be in touch.';
+            contactForm.reset();
+          } else {
+            contactStatus.textContent = '⚠️ Something went wrong. Please email us directly.';
+          }
+        }).catch(function () {
+          contactStatus.textContent = '⚠️ Network error. Please email us at pawsforacausemi@gmail.com.';
+        }).finally(function () {
+          if (btn) btn.disabled = false;
         });
-        if (res.ok) {
-          status.textContent = '✓ Thanks for your message!';
-          form.reset();
-        } else {
-          const err = await res.json();
-          console.error('Formspree error:', err);
-          status.textContent = '⚠️ Oops! Please try again.';
-        }
-      } catch (err) {
-        console.error('Network error:', err);
-        status.textContent = '⚠️ Network error. Try again later.';
-      }
-    });
-  }
-
-  // ── 5) SMOOTH‑SCROLL WHEN CLICKING PUP CARDS ──
-  const headerH = parseInt(
-    getComputedStyle(document.documentElement).getPropertyValue('--header-height'),
-    10
-  ) || 0;
-  document.querySelectorAll('.pups .card').forEach(card => {
-    card.addEventListener('click', e => {
-      e.preventDefault();
-      const targetEl = document.querySelector(card.getAttribute('href'));
-      if (!targetEl) return;
-      const top = targetEl.getBoundingClientRect().top
-                + window.pageYOffset
-                - headerH;
-      window.scrollTo({ top, behavior: 'smooth' });
-    });
-  });
-
-  // ── 6) (Removed) AUTO‑SCROLL PUPS CAROUSEL ──
-  // We’ve removed the setInterval code so your grids/cards will no longer auto‑scroll.
-
-  // ── 7) SCROLL‑REVEAL FOR EVENTS PAGE ──
-  document.querySelectorAll(
-    '.events-hero, .events-list h2, .events-list .card, .event-detail'
-  ).forEach(el => observer.observe(el));
-
-  // ── 8) SMOOTH‑SCROLL FOR EVENT LINKS ──
-  document.querySelectorAll('a[href^="#event-"], .btn-back').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const target = document.querySelector(link.getAttribute('href'));
-      if (!target) return;
-      const top = target.getBoundingClientRect().top
-                + window.pageYOffset
-                - headerH;
-      window.scrollTo({ top, behavior: 'smooth' });
-    });
-  });
-
-  // ── 9) FIX EMAIL US BUTTON ALIGNMENT + HOVER EFFECT ──
-  const emailUsBtn = document.querySelector('.footer-contact-text .btn-submit');
-  if (emailUsBtn) {
-    emailUsBtn.style.marginTop = '1rem';
-    emailUsBtn.style.transition = 'transform 0.2s ease';
-    emailUsBtn.addEventListener('mouseenter', () => {
-      emailUsBtn.style.transform = 'translateY(-3px)';
-    });
-    emailUsBtn.addEventListener('mouseleave', () => {
-      emailUsBtn.style.transform = 'translateY(0)';
-    });
-  }
-
-  // ── 10) EVENTS FILTER DROPDOWN LOGIC ──
-  const filterSelect = document.getElementById('event-filter');
-  if (filterSelect) {
-    // on load, show the selected list only
-    const updateEvents = () => {
-      const val = filterSelect.value; // "upcoming-events" or "past-events"
-      document.querySelectorAll('#events .events-list').forEach(list => {
-        list.hidden = (list.id !== val);
       });
-    };
-    filterSelect.addEventListener('change', updateEvents);
-    updateEvents();
-  }
-});
-// Newsletter form submission (AJAX)
-const subscribeForm = document.getElementById('subscribeForm');
-const subscribeStatus = document.getElementById('subscribeStatus');
+    }
 
-if (subscribeForm && subscribeStatus) {
-  subscribeForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    subscribeStatus.textContent = 'Subscribing...';
+    /* ----- 7. Newsletter form ----- */
+    var subForm = document.getElementById('subscribeForm');
+    var subStatus = document.getElementById('subscribeStatus');
+    if (subForm && subStatus) {
+      subForm.addEventListener('submit', function (e) {
+        if (!subForm.action) return;
+        e.preventDefault();
+        subStatus.textContent = 'Subscribing…';
+        var btn = subForm.querySelector('button[type="submit"]');
+        if (btn) btn.disabled = true;
+        var data = new FormData(subForm);
+        fetch(subForm.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        }).then(function (res) {
+          if (res.ok) {
+            subStatus.textContent = '✓ Thanks for subscribing.';
+            subForm.reset();
+          } else {
+            subStatus.textContent = '⚠️ Could not subscribe. Please try again later.';
+          }
+        }).catch(function () {
+          subStatus.textContent = '⚠️ Network error. Please try again later.';
+        }).finally(function () {
+          if (btn) btn.disabled = false;
+        });
+      });
+    }
 
-    const formData = new FormData(subscribeForm);
+    /* ----- 8. Partner form (if present) ----- */
+    var partnerForm = document.getElementById('partner-form');
+    var partnerStatus = document.getElementById('partner-status');
+    if (partnerForm && partnerStatus) {
+      partnerForm.addEventListener('submit', function (e) {
+        if (!partnerForm.action) return;
+        e.preventDefault();
+        partnerStatus.textContent = 'Sending…';
+        var btn = document.getElementById('partner-submit') || partnerForm.querySelector('button[type="submit"]');
+        if (btn) btn.disabled = true;
+        var data = new FormData(partnerForm);
+        fetch(partnerForm.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        }).then(function (res) {
+          if (res.ok) {
+            partnerStatus.textContent = '✓ Thanks — our team will follow up.';
+            partnerForm.reset();
+          } else {
+            partnerStatus.textContent = '⚠️ Something went wrong. Please email pawsforacausemi@gmail.com.';
+          }
+        }).catch(function () {
+          partnerStatus.textContent = '⚠️ Network error. Please email pawsforacausemi@gmail.com.';
+        }).finally(function () {
+          if (btn) btn.disabled = false;
+        });
+      });
+    }
+
+    /* ----- 9. Mark active nav link based on current pathname ----- */
     try {
-      const res = await fetch(subscribeForm.action, {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json'
-        },
-        body: formData
+      var here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+      document.querySelectorAll('.nav-list a[href]').forEach(function (a) {
+        var hrefFile = (a.getAttribute('href') || '').split('/').pop().toLowerCase();
+        if (hrefFile === here) {
+          a.classList.add('active');
+          a.setAttribute('aria-current', 'page');
+        }
       });
+    } catch (e) { /* ignore */ }
 
-      if (res.ok) {
-        subscribeStatus.textContent = '✅ Thanks for subscribing!';
-        subscribeForm.reset();
-      } else {
-        subscribeStatus.textContent = '⚠️ There was an issue. Please try again.';
-      }
-    } catch (err) {
-      console.error(err);
-      subscribeStatus.textContent = '⚠️ Network error. Please try again later.';
+    /* ----- 10. Events filter dropdown (legacy) ----- */
+    var filterSelect = document.getElementById('event-filter');
+    if (filterSelect) {
+      var updateEvents = function () {
+        var val = filterSelect.value;
+        document.querySelectorAll('#events .events-list').forEach(function (list) {
+          list.hidden = (list.id !== val);
+        });
+      };
+      filterSelect.addEventListener('change', updateEvents);
+      updateEvents();
     }
   });
-}
+})();
