@@ -96,7 +96,7 @@
 
   // ---- state ---------------------------------------------------------
   var state = {
-    view: "list",            // "list" | "calendar"
+    view: "calendar",        // "list" | "calendar" — default to Calendar
     calCursor: startOfMonth(new Date()),
     filters: { category: "", partner: "", availability: "", q: "" }
   };
@@ -176,15 +176,15 @@
     var toggle = el("div", { class: "pf-toggle", role: "group",
       "aria-label": "Choose how to view events" }, [
       el("button", {
-        type: "button", class: "pf-toggle__btn", id: "pf-view-list",
-        "aria-pressed": "true",
-        onclick: function () { setView("list"); }
-      }, ["List"]),
-      el("button", {
         type: "button", class: "pf-toggle__btn", id: "pf-view-cal",
-        "aria-pressed": "false",
+        "aria-pressed": state.view === "calendar" ? "true" : "false",
         onclick: function () { setView("calendar"); }
-      }, ["Calendar"])
+      }, ["Calendar"]),
+      el("button", {
+        type: "button", class: "pf-toggle__btn", id: "pf-view-list",
+        "aria-pressed": state.view === "list" ? "true" : "false",
+        onclick: function () { setView("list"); }
+      }, ["List"])
     ]);
 
     // Search
@@ -219,8 +219,12 @@
     controlsBar.appendChild(search);
     controlsBar.appendChild(filters);
 
-    // If there is no data at all, the controls aren't useful — hide them.
-    if (DATA.length === 0) controlsBar.hidden = true;
+    // Keep the view toggle visible even with no events so visitors can
+    // switch to the calendar grid. When DATA is empty we hide only the
+    // filter chips (nothing to filter) but keep the toggle.
+    if (DATA.length === 0 && filters && filters.parentNode) {
+      filters.hidden = true;
+    }
   }
 
   function uniquePresent(arr) {
@@ -256,19 +260,19 @@
   function render() {
     var filtered = DATA.filter(passesFilters).sort(upcomingFirstSort);
 
-    // Empty source data -> strong empty state, no view chrome.
-    if (DATA.length === 0) {
-      if (calMount) calMount.hidden = true;
-      if (listMount) { listMount.hidden = false; renderEmptyState(listMount, true); }
-      return;
-    }
-
+    // Even when DATA is empty, keep the view toggle + calendar grid visible
+    // so visitors can actually SEE the calendar UI. The list view falls back
+    // to a friendly empty state in that case.
     if (state.view === "calendar") {
       if (listMount) listMount.hidden = true;
       if (calMount) { calMount.hidden = false; renderCalendar(filtered); }
     } else {
       if (calMount) calMount.hidden = true;
-      if (listMount) { listMount.hidden = false; renderList(filtered); }
+      if (listMount) {
+        listMount.hidden = false;
+        if (DATA.length === 0) renderEmptyState(listMount, true);
+        else renderList(filtered);
+      }
     }
   }
 
