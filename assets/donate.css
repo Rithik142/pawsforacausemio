@@ -278,3 +278,21 @@
 .transparency-card p:last-child { margin-bottom: 0; }
 .transparency-card__meta { font-size: .86rem; }
 .transparency-card a { color: var(--p-green); }
+
+/* Small supporting visual under the Why Give paragraph (donate left column).
+   Constrained, rounded, with subtle border — fills the dead space below short
+   copy without becoming a hero image. */
+.donate-support {
+  margin: 1.5rem 0 0;
+  max-width: 480px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--p-line, rgba(255,255,255,.08));
+  background: var(--p-surface, #10151a);
+  box-shadow: 0 12px 28px -22px rgba(0,0,0,.6);
+}
+.donate-support img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
