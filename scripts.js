@@ -310,5 +310,86 @@
       filterSelect.addEventListener('change', updateEvents);
       updateEvents();
     }
+
+    /* ----- 11. Header Donate button -> Stripe Buy Button checkout -----
+       Keeps the existing green .btn-donate styling untouched. We render the
+       Stripe Buy Button off-screen and forward header-Donate clicks to it,
+       so no second visible Donate button is added.
+       The link's href="donate.html" remains as a no-JS fallback. */
+    (function () {
+      var STRIPE_SCRIPT    = 'https://js.stripe.com/v3/buy-button.js';
+      var BUY_BUTTON_ID    = 'buy_btn_1TjBoBHGigJMOJurs1bB6aFa';
+      var PUBLISHABLE_KEY  = 'pk_live_51TemnKHGigJMOJurxptUHAvjoFCFsPcCuPBd0204xYUlYyQ9wivEfAJgdKPfUKF8racqvHavoJSmMrTSplu5oqVY00ibHoESz8';
+      var HIDDEN_ID        = 'pfac-stripe-buy';
+
+      // Load Stripe Buy Button script exactly once per page.
+      function loadStripeScript() {
+        if (document.querySelector('script[data-pfac-stripe]')) return;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = STRIPE_SCRIPT;
+        s.setAttribute('data-pfac-stripe', '1');
+        document.head.appendChild(s);
+      }
+
+      // Render the Stripe Buy Button element once, off-screen but interactive.
+      function ensureBuyButton() {
+        var wrap = document.getElementById(HIDDEN_ID);
+        if (wrap) return wrap;
+        wrap = document.createElement('div');
+        wrap.id = HIDDEN_ID;
+        // Off-screen but rendered, so clicks can be programmatically forwarded.
+        wrap.style.cssText = [
+          'position:absolute',
+          'left:-10000px',
+          'top:0',
+          'width:1px',
+          'height:1px',
+          'overflow:hidden',
+          'opacity:0',
+          'pointer-events:none'
+        ].join(';');
+        wrap.setAttribute('aria-hidden', 'true');
+        var sbb = document.createElement('stripe-buy-button');
+        sbb.setAttribute('buy-button-id', BUY_BUTTON_ID);
+        sbb.setAttribute('publishable-key', PUBLISHABLE_KEY);
+        wrap.appendChild(sbb);
+        document.body.appendChild(wrap);
+        return wrap;
+      }
+
+      // Forward a header-Donate click to the Stripe element while still
+      // inside the user-gesture context so window.open isn't blocked.
+      function triggerCheckout() {
+        var wrap = ensureBuyButton();
+        var sbb = wrap.querySelector('stripe-buy-button');
+        if (!sbb) return false;
+        // Stripe's element listens on the host; try host click first.
+        try { sbb.click(); } catch (_) {}
+        // Also dispatch into shadow DOM if available (defensive).
+        try {
+          if (sbb.shadowRoot) {
+            var inner = sbb.shadowRoot.querySelector('button, a, [role="button"]');
+            if (inner) inner.click();
+          }
+        } catch (_) {}
+        return true;
+      }
+
+      loadStripeScript();
+      ensureBuyButton();
+
+      // Wire every header Donate button (the only .btn-donate on each page).
+      var donateBtns = document.querySelectorAll('.btn-donate');
+      donateBtns.forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          // Respect intent to open in new tab / new window.
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+          // Prevent navigation to donate.html — open Stripe instead.
+          e.preventDefault();
+          triggerCheckout();
+        });
+      });
+    })();
   });
 })();
