@@ -12,16 +12,41 @@
   <meta property="og:url" content="https://pawsforacausemi.org/events.html"/>
   <meta property="og:image" content="images/Homepage.jpg"/>
 
+  <!--
+    ============================================================
+    LIVE EVENT SYNC — Google Calendar API key
+    ============================================================
+    To turn on the live "Upcoming Events" list, paste a Google
+    Calendar API key into the meta tag below. The key must be:
+      • Created in https://console.cloud.google.com/
+      • Restricted to the Google Calendar API
+      • Restricted by HTTP referrer to:
+            pawsforacausemi.org/*
+            www.pawsforacausemi.org/*
+            (and localhost for dev if needed)
+      • Used with a calendar whose sharing is set to
+        "Make available to public" (Google Calendar -> Settings
+        -> Settings for my calendars -> Access permissions).
+
+    The key is safe to ship in static HTML when restricted by
+    HTTP referrer + API scope. If the key is missing or invalid
+    the page gracefully shows a fallback message and the Google
+    Calendar embed below still renders the calendar view.
+    ============================================================
+  -->
+  <meta name="pfac-gcal-api-key" content="" />
+  <meta name="pfac-gcal-id" content="92d116d8967f4db2a69264e1140c27968ca325aca1ca411cf076be4b2fd6fbf6@group.calendar.google.com" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preconnect" href="https://www.googleapis.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles.css"/>
   <link rel="stylesheet" href="assets/internal.css"/>
   <script src="scripts.js" defer></script>
 
   <style>
-    /* Centered, responsive Google Calendar embed.
-       Caps at 1200px on desktop, full width on mobile, ≥700px tall on desktop / ≥600px on mobile. */
+    /* Centered, responsive Google Calendar embed */
     .pf-gcal {
       width: 100%;
       max-width: 1200px;
@@ -36,17 +61,178 @@
       width: 100%;
       height: 720px;
       border: 0;
-      background: #fff; /* the embed is light by default; the dark surround comes from the page */
+      background: #fff;
     }
     @media (max-width: 768px) {
       .pf-gcal iframe { height: 600px; }
+    }
+
+    /* Upcoming Events list (dynamic, populated from Google Calendar API) */
+    .pf-events {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .pf-events__head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 0 0 1.25rem;
+    }
+    .pf-events__head h2 { margin: 0; }
+    .pf-events__meta {
+      font-size: .85rem;
+      color: var(--p-text-mute, #b9c2bd);
+    }
+    .pf-events__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: .75rem;
+    }
+    .pf-event {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: clamp(1rem, 2vw, 1.5rem);
+      align-items: center;
+      padding: 1.1rem 1.25rem;
+      background: var(--p-surface, #10151a);
+      border: 1px solid var(--p-line, rgba(255,255,255,.08));
+      border-radius: 14px;
+      text-decoration: none;
+      color: inherit;
+      transition:
+        transform .25s cubic-bezier(.23,1,.32,1),
+        border-color .25s ease,
+        box-shadow .25s ease;
+    }
+    .pf-event:hover,
+    .pf-event:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--p-green-line, rgba(32,214,154,.4));
+      box-shadow: 0 18px 32px -24px rgba(32,214,154,.25), 0 14px 24px -20px rgba(0,0,0,.7);
+      outline: none;
+    }
+    /* Date tile */
+    .pf-event__date {
+      flex: none;
+      display: grid;
+      place-items: center;
+      min-width: 4rem;
+      padding: .5rem .75rem;
+      border-radius: 10px;
+      background: linear-gradient(150deg, rgba(32,214,154,.18), rgba(241,91,166,.14));
+      border: 1px solid var(--p-line, rgba(255,255,255,.08));
+      line-height: 1;
+      text-align: center;
+    }
+    .pf-event__month {
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--p-green, #20d69a);
+      margin-bottom: .3rem;
+    }
+    .pf-event__day {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--p-text, #f4f5f3);
+    }
+    /* Main content */
+    .pf-event__body { min-width: 0; }
+    .pf-event__title {
+      margin: 0 0 .25rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--p-text, #f4f5f3);
+      line-height: 1.35;
+    }
+    .pf-event__when {
+      margin: 0;
+      font-size: .88rem;
+      color: var(--p-text-mute, #b9c2bd);
+    }
+    .pf-event__loc {
+      margin: .15rem 0 0;
+      font-size: .85rem;
+      color: var(--p-text-mute, #b9c2bd);
+    }
+    .pf-event__desc {
+      margin: .4rem 0 0;
+      font-size: .9rem;
+      color: var(--p-text-mute, #b9c2bd);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .pf-event__cta {
+      flex: none;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--p-green, #20d69a);
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+    }
+    .pf-event__cta svg {
+      width: 1rem;
+      height: 1rem;
+      transition: transform .25s cubic-bezier(.23,1,.32,1);
+    }
+    .pf-event:hover .pf-event__cta svg,
+    .pf-event:focus-visible .pf-event__cta svg { transform: translate(2px, -2px); }
+    @media (max-width: 600px) {
+      .pf-event { grid-template-columns: auto 1fr; }
+      .pf-event__cta { grid-column: 1 / -1; justify-content: flex-end; }
+    }
+
+    /* States: loading / empty / error */
+    .pf-events__state {
+      padding: 1.4rem 1.25rem;
+      background: var(--p-surface, #10151a);
+      border: 1px solid var(--p-line, rgba(255,255,255,.08));
+      border-radius: 14px;
+      color: var(--p-text-mute, #b9c2bd);
+      font-size: .95rem;
+      line-height: 1.55;
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+    .pf-events__spinner {
+      width: 1.1rem;
+      height: 1.1rem;
+      border-radius: 50%;
+      border: 2px solid var(--p-line-strong, rgba(255,255,255,.14));
+      border-top-color: var(--p-green, #20d69a);
+      animation: pf-spin .8s linear infinite;
+      flex: none;
+    }
+    @keyframes pf-spin { to { transform: rotate(360deg); } }
+    .pf-events__state a { color: var(--p-green, #20d69a); }
+    @media (prefers-reduced-motion: reduce) { .pf-events__spinner { animation: none; } }
+
+    /* Open in Google Calendar bottom CTA */
+    .pf-gcal-cta {
+      max-width: 1200px;
+      margin: 1rem auto 0;
+      text-align: center;
+      color: var(--p-text-mute, #b9c2bd);
+      font-size: .9rem;
     }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- HEADER -->
   <header>
     <a href="index.html" class="logo">PAWS FOR A CAUSE</a>
     <nav aria-label="Primary">
@@ -59,7 +245,7 @@
           <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
           <ul class="dropdown" role="menu">
             <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
-            <li><a href="partner.html" role="menuitem">Become a Partner</a></li>
+            <li><a href="partner.html"  role="menuitem">Become a Partner</a></li>
             <li><a href="donate.html" role="menuitem">Donate</a></li>
             <li><a href="jointheteam.html" role="menuitem">Join the Team</a></li>
           </ul>
@@ -73,7 +259,7 @@
 
   <main id="main">
 
-    <!-- Page hero: title + description sit directly above the calendar -->
+    <!-- Page hero -->
     <section class="ip-hero" style="padding-block: clamp(2.5rem,5vw,3.75rem) clamp(1.25rem,2.5vw,1.75rem);">
       <span class="ip-hero__glow" aria-hidden="true"></span>
       <div class="ip-container">
@@ -88,23 +274,43 @@
       </div>
     </section>
 
-    <!-- Google Calendar embed: primary focus of the page -->
+    <!-- 1) DYNAMIC UPCOMING EVENTS LIST (Google Calendar API) -->
+    <section class="ip-section ip-section--tight" aria-labelledby="upcoming-title" style="padding-block: 0 clamp(1.5rem,3vw,2.5rem);">
+      <div class="ip-container ip-reveal">
+        <div class="pf-events" id="pf-events">
+          <div class="pf-events__head">
+            <h2 id="upcoming-title" class="ip-h2" style="font-size:clamp(1.4rem,2.4vw,1.75rem);">Upcoming events</h2>
+            <p class="pf-events__meta" id="pf-events-meta" aria-live="polite"></p>
+          </div>
+          <ul class="pf-events__list" id="pf-events-list" aria-busy="true">
+            <li class="pf-events__state" id="pf-events-loading">
+              <span class="pf-events__spinner" aria-hidden="true"></span>
+              <span>Loading upcoming events…</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2) FULL CALENDAR VIEW (iframe with per-load cache-bust) -->
     <section class="ip-section ip-section--tight" aria-labelledby="calendar-title" style="padding-block: clamp(0.5rem,1.5vw,1.25rem) clamp(2.5rem,5vw,4rem);">
-      <h2 id="calendar-title" class="ip-visually-hidden" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;">PAWS FOR A CAUSE calendar</h2>
+      <h2 id="calendar-title" class="ip-visually-hidden" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;">PAWS FOR A CAUSE full calendar</h2>
       <div class="ip-container ip-reveal">
         <div class="pf-gcal">
           <iframe
-            src="https://calendar.google.com/calendar/embed?src=92d116d8967f4db2a69264e1140c27968ca325aca1ca411cf076be4b2fd6fbf6%40group.calendar.google.com&amp;ctz=America%2FDetroit"
-            title="PAWS FOR A CAUSE upcoming events calendar"
+            id="pf-gcal-iframe"
+            data-src="https://calendar.google.com/calendar/embed?src=92d116d8967f4db2a69264e1140c27968ca325aca1ca411cf076be4b2fd6fbf6%40group.calendar.google.com&amp;ctz=America%2FDetroit&amp;mode=MONTH&amp;showPrint=0&amp;showCalendars=0"
+            title="PAWS FOR A CAUSE full events calendar"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             scrolling="no">
           </iframe>
         </div>
-        <p style="margin-top:1rem; text-align:center; color:var(--p-text-mute, #b9c2bd); font-size:.9rem;">
-          Trouble viewing the calendar?
-          <a class="ip-textlink" href="https://calendar.google.com/calendar/embed?src=92d116d8967f4db2a69264e1140c27968ca325aca1ca411cf076be4b2fd6fbf6%40group.calendar.google.com&amp;ctz=America%2FDetroit" target="_blank" rel="noopener noreferrer">
-            Open it in Google Calendar
+        <p class="pf-gcal-cta">
+          <a class="ip-textlink" id="pf-gcal-open"
+             href="https://calendar.google.com/calendar/u/0?cid=OTJkMTE2ZDg5NjdmNGRiMmE2OTI2NGUxMTQwYzI3OTY4Y2EzMjVhY2ExY2E0MTFjZjA3NmJlNGIyZmQ2ZmJmNkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
+             target="_blank" rel="noopener noreferrer">
+            Open in Google Calendar
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </p>
@@ -113,7 +319,6 @@
 
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <p>&copy; <span data-year>2026</span> PAWS FOR A CAUSE | <a href="privacy.html">Privacy Policy</a></p>
     <div class="social">
@@ -123,5 +328,187 @@
     </div>
     <p class="footer-note">A youth-led 501(c)(3) nonprofit organization based in Michigan.</p>
   </footer>
+
+  <script>
+  /* =========================================================================
+     LIVE EVENTS — Google Calendar API v3 fetcher
+     -----------------------------------------------------------------------
+     Pulls the next ~8 upcoming events from the public PAWS FOR A CAUSE
+     calendar and renders them as a list. Gracefully degrades to a fallback
+     message + "Open in Google Calendar" link when:
+       - No API key is configured
+       - The fetch fails (network, 4xx, 5xx)
+       - The calendar returns 0 upcoming events
+     The full Google Calendar embed below this list always loads either way.
+     Re-fetches every 5 minutes while the tab is visible so newly added
+     events appear automatically without a page reload.
+     ========================================================================= */
+  (function () {
+    var GCAL_API_KEY = (document.querySelector('meta[name="pfac-gcal-api-key"]') || {}).content || '';
+    var CAL_ID       = (document.querySelector('meta[name="pfac-gcal-id"]')      || {}).content || '';
+    var listEl   = document.getElementById('pf-events-list');
+    var metaEl   = document.getElementById('pf-events-meta');
+    var iframe   = document.getElementById('pf-gcal-iframe');
+    if (!listEl || !iframe) return;
+
+    var OPEN_GCAL_HREF = (document.getElementById('pf-gcal-open') || { href: '#' }).href;
+    var MAX_EVENTS = 8;
+    var REFRESH_MS = 5 * 60 * 1000; // 5 minutes
+
+    /* ----- 1. Iframe cache-bust: append a per-pageload timestamp so the
+       Google embed never serves a stale snapshot from disk cache. */
+    (function bustIframe() {
+      var src = iframe.getAttribute('data-src') || iframe.src;
+      if (!src) return;
+      var sep = src.indexOf('?') === -1 ? '?' : '&';
+      iframe.src = src + sep + '_t=' + Date.now();
+    })();
+
+    /* ----- 2. Helpers ----- */
+    var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+    function escapeHTML(s) {
+      return String(s == null ? '' : s)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+    function formatWhen(ev) {
+      // ev.start may be { dateTime, timeZone } or { date } for all-day.
+      var allDay = !!(ev.start && ev.start.date);
+      var startStr = (ev.start && (ev.start.dateTime || ev.start.date)) || '';
+      var endStr   = (ev.end   && (ev.end.dateTime   || ev.end.date))   || '';
+      if (!startStr) return { dateTile: { m: '', d: '' }, whenText: '' };
+      var start = new Date(startStr);
+      var month = MONTHS[start.getMonth()];
+      var day   = start.getDate();
+      var whenOpts = allDay
+        ? { weekday: 'long', month: 'long', day: 'numeric' }
+        : { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' };
+      var whenText;
+      try { whenText = start.toLocaleString(undefined, whenOpts); }
+      catch (_) { whenText = start.toString(); }
+      if (!allDay && endStr) {
+        var end = new Date(endStr);
+        var sameDay = end.toDateString() === start.toDateString();
+        if (sameDay) {
+          try {
+            whenText += ' – ' + end.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
+          } catch (_) {}
+        }
+      } else if (allDay) {
+        whenText += '  ·  All day';
+      }
+      return { dateTile: { m: month, d: day }, whenText: whenText, allDay: allDay };
+    }
+
+    /* ----- 3. Renderers ----- */
+    function setState(html) {
+      listEl.setAttribute('aria-busy', 'false');
+      listEl.innerHTML = '<li class="pf-events__state">' + html + '</li>';
+    }
+
+    function renderEvents(items) {
+      if (!items.length) {
+        setState(
+          'No upcoming events on the calendar yet. ' +
+          '<a href="' + escapeHTML(OPEN_GCAL_HREF) + '" target="_blank" rel="noopener noreferrer">Open in Google Calendar</a> to view past events.'
+        );
+        if (metaEl) metaEl.textContent = '';
+        return;
+      }
+      var html = items.map(function (ev) {
+        var when = formatWhen(ev);
+        var loc  = ev.location ? '<p class="pf-event__loc">' + escapeHTML(ev.location) + '</p>' : '';
+        var desc = ev.description ? '<p class="pf-event__desc">' + escapeHTML(stripTags(ev.description)) + '</p>' : '';
+        var href = ev.htmlLink || OPEN_GCAL_HREF;
+        return (
+          '<li>' +
+            '<a class="pf-event" href="' + escapeHTML(href) + '" target="_blank" rel="noopener noreferrer">' +
+              '<span class="pf-event__date">' +
+                '<span class="pf-event__month">' + escapeHTML(when.dateTile.m) + '</span>' +
+                '<span class="pf-event__day">' + escapeHTML(String(when.dateTile.d)) + '</span>' +
+              '</span>' +
+              '<span class="pf-event__body">' +
+                '<h3 class="pf-event__title">' + escapeHTML(ev.summary || 'Untitled event') + '</h3>' +
+                '<p class="pf-event__when">' + escapeHTML(when.whenText) + '</p>' +
+                loc +
+                desc +
+              '</span>' +
+              '<span class="pf-event__cta">View' +
+                '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+              '</span>' +
+            '</a>' +
+          '</li>'
+        );
+      }).join('');
+      listEl.setAttribute('aria-busy', 'false');
+      listEl.innerHTML = html;
+      if (metaEl) {
+        try {
+          metaEl.textContent = 'Updated ' + new Date().toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
+        } catch (_) { metaEl.textContent = ''; }
+      }
+    }
+
+    function stripTags(s) { return String(s).replace(/<[^>]*>/g, ''); }
+
+    function renderFallback(reason) {
+      var hint = '';
+      if (reason === 'no-key') {
+        hint = 'The dynamic events list is configured but no Google Calendar API key has been added yet. The full calendar below is live.';
+      } else {
+        hint = 'Unable to load events right now.';
+      }
+      setState(
+        '<span>' + hint + ' &nbsp;' +
+          '<a href="' + escapeHTML(OPEN_GCAL_HREF) + '" target="_blank" rel="noopener noreferrer">Open in Google Calendar</a>' +
+        '</span>'
+      );
+      if (metaEl) metaEl.textContent = '';
+    }
+
+    /* ----- 4. Fetch from Google Calendar API ----- */
+    function fetchEvents() {
+      if (!GCAL_API_KEY) { renderFallback('no-key'); return; }
+      if (!CAL_ID)       { renderFallback('no-id'); return; }
+      var params = new URLSearchParams({
+        key:          GCAL_API_KEY,
+        timeMin:      new Date().toISOString(),
+        singleEvents: 'true',
+        orderBy:      'startTime',
+        maxResults:   String(MAX_EVENTS),
+        fields:       'items(id,summary,description,location,start,end,htmlLink)'
+      });
+      var url = 'https://www.googleapis.com/calendar/v3/calendars/' +
+                encodeURIComponent(CAL_ID) + '/events?' + params.toString();
+      var ctl = ('AbortController' in window) ? new AbortController() : null;
+      var timeout = setTimeout(function () { if (ctl) ctl.abort(); }, 10000);
+      fetch(url, { signal: ctl ? ctl.signal : undefined, cache: 'no-store' })
+        .then(function (r) {
+          clearTimeout(timeout);
+          if (!r.ok) throw new Error('http ' + r.status);
+          return r.json();
+        })
+        .then(function (data) {
+          var items = (data && data.items) || [];
+          renderEvents(items);
+        })
+        .catch(function () {
+          clearTimeout(timeout);
+          renderFallback('error');
+        });
+    }
+
+    /* ----- 5. Auto-refresh while visible ----- */
+    fetchEvents();
+    var intervalId = setInterval(function () {
+      if (document.visibilityState === 'visible') fetchEvents();
+    }, REFRESH_MS);
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'visible') fetchEvents();
+    });
+    window.addEventListener('pagehide', function () { clearInterval(intervalId); });
+  })();
+  </script>
 </body>
 </html>
