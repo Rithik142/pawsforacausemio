@@ -898,3 +898,64 @@
 
 /* Safety: section heads must never inherit the global fixed nav <header> rule */
 .team-section-head, .team-section-intro { display: block; position: static; height: auto; background: transparent; }
+
+/* =========================================================================
+   ABOUT — unified hero + mission with a two-image gallery
+   ========================================================================= */
+.about-hero-section { position: relative; overflow: hidden; padding-top: clamp(3rem, 6vw, 5rem); }
+.about-hero {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.about-hero__text { max-width: 62ch; }
+.about-hero__text .ip-lede { margin-bottom: 1.1rem; }
+
+/* Two equal images, stacked in the right rail on desktop */
+.about-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(.85rem, 1.6vw, 1.1rem);
+}
+.about-gallery__item {
+  margin: 0;
+  border-radius: var(--p-radius, 14px);
+  overflow: hidden;
+  border: 1px solid var(--p-line);
+  background: var(--p-surface, #10151a);
+  box-shadow: 0 14px 30px -20px rgba(0,0,0,.6);
+  transition: transform .35s var(--p-ease, cubic-bezier(.23,1,.32,1)),
+              border-color .25s ease, box-shadow .35s ease;
+}
+.about-gallery__item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform .6s var(--p-ease, cubic-bezier(.23,1,.32,1));
+}
+.about-gallery__item:hover {
+  transform: translateY(-3px);
+  border-color: var(--p-green-line, rgba(32,214,154,.35));
+  box-shadow: 0 22px 40px -22px rgba(32,214,154,.22), 0 16px 30px -20px rgba(0,0,0,.7);
+}
+.about-gallery__item:hover img { transform: scale(1.04); }
+
+@media (max-width: 880px) {
+  .about-hero { grid-template-columns: 1fr; }
+  /* On mobile the two images sit side by side under the text to stay compact */
+  .about-gallery { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 460px) {
+  .about-gallery { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .about-gallery__item, .about-gallery__item img { transition: none !important; }
+  .about-gallery__item:hover { transform: none; }
+  .about-gallery__item:hover img { transform: none; }
+}
