@@ -808,3 +808,90 @@
   .gallery__btn:hover img,
   .gallery__btn:focus-visible img { transform: none; }
 }
+
+/* =========================================================================
+   MEET THE TEAM — Centered, vertical layout (replaces side-label structure)
+   ========================================================================= */
+
+/* Page-level section intro (the "MEET THE TEAM" block) */
+.team-section-intro {
+  max-width: 64ch;
+  margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+  padding: 0 clamp(.75rem, 2vw, 1.5rem);
+}
+.team-section-intro__eyebrow {
+  display: inline-flex;
+  justify-content: center;
+  color: var(--p-green);
+  margin: 0 0 .9rem;
+}
+.team-section-intro__title {
+  font-size: clamp(2rem, 4.4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -.022em;
+  line-height: 1.05;
+  color: var(--p-text);
+  margin: 0 0 .9rem;
+}
+.team-section-intro__desc {
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.6;
+  color: var(--p-text-mute);
+  max-width: 56ch;
+  margin: 0 auto;
+}
+
+/* Centered sub-section heading (Executive / State / Regional) */
+.team-section-head {
+  max-width: 64ch;
+  margin: 0 auto clamp(1.6rem, 3vw, 2.4rem);
+  text-align: center;
+  padding: 0 clamp(.75rem, 2vw, 1.5rem);
+}
+.team-section-head__title {
+  font-size: clamp(1.65rem, 3vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -.018em;
+  line-height: 1.1;
+  color: var(--p-text);
+  margin: 0 0 .7rem;
+  position: relative;
+  display: inline-block;
+}
+/* Subtle accent rule under each sub-section title */
+.team-section-head__title::after {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 2px;
+  border-radius: 2px;
+  margin: .8rem auto 0;
+  background: linear-gradient(90deg, var(--p-green), var(--p-pink));
+}
+.team-section-head__desc {
+  font-size: clamp(.96rem, 1.15vw, 1.05rem);
+  line-height: 1.6;
+  color: var(--p-text-mute);
+  max-width: 60ch;
+  margin: 0 auto;
+}
+
+/* Centered block wrapper — gives consistent spacing between sub-sections */
+.team-block.team-block--centered {
+  margin-top: clamp(2.5rem, 5vw, 3.75rem);
+  text-align: center;
+}
+.team-block.team-block--centered:first-of-type { margin-top: 0; }
+/* Restore left alignment for body content inside cards/tables (centering only applies to header) */
+.team-block.team-block--centered .team-exec,
+.team-block.team-block--centered .team-boards,
+.team-block.team-block--centered .region-accordion { text-align: left; }
+.team-block.team-block--centered .lead-card,
+.team-block.team-block--centered .board-card,
+.team-block.team-block--centered .exec-card,
+.team-block.team-block--centered .region-state__head,
+.team-block.team-block--centered .region-state__body { text-align: left; }
+
+/* Slightly more breathing room around the section so each block feels its own */
+#state-board { padding-top: clamp(3rem, 6vw, 5rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
