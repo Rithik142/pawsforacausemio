@@ -8063,3 +8063,17 @@ section.our-work-section {
   .partner-card, .cta-card, .impact-card, .process-step,
   .btn-hero, .btn-submit, .btn-donate { transition: none !important; }
 }
+
+/* =========================================================================
+   FIX (sitewide): the footer must flow in normal document order.
+   An earlier rule set `footer { position: fixed; height: 80px }`, which pinned
+   the footer to the viewport, clipped it, and floated it over page content on
+   long pages. This authoritative reset comes last so it wins the cascade.
+   ========================================================================= */
+footer {
+  position: static;
+  height: auto;
+  inset: auto;
+  z-index: auto;
+}
+body { padding-bottom: 0; }

@@ -895,3 +895,6 @@
 
 /* Slightly more breathing room around the section so each block feels its own */
 #state-board { padding-top: clamp(3rem, 6vw, 5rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
+
+/* Safety: section heads must never inherit the global fixed nav <header> rule */
+.team-section-head, .team-section-intro { display: block; position: static; height: auto; background: transparent; }
