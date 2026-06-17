@@ -395,3 +395,203 @@
   .lead-card, .exec-card { transition: none; }
   .lead-card:hover, .exec-card:hover { transform: none; }
 }
+
+/* =========================================================================
+   MEET THE TEAM — redesigned (centered exec board, table-style boards,
+   accordion regional chapters). Replaces older .lead-card/.team-grid usage.
+   ========================================================================= */
+
+/* Centered Executive Board header + identical cards */
+.team-exec-block { text-align: center; }
+.team-block__head--center { margin: 0 auto 2rem; max-width: 64ch; text-align: center; }
+.team-block__head--center .ip-eyebrow { display: inline-flex; }
+.team-block__head--center .team-block__title { text-align: center; }
+.team-block__head--center .ip-body,
+.team-block__head--center .team-block__lede { margin-left: auto; margin-right: auto; max-width: 62ch; }
+
+.team-exec {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 280px));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  justify-content: center;
+}
+.team-exec .exec-card { width: 100%; max-width: 280px; margin: 0 auto; }
+@media (max-width: 880px) { .team-exec { grid-template-columns: repeat(2, minmax(0, 280px)); } }
+@media (max-width: 560px) { .team-exec { grid-template-columns: minmax(0, 320px); } }
+
+/* State Leadership Boards: 2-up responsive grid of table-style cards */
+.team-boards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(.9rem, 2vw, 1.25rem);
+}
+@media (max-width: 760px) { .team-boards { grid-template-columns: 1fr; } }
+
+/* Board card (shared by state boards + regional cards) */
+.board-card {
+  background: var(--p-surface);
+  border: 1px solid var(--p-line);
+  border-radius: var(--p-radius);
+  padding: 1.2rem 1.35rem 1.3rem;
+  transition: border-color .25s ease, background .25s ease;
+}
+.board-card:hover {
+  border-color: var(--p-green-line, rgba(32,214,154,.35));
+  background: var(--p-surface-2, #151b21);
+}
+.board-card__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--p-text);
+  letter-spacing: -.005em;
+  margin: 0 0 .85rem;
+  padding-bottom: .65rem;
+  border-bottom: 1px solid var(--p-line);
+}
+.board-card--region {
+  background: var(--p-bg);
+  border-radius: 10px;
+  padding: 1rem 1.1rem 1.05rem;
+}
+.board-card--region .board-card__title { font-size: 1rem; margin-bottom: .7rem; padding-bottom: .55rem; }
+
+/* Table-style position rows: auto-aligned across all rows */
+.board-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+.board-table th,
+.board-table td {
+  text-align: left;
+  vertical-align: baseline;
+  padding: .4rem 0;
+  border: 0;
+}
+.board-table tr + tr th,
+.board-table tr + tr td { border-top: 1px solid rgba(255,255,255,.04); }
+.board-table th.pos {
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--p-text-mute);
+  white-space: nowrap;
+  width: 1%;            /* shrink to content so .val takes remaining space */
+  padding-right: 1.5rem;
+}
+.board-table td.val {
+  font-size: .94rem;
+  color: var(--p-text);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+.board-table td.val.is-tbd {
+  color: var(--p-text-mute);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: .04em;
+}
+.board-table td.val.val--filled { color: var(--p-text); font-weight: 600; }
+.board-table td.badge-slot {
+  text-align: right;
+  white-space: nowrap;
+  width: 1%;
+  padding-left: 1rem;
+}
+.board-table .badge {
+  display: inline-block;
+  font-size: .6rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--p-green);
+  background: var(--p-green-soft, rgba(32,214,154,.12));
+  border: 1px solid var(--p-green-line, rgba(32,214,154,.35));
+  border-radius: 999px;
+  padding: .2rem .55rem;
+  white-space: nowrap;
+  line-height: 1;
+}
+@media (max-width: 480px) {
+  .board-table th.pos { padding-right: .8rem; font-size: .68rem; }
+  .board-table .badge { font-size: .56rem; padding: .18rem .45rem; letter-spacing: .1em; }
+  .board-table td.val { font-size: .88rem; }
+}
+
+/* Regional accordion */
+.region-accordion {
+  display: grid;
+  gap: .75rem;
+}
+.region-state {
+  background: var(--p-surface);
+  border: 1px solid var(--p-line);
+  border-radius: var(--p-radius);
+  overflow: hidden;
+  transition: border-color .25s ease, background .25s ease;
+}
+.region-state[open] {
+  background: var(--p-surface-2, #151b21);
+  border-color: var(--p-green-line, rgba(32,214,154,.35));
+}
+.region-state__head {
+  list-style: none;
+  cursor: pointer;
+  padding: 1.05rem 1.35rem;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1rem;
+  align-items: center;
+  transition: background .2s ease;
+}
+.region-state__head::-webkit-details-marker { display: none; }
+.region-state__head:hover { background: rgba(255,255,255,.025); }
+.region-state__head:focus-visible {
+  outline: 2px solid var(--p-green);
+  outline-offset: -3px;
+  border-radius: var(--p-radius);
+}
+.region-state__name {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--p-text);
+  letter-spacing: -.005em;
+}
+.region-state__hint {
+  font-size: .68rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--p-pink);
+  font-weight: 700;
+}
+.region-state__chev {
+  width: 18px;
+  height: 18px;
+  color: var(--p-text-dim);
+  transition: transform .3s var(--p-ease, cubic-bezier(.23,1,.32,1)), color .25s ease;
+}
+.region-state[open] .region-state__chev {
+  transform: rotate(180deg);
+  color: var(--p-green);
+}
+.region-state__body {
+  padding: 0 1.35rem 1.35rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+@media (max-width: 480px) {
+  .region-state__head { padding: .9rem 1rem; grid-template-columns: 1fr auto; }
+  .region-state__hint { display: none; }
+  .region-state__body { padding: 0 1rem 1rem; grid-template-columns: 1fr; }
+}
+
+/* Reduced-motion safety */
+@media (prefers-reduced-motion: reduce) {
+  .board-card, .region-state, .region-state__chev { transition: none !important; }
+  .region-state[open] .region-state__chev { transform: none; }
+}
