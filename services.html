@@ -44,7 +44,7 @@
 
   <main id="main">
 
-    <!-- INTRO (text only — buttons + supporting image removed; replaced by the GALLERY below) -->
+    <!-- INTRO (text only) -->
     <section class="ip-hero" style="padding-block: clamp(2.5rem,5vw,3.75rem) clamp(1.25rem,2.5vw,1.5rem);">
       <span class="ip-hero__glow" aria-hidden="true"></span>
       <div class="ip-container">
@@ -60,100 +60,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ============== GALLERY ==============
-         Pinterest-style masonry of 9 PAWS FOR A CAUSE photos with hover
-         captions and a native <dialog> lightbox (Esc / ← → / click backdrop).
-
-         HOW TO SWAP IN YOUR REAL 9 UPLOADED PHOTOS LATER:
-         1) Drop the 9 files into /images/ (any sensible filenames).
-         2) Update the 9 <img src=...> values in this gallery only.
-         3) Update each card's data-caption / aria-label / alt text to match.
-         No other changes needed — masonry + lightbox just work.
-         The current photos are the best-available repo images used as visual
-         placeholders so the section is fully designed and live today.
-    ====================================================================== -->
-    <section class="ip-section ip-section--tight" aria-labelledby="gallery-title">
-      <div class="ip-container">
-        <div class="ip-reveal" style="max-width:64ch; margin-bottom:1.6rem;">
-          <div class="ip-rule" aria-hidden="true"></div>
-          <p class="ip-eyebrow">Gallery</p>
-          <h2 id="gallery-title" class="ip-h2">Moments from our work</h2>
-          <p class="ip-body">
-            See our volunteers, community partners, shelters, rescues, and animals that make our
-            mission possible.
-          </p>
-        </div>
-
-        <ul class="gallery ip-reveal" id="pf-gallery" aria-label="PAWS FOR A CAUSE photo gallery">
-          <li class="gallery__item">
-            <button type="button" class="gallery__btn" data-full="images/gallery-1.jpg" data-caption="Shelter Care" aria-label="Shelter Care — view larger">
-              <img src="images/gallery-1.jpg" alt="Two PAWS FOR A CAUSE volunteers caring for a cat at a partner animal shelter" loading="lazy" />
-              <span class="gallery__cap"><span>Shelter Care</span></span>
-            </button>
-          </li>
-          <li class="gallery__item">
-            <button type="button" class="gallery__btn" data-full="images/gallery-2.jpg" data-caption="Community Events" aria-label="Community Events — view larger">
-              <img src="images/gallery-2.jpg" alt="A golden retriever dressed in a tuxedo bowtie at a PAWS FOR A CAUSE event" loading="lazy" />
-              <span class="gallery__cap"><span>Community Events</span></span>
-            </button>
-          </li>
-          <li class="gallery__item">
-            <button type="button" class="gallery__btn" data-full="images/gallery-3.jpg" data-caption="Fundraising Events" aria-label="Fundraising Events — view larger">
-              <img src="images/gallery-3.jpg" alt="A PAWS FOR A CAUSE volunteer hugging a rescue dog at a fundraising event" loading="lazy" />
-              <span class="gallery__cap"><span>Fundraising Events</span></span>
-            </button>
-          </li>
-          <li class="gallery__item">
-            <button type="button" class="gallery__btn" data-full="images/gallery-4.jpg" data-caption="Adoptable Animals" aria-label="Adoptable Animals — view larger">
-              <img src="images/gallery-4.jpg" alt="An adoptable tabby and white cat resting at a partner shelter" loading="lazy" />
-              <span class="gallery__cap"><span>Adoptable Animals</span></span>
-            </button>
-          </li>
-          <li class="gallery__item">
-            <button type="button" class="gallery__btn" data-full="images/gallery-5.jpg" data-caption="Shelter Visits" aria-label="Shelter Visits — view larger">
-              <img src="images/gallery-5.jpg" alt="A white boxer on a leash during a PAWS FOR A CAUSE shelter visit" loading="lazy" />
-              <span class="gallery__cap"><span>Shelter Visits</span></span>
-            </button>
-          </li>
-          <li class="gallery__item">
-            <button type="button" class="gallery__btn" data-full="images/gallery-6.jpg" data-caption="Animal Care" aria-label="Animal Care — view larger">
-              <img src="images/gallery-6.jpg" alt="A PAWS FOR A CAUSE volunteer holding a young kitten" loading="lazy" />
-              <span class="gallery__cap"><span>Animal Care</span></span>
-            </button>
-          </li>
-          <li class="gallery__item">
-            <button type="button" class="gallery__btn" data-full="images/gallery-7.jpg" data-caption="Adoption Awareness" aria-label="Adoption Awareness — view larger">
-              <img src="images/gallery-7.jpg" alt="A black and white puppy in a kennel at a partner animal shelter" loading="lazy" />
-              <span class="gallery__cap"><span>Adoption Awareness</span></span>
-            </button>
-          </li>
-          <li class="gallery__item">
-            <button type="button" class="gallery__btn" data-full="images/gallery-8.jpg" data-caption="Youth Volunteers" aria-label="Youth Volunteers — view larger">
-              <img src="images/gallery-8.jpg" alt="A group of PAWS FOR A CAUSE student volunteers touring an animal shelter" loading="lazy" />
-              <span class="gallery__cap"><span>Youth Volunteers</span></span>
-            </button>
-          </li>
-          <li class="gallery__item">
-            <button type="button" class="gallery__btn" data-full="images/gallery-9.jpg" data-caption="Volunteer Outreach" aria-label="Volunteer Outreach — view larger">
-              <img src="images/gallery-9.jpg" alt="A PAWS FOR A CAUSE volunteer holding a small rescue dog outdoors" loading="lazy" />
-              <span class="gallery__cap"><span>Volunteer Outreach</span></span>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Lightbox dialog (single instance, controlled by inline script below) -->
-    <dialog class="gallery-lightbox" id="pf-lightbox" aria-label="Image viewer">
-      <button type="button" class="gallery-lightbox__close" data-lb-close aria-label="Close (Esc)">&times;</button>
-      <button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--prev" data-lb-prev aria-label="Previous image (←)">&#8249;</button>
-      <figure class="gallery-lightbox__figure">
-        <img alt="" id="pf-lb-img" />
-        <figcaption id="pf-lb-cap"></figcaption>
-      </figure>
-      <button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--next" data-lb-next aria-label="Next image (→)">&#8250;</button>
-    </dialog>
 
     <!-- PRIMARY CONTENT: what we do / how we help (merged) -->
     <section class="ip-section ip-section--tight ip-section--surface">
@@ -173,28 +79,89 @@
       </div>
     </section>
 
-    <!-- PARTNERS (compact, confirmed only) -->
-    <section class="ip-section ip-section--tight">
+    <!-- PARTNER ORGANIZATIONS -->
+    <section class="ip-section ip-section--tight" aria-labelledby="partners-title">
       <div class="ip-container">
-        <div class="ip-reveal" style="margin-bottom:1.25rem;">
+        <div class="ip-reveal" style="margin-bottom:1.5rem; max-width:64ch;">
           <div class="ip-rule" aria-hidden="true"></div>
           <p class="ip-eyebrow">Our partners</p>
-          <h2 class="ip-h2">Organizations we work with</h2>
+          <h2 id="partners-title" class="ip-h2">Partner organizations</h2>
+          <p class="ip-body">The Michigan shelters, rescues, and animal-welfare organizations we proudly support and volunteer with.</p>
         </div>
-        <div class="ip-audience ip-reveal d1">
-          <div class="ip-arow">
-            <div class="ip-arow__t">Ingham County Animal Control &amp; Shelter</div>
-            <p class="ip-arow__d">Mason, MI · <a class="ip-textlink" href="https://ac.ingham.org/" target="_blank" rel="noopener noreferrer">Visit site
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
-          </div>
-          <div class="ip-arow">
-            <div class="ip-arow__t">Capital Area Humane Society</div>
-            <p class="ip-arow__d">Lansing, MI · <a class="ip-textlink" href="https://www.cahs-lansing.org/" target="_blank" rel="noopener noreferrer">Visit site
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
-          </div>
-          <div class="ip-arow"><div class="ip-arow__t">Canines for a Change</div><p class="ip-arow__d">Michigan</p></div>
-          <div class="ip-arow"><div class="ip-arow__t">Snaggletooth Cat Rescue</div><p class="ip-arow__d">Michigan</p></div>
-        </div>
+
+        <!-- ============================================================
+             EDITABLE PARTNER DIRECTORY
+             To add, remove, or reorder a partner, edit a single <li>.
+             Each entry is one clickable row. Fields:
+               • data-mark   → initials shown in the logo placeholder
+               • href        → the organization's website (opens in new tab)
+               • __name      → organization name
+               • __loc       → location
+             When a CMS/database is added later, render one <li> per record
+             using these same fields/classes — no CSS changes required.
+        ============================================================= -->
+        <ul class="partner-dir ip-reveal d1">
+          <li>
+            <a class="partner-row" href="https://linktr.ee/ohs.action" target="_blank" rel="noopener noreferrer">
+              <span class="partner-row__mark" data-mark="A" aria-hidden="true">A</span>
+              <span class="partner-row__main">
+                <span class="partner-row__name">ACTION (OHS Action Club)</span>
+                <span class="partner-row__loc">Okemos, MI</span>
+              </span>
+              <span class="partner-row__cta">Visit Site
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="partner-row" href="https://ac.ingham.org" target="_blank" rel="noopener noreferrer">
+              <span class="partner-row__mark" data-mark="IC" aria-hidden="true">IC</span>
+              <span class="partner-row__main">
+                <span class="partner-row__name">Ingham County Animal Control &amp; Shelter</span>
+                <span class="partner-row__loc">Mason, MI</span>
+              </span>
+              <span class="partner-row__cta">Visit Site
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="partner-row" href="https://www.cahs-lansing.org" target="_blank" rel="noopener noreferrer">
+              <span class="partner-row__mark" data-mark="CA" aria-hidden="true">CA</span>
+              <span class="partner-row__main">
+                <span class="partner-row__name">Capital Area Humane Society</span>
+                <span class="partner-row__loc">Lansing, MI</span>
+              </span>
+              <span class="partner-row__cta">Visit Site
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="partner-row" href="https://www.caninesforchange.org" target="_blank" rel="noopener noreferrer">
+              <span class="partner-row__mark" data-mark="CC" aria-hidden="true">CC</span>
+              <span class="partner-row__main">
+                <span class="partner-row__name">Canines for a Change</span>
+                <span class="partner-row__loc">Michigan</span>
+              </span>
+              <span class="partner-row__cta">Visit Site
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="partner-row" href="https://www.snaggletoothcatrescue.com" target="_blank" rel="noopener noreferrer">
+              <span class="partner-row__mark" data-mark="SC" aria-hidden="true">SC</span>
+              <span class="partner-row__main">
+                <span class="partner-row__name">Snaggletooth Cat Rescue</span>
+                <span class="partner-row__loc">Michigan</span>
+              </span>
+              <span class="partner-row__cta">Visit Site
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -225,78 +192,5 @@
     </div>
     <p class="footer-note">A youth-led 501(c)(3) nonprofit organization based in Michigan.</p>
   </footer>
-
-  <script>
-  // Gallery lightbox — vanilla, accessible, no dependencies.
-  (function () {
-    var gallery  = document.getElementById('pf-gallery');
-    var dialog   = document.getElementById('pf-lightbox');
-    var imgEl    = document.getElementById('pf-lb-img');
-    var capEl    = document.getElementById('pf-lb-cap');
-    if (!gallery || !dialog || !imgEl || !capEl) return;
-
-    var items = Array.prototype.slice.call(gallery.querySelectorAll('.gallery__btn'));
-    var index = 0;
-    var lastFocus = null;
-
-    function show(i) {
-      if (!items.length) return;
-      index = ((i % items.length) + items.length) % items.length;
-      var btn = items[index];
-      var full = btn.getAttribute('data-full') || btn.querySelector('img').src;
-      var cap  = btn.getAttribute('data-caption') || '';
-      imgEl.src = full;
-      imgEl.alt = cap || btn.querySelector('img').alt || '';
-      capEl.textContent = cap;
-    }
-
-    function open(i) {
-      lastFocus = document.activeElement;
-      show(i);
-      if (typeof dialog.showModal === 'function') {
-        dialog.showModal();
-      } else {
-        dialog.setAttribute('open', '');
-      }
-      document.body.style.overflow = 'hidden';
-    }
-
-    function close() {
-      if (typeof dialog.close === 'function') dialog.close();
-      else dialog.removeAttribute('open');
-      document.body.style.overflow = '';
-      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
-    }
-
-    items.forEach(function (btn, i) {
-      btn.addEventListener('click', function () { open(i); });
-    });
-
-    dialog.addEventListener('click', function (e) {
-      // Backdrop click closes (clicks on the dialog element itself, outside any child).
-      var rect = dialog.getBoundingClientRect();
-      var inside = e.clientX >= rect.left && e.clientX <= rect.right &&
-                   e.clientY >= rect.top  && e.clientY <= rect.bottom;
-      // dialog.showModal() makes the dialog itself the click target when clicking backdrop.
-      if (e.target === dialog && !inside) close();
-      // Also close when clicking the visible figure margins (target === dialog).
-      if (e.target === dialog) close();
-    });
-
-    dialog.querySelector('[data-lb-close]').addEventListener('click', close);
-    dialog.querySelector('[data-lb-prev]').addEventListener('click', function () { show(index - 1); });
-    dialog.querySelector('[data-lb-next]').addEventListener('click', function () { show(index + 1); });
-
-    document.addEventListener('keydown', function (e) {
-      if (!dialog.open) return;
-      if (e.key === 'ArrowLeft')  { e.preventDefault(); show(index - 1); }
-      if (e.key === 'ArrowRight') { e.preventDefault(); show(index + 1); }
-      // Esc closes natively for <dialog>, but make sure overflow is restored.
-      if (e.key === 'Escape')     { setTimeout(function () { document.body.style.overflow = ''; }, 0); }
-    });
-
-    dialog.addEventListener('close', function () { document.body.style.overflow = ''; });
-  })();
-  </script>
 </body>
 </html>
