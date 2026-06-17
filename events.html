@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Events &amp; Volunteer Opportunities | PAWS FOR A CAUSE</title>
-  <meta name="description" content="Find upcoming events, community programs, supply drives, and volunteer opportunities organized with PAWS FOR A CAUSE animal-welfare partners across Michigan."/>
+  <title>Upcoming Events | PAWS FOR A CAUSE</title>
+  <meta name="description" content="Stay up to date with volunteer opportunities, fundraisers, community outreach events, and other PAWS FOR A CAUSE activities."/>
   <meta name="theme-color" content="#050806"/>
-  <meta property="og:title" content="Events &amp; Volunteer Opportunities | PAWS FOR A CAUSE"/>
-  <meta property="og:description" content="Browse volunteer opportunities and community events with PAWS FOR A CAUSE, a youth-led 501(c)(3) animal-welfare nonprofit in Michigan."/>
+  <meta property="og:title" content="Upcoming Events | PAWS FOR A CAUSE"/>
+  <meta property="og:description" content="Volunteer opportunities, fundraisers, and community outreach events for PAWS FOR A CAUSE, a youth-led 501(c)(3) animal-welfare nonprofit in Michigan."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://pawsforacausemi.org/events.html"/>
   <meta property="og:image" content="images/Homepage.jpg"/>
@@ -16,8 +16,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles.css"/>
-  <link rel="stylesheet" href="assets/events.css"/>
+  <link rel="stylesheet" href="assets/internal.css"/>
   <script src="scripts.js" defer></script>
+
+  <style>
+    /* Centered, responsive Google Calendar embed.
+       Caps at 1200px on desktop, full width on mobile, ≥700px tall on desktop / ≥600px on mobile. */
+    .pf-gcal {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: var(--p-surface, #10151a);
+      border: 1px solid var(--p-line, rgba(255,255,255,.09));
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .pf-gcal iframe {
+      display: block;
+      width: 100%;
+      height: 720px;
+      border: 0;
+      background: #fff; /* the embed is light by default; the dark surround comes from the page */
+    }
+    @media (max-width: 768px) {
+      .pf-gcal iframe { height: 600px; }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -46,37 +70,45 @@
   </header>
 
   <main id="main">
-    <section class="events-page-hero">
-      <div class="container">
-        <p class="events-eyebrow">Get involved</p>
-        <h1>Events &amp; Volunteer Opportunities</h1>
-        <p class="events-page-hero__lead">
-          Explore upcoming events, community programs, supply drives, and volunteer
-          opportunities organized with our animal-welfare partners across Michigan.
-        </p>
-      </div>
-    </section>
 
-    <section class="container events-app-wrap">
-      <!-- Mount point for the events experience (rendered by assets/events.js) -->
-      <div id="pf-events-app">
-        <div id="pf-browse">
-          <div id="pf-controls"></div>
-          <div id="pf-list"></div>
-          <div id="pf-calendar" hidden></div>
+    <!-- Page hero: title + description sit directly above the calendar -->
+    <section class="ip-hero" style="padding-block: clamp(2.5rem,5vw,3.75rem) clamp(1.25rem,2.5vw,1.75rem);">
+      <span class="ip-hero__glow" aria-hidden="true"></span>
+      <div class="ip-container">
+        <div class="ip-hero__inner ip-reveal" style="max-width:64ch;">
+          <p class="ip-eyebrow">Events</p>
+          <h1 class="ip-h1">Upcoming <span class="ip-accent">Events</span></h1>
+          <p class="ip-lede">
+            Stay up to date with volunteer opportunities, fundraisers, community outreach events,
+            and other PAWS FOR A CAUSE activities.
+          </p>
         </div>
-        <div id="pf-detail" hidden></div>
       </div>
-
-      <!-- No-JS fallback -->
-      <noscript>
-        <p style="color:var(--p-text-mute); max-width:60ch; margin:2rem auto;">
-          Our interactive events browser needs JavaScript. To see current opportunities,
-          follow <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener noreferrer" style="color:var(--p-green)">@pawsforacausemi</a>
-          or <a href="contact.html" style="color:var(--p-green)">contact us</a>.
-        </p>
-      </noscript>
     </section>
+
+    <!-- Google Calendar embed: primary focus of the page -->
+    <section class="ip-section ip-section--tight" aria-labelledby="calendar-title" style="padding-block: clamp(0.5rem,1.5vw,1.25rem) clamp(2.5rem,5vw,4rem);">
+      <h2 id="calendar-title" class="ip-visually-hidden" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;">PAWS FOR A CAUSE calendar</h2>
+      <div class="ip-container ip-reveal">
+        <div class="pf-gcal">
+          <iframe
+            src="https://calendar.google.com/calendar/embed?src=92d116d8967f4db2a69264e1140c27968ca325aca1ca411cf076be4b2fd6fbf6%40group.calendar.google.com&amp;ctz=America%2FDetroit"
+            title="PAWS FOR A CAUSE upcoming events calendar"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            scrolling="no">
+          </iframe>
+        </div>
+        <p style="margin-top:1rem; text-align:center; color:var(--p-text-mute, #b9c2bd); font-size:.9rem;">
+          Trouble viewing the calendar?
+          <a class="ip-textlink" href="https://calendar.google.com/calendar/embed?src=92d116d8967f4db2a69264e1140c27968ca325aca1ca411cf076be4b2fd6fbf6%40group.calendar.google.com&amp;ctz=America%2FDetroit" target="_blank" rel="noopener noreferrer">
+            Open it in Google Calendar
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </p>
+      </div>
+    </section>
+
   </main>
 
   <!-- FOOTER -->
@@ -89,9 +121,5 @@
     </div>
     <p class="footer-note">A youth-led 501(c)(3) nonprofit organization based in Michigan.</p>
   </footer>
-
-  <!-- Data first, then the renderer -->
-  <script src="assets/events-data.js" defer></script>
-  <script src="assets/events.js" defer></script>
 </body>
 </html>
