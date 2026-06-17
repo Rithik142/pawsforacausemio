@@ -1188,3 +1188,118 @@
   .jt-card__cta:hover svg,
   .jt-card__cta:focus-visible svg { transform: none; }
 }
+
+/* =========================================================================
+   APPLICATION PAGES — embedded Google Forms (Join the Team sub-pages)
+   Breadcrumbs, back button, branded responsive form embed + loading state.
+   ========================================================================= */
+.app-breadcrumb {
+  font-size: .85rem;
+  color: var(--p-text-mute);
+  margin: 0 0 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4rem;
+}
+.app-breadcrumb a {
+  color: var(--p-text-mute);
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.app-breadcrumb a:hover { color: var(--p-green); }
+.app-breadcrumb__sep { opacity: .5; }
+.app-breadcrumb [aria-current="page"] { color: var(--p-text); font-weight: 600; }
+
+.app-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  margin-top: 1.5rem;
+  padding: .65rem 1.15rem;
+  border-radius: 999px;
+  background: var(--p-surface-2, #151b21);
+  border: 1px solid var(--p-line-strong, rgba(255,255,255,.12));
+  color: var(--p-text);
+  font-weight: 600;
+  font-size: .92rem;
+  text-decoration: none;
+  transition: border-color .25s ease, color .25s ease, transform .25s ease;
+}
+.app-back svg { width: 1.05rem; height: 1.05rem; transition: transform .3s var(--p-ease, cubic-bezier(.23,1,.32,1)); }
+.app-back:hover { border-color: var(--p-green-line, rgba(32,214,154,.4)); color: var(--p-green); }
+.app-back:hover svg { transform: translateX(-3px); }
+
+/* Centered, branded form card */
+.form-embed-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.form-embed {
+  position: relative;
+  width: 100%;
+  background: var(--p-surface, #10151a);
+  border: 1px solid var(--p-line);
+  border-radius: 18px;
+  overflow: hidden;            /* removes horizontal scroll from the iframe */
+  box-shadow: 0 1px 0 rgba(255,255,255,.02), 0 14px 32px -22px rgba(0,0,0,.65);
+}
+.form-embed iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+}
+
+/* Loading state overlay (hidden once the iframe finishes loading) */
+.form-embed__loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: clamp(3rem, 22vh, 9rem);
+  gap: 1rem;
+  background: var(--p-surface, #10151a);
+  color: var(--p-text-mute);
+  font-size: .95rem;
+  z-index: 1;
+  transition: opacity .35s ease;
+}
+.form-embed.is-loaded .form-embed__loading {
+  opacity: 0;
+  pointer-events: none;
+}
+.form-embed__spinner {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 3px solid var(--p-line-strong, rgba(255,255,255,.14));
+  border-top-color: var(--p-green);
+  animation: app-spin .8s linear infinite;
+}
+@keyframes app-spin { to { transform: rotate(360deg); } }
+
+/* Success / reassurance message below each form */
+.app-success {
+  max-width: 960px;
+  margin: 1.5rem auto 0;
+  display: flex;
+  align-items: flex-start;
+  gap: .85rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: 14px;
+  background: rgba(32,214,154,.07);
+  border: 1px solid rgba(32,214,154,.2);
+  color: var(--p-text);
+  line-height: 1.6;
+  font-size: .96rem;
+}
+.app-success svg { flex: none; width: 1.4rem; height: 1.4rem; color: var(--p-green); margin-top: .1rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .app-back, .app-back svg, .form-embed__loading { transition: none !important; }
+  .app-back:hover svg { transform: none; }
+  .form-embed__spinner { animation: none; }
+}
