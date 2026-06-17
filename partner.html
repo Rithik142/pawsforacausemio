@@ -62,47 +62,28 @@
       </div>
     </section>
 
-    <!-- PARTNERSHIP INQUIRY FORM -->
+    <!-- PARTNERSHIP INQUIRY (embedded Google Form) -->
     <section class="ip-section ip-section--tight ip-section--surface" id="inquiry" aria-label="Partnership interest form">
       <div class="ip-container">
-        <div style="max-width:780px; margin: 0 auto;">
-
-          <form class="ip-form ip-reveal" id="partner-form"
-                action="https://formspree.io/f/xgvzaynb" method="POST" accept-charset="UTF-8" novalidate>
-            <input type="hidden" name="_subject" value="New Partnership Inquiry">
-            <div class="ip-form__grid">
-              <div class="ip-field--row">
-                <div class="ip-field"><label for="p-org">Organization / business</label><input id="p-org" type="text" name="org" required></div>
-                <div class="ip-field"><label for="p-name">Your name</label><input id="p-name" type="text" name="contactName" autocomplete="name" required></div>
-              </div>
-              <div class="ip-field--row">
-                <div class="ip-field"><label for="p-email">Email</label><input id="p-email" type="email" name="email" autocomplete="email" required></div>
-                <div class="ip-field"><label for="p-phone">Phone <span class="ip-hint">(optional)</span></label><input id="p-phone" type="tel" name="phone" autocomplete="tel"></div>
-              </div>
-              <div class="ip-field"><label for="p-url">Website / social <span class="ip-hint">(optional)</span></label><input id="p-url" type="url" name="url" placeholder="https://"></div>
-
-              <fieldset class="ip-checks">
-                <legend>How would you like to partner? (select any)</legend>
-                <label class="ip-check"><input type="checkbox" name="partnerType[]" value="volunteers"> Volunteer recruitment / staffing</label>
-                <label class="ip-check"><input type="checkbox" name="partnerType[]" value="event"> Host or co-host an event</label>
-                <label class="ip-check"><input type="checkbox" name="partnerType[]" value="drive"> Supply or food drive</label>
-                <label class="ip-check"><input type="checkbox" name="partnerType[]" value="promo"> Promotion / outreach</label>
-                <label class="ip-check"><input type="checkbox" name="partnerType[]" value="sponsor"> Sponsorship / in-kind support</label>
-                <label class="ip-check"><input type="checkbox" name="partnerType[]" value="other"> Other (describe below)</label>
-              </fieldset>
-
-              <div class="ip-field"><label for="p-msg">Tell us about your idea</label><textarea id="p-msg" name="message" rows="6" placeholder="Goals, timing, and what support would help most."></textarea></div>
-
-              <label class="ip-check"><input type="checkbox" name="consent" id="partner-consent" required> I agree to be contacted by PAWS FOR A CAUSE about partnership opportunities.</label>
-
-              <div>
-                <button type="submit" class="btn btn--primary" id="partner-submit">Send partnership inquiry
-                  <svg class="ip-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-                <p class="ip-form__status" id="partner-status" role="status" aria-live="polite"></p>
-              </div>
+        <div class="form-embed-wrap ip-reveal">
+          <div class="form-embed" id="formEmbed">
+            <div class="form-embed__loading" aria-hidden="true">
+              <span class="form-embed__spinner"></span>
+              <span>Loading partnership form…</span>
             </div>
-          </form>
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSewFCi7B20WAArP7QkKsDfP4C39lodAa7Mwt4OcRk7NhIcL9A/viewform?embedded=true"
+              title="PAWS FOR A CAUSE partnership inquiry form"
+              width="100%" height="1166" frameborder="0" marginheight="0" marginwidth="0"
+              loading="lazy">
+              Loading…
+            </iframe>
+          </div>
+
+          <div class="app-success" role="note">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 12l2 2 4-4M12 21a9 9 0 100-18 9 9 0 000 18z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p>Thank you for your interest in partnering with PAWS FOR A CAUSE. Our team will review your inquiry and follow up soon.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -121,36 +102,12 @@
 
   <script>
   (function () {
-    var form = document.getElementById('partner-form');
-    var status = document.getElementById('partner-status');
-    var btn = document.getElementById('partner-submit');
-    var consent = document.getElementById('partner-consent');
-    if (!form || !status) return;
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!form.checkValidity()) { form.reportValidity(); return; }
-      if (consent && !consent.checked) { status.textContent = 'Please agree to be contacted to continue.'; status.className = 'ip-form__status is-error'; consent.focus(); return; }
-      status.textContent = ''; status.className = 'ip-form__status';
-      if (btn) btn.disabled = true;
-      var original = btn ? btn.innerHTML : '';
-      if (btn) btn.textContent = 'Sending…';
-      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
-        .then(function (res) {
-          if (res.ok) {
-            form.reset();
-            status.textContent = 'Thank you — your inquiry was sent. Our team will follow up soon.';
-            status.classList.add('is-success');
-          } else {
-            status.textContent = 'Something went wrong. Please email pawsforacausemi@gmail.com.';
-            status.classList.add('is-error');
-          }
-        })
-        .catch(function () {
-          status.textContent = 'Network error. Please email pawsforacausemi@gmail.com.';
-          status.classList.add('is-error');
-        })
-        .finally(function () { if (btn) { btn.disabled = false; btn.innerHTML = original; } });
-    });
+    var wrap = document.getElementById('formEmbed');
+    if (!wrap) return;
+    var iframe = wrap.querySelector('iframe');
+    if (!iframe) return;
+    iframe.addEventListener('load', function () { wrap.classList.add('is-loaded'); });
+    setTimeout(function () { wrap.classList.add('is-loaded'); }, 6000);
   })();
   </script>
 </body>
