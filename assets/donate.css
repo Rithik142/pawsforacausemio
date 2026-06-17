@@ -162,3 +162,55 @@
 @media (prefers-reduced-motion: reduce) {
   .amount-btn, .other-card, .donate-submit, .freq-btn { transition: none !important; }
 }
+
+/* =========================================================================
+   STRIPE PAYMENT-LINK CARD — replaces the old amount-picker / fallback panel
+   ========================================================================= */
+.donate-trust-list {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: grid;
+  gap: .75rem;
+}
+.donate-trust-item {
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  align-items: flex-start;
+  gap: .75rem;
+  padding: .85rem 1rem;
+  background: var(--p-surface, #10151a);
+  border: 1px solid var(--p-line, rgba(255,255,255,.08));
+  border-radius: 12px;
+  color: var(--p-text);
+  font-size: .92rem;
+  line-height: 1.45;
+}
+.donate-trust-item__ico {
+  width: 1.4rem;
+  height: 1.4rem;
+  color: var(--p-green);
+  margin-top: .05rem;
+}
+.donate-trust-item strong {
+  font-weight: 700;
+  color: var(--p-text);
+}
+
+/* Anchor variant of the primary donate button — same look, opens hosted Stripe page */
+.donate-submit--link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 100%;
+}
+.donate-submit--link svg { transition: transform .25s ease; }
+.donate-submit--link:hover svg,
+.donate-submit--link:focus-visible svg { transform: translate(2px, -2px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .donate-submit--link svg { transition: none !important; }
+  .donate-submit--link:hover svg,
+  .donate-submit--link:focus-visible svg { transform: none; }
+}

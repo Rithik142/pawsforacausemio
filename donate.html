@@ -25,25 +25,22 @@
 
   <!--
     ============================================================
-    HOW TO ENABLE A REAL DONATION PROVIDER LATER
+    ONLINE GIVING — STRIPE PAYMENT LINK
     ============================================================
-    Online giving is intentionally NOT live yet. No payment
-    provider, keys, or card collection exist on this site.
+    Donations are processed by Stripe via a hosted Stripe Payment
+    Link. No card details are ever collected on this site; Stripe
+    handles all payment processing and automatic email receipts.
 
-    To turn on real online donations later:
-      1. Create a hosted donation page with a provider such as
-         Donorbox, Givebutter, or a Stripe Payment Link.
-      2. Copy the org's PUBLIC hosted donation URL.
-      3. Open assets/donate.js and set, near the top:
-            DONATION_CONFIG.provider = "donorbox"; // or "givebutter" / "stripe"
-            DONATION_CONFIG.url      = "https://YOUR-REAL-DONATION-URL";
-      4. Save. The Donate button will then open that hosted page
-         (with the chosen amount/frequency appended as query
-         params when the provider supports them).
-      5. Optionally point the provider's post-donation redirect
-         at /donate-success.html (donate-success.html).
-    No secret keys are stored in this static site; the hosted
-    provider handles all payment processing and receipts.
+    Stripe Payment Links cannot be embedded in an iframe (Stripe
+    sends 'Content-Security-Policy: frame-ancestors self' for
+    PCI/anti-clickjacking reasons), so the "Donate Now" button
+    opens the hosted Stripe page in a new tab instead.
+
+    Current payment link:
+      https://buy.stripe.com/dRm9ATauZ8l51RO5ADf7i00
+
+    To change it later, update every occurrence of that URL in
+    this file (search "PAWS_DONATE_LINK" anchor comment).
     ============================================================
   -->
 </head>
@@ -151,80 +148,39 @@
         <!-- RIGHT: donation card -->
         <aside class="donate-card" aria-labelledby="donate-card-title">
           <div class="donate-card__head">
-            <h2 id="donate-card-title">Make a donation</h2>
-            <p>Choose an amount and frequency to get started.</p>
+            <p class="donate-eyebrow donate-eyebrow--pink" style="justify-content:flex-start;">Make a donation</p>
+            <h2 id="donate-card-title">Support animal welfare</h2>
+            <p>Your gift powers volunteer coordination, supply drives, community programs, and outreach across Michigan.</p>
           </div>
 
-          <!-- One-time vs Monthly toggle -->
-          <div class="donate-toggle" role="radiogroup" aria-label="Donation frequency">
-            <button type="button" class="freq-btn is-selected" data-freq="one-time" role="radio" aria-checked="true">
-              One-time
-            </button>
-            <button type="button" class="freq-btn" data-freq="monthly" role="radio" aria-checked="false">
-              Monthly
-            </button>
-          </div>
+          <!-- Trust indicators -->
+          <ul class="donate-trust-list" aria-label="Donation security and nonprofit status">
+            <li class="donate-trust-item">
+              <svg class="donate-trust-item__ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span><strong>Secure payment</strong><br>Processed by Stripe on its hosted page</span>
+            </li>
+            <li class="donate-trust-item">
+              <svg class="donate-trust-item__ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2"/></svg>
+              <span><strong>No card data stored here</strong><br>Card details never touch this website</span>
+            </li>
+            <li class="donate-trust-item">
+              <svg class="donate-trust-item__ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-4.35-9.5-8.5C.5 9 2.5 5.5 6 5.5c2 0 3.2 1.1 4 2.3.8-1.2 2-2.3 4-2.3 3.5 0 5.5 3.5 3.5 7-2.5 4.15-9.5 8.5-9.5 8.5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+              <span><strong>501(c)(3) nonprofit</strong><br>Registered in Michigan; receipt emailed by Stripe</span>
+            </li>
+          </ul>
 
-          <!-- Amount presets -->
-          <fieldset class="donate-amounts">
-            <legend>Select an amount</legend>
-            <div class="amount-grid" role="radiogroup" aria-label="Donation amount">
-              <button type="button" class="amount-btn is-selected" data-amount="10" role="radio" aria-checked="true">$10</button>
-              <button type="button" class="amount-btn" data-amount="25" role="radio" aria-checked="false">$25</button>
-              <button type="button" class="amount-btn" data-amount="50" role="radio" aria-checked="false">$50</button>
-              <button type="button" class="amount-btn" data-amount="100" role="radio" aria-checked="false">$100</button>
-              <button type="button" class="amount-btn amount-btn--custom" data-amount="custom" role="radio" aria-checked="false">Custom</button>
-            </div>
-          </fieldset>
-
-          <!-- Custom amount input -->
-          <div class="donate-custom" id="customWrap" hidden>
-            <label for="customAmount">Custom amount (USD)</label>
-            <div class="donate-custom__field">
-              <span class="donate-custom__currency" aria-hidden="true">$</span>
-              <input
-                type="number"
-                id="customAmount"
-                name="customAmount"
-                inputmode="decimal"
-                min="1"
-                max="100000"
-                step="1"
-                placeholder="Enter amount"
-                aria-describedby="customError"
-              />
-            </div>
-            <p class="donate-error" id="customError" role="alert" aria-live="polite"></p>
-          </div>
-
-          <!-- Summary -->
-          <p class="donate-summary" aria-live="polite">
-            You're giving <strong id="summaryAmount">$10</strong> <span id="summaryFreq">one time</span>.
-          </p>
-
-          <!-- Primary action -->
-          <button type="button" class="donate-submit" id="donateBtn">
-            Donate
-          </button>
-
-          <!-- Configuration-required / fallback panel (shown when no provider is set) -->
-          <div class="donate-fallback" id="donateFallback">
-            <p class="donate-fallback__title">Online giving is being set up</p>
-            <p class="donate-fallback__text">
-              We're putting secure online giving in place. In the meantime, you can still help
-              right now — reach out about giving or jump straight into our programs.
-            </p>
-            <div class="donate-fallback__actions">
-              <a class="donate-fallback__btn donate-fallback__btn--primary"
-                 href="mailto:pawsforacausemi@gmail.com?subject=Donation%20Inquiry">
-                Email us about giving
-              </a>
-            </div>
-          </div>
+          <!-- Primary action: opens the hosted Stripe page (Payment Links can't be iframed). -->
+          <!-- PAWS_DONATE_LINK -->
+          <a class="donate-submit donate-submit--link"
+             href="https://buy.stripe.com/dRm9ATauZ8l51RO5ADf7i00"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Donate to PAWS FOR A CAUSE securely via Stripe (opens in a new tab)">
+            Donate Now
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" style="width:1.1rem;height:1.1rem;margin-left:.5rem;vertical-align:-3px"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
 
           <p class="donate-card__secure">
-            Card details are never collected on this site. When online giving is enabled,
-            payments are handled securely by a trusted donation provider.
+            Donations are processed on a secure Stripe page. An email receipt is sent automatically after a successful gift.
           </p>
         </aside>
 
@@ -240,9 +196,10 @@
           <details class="faq-item">
             <summary>Can I donate online right now?</summary>
             <p>
-              Secure online giving is being set up. Until it's live, you can email us about giving
-              at <a href="mailto:pawsforacausemi@gmail.com?subject=Donation%20Inquiry">pawsforacausemi@gmail.com</a>,
-              or support us by volunteering, partnering, or contributing to a supply drive.
+              Yes. Click the <strong>Donate Now</strong> button above to open our secure
+              Stripe donation page in a new tab. Stripe handles all card processing and emails
+              a receipt automatically after a successful gift. Questions? Email
+              <a href="mailto:pawsforacausemi@gmail.com?subject=Donation%20Inquiry">pawsforacausemi@gmail.com</a>.
             </p>
           </details>
           <details class="faq-item">
@@ -263,15 +220,15 @@
           <details class="faq-item">
             <summary>Will I receive a receipt?</summary>
             <p>
-              When online giving is enabled, an email receipt is sent automatically by our donation
-              provider after a successful gift. For other contributions, email us and we'll follow up.
+              Yes — Stripe automatically emails a receipt to the address you enter at checkout.
+              For other kinds of contributions, email us and we'll follow up.
             </p>
           </details>
           <details class="faq-item">
             <summary>Is my payment information safe?</summary>
             <p>
-              We never collect card details on this website. Online payments will be processed by a
-              trusted third-party donation provider on its own secure, hosted page.
+              We never collect card details on this website. Payments are processed by Stripe on
+              its own PCI-compliant hosted page.
             </p>
           </details>
         </div>
@@ -310,8 +267,6 @@
     </div>
     <p class="footer-note">A youth-led 501(c)(3) nonprofit organization based in Michigan.</p>
   </footer>
-
-  <script src="assets/donate.js" defer></script>
 
 </body>
 </html>
