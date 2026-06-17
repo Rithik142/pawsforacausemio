@@ -44,8 +44,8 @@
 
   <main id="main">
 
-    <!-- UNIFIED: headline + combined description + supporting image -->
-    <section class="ip-hero" style="padding-block: clamp(2.5rem,5vw,3.75rem) clamp(1.5rem,3vw,2rem);">
+    <!-- INTRO (text only — buttons + supporting image removed; replaced by the GALLERY below) -->
+    <section class="ip-hero" style="padding-block: clamp(2.5rem,5vw,3.75rem) clamp(1.25rem,2.5vw,1.5rem);">
       <span class="ip-hero__glow" aria-hidden="true"></span>
       <div class="ip-container">
         <div class="ip-hero__inner ip-reveal" style="max-width:64ch;">
@@ -57,21 +57,103 @@
             community organizations, and help our partners reach more people and animals through
             events, supply drives, fundraising, and outreach.
           </p>
-          <div class="ip-hero__cta">
-            <a href="partner.html" class="btn btn--primary">Partner with us
-              <svg class="ip-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a href="events.html" class="btn btn--secondary">View opportunities</a>
-          </div>
         </div>
-
-        <!-- Smaller supporting image (short, responsive band) -->
-        <figure class="ip-figure ip-reveal d1" style="margin-top:1.5rem; max-height:220px; aspect-ratio:16/5;">
-          <img src="images/Gold.jpg" alt="A dog supported through a partner animal-welfare organization" loading="lazy" style="object-position:center 35%;" />
-          <figcaption class="ip-figure__tag">Supporting local shelters &amp; rescues</figcaption>
-        </figure>
       </div>
     </section>
+
+    <!-- ============== GALLERY ==============
+         Pinterest-style masonry of 9 PAWS FOR A CAUSE photos with hover
+         captions and a native <dialog> lightbox (Esc / ← → / click backdrop).
+
+         HOW TO SWAP IN YOUR REAL 9 UPLOADED PHOTOS LATER:
+         1) Drop the 9 files into /images/ (any sensible filenames).
+         2) Update the 9 <img src=...> values in this gallery only.
+         3) Update each card's data-caption / aria-label / alt text to match.
+         No other changes needed — masonry + lightbox just work.
+         The current photos are the best-available repo images used as visual
+         placeholders so the section is fully designed and live today.
+    ====================================================================== -->
+    <section class="ip-section ip-section--tight" aria-labelledby="gallery-title">
+      <div class="ip-container">
+        <div class="ip-reveal" style="max-width:64ch; margin-bottom:1.6rem;">
+          <div class="ip-rule" aria-hidden="true"></div>
+          <p class="ip-eyebrow">Gallery</p>
+          <h2 id="gallery-title" class="ip-h2">Moments from our work</h2>
+          <p class="ip-body">
+            See our volunteers, community partners, shelters, rescues, and animals that make our
+            mission possible.
+          </p>
+        </div>
+
+        <ul class="gallery ip-reveal" id="pf-gallery" aria-label="PAWS FOR A CAUSE photo gallery">
+          <li class="gallery__item">
+            <button type="button" class="gallery__btn" data-full="images/IMG_0575.JPG" data-caption="Community Events" aria-label="Community Events — view larger">
+              <img src="images/IMG_0575.JPG" alt="PAWS FOR A CAUSE volunteers at a community event" loading="lazy" />
+              <span class="gallery__cap"><span>Community Events</span></span>
+            </button>
+          </li>
+          <li class="gallery__item">
+            <button type="button" class="gallery__btn" data-full="images/IMG_2073 copy.jpg" data-caption="Volunteer Outreach" aria-label="Volunteer Outreach — view larger">
+              <img src="images/IMG_2073 copy.jpg" alt="PAWS FOR A CAUSE volunteers in the community" loading="lazy" />
+              <span class="gallery__cap"><span>Volunteer Outreach</span></span>
+            </button>
+          </li>
+          <li class="gallery__item">
+            <button type="button" class="gallery__btn" data-full="images/Homepage.jpg" data-caption="Animal Welfare Programs" aria-label="Animal Welfare Programs — view larger">
+              <img src="images/Homepage.jpg" alt="A rescue dog supported by partner organizations" loading="lazy" />
+              <span class="gallery__cap"><span>Animal Welfare Programs</span></span>
+            </button>
+          </li>
+          <li class="gallery__item">
+            <button type="button" class="gallery__btn" data-full="images/Indian.jpg" data-caption="Fundraising Activities" aria-label="Fundraising Activities — view larger">
+              <img src="images/Indian.jpg" alt="Community fundraising activity" loading="lazy" />
+              <span class="gallery__cap"><span>Fundraising Activities</span></span>
+            </button>
+          </li>
+          <li class="gallery__item">
+            <button type="button" class="gallery__btn" data-full="images/Dogwoman.jpg" data-caption="Shelter Visits" aria-label="Shelter Visits — view larger">
+              <img src="images/Dogwoman.jpg" alt="A volunteer spending time with a dog at a partner shelter" loading="lazy" />
+              <span class="gallery__cap"><span>Shelter Visits</span></span>
+            </button>
+          </li>
+          <li class="gallery__item">
+            <button type="button" class="gallery__btn" data-full="images/flowerdog.jpg" data-caption="Adoption Awareness" aria-label="Adoption Awareness — view larger">
+              <img src="images/flowerdog.jpg" alt="An adoptable dog with a partner organization" loading="lazy" />
+              <span class="gallery__cap"><span>Adoption Awareness</span></span>
+            </button>
+          </li>
+          <li class="gallery__item">
+            <button type="button" class="gallery__btn" data-full="images/Gold.jpg" data-caption="Rescue Partnerships" aria-label="Rescue Partnerships — view larger">
+              <img src="images/Gold.jpg" alt="A dog supported through a rescue partnership" loading="lazy" />
+              <span class="gallery__cap"><span>Rescue Partnerships</span></span>
+            </button>
+          </li>
+          <li class="gallery__item">
+            <button type="button" class="gallery__btn" data-full="images/graydog.jpg" data-caption="Supply Drives" aria-label="Supply Drives — view larger">
+              <img src="images/graydog.jpg" alt="An animal receiving care through supply support" loading="lazy" />
+              <span class="gallery__cap"><span>Supply Drives</span></span>
+            </button>
+          </li>
+          <li class="gallery__item">
+            <button type="button" class="gallery__btn" data-full="images/cutedog.jpg" data-caption="Youth Leadership" aria-label="Youth Leadership — view larger">
+              <img src="images/cutedog.jpg" alt="A rescue dog cared for by a partner organization" loading="lazy" />
+              <span class="gallery__cap"><span>Youth Leadership</span></span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Lightbox dialog (single instance, controlled by inline script below) -->
+    <dialog class="gallery-lightbox" id="pf-lightbox" aria-label="Image viewer">
+      <button type="button" class="gallery-lightbox__close" data-lb-close aria-label="Close (Esc)">&times;</button>
+      <button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--prev" data-lb-prev aria-label="Previous image (←)">&#8249;</button>
+      <figure class="gallery-lightbox__figure">
+        <img alt="" id="pf-lb-img" />
+        <figcaption id="pf-lb-cap"></figcaption>
+      </figure>
+      <button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--next" data-lb-next aria-label="Next image (→)">&#8250;</button>
+    </dialog>
 
     <!-- PRIMARY CONTENT: what we do / how we help (merged) -->
     <section class="ip-section ip-section--tight ip-section--surface">
@@ -143,5 +225,78 @@
     </div>
     <p class="footer-note">A youth-led 501(c)(3) nonprofit organization based in Michigan.</p>
   </footer>
+
+  <script>
+  // Gallery lightbox — vanilla, accessible, no dependencies.
+  (function () {
+    var gallery  = document.getElementById('pf-gallery');
+    var dialog   = document.getElementById('pf-lightbox');
+    var imgEl    = document.getElementById('pf-lb-img');
+    var capEl    = document.getElementById('pf-lb-cap');
+    if (!gallery || !dialog || !imgEl || !capEl) return;
+
+    var items = Array.prototype.slice.call(gallery.querySelectorAll('.gallery__btn'));
+    var index = 0;
+    var lastFocus = null;
+
+    function show(i) {
+      if (!items.length) return;
+      index = ((i % items.length) + items.length) % items.length;
+      var btn = items[index];
+      var full = btn.getAttribute('data-full') || btn.querySelector('img').src;
+      var cap  = btn.getAttribute('data-caption') || '';
+      imgEl.src = full;
+      imgEl.alt = cap || btn.querySelector('img').alt || '';
+      capEl.textContent = cap;
+    }
+
+    function open(i) {
+      lastFocus = document.activeElement;
+      show(i);
+      if (typeof dialog.showModal === 'function') {
+        dialog.showModal();
+      } else {
+        dialog.setAttribute('open', '');
+      }
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      if (typeof dialog.close === 'function') dialog.close();
+      else dialog.removeAttribute('open');
+      document.body.style.overflow = '';
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    }
+
+    items.forEach(function (btn, i) {
+      btn.addEventListener('click', function () { open(i); });
+    });
+
+    dialog.addEventListener('click', function (e) {
+      // Backdrop click closes (clicks on the dialog element itself, outside any child).
+      var rect = dialog.getBoundingClientRect();
+      var inside = e.clientX >= rect.left && e.clientX <= rect.right &&
+                   e.clientY >= rect.top  && e.clientY <= rect.bottom;
+      // dialog.showModal() makes the dialog itself the click target when clicking backdrop.
+      if (e.target === dialog && !inside) close();
+      // Also close when clicking the visible figure margins (target === dialog).
+      if (e.target === dialog) close();
+    });
+
+    dialog.querySelector('[data-lb-close]').addEventListener('click', close);
+    dialog.querySelector('[data-lb-prev]').addEventListener('click', function () { show(index - 1); });
+    dialog.querySelector('[data-lb-next]').addEventListener('click', function () { show(index + 1); });
+
+    document.addEventListener('keydown', function (e) {
+      if (!dialog.open) return;
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); show(index - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); show(index + 1); }
+      // Esc closes natively for <dialog>, but make sure overflow is restored.
+      if (e.key === 'Escape')     { setTimeout(function () { document.body.style.overflow = ''; }, 0); }
+    });
+
+    dialog.addEventListener('close', function () { document.body.style.overflow = ''; });
+  })();
+  </script>
 </body>
 </html>
