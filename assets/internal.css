@@ -1401,3 +1401,18 @@
   margin-top: auto;
 }
 .vol-card .form-embed__loading { background: var(--p-surface, #10151a); border-radius: 12px; }
+
+/* Volunteer hero — two equal-width primary actions (stack on mobile) */
+.vol-hero-cta {
+  max-width: 560px;
+  align-items: stretch;
+}
+.vol-hero-cta .btn {
+  flex: 1 1 0;
+  justify-content: center;
+  text-align: center;
+}
+@media (max-width: 520px) {
+  .vol-hero-cta { flex-direction: column; }
+  .vol-hero-cta .btn { width: 100%; }
+}
