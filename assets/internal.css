@@ -1328,7 +1328,6 @@
 .vol-card {
   display: flex;
   flex-direction: column;
-  height: 100%;
   padding: clamp(1.4rem, 2.5vw, 2rem);
   border-radius: 18px;
   border: 1px solid var(--p-line-strong, rgba(255,255,255,.12));
@@ -1398,7 +1397,7 @@
   background: transparent;
   box-shadow: none;
   border-radius: 12px;
-  margin-top: auto;
+  margin-top: 0;
 }
 .vol-card .form-embed__loading { background: var(--p-surface, #10151a); border-radius: 12px; }
 
