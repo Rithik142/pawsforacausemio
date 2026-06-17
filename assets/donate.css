@@ -214,3 +214,67 @@
   .donate-submit--link:hover svg,
   .donate-submit--link:focus-visible svg { transform: none; }
 }
+
+/* =========================================================================
+   SIMPLIFIED LAYOUT — narrow shared width for FAQ + transparency,
+   tighter padding, polished compact transparency note, slightly elevated
+   donation card to make it the visual focal point.
+   ========================================================================= */
+
+/* Make the donation card the focal point: subtle elevation + green-tinted edge */
+.donate-card {
+  box-shadow:
+    0 0 0 1px rgba(32,214,154,.18) inset,
+    0 24px 48px -24px rgba(32,214,154,.22),
+    0 18px 36px -22px rgba(0,0,0,.7);
+}
+.donate-card__head h2 { font-size: clamp(1.45rem, 2vw, 1.65rem); }
+
+/* Narrow shared width for the FAQ + transparency block (matches the donation
+   card column above; visually anchors them as supporting content). */
+.donate-section__inner--narrow { max-width: 760px; }
+
+/* FAQ — compact: tighter padding above/below, no big section break */
+.donate-faq--compact {
+  padding-top: clamp(1.25rem, 3vw, 2rem);
+  padding-bottom: clamp(1rem, 2.5vw, 1.5rem);
+  background: transparent;
+}
+.donate-faq--compact h2 {
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  margin: 0 0 1rem;
+}
+.donate-faq--compact .faq-list { max-width: none; gap: .5rem; }
+.donate-faq--compact .faq-item { padding: 0 1.1rem; }
+.donate-faq--compact .faq-item summary { padding: .8rem 0; font-size: .98rem; }
+.donate-faq--compact .faq-item p { font-size: .92rem; margin: 0 0 .85rem; }
+
+/* Transparency — compact informational card, sits directly under the FAQ */
+.donate-transparency--compact {
+  padding-top: clamp(0.5rem, 1.5vw, 1rem);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+  background: transparent;
+}
+.transparency-card {
+  background: var(--p-surface-2, #151b21);
+  border: 1px solid var(--p-line, rgba(255,255,255,.08));
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+}
+.transparency-card h3 {
+  margin: 0 0 .6rem;
+  font-size: .76rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--p-text-dim, #8b96a0);
+}
+.transparency-card p {
+  margin: 0 0 .55rem;
+  color: var(--p-text-mute);
+  font-size: .9rem;
+  line-height: 1.6;
+}
+.transparency-card p:last-child { margin-bottom: 0; }
+.transparency-card__meta { font-size: .86rem; }
+.transparency-card a { color: var(--p-green); }
