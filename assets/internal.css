@@ -872,3 +872,120 @@
   .about-gallery__item:hover { transform: none; }
   .about-gallery__item:hover img { transform: none; }
 }
+
+/* =========================================================================
+   GET INVOLVED — 4 action cards (2×2 grid). involved.html
+   Each card is a full-card call-to-action link. Premium dark aesthetic.
+   ========================================================================= */
+.engage-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1rem, 2.2vw, 1.5rem);
+}
+@media (max-width: 720px) { .engage-grid { grid-template-columns: 1fr; } }
+
+.engage-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  height: 100%;
+  padding: clamp(1.6rem, 3.2vw, 2.5rem);
+  text-decoration: none;
+  color: inherit;
+  background: var(--p-surface, #10151a);
+  border: 1px solid var(--p-line);
+  border-radius: var(--p-radius, 14px);
+  box-shadow: 0 1px 0 rgba(255,255,255,.02), 0 12px 28px -20px rgba(0,0,0,.6);
+  transition:
+    transform .3s var(--p-ease, cubic-bezier(.23,1,.32,1)),
+    border-color .25s ease,
+    background .25s ease,
+    box-shadow .3s var(--p-ease, cubic-bezier(.23,1,.32,1));
+}
+.engage-card:hover,
+.engage-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--p-green-line, rgba(32,214,154,.4));
+  background: var(--p-surface-2, #151b21);
+  box-shadow:
+    0 0 0 1px rgba(32,214,154,.16) inset,
+    0 24px 46px -24px rgba(32,214,154,.28),
+    0 18px 34px -22px rgba(0,0,0,.7);
+}
+.engage-card:focus-visible {
+  outline: 2px solid var(--p-green);
+  outline-offset: 3px;
+}
+
+.engage-card__icon {
+  display: grid;
+  place-items: center;
+  width: clamp(3rem, 6vw, 3.6rem);
+  height: clamp(3rem, 6vw, 3.6rem);
+  border-radius: 14px;
+  background: linear-gradient(150deg, rgba(32,214,154,.18), rgba(241,91,166,.14));
+  border: 1px solid var(--p-line);
+  color: var(--p-green);
+  transition: border-color .25s ease, transform .3s var(--p-ease, cubic-bezier(.23,1,.32,1));
+}
+.engage-card__icon svg { width: 1.7rem; height: 1.7rem; }
+.engage-card:hover .engage-card__icon {
+  border-color: var(--p-green-line, rgba(32,214,154,.45));
+  transform: scale(1.05);
+}
+
+.engage-card__title {
+  margin: 0;
+  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--p-text);
+}
+.engage-card__desc {
+  margin: 0;
+  flex: 1 0 auto;
+  color: var(--p-text-mute);
+  line-height: 1.65;
+}
+
+.engage-card__btn {
+  margin-top: .35rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .7rem 1.25rem;
+  border-radius: 999px;
+  background: rgba(32,214,154,.12);
+  border: 1px solid var(--p-green-line, rgba(32,214,154,.35));
+  color: var(--p-green);
+  font-weight: 700;
+  font-size: .95rem;
+  transition: background .25s ease, color .25s ease, transform .25s ease;
+}
+.engage-card__btn svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  transition: transform .3s var(--p-ease, cubic-bezier(.23,1,.32,1));
+}
+.engage-card:hover .engage-card__btn,
+.engage-card:focus-visible .engage-card__btn {
+  background: var(--p-green);
+  color: #04130d;
+}
+.engage-card:hover .engage-card__btn svg,
+.engage-card:focus-visible .engage-card__btn svg {
+  transform: translateX(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .engage-card,
+  .engage-card__icon,
+  .engage-card__btn,
+  .engage-card__btn svg { transition: none !important; }
+  .engage-card:hover,
+  .engage-card:focus-visible { transform: none; }
+  .engage-card:hover .engage-card__icon { transform: none; }
+  .engage-card:hover .engage-card__btn svg,
+  .engage-card:focus-visible .engage-card__btn svg { transform: none; }
+}
