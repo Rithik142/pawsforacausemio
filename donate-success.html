@@ -37,7 +37,7 @@
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </nav>
-    <a href="https://buy.stripe.com/dRm9ATauZ8l51RO5ADf7i00" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate</a>
+    <a href="donate.html" class="btn-donate">Donate</a>
     <div class="hamburger" aria-label="Toggle navigation">☰</div>
   </header>
 
@@ -45,15 +45,14 @@
     <section class="donate-hero" aria-labelledby="ty-title">
       <div class="donate-hero__inner" style="max-width:720px; text-align:center; margin:0 auto;">
         <p class="donate-eyebrow" style="justify-content:center;">Thank you</p>
-        <h1 id="ty-title">Your support makes a difference</h1>
+        <h1 id="ty-title">Thank you for standing up for local animals.</h1>
         <p class="donate-hero__lead" style="margin:0 auto;">
-          Thank you for supporting PAWS FOR A CAUSE. Gifts like yours help a youth-led team
-          empower volunteers and strengthen the animal-welfare organizations that care for
-          animals across Michigan.
+          Your support helps PAWS FOR A CAUSE connect volunteers with shelters and rescues,
+          strengthen community programs, and expand animal-welfare outreach across Michigan.
         </p>
         <p class="donate-card__secure" style="margin-top:1.2rem;">
-          When online giving is enabled, an email receipt is sent automatically by our
-          donation provider after a successful gift.
+          Stripe emails a receipt to the address you used at checkout. For monthly gifts, that email
+          includes a secure link to manage or cancel your recurring donation at any time.
         </p>
 
         <div class="donate-fallback__actions" style="justify-content:center; margin-top:2rem;">
@@ -63,6 +62,9 @@
         </div>
 
         <p style="margin-top:1.5rem;">
+          <a id="manage-giving" class="other-card__link" href="#" hidden>Manage my monthly giving →</a>
+        </p>
+        <p style="margin-top:1rem;">
           <a class="other-card__link"
              href="https://www.instagram.com/pawsforacausemi"
              target="_blank" rel="noopener noreferrer">
@@ -82,5 +84,16 @@
     </div>
     <p class="footer-note">A youth-led 501(c)(3) nonprofit organization based in Michigan.</p>
   </footer>
+
+  <script src="assets/donate-config.js"></script>
+  <script>
+    /* Reveal the "Manage my monthly giving" link only when a Stripe Customer
+       Portal URL is configured. */
+    (function () {
+      var cfg = window.PAWS_DONATE || {};
+      var a = document.getElementById("manage-giving");
+      if (a && cfg.managePortalUrl) { a.href = cfg.managePortalUrl; a.target = "_blank"; a.rel = "noopener noreferrer"; a.hidden = false; }
+    })();
+  </script>
 </body>
 </html>

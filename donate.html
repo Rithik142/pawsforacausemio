@@ -3,44 +3,39 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Donate | PAWS FOR A CAUSE — Support Our Mission</title>
-  <meta name="description" content="Support PAWS FOR A CAUSE, a youth-led 501(c)(3) animal-welfare nonprofit in Michigan. Your gift helps empower volunteers, strengthen supply drives, and grow community programs."/>
+  <title>Donate | PAWS FOR A CAUSE</title>
+  <meta name="description" content="Support PAWS FOR A CAUSE with a monthly or one-time donation and help strengthen local animal-welfare programs, volunteer opportunities, shelter partnerships, and community outreach."/>
   <meta name="theme-color" content="#050806"/>
+  <link rel="canonical" href="https://pawsforacausemi.org/donate.html"/>
 
   <meta property="og:title" content="Donate | PAWS FOR A CAUSE"/>
-  <meta property="og:description" content="Help empower volunteers and strengthen animal-welfare partners across Michigan. Every gift supports outreach, supply drives, and community programs."/>
+  <meta property="og:description" content="Make a monthly or one-time gift to a youth-led 501(c)(3) animal-welfare nonprofit in Michigan. Every gift supports volunteers, shelter and rescue partners, supply drives, education, and community events."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://pawsforacausemi.org/donate.html"/>
   <meta property="og:image" content="images/Homepage.jpg"/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="assets/internal.css"/>
   <link rel="stylesheet" href="assets/donate.css"/>
   <script src="scripts.js" defer></script>
 
   <!--
     ============================================================
-    ONLINE GIVING — STRIPE PAYMENT LINK
-    ============================================================
-    Donations are processed by Stripe via a hosted Stripe Payment
-    Link. No card details are ever collected on this site; Stripe
-    handles all payment processing and automatic email receipts.
+    ONLINE GIVING — STRIPE PAYMENT LINKS (static-site model)
+    ------------------------------------------------------------
+    This is a static site with no server, so all payment handling
+    lives with Stripe. The page is a selector; the "Continue to
+    secure checkout" button opens a Stripe-hosted Payment Link in
+    a new tab (Payment Links can't be iframed for PCI reasons).
+    Stripe validates the amount, takes the card, emails the
+    receipt, and manages/cancels monthly gifts via its hosted
+    Customer Portal. No card data or secret keys live on this site.
 
-    Stripe Payment Links cannot be embedded in an iframe (Stripe
-    sends 'Content-Security-Policy: frame-ancestors self' for
-    PCI/anti-clickjacking reasons), so the "Donate Now" button
-    opens the hosted Stripe page in a new tab instead.
-
-    Current payment link:
-      https://buy.stripe.com/dRm9ATauZ8l51RO5ADf7i00
-
-    To change it later, update every occurrence of that URL in
-    this file (search "PAWS_DONATE_LINK" anchor comment).
+    All tiers, amounts, limits, org legal info, and Stripe link
+    URLs are configured in ONE place: assets/donate-config.js
     ============================================================
   -->
 </head>
@@ -69,86 +64,205 @@
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </nav>
-    <a href="https://buy.stripe.com/dRm9ATauZ8l51RO5ADf7i00" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate</a>
+    <a href="#give" class="btn-donate">Donate</a>
     <div class="hamburger" aria-label="Toggle navigation">☰</div>
   </header>
 
   <main id="main" class="donate">
 
-    <!-- HERO -->
-    <section class="donate-hero" aria-labelledby="donate-hero-title">
-      <div class="donate-hero__inner">
-        <p class="donate-eyebrow">Youth-led 501(c)(3) nonprofit · Michigan</p>
-        <h1 id="donate-hero-title">Support Our Mission</h1>
-        <p class="donate-hero__lead">
-          Your generosity helps a youth-led team empower volunteers and strengthen the
-          animal-welfare organizations that care for animals across Michigan. Every gift
-          supports outreach, supply drives, and community programs that make a real difference.
+    <!-- A. HERO -->
+    <section class="dn-hero" aria-labelledby="dn-hero-title">
+      <span class="dn-hero__glow" aria-hidden="true"></span>
+      <div class="dn-wrap dn-hero__inner ip-reveal">
+        <p class="donate-eyebrow">Youth-led 501(c)(3) nonprofit · Okemos, MI</p>
+        <h1 id="dn-hero-title">Stand with local animals —<br><span class="dn-accent">and the students fighting for them.</span></h1>
+        <p class="dn-hero__lead">
+          PAWS FOR A CAUSE is a youth-led nonprofit connecting volunteers, shelters, rescues, and
+          communities. Your support helps us organize volunteers, promote animal-welfare education,
+          assist shelter and rescue partners, run supply drives, and create meaningful community events.
         </p>
+        <div class="dn-hero__cta">
+          <a href="#give" class="btn btn--primary" data-set-freq="monthly">Donate Monthly</a>
+          <a href="#give" class="btn btn--secondary" data-set-freq="onetime">Make a One-Time Gift</a>
+        </div>
       </div>
     </section>
 
-    <!-- TWO-COLUMN GIVING LAYOUT -->
-    <section class="donate-layout" aria-label="Make a donation">
-      <div class="donate-grid">
+    <!-- B. IMPACT CATEGORIES -->
+    <section class="dn-impact" aria-labelledby="dn-impact-title">
+      <div class="dn-wrap">
+        <h2 id="dn-impact-title" class="dn-impact__title">What your support makes possible</h2>
+        <ul class="dn-impact__grid">
+          <li class="dn-impact__item">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Recruit &amp; organize volunteers</span>
+          </li>
+          <li class="dn-impact__item">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 5a2 2 0 012-2h6v16H5a2 2 0 00-2 2V5zM21 5a2 2 0 00-2-2h-6v16h6a2 2 0 012 2V5z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Support animal-welfare education</span>
+          </li>
+          <li class="dn-impact__item">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 11l9-7 9 7M5 10v10h14V10M9.5 20v-5h5v5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Promote shelters &amp; rescues</span>
+          </li>
+          <li class="dn-impact__item">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7l9-4 9 4v10l-9 4-9-4V7zM3 7l9 4 9-4M12 11v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Coordinate supply drives</span>
+          </li>
+          <li class="dn-impact__item">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M3 9h18M8 2v4M16 2v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            <span>Organize community events</span>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-        <!-- LEFT: why give (single combined paragraph) + small supporting visual -->
-        <div class="donate-mission">
-          <p class="donate-eyebrow donate-eyebrow--pink">Why give</p>
-          <h2>Why Give</h2>
-          <p class="donate-lead-copy">
-            PAWS FOR A CAUSE is a youth-led 501(c)(3) nonprofit in Michigan that connects volunteers
-            with shelters, rescues, and community organizations. Your gift fuels volunteer
-            coordination, supply drives, and outreach — the everyday work that helps our partners
-            care for more animals and reach more people across our community.
+    <!-- C + D. GIVING SELECTOR -->
+    <section class="dn-give" id="give" aria-labelledby="dn-give-title">
+      <div class="dn-wrap">
+        <div class="dn-give__head ip-reveal">
+          <p class="donate-eyebrow donate-eyebrow--pink" style="justify-content:center;">Make your gift</p>
+          <h2 id="dn-give-title">Join the PAWS Monthly Pack</h2>
+          <p class="dn-give__sub">
+            Recurring gifts give PAWS FOR A CAUSE dependable support throughout the year and help us
+            plan volunteer programs, shelter partnerships, supply drives, educational initiatives,
+            and community events. Prefer to give once? Switch to a one-time gift below.
           </p>
-
-          <figure class="donate-support">
-            <img src="images/donate-support.jpg"
-                 alt="A rescue cat resting at one of our partner animal shelters"
-                 loading="lazy" width="1148" height="875" />
-          </figure>
         </div>
 
-        <!-- RIGHT: donation card -->
-        <aside class="donate-card" aria-labelledby="donate-card-title">
-          <div class="donate-card__head">
-            <p class="donate-eyebrow donate-eyebrow--pink" style="justify-content:flex-start;">Make a donation</p>
-            <h2 id="donate-card-title">Support animal welfare</h2>
-            <p>Your gift powers volunteer coordination, supply drives, community programs, and outreach across Michigan.</p>
+        <!-- Frequency toggle (tablist) -->
+        <div class="dn-freq" role="tablist" aria-label="Donation frequency">
+          <button id="freq-monthly" class="dn-freq__btn" role="tab" aria-selected="true" aria-controls="panel-monthly" type="button">Monthly</button>
+          <button id="freq-onetime" class="dn-freq__btn" role="tab" aria-selected="false" aria-controls="panel-onetime" tabindex="-1" type="button">One-time</button>
+        </div>
+
+        <!-- Monthly panel -->
+        <div id="panel-monthly" role="tabpanel" aria-labelledby="freq-monthly">
+          <div id="monthly-tiers" class="dn-tiers" role="radiogroup" aria-label="Monthly donation level"></div>
+          <p class="dn-give__hint">Each level includes an editable amount — choose <strong>Custom</strong> to give a different monthly amount.</p>
+        </div>
+
+        <!-- One-time panel -->
+        <div id="panel-onetime" role="tabpanel" aria-labelledby="freq-onetime" hidden>
+          <p class="dn-onetime__lead">
+            Every gift supports the area of greatest need and helps PAWS FOR A CAUSE expand its impact
+            for local animals, shelters, rescues, volunteers, and communities.
+          </p>
+          <div id="onetime-presets" class="dn-presets" role="radiogroup" aria-label="One-time donation amount"></div>
+        </div>
+
+        <!-- Custom amount (moved under the active panel by JS) -->
+        <div id="custom-wrap" class="dn-custom" hidden>
+          <label for="custom-amount" id="custom-label">Enter a custom amount</label>
+          <div class="dn-custom__field">
+            <span class="dn-custom__sym" aria-hidden="true">$</span>
+            <input id="custom-amount" type="number" inputmode="decimal" min="5" step="1"
+                   placeholder="Amount" aria-describedby="custom-error custom-help"/>
+          </div>
+          <p id="custom-help" class="dn-custom__help">Enter any amount you'd like to give.</p>
+          <p id="custom-error" class="dn-custom__error" role="alert" aria-live="assertive"></p>
+        </div>
+
+        <!-- E. Any amount helps -->
+        <p class="dn-anyamount">
+          Every amount makes a difference. You do not need to select a giving level — a gift of any size helps support our work.
+        </p>
+
+        <!-- F. Summary + disclosure + checkout -->
+        <div class="dn-summary" aria-labelledby="dn-summary-title">
+          <h3 id="dn-summary-title" class="dn-summary__title">Your gift</h3>
+          <p class="dn-summary__line" aria-live="polite">
+            You're giving <strong id="sum-amount">$50</strong> <span id="sum-freq">per month</span>.
+          </p>
+          <p class="dn-summary__renew" id="sum-renew">Renews automatically each month until you cancel.</p>
+
+          <div class="dn-disclosure" id="recurring-disclosure">
+            <p class="dn-disclosure__title">About monthly giving</p>
+            <ul>
+              <li>The amount above is charged automatically each month.</li>
+              <li>Your gift continues until you cancel — there is no end date.</li>
+              <li>You can update or cancel anytime through Stripe's secure donor portal or by emailing <a data-cfg-email href="mailto:pawsforacausemi@gmail.com">pawsforacausemi@gmail.com</a>.</li>
+              <li>Stripe emails a confirmation and a receipt for every payment.</li>
+            </ul>
           </div>
 
-          <!-- Trust indicators -->
-          <ul class="donate-trust-list" aria-label="Donation security and nonprofit status">
-            <li class="donate-trust-item">
-              <svg class="donate-trust-item__ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span><strong>Secure payment</strong><br>Processed by Stripe on its hosted page</span>
-            </li>
-            <li class="donate-trust-item">
-              <svg class="donate-trust-item__ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2"/></svg>
-              <span><strong>No card data stored here</strong><br>Card details never touch this website</span>
-            </li>
-            <li class="donate-trust-item">
-              <svg class="donate-trust-item__ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-4.35-9.5-8.5C.5 9 2.5 5.5 6 5.5c2 0 3.2 1.1 4 2.3.8-1.2 2-2.3 4-2.3 3.5 0 5.5 3.5 3.5 7-2.5 4.15-9.5 8.5-9.5 8.5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-              <span><strong>501(c)(3) nonprofit</strong><br>Registered in Michigan; receipt emailed by Stripe</span>
-            </li>
-          </ul>
-
-          <!-- Primary action: opens the hosted Stripe page (Payment Links can't be iframed). -->
-          <!-- PAWS_DONATE_LINK -->
-          <a class="donate-submit donate-submit--link"
-             href="https://buy.stripe.com/dRm9ATauZ8l51RO5ADf7i00"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="Donate to PAWS FOR A CAUSE securely via Stripe (opens in a new tab)">
-            Donate Now
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" style="width:1.1rem;height:1.1rem;margin-left:.5rem;vertical-align:-3px"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <a id="donate-checkout" class="donate-checkout" target="_blank" rel="noopener noreferrer">
+            <span class="donate-checkout__label">Continue to secure checkout</span>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
+          <p class="dn-checkout-note" id="checkout-note" aria-live="polite"></p>
 
-          <p class="donate-card__secure">
-            Donations are processed on a secure Stripe page. An email receipt is sent automatically after a successful gift.
+          <ul class="dn-trust">
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Secure checkout by Stripe</li>
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="1.8"/></svg> Card details never touch this site</li>
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Receipt emailed automatically</li>
+          </ul>
+          <p class="dn-summary__legal">
+            By continuing you'll complete your gift on Stripe's secure page, where your name, email,
+            and payment details are collected. See our <a href="privacy.html">Privacy Policy</a>.
           </p>
-        </aside>
+        </div>
+      </div>
+    </section>
 
+    <!-- G. OTHER WAYS TO GIVE -->
+    <section class="dn-other" aria-labelledby="dn-other-title">
+      <div class="dn-wrap dn-wrap--narrow">
+        <h2 id="dn-other-title">Other ways to give</h2>
+        <ul class="dn-other__list">
+          <li class="dn-other__item">
+            <h3>Give online</h3>
+            <p>Make a secure monthly or one-time gift using the options above.</p>
+          </li>
+          <li class="dn-other__item">
+            <h3>Give by check</h3>
+            <p>Checks can be made payable to <span data-cfg-legalname>Paws for a Cause MI</span>. Email <a data-cfg-email href="mailto:pawsforacausemi@gmail.com">pawsforacausemi@gmail.com</a> for current mailing instructions.</p>
+          </li>
+          <li class="dn-other__item">
+            <h3>Sponsorships &amp; in-kind</h3>
+            <p>Businesses and community partners can sponsor an event or donate supplies. <a data-cfg-email href="mailto:pawsforacausemi@gmail.com">Contact us</a> to discuss.</p>
+          </li>
+          <li class="dn-other__item">
+            <h3>Employer matching</h3>
+            <p>Many employers match charitable gifts. Ask your employer about matching, and email us if you need our nonprofit details.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- H. TRUST & TRANSPARENCY -->
+    <section class="dn-transparency" aria-labelledby="dn-trans-title">
+      <div class="dn-wrap dn-wrap--narrow">
+        <h2 id="dn-trans-title">Where your gift goes</h2>
+        <p class="dn-transparency__lead">
+          Donations support the work it takes to run a youth-led animal-welfare nonprofit, which may include:
+        </p>
+        <ul class="dn-transparency__cols">
+          <li>Volunteer recruitment and coordination</li>
+          <li>Partner shelter and rescue support</li>
+          <li>Community outreach</li>
+          <li>Supply drives</li>
+          <li>Animal-welfare education</li>
+          <li>Events and programs</li>
+          <li>Reasonable operating costs to run the nonprofit</li>
+        </ul>
+        <p class="dn-transparency__note">
+          Gifts support general programs rather than a guaranteed allocation to specific items.
+          <span data-cfg-tax>PAWS FOR A CAUSE is recognized as tax-exempt under Internal Revenue Code Section 501(c)(3). Contributions may be tax deductible to the extent permitted by law. Please retain your emailed receipt for your records.</span>
+          EIN: <span data-cfg-ein>38-4362534</span>. Please consult a tax adviser regarding your circumstances.
+        </p>
+        <p class="dn-transparency__manage">
+          <a data-cfg-portal href="#" hidden>Manage my monthly giving →</a>
+        </p>
+
+        <!-- contextual links -->
+        <nav class="dn-explore" aria-label="Explore more">
+          <a href="volunteer.html">Volunteer with us</a>
+          <a href="events.html">Upcoming events</a>
+          <a href="services.html">Partner organizations</a>
+          <a href="team.html">About PAWS FOR A CAUSE</a>
+          <a href="contact.html">Contact us</a>
+        </nav>
       </div>
     </section>
 
@@ -159,61 +273,26 @@
         <h2 id="faq-title">Donation FAQ</h2>
         <div class="faq-list">
           <details class="faq-item">
-            <summary>Can I donate online right now?</summary>
-            <p>
-              Yes. Click the <strong>Donate Now</strong> button above to open our secure
-              Stripe donation page in a new tab. Stripe handles all card processing and emails
-              a receipt automatically after a successful gift. Questions? Email
-              <a href="mailto:pawsforacausemi@gmail.com?subject=Donation%20Inquiry">pawsforacausemi@gmail.com</a>.
-            </p>
+            <summary>What's the difference between monthly and one-time?</summary>
+            <p>A monthly gift is charged automatically each month and continues until you cancel — it gives us steady, predictable support. A one-time gift is charged once. You can choose either above, and enter a custom amount for both.</p>
           </details>
           <details class="faq-item">
-            <summary>What do donations support?</summary>
-            <p>
-              Gifts support volunteer coordination, supply drives, community programs, and outreach.
-              PAWS FOR A CAUSE does not operate a shelter or provide veterinary care, so donations
-              are not used for adoptions, surgeries, or shelter facilities.
-            </p>
+            <summary>How do I cancel or change a monthly gift?</summary>
+            <p>You can manage or cancel a recurring gift anytime through Stripe's secure donor portal (linked in your receipt emails) or by emailing <a data-cfg-email href="mailto:pawsforacausemi@gmail.com">pawsforacausemi@gmail.com</a>. We'll never make you jump through hoops to stop a recurring gift.</p>
           </details>
           <details class="faq-item">
             <summary>Are donations tax-deductible?</summary>
-            <p>
-              PAWS FOR A CAUSE is a registered 501(c)(3) nonprofit organization; please consult a
-              tax advisor regarding deductibility for your situation.
-            </p>
+            <p data-cfg-tax>PAWS FOR A CAUSE is recognized as tax-exempt under Internal Revenue Code Section 501(c)(3). Contributions may be tax deductible to the extent permitted by law. Please retain your emailed receipt for your records.</p>
           </details>
           <details class="faq-item">
             <summary>Will I receive a receipt?</summary>
-            <p>
-              Yes — Stripe automatically emails a receipt to the address you enter at checkout.
-              For other kinds of contributions, email us and we'll follow up.
-            </p>
+            <p>Yes — Stripe automatically emails a receipt to the address you enter at checkout, for both one-time and monthly gifts.</p>
           </details>
           <details class="faq-item">
             <summary>Is my payment information safe?</summary>
-            <p>
-              We never collect card details on this website. Payments are processed by Stripe on
-              its own PCI-compliant hosted page.
-            </p>
+            <p>We never collect or store card details on this website. Payment is completed on Stripe's PCI-compliant hosted page.</p>
           </details>
         </div>
-      </div>
-    </section>
-
-    <!-- TRANSPARENCY / NONPROFIT INFO (compact footer-style note) -->
-    <section class="donate-transparency donate-transparency--compact" aria-labelledby="transparency-title">
-      <div class="donate-section__inner donate-section__inner--narrow">
-        <aside class="transparency-card">
-          <h3 id="transparency-title">Transparency &amp; nonprofit information</h3>
-          <p>
-            PAWS FOR A CAUSE is a registered 501(c)(3) nonprofit organization based in Michigan.
-            Donations support general programs rather than a guaranteed allocation to specific items.
-            Please consult a tax advisor regarding deductibility.
-          </p>
-          <p class="transparency-card__meta">
-            Questions about giving? <a href="mailto:pawsforacausemi@gmail.com?subject=Donation%20Inquiry">pawsforacausemi@gmail.com</a>
-          </p>
-        </aside>
       </div>
     </section>
 
@@ -229,6 +308,17 @@
     </div>
     <p class="footer-note">A youth-led 501(c)(3) nonprofit organization based in Michigan.</p>
   </footer>
+
+  <noscript>
+    <p style="max-width:640px;margin:1.5rem auto;padding:0 1.25rem;color:#b9c2bd;text-align:center;">
+      To donate, please enable JavaScript, or
+      <a style="color:#20d69a" href="https://buy.stripe.com/dRm9ATauZ8l51RO5ADf7i00" target="_blank" rel="noopener noreferrer">open our secure Stripe donation page</a>,
+      or email pawsforacausemi@gmail.com.
+    </p>
+  </noscript>
+
+  <script src="assets/donate-config.js"></script>
+  <script src="assets/donate.js" defer></script>
 
 </body>
 </html>
