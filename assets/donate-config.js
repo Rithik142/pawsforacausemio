@@ -42,16 +42,24 @@ window.PAWS_DONATE = {
      gracefully). The existing general link is used for one-time giving. */
   links: {
     monthly: {
-      25: null,        // recurring $25/mo Payment Link
-      50: null,        // recurring $50/mo Payment Link
-      100: null,       // recurring $100/mo Payment Link
-      custom: null     // recurring "choose amount" Payment Link
+      25:  "https://buy.stripe.com/00wfZh1YteJt5405ADf7i04",  // PAWS Companion (recurring)
+      50:  "https://buy.stripe.com/9B600jauZfNxdAw9QTf7i03",  // Shelter Advocate – $50/month
+      100: "https://buy.stripe.com/28EbJ19qV44P9kg4wzf7i02",  // Community Champion – $100/month
+      custom: null                                            // not created yet — Custom monthly stays gated
     },
     oneTime: {
-      // Optional: map specific preset amounts to dedicated fixed-amount links,
-      // e.g. { 100: "https://buy.stripe.com/xxxx" }. Amounts not listed here
-      // use `custom` (donor enters/confirms the amount on Stripe's page).
-      preset: {},
+      // Fixed-amount one-time links: clicking the preset opens Stripe with the
+      // amount already locked in. Amounts not listed here fall back to `custom`.
+      preset: {
+        100:  "https://buy.stripe.com/fZu5kDgTnatd6840gjf7i05",  // Friend of PAWS – $100
+        250:  "https://buy.stripe.com/14A8wP7iNatd8gc2orf7i06",  // Shelter Supporter – $250
+        500:  "https://buy.stripe.com/bJebJ18mR6cXaok3svf7i07",  // Program Partner – $500
+        1000: "https://buy.stripe.com/14A8wPcD77h1eEA9QTf7i08",  // Community Impact Partner – $1,000
+        2500: "https://buy.stripe.com/dRm5kD7iNcBlcws4wzf7i09",  // Leadership Donor – $2,500
+        5000: "https://buy.stripe.com/dRmdR9bz3gRBcws8MPf7i0a"   // Legacy of Compassion Circle – $5,000
+      },
+      // Generic "Donation" link — donor enters the amount on Stripe's page.
+      // Used by the Custom button and by any preset without a dedicated link.
       custom: "https://buy.stripe.com/dRm9ATauZ8l51RO5ADf7i00"
     }
   },
