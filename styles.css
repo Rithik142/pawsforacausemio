@@ -8252,3 +8252,71 @@ footer a { color: var(--p-green-2); }
    (overrides the site-wide light-theme secondary style within the hero only) */
 .hv2-hero .btn--secondary { background: rgba(255,255,255,.06); color: #fff; border-color: rgba(255,255,255,.55); }
 .hv2-hero .btn--secondary:hover { background: rgba(255,255,255,.14); border-color: #fff; color: #fff; }
+
+/* =========================================================================
+   HOMEPAGE PORTAL — page-preview cards (2-column, equal height)
+   ========================================================================= */
+.home-portal { padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(3rem, 7vw, 5rem); }
+.preview-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(1rem, 2.2vw, 1.5rem); }
+@media (max-width: 820px) { .preview-grid { grid-template-columns: 1fr; } }
+
+.preview {
+  display: flex; flex-direction: column; height: 100%;
+  background: var(--p-surface); border: 1px solid var(--p-line); border-radius: 18px; overflow: hidden;
+  transition: transform .25s var(--p-ease), border-color .25s ease, box-shadow .3s ease;
+}
+.preview:hover {
+  transform: translateY(-3px); border-color: var(--p-green-line);
+  box-shadow: 0 22px 44px -28px rgba(20,28,22,.28);
+}
+.preview__media { aspect-ratio: 16 / 8; overflow: hidden; background: var(--p-surface-2); }
+.preview__media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s var(--p-ease); }
+.preview:hover .preview__media img { transform: scale(1.03); }
+
+.preview__body { display: flex; flex-direction: column; gap: .7rem; flex: 1; padding: clamp(1.4rem, 2.6vw, 2rem); }
+.preview__eyebrow { margin: 0; font-size: .72rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--p-green-2); }
+.preview__eyebrow--pink { color: var(--p-pink-2); }
+.preview__title { margin: 0; font-size: clamp(1.35rem, 2.1vw, 1.7rem); font-weight: 800; letter-spacing: -.01em; line-height: 1.15; color: var(--p-text); }
+.preview__text { margin: 0; color: var(--p-text-mute); line-height: 1.6; font-size: .98rem; max-width: 46ch; }
+.preview__cta { margin-top: auto; align-self: flex-start; }
+
+/* Get Involved quick links */
+.preview__links { list-style: none; margin: .1rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.preview__links a {
+  display: inline-block; padding: .45rem .85rem; border-radius: 999px;
+  border: 1px solid var(--p-line-strong); color: var(--p-text); font-weight: 600; font-size: .88rem; text-decoration: none;
+  transition: border-color .2s ease, color .2s ease, background .2s ease;
+}
+.preview__links a:hover { border-color: var(--p-green); color: var(--p-green-2); background: var(--p-green-soft); }
+
+/* Contact block */
+.preview__contact { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: .1rem; }
+.preview__email { color: var(--p-green-2); font-weight: 700; text-decoration: none; word-break: break-word; }
+.preview__email:hover { text-decoration: underline; }
+.preview__socials { display: flex; gap: .5rem; }
+.preview__socials a {
+  display: grid; place-items: center; width: 2.3rem; height: 2.3rem; border-radius: 10px;
+  border: 1px solid var(--p-line-strong); color: var(--p-text); transition: border-color .2s ease, color .2s ease, background .2s ease;
+}
+.preview__socials a:hover { border-color: var(--p-green); color: var(--p-green-2); background: var(--p-green-soft); }
+.preview__socials svg { width: 1.2rem; height: 1.2rem; }
+
+/* Events agenda mini-embed */
+.preview__agenda { border: 1px solid var(--p-line); border-radius: 12px; overflow: hidden; background: #fff; }
+.preview__agenda iframe { display: block; width: 100%; height: 240px; border: 0; }
+
+/* Donate — visually strong */
+.preview--donate {
+  border-color: var(--p-green-line);
+  background:
+    radial-gradient(520px 320px at 100% 0%, var(--p-pink-soft), transparent 60%),
+    radial-gradient(520px 320px at 0% 100%, var(--p-green-soft), transparent 60%),
+    var(--p-surface);
+}
+.preview--donate .preview__title { font-size: clamp(1.5rem, 2.4vw, 1.95rem); }
+
+@media (prefers-reduced-motion: reduce) {
+  .preview, .preview__media img { transition: none !important; }
+  .preview:hover { transform: none; }
+  .preview:hover .preview__media img { transform: none; }
+}
