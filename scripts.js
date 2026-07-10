@@ -298,7 +298,55 @@
       });
     } catch (e) { /* ignore */ }
 
-    /* ----- 10. Events filter dropdown (legacy) ----- */
+    /* ----- 10. State Boards accordion: smooth expand/collapse ----- */
+    document.querySelectorAll('details.state-card').forEach(function (card) {
+      var summary = card.querySelector('summary');
+      var body = card.querySelector('.state-card__body');
+      if (!summary || !body) return;
+      // Without Web Animations support (or with reduced motion) the native
+      // <details> toggle takes over — no animation, still fully functional.
+      if (prefersReducedMotion || typeof body.animate !== 'function') return;
+
+      var animating = false;
+      var easing = 'cubic-bezier(0.23, 1, 0.32, 1)';
+
+      summary.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (animating) return;
+
+        if (card.open) {
+          // Collapse: animate the body closed, then remove [open]
+          animating = true;
+          card.classList.add('is-closing');
+          var closeAnim = body.animate(
+            [
+              { height: body.offsetHeight + 'px', opacity: 1 },
+              { height: '0px', opacity: 0 }
+            ],
+            { duration: 280, easing: easing }
+          );
+          closeAnim.onfinish = function () {
+            card.open = false;
+            card.classList.remove('is-closing');
+            animating = false;
+          };
+        } else {
+          // Expand: open first so the body has a measurable height
+          card.open = true;
+          animating = true;
+          var openAnim = body.animate(
+            [
+              { height: '0px', opacity: 0 },
+              { height: body.offsetHeight + 'px', opacity: 1 }
+            ],
+            { duration: 320, easing: easing }
+          );
+          openAnim.onfinish = function () { animating = false; };
+        }
+      });
+    });
+
+    /* ----- 11. Events filter dropdown (legacy) ----- */
     var filterSelect = document.getElementById('event-filter');
     if (filterSelect) {
       var updateEvents = function () {

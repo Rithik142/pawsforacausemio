@@ -275,7 +275,7 @@
 @media (prefers-reduced-motion: reduce){ .ip-reveal { opacity:1 !important; transform:none !important; } }
 
 /* =========================================================================
-   MEET THE TEAM — Executive Board + State Leadership + Regional Chapters
+   MEET THE TEAM — Executive Board of Directors + State Boards
    ========================================================================= */
 .team-block { margin-top: clamp(2.5rem, 5vw, 3.5rem); }
 .team-block:first-of-type { margin-top: 0; }
@@ -327,78 +327,8 @@
   .exec-card { transition: none; }
 }
 
-/* Regional / State grids */
-.team-grid { display: grid; gap: clamp(.9rem, 2vw, 1.2rem); }
-.team-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.team-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-@media (max-width: 1080px) { .team-grid--4 { grid-template-columns: repeat(2, minmax(0,1fr)); } .team-grid--3 { grid-template-columns: repeat(2, minmax(0,1fr)); } }
-@media (max-width: 620px)  { .team-grid--4, .team-grid--3 { grid-template-columns: 1fr; } }
-
-/* State group inside regional chapters */
-.team-state { margin-top: clamp(1.5rem, 3vw, 2.2rem); }
-.team-state:first-child { margin-top: 0; }
-.team-state__title {
-  display: flex; align-items: center; gap: .85rem;
-  font-size: .82rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
-  color: var(--p-text-mute); margin: 0 0 .9rem;
-}
-.team-state__title::before,
-.team-state__title::after {
-  content: ""; flex: 0 0 28px; height: 1.5px; background: var(--p-pink); border-radius: 2px;
-}
-.team-state__title::after { flex: 1; background: var(--p-line); }
-.team-state__title span { white-space: nowrap; }
-
-/* Leadership card (state board or region) */
-.lead-card {
-  background: var(--p-surface);
-  border: 1px solid var(--p-line);
-  border-radius: var(--p-radius);
-  padding: 1.1rem 1.1rem 1rem;
-  display: flex; flex-direction: column; gap: .75rem;
-  transition: border-color .25s ease, transform .25s ease, background .25s ease;
-}
-.lead-card:hover {
-  border-color: var(--p-green-line, rgba(32,214,154,.35));
-  transform: translateY(-2px);
-  background: var(--p-surface-2, #151b21);
-}
-.lead-card__head {
-  display: flex; align-items: baseline; justify-content: space-between;
-  gap: .5rem; padding-bottom: .55rem; border-bottom: 1px solid var(--p-line);
-}
-.lead-card__state {
-  font-size: 1rem; font-weight: 700; color: var(--p-text); letter-spacing: -.005em;
-}
-.lead-card__tag {
-  font-size: .62rem; letter-spacing: .16em; text-transform: uppercase;
-  color: var(--p-pink); font-weight: 700;
-}
-.lead-card__roles { list-style: none; padding: 0; margin: 0; display: grid; gap: .45rem; }
-.lead-card__roles li {
-  display: flex; align-items: baseline; justify-content: space-between; gap: .8rem;
-  font-size: .9rem; line-height: 1.35;
-}
-.lead-card__roles li span {
-  color: var(--p-text-dim, #85918b); font-weight: 600; font-size: .78rem;
-  letter-spacing: .04em; text-transform: uppercase; flex: 0 0 auto;
-}
-.lead-card__roles li strong {
-  color: var(--p-green); font-weight: 700; text-align: right;
-}
-.lead-card__roles li em.tbd {
-  color: var(--p-text-mute);
-  font-style: italic; font-weight: 400; font-size: .82rem;
-  text-align: right;
-}
-@media (prefers-reduced-motion: reduce) {
-  .lead-card, .exec-card { transition: none; }
-  .lead-card:hover, .exec-card:hover { transform: none; }
-}
-
 /* =========================================================================
-   MEET THE TEAM — redesigned (centered exec board, table-style boards,
-   accordion regional chapters). Replaces older .lead-card/.team-grid usage.
+   MEET THE TEAM — centered exec board + expandable State Boards accordion.
    ========================================================================= */
 
 /* Centered Executive Board header + identical cards */
@@ -419,92 +349,63 @@
 @media (max-width: 880px) { .team-exec { grid-template-columns: repeat(2, minmax(0, 280px)); } }
 @media (max-width: 560px) { .team-exec { grid-template-columns: minmax(0, 320px); } }
 
-/* State Leadership Boards: 2-up responsive grid of table-style cards */
-.team-boards {
+/* =========================================================================
+   STATE BOARDS — one expandable card per state. Each card opens to a
+   responsive grid of member cards (or an empty state while recruiting).
+   Any number of members per state: the grid wraps automatically.
+   ========================================================================= */
+.state-accordion {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(.9rem, 2vw, 1.25rem);
+  gap: clamp(1rem, 2vw, 1.35rem);
 }
-@media (max-width: 760px) { .team-boards { grid-template-columns: 1fr; } }
 
-/* Board card (shared by state boards + regional cards) */
-.board-card {
+/* Expandable state card */
+.state-card {
   background: var(--p-surface);
   border: 1px solid var(--p-line);
-  border-radius: var(--p-radius);
-  padding: 1.2rem 1.35rem 1.3rem;
-  transition: border-color .25s ease, background .25s ease;
-}
-.board-card:hover {
-  border-color: var(--p-green-line, rgba(32,214,154,.35));
-  background: var(--p-surface-2, #151b21);
-}
-.board-card__title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--p-text);
-  letter-spacing: -.005em;
-  margin: 0 0 .85rem;
-  padding-bottom: .65rem;
-  border-bottom: 1px solid var(--p-line);
-}
-.board-card--region {
-  background: var(--p-bg);
-  border-radius: 10px;
-  padding: 1rem 1.1rem 1.05rem;
-}
-.board-card--region .board-card__title { font-size: 1rem; margin-bottom: .7rem; padding-bottom: .55rem; }
-
-/* Table-style position rows: auto-aligned across all rows */
-.board-table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: auto;
-}
-.board-table th,
-.board-table td {
-  text-align: left;
-  vertical-align: baseline;
-  padding: .4rem 0;
-  border: 0;
-}
-.board-table tr + tr th,
-.board-table tr + tr td { border-top: 1px solid rgba(255,255,255,.04); }
-.board-table th.pos {
-  font-size: .74rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--p-text-mute);
-  white-space: nowrap;
-  width: 1%;            /* shrink to content so .val takes remaining space */
-  padding-right: 1.5rem;
-}
-.board-table td.val {
-  font-size: .94rem;
-  color: var(--p-text);
-  font-weight: 500;
-  white-space: nowrap;
+  border-radius: var(--p-radius-lg, 20px);
   overflow: hidden;
-  text-overflow: ellipsis;
-  min-width: 0;
+  transition: border-color .25s ease, background .25s ease,
+              transform .25s ease, box-shadow .3s ease;
 }
-.board-table td.val.is-tbd {
-  color: var(--p-text-mute);
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: .04em;
+.state-card:hover {
+  border-color: var(--p-green-line, rgba(32,214,154,.35));
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px -24px rgba(0,0,0,.6);
 }
-.board-table td.val.val--filled { color: var(--p-text); font-weight: 600; }
-.board-table td.badge-slot {
-  text-align: right;
-  white-space: nowrap;
-  width: 1%;
-  padding-left: 1rem;
+.state-card[open] {
+  background: var(--p-surface-2, #151b21);
+  border-color: var(--p-green-line, rgba(32,214,154,.35));
+  transform: none;
 }
-.board-table .badge {
+
+/* Collapsed row: state name + recruiting badge + chevron */
+.state-card__head {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: clamp(.75rem, 2vw, 1.1rem);
+  padding: clamp(1.15rem, 2.6vw, 1.6rem) clamp(1.15rem, 3vw, 1.75rem);
+  transition: background .2s ease;
+}
+.state-card__head::-webkit-details-marker { display: none; }
+.state-card__head:hover { background: rgba(255,255,255,.025); }
+.state-card__head:focus-visible {
+  outline: 2px solid var(--p-green);
+  outline-offset: -3px;
+  border-radius: var(--p-radius-lg, 20px);
+}
+.state-card__name {
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-weight: 700;
+  color: var(--p-text);
+  letter-spacing: -.01em;
+  margin-right: auto;
+}
+.state-card__badge {
   display: inline-block;
-  font-size: .6rem;
+  font-size: .62rem;
   font-weight: 700;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -512,88 +413,118 @@
   background: var(--p-green-soft, rgba(32,214,154,.12));
   border: 1px solid var(--p-green-line, rgba(32,214,154,.35));
   border-radius: 999px;
-  padding: .2rem .55rem;
+  padding: .28rem .7rem;
   white-space: nowrap;
   line-height: 1;
 }
-@media (max-width: 480px) {
-  .board-table th.pos { padding-right: .8rem; font-size: .68rem; }
-  .board-table .badge { font-size: .56rem; padding: .18rem .45rem; letter-spacing: .1em; }
-  .board-table td.val { font-size: .88rem; }
-}
-
-/* Regional accordion */
-.region-accordion {
-  display: grid;
-  gap: .75rem;
-}
-.region-state {
-  background: var(--p-surface);
-  border: 1px solid var(--p-line);
-  border-radius: var(--p-radius);
-  overflow: hidden;
-  transition: border-color .25s ease, background .25s ease;
-}
-.region-state[open] {
-  background: var(--p-surface-2, #151b21);
-  border-color: var(--p-green-line, rgba(32,214,154,.35));
-}
-.region-state__head {
-  list-style: none;
-  cursor: pointer;
-  padding: 1.05rem 1.35rem;
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  gap: 1rem;
-  align-items: center;
-  transition: background .2s ease;
-}
-.region-state__head::-webkit-details-marker { display: none; }
-.region-state__head:hover { background: rgba(255,255,255,.025); }
-.region-state__head:focus-visible {
-  outline: 2px solid var(--p-green);
-  outline-offset: -3px;
-  border-radius: var(--p-radius);
-}
-.region-state__name {
-  font-size: 1.12rem;
-  font-weight: 700;
-  color: var(--p-text);
-  letter-spacing: -.005em;
-}
-.region-state__hint {
-  font-size: .68rem;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--p-pink);
-  font-weight: 700;
-}
-.region-state__chev {
-  width: 18px;
-  height: 18px;
+.state-card__chev {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
   color: var(--p-text-dim);
   transition: transform .3s var(--p-ease, cubic-bezier(.23,1,.32,1)), color .25s ease;
 }
-.region-state[open] .region-state__chev {
+.state-card[open] .state-card__chev {
   transform: rotate(180deg);
   color: var(--p-green);
 }
-.region-state__body {
-  padding: 0 1.35rem 1.35rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
+.state-card.is-closing .state-card__chev { transform: none; }
+
+/* Expanded body (outer wrapper is height-animated by scripts.js) */
+.state-card__body { overflow: hidden; }
+.state-card__inner {
+  padding: clamp(1.1rem, 2.5vw, 1.5rem) clamp(1.15rem, 3vw, 1.75rem) clamp(1.35rem, 3vw, 1.85rem);
+  border-top: 1px solid var(--p-line);
 }
+
+/* Member grid: wraps to fit any number of members */
+.state-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: clamp(.9rem, 2vw, 1.25rem);
+}
+
+/* Member card — mirrors the Executive Board card style */
+.member-card {
+  background: var(--p-bg);
+  border: 1px solid var(--p-line);
+  border-radius: var(--p-radius);
+  padding: 1rem 1rem 1.15rem;
+  transition: border-color .25s ease, transform .25s ease, background .25s ease;
+}
+.member-card:hover {
+  border-color: var(--p-green-line, rgba(32,214,154,.35));
+  transform: translateY(-3px);
+  background: var(--p-surface, #10141a);
+}
+.member-card__photo {
+  aspect-ratio: 4/5;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--p-surface, #10141a);
+  margin-bottom: .9rem;
+}
+.member-card__photo img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  transition: transform .5s var(--p-ease, cubic-bezier(.23,1,.32,1));
+}
+.member-card:hover .member-card__photo img { transform: scale(1.03); }
+.member-card__name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--p-text);
+  letter-spacing: -.01em;
+  margin: 0;
+}
+.member-card__role {
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--p-green);
+  font-weight: 700;
+  margin: .35rem 0 0;
+}
+.member-card__bio {
+  font-size: .85rem;
+  line-height: 1.5;
+  color: var(--p-text-mute);
+  margin: .45rem 0 0;
+}
+
+/* Empty state: shown while a state has no announced members */
+.state-empty {
+  text-align: center;
+  padding: clamp(1.75rem, 4vw, 2.75rem) 1.25rem;
+  border: 1px dashed var(--p-line-strong, rgba(255,255,255,.14));
+  border-radius: var(--p-radius);
+  background: var(--p-bg);
+}
+.state-empty__title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--p-text);
+  margin: 0 0 .45rem;
+}
+.state-empty__desc {
+  font-size: .93rem;
+  line-height: 1.6;
+  color: var(--p-text-mute);
+  margin: 0 0 1.35rem;
+}
+
 @media (max-width: 480px) {
-  .region-state__head { padding: .9rem 1rem; grid-template-columns: 1fr auto; }
-  .region-state__hint { display: none; }
-  .region-state__body { padding: 0 1rem 1rem; grid-template-columns: 1fr; }
+  .state-card__head { padding: 1rem 1.05rem; }
+  .state-card__badge { font-size: .56rem; padding: .24rem .55rem; letter-spacing: .1em; }
+  .state-members { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .75rem; }
 }
 
 /* Reduced-motion safety */
 @media (prefers-reduced-motion: reduce) {
-  .board-card, .region-state, .region-state__chev { transition: none !important; }
-  .region-state[open] .region-state__chev { transform: none; }
+  .state-card, .state-card__chev, .member-card, .member-card__photo img { transition: none !important; }
+  .state-card:hover, .member-card:hover { transform: none; }
+  .member-card:hover .member-card__photo img { transform: none; }
+  .exec-card:hover { transform: none; }
 }
 
 /* =========================================================================
@@ -755,7 +686,7 @@
   margin: 0 auto;
 }
 
-/* Centered sub-section heading (Executive / State / Regional) */
+/* Centered sub-section heading (Executive Board / State Boards) */
 .team-section-head {
   max-width: 64ch;
   margin: 0 auto clamp(1.6rem, 3vw, 2.4rem);
@@ -792,19 +723,16 @@
 
 /* Centered block wrapper — gives consistent spacing between sub-sections */
 .team-block.team-block--centered {
-  margin-top: clamp(2.5rem, 5vw, 3.75rem);
+  margin-top: clamp(4rem, 8vw, 6rem);
   text-align: center;
 }
 .team-block.team-block--centered:first-of-type { margin-top: 0; }
-/* Restore left alignment for body content inside cards/tables (centering only applies to header) */
+/* Restore left alignment for body content inside cards (centering only applies to header) */
 .team-block.team-block--centered .team-exec,
-.team-block.team-block--centered .team-boards,
-.team-block.team-block--centered .region-accordion { text-align: left; }
-.team-block.team-block--centered .lead-card,
-.team-block.team-block--centered .board-card,
+.team-block.team-block--centered .state-accordion { text-align: left; }
 .team-block.team-block--centered .exec-card,
-.team-block.team-block--centered .region-state__head,
-.team-block.team-block--centered .region-state__body { text-align: left; }
+.team-block.team-block--centered .state-card__head,
+.team-block.team-block--centered .state-card__inner { text-align: left; }
 
 /* Slightly more breathing room around the section so each block feels its own */
 #state-board { padding-top: clamp(3rem, 6vw, 5rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
