@@ -8247,3 +8247,8 @@ footer a { color: var(--p-green-2); }
     radial-gradient(760px 380px at 0% 100%, var(--p-green-soft), transparent 62%),
     var(--p-surface-2); }
 .home-cta__inner { max-width: 46rem; margin: 0 auto; }
+
+/* Original hero sits on a dark photo — keep its secondary button light
+   (overrides the site-wide light-theme secondary style within the hero only) */
+.hv2-hero .btn--secondary { background: rgba(255,255,255,.06); color: #fff; border-color: rgba(255,255,255,.55); }
+.hv2-hero .btn--secondary:hover { background: rgba(255,255,255,.14); border-color: #fff; color: #fff; }
