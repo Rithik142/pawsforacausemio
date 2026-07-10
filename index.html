@@ -51,154 +51,93 @@
     <div class="hamburger" aria-label="Toggle navigation">☰</div>
   </header>
 
-  <main id="main" class="hv2">
+  <main id="main" class="hv2 home">
 
-    <!-- HERO (light, two-column) -->
-    <section class="home-hero" aria-labelledby="hero-title">
+    <!-- 1. HERO — clean, centered, org name prominent -->
+    <section class="home-hero home-hero--center" aria-labelledby="hero-title">
       <span class="home-hero__wash" aria-hidden="true"></span>
-      <div class="hv2-container home-hero__grid">
-        <div class="home-hero__text reveal">
-          <p class="hv2-eyebrow">Youth-led 501(c)(3) nonprofit · Michigan</p>
-          <h1 id="hero-title" class="home-hero__title">Helping animals by empowering the <span class="accent-green">people</span> who <span class="accent-pink">care for them</span>.</h1>
-          <p class="home-hero__lead">
-            PAWS FOR A CAUSE partners with shelters, rescues, schools, and community organizations to
-            connect volunteers with meaningful opportunities and expand support for animal welfare.
-          </p>
-          <div class="home-hero__cta">
-            <a href="volunteer.html" class="btn btn--primary">Become a Volunteer <span class="arrow" aria-hidden="true">→</span></a>
-            <a href="events.html" class="btn btn--secondary">View Upcoming Events</a>
-          </div>
-          <p class="home-hero__note">Prefer to give? <a href="donate.html">Donate →</a> &nbsp;·&nbsp; <a href="partner.html">Partner with us →</a></p>
-        </div>
-        <figure class="home-hero__media reveal">
-          <img src="images/Homepage.jpg" alt="A rescue dog supported by PAWS FOR A CAUSE volunteers" width="1180" height="760" loading="eager"/>
-        </figure>
-      </div>
-    </section>
-
-    <!-- MISSION -->
-    <section id="mission" class="hv2-section" aria-labelledby="mission-title">
-      <div class="hv2-container">
-        <div class="hv2-mission__grid">
-          <div class="hv2-mission__copy reveal">
-            <p class="hv2-eyebrow">Our mission</p>
-            <h2 id="mission-title">How we help animals and our community</h2>
-            <p>
-              PAWS FOR A CAUSE is a youth-led 501(c)(3) nonprofit that partners with animal shelters, rescues, schools, and community organizations to promote animal welfare. We connect students and community members with meaningful volunteer opportunities, support adoption and outreach events, organize donation drives and fundraisers, and help our partners reach more people and animals in need.
-            </p>
-          </div>
-          <div class="hv2-pillars reveal" data-pillars>
-            <article class="hv2-pillar">
-              <div class="hv2-pillar__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" style="width:24px;height:24px"><path d="M8 13l3 3 5-6M7 21a4 4 0 01-4-4V7a4 4 0 014-4h10a4 4 0 014 4v10a4 4 0 01-4 4H7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-              <h3>Volunteer Connections</h3>
-              <p>We connect students and community members with shelters and rescues that need dependable support.</p>
-            </article>
-            <article class="hv2-pillar">
-              <div class="hv2-pillar__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" style="width:24px;height:24px"><rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" stroke-width="2"/><path d="M3 9h18M8 2v4M16 2v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
-              <h3>Events &amp; Outreach</h3>
-              <p>We assist with adoption events, community programs, awareness campaigns, and other animal welfare activities.</p>
-            </article>
-            <article class="hv2-pillar">
-              <div class="hv2-pillar__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" style="width:24px;height:24px"><path d="M3 7l9-4 9 4v10l-9 4-9-4V7zM3 7l9 4 9-4M12 11v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-              <h3>Drives &amp; Fundraising</h3>
-              <p>We organize supply drives, fundraisers, and campaigns that help partners obtain the resources they need.</p>
-            </article>
-            <article class="hv2-pillar">
-              <div class="hv2-pillar__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" style="width:24px;height:24px"><path d="M5 21c0-7 5-13 14-14 0 9-6 14-13 14H5zM5 21c2-4 5-7 9-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-              <h3>Youth Leadership</h3>
-              <p>We give young people opportunities to lead, serve, collaborate, and create long-term community impact.</p>
-            </article>
-          </div>
+      <div class="hv2-container home-hero__center reveal">
+        <p class="hv2-eyebrow">Youth-led 501(c)(3) nonprofit · Michigan</p>
+        <h1 id="hero-title" class="home-wordmark">PAWS FOR A CAUSE</h1>
+        <p class="home-hero__tagline">Helping animals by empowering the people who care for them.</p>
+        <div class="home-hero__cta home-hero__cta--center">
+          <a href="volunteer.html" class="btn btn--primary">Become a Volunteer <span class="arrow" aria-hidden="true">→</span></a>
+          <a href="events.html" class="btn btn--secondary">View Upcoming Events</a>
         </div>
       </div>
     </section>
 
-    <!-- PARTNERS -->
-    <section class="hv2-section" aria-labelledby="partners-title">
-      <div class="hv2-container">
-        <div class="hv2-partners__head reveal">
-          <p class="hv2-eyebrow">Partners</p>
-          <h2 id="partners-title">Working together for animal welfare</h2>
-          <p>
-            We collaborate with shelters, rescues, schools, and community organizations to create more volunteer opportunities and strengthen support for animals in need.
-          </p>
+    <!-- 2. MISSION + HOW WE HELP (side-by-side) -->
+    <section class="home-section" aria-labelledby="mission-title">
+      <div class="hv2-container home-split">
+        <div class="home-split__intro reveal">
+          <p class="hv2-eyebrow">Our mission</p>
+          <h2 id="mission-title" class="home-h2">How we help animals and our community</h2>
+          <p class="home-lead">We connect volunteers with shelters, rescues, schools, and community organizations — and help our partners reach more people and animals in need.</p>
+          <a href="services.html" class="home-textlink">See our work <span aria-hidden="true">→</span></a>
         </div>
-        <ul class="hv2-partners__grid reveal" aria-label="Partner organizations">
-          <li class="hv2-partner">
-            <span class="hv2-partner__type">Animal Shelter</span>
-            <p class="hv2-partner__name">Ingham County Animal Control and Shelter</p>
-            <p class="hv2-partner__loc">Mason, Michigan</p>
+        <ul class="home-help reveal" aria-label="How we help">
+          <li class="home-help__item">
+            <span class="home-help__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div><h3>Connect volunteers</h3><p>We match students and community members with partners that need dependable support.</p></div>
           </li>
-          <li class="hv2-partner">
-            <span class="hv2-partner__type">Humane Society</span>
-            <p class="hv2-partner__name">Capital Area Humane Society</p>
-            <p class="hv2-partner__loc">Lansing, Michigan</p>
+          <li class="home-help__item">
+            <span class="home-help__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 7l9-4 9 4v10l-9 4-9-4V7zM3 7l9 4 9-4M12 11v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div><h3>Events, drives &amp; fundraising</h3><p>We support adoption events, supply drives, and campaigns that get partners the resources they need.</p></div>
           </li>
-          <li class="hv2-partner">
-            <span class="hv2-partner__type">Rescue &amp; Training</span>
-            <p class="hv2-partner__name">Canines for a Change</p>
-            <p class="hv2-partner__loc">Michigan</p>
-          </li>
-          <li class="hv2-partner">
-            <span class="hv2-partner__type">Cat Rescue</span>
-            <p class="hv2-partner__name">Snaggletooth Cat Rescue</p>
-            <p class="hv2-partner__loc">Michigan</p>
+          <li class="home-help__item">
+            <span class="home-help__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 21c0-7 5-13 14-14 0 9-6 14-13 14H5zM5 21c2-4 5-7 9-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div><h3>Youth leadership</h3><p>We give young people real opportunities to lead, serve, and create lasting community impact.</p></div>
           </li>
         </ul>
       </div>
     </section>
 
-    <!-- UPCOMING OPPORTUNITIES (links to /events) -->
-    <section class="hv2-section" aria-labelledby="opps-title">
+    <!-- 3. PARTNER ORGANIZATIONS -->
+    <section class="home-section home-section--tint" aria-labelledby="partners-title">
       <div class="hv2-container">
-        <div class="hv2-impact__head reveal">
-          <p class="hv2-eyebrow">Get involved</p>
-          <h2 id="opps-title">Upcoming opportunities</h2>
-          <p>Find an event, volunteer with one of our partners, and make a direct difference in your community.</p>
+        <div class="home-head reveal">
+          <p class="hv2-eyebrow">Partners</p>
+          <h2 id="partners-title" class="home-h2">Working together for animal welfare</h2>
         </div>
-        <div class="hv2-impact__grid reveal">
-          <article class="hv2-impact-card">
-            <p class="hv2-impact-card__label">Volunteer days</p>
-            <h3>Help at a partner shelter</h3>
-            <p>Walk dogs, support adopters, and assist staff at events with confirmed partner organizations.</p>
-          </article>
-          <article class="hv2-impact-card">
-            <p class="hv2-impact-card__label">Supply drives</p>
-            <h3>Collect needed essentials</h3>
-            <p>Help organize food, blanket, and toy collections for shelters and pet-food programs.</p>
-          </article>
-          <article class="hv2-impact-card">
-            <p class="hv2-impact-card__label">Outreach</p>
-            <h3>Promote adoptable animals</h3>
-            <p>Share posts, table at community events, and help partner programs reach more people.</p>
-          </article>
-          <article class="hv2-impact-card">
-            <p class="hv2-impact-card__label">Youth programs</p>
-            <h3>Lead in your school</h3>
-            <p>Bring a project to your school or club — we'll help you scope, plan, and follow through.</p>
-          </article>
-        </div>
-        <div style="text-align:center; margin-top:2rem;">
-          <a href="events.html" class="btn btn--primary">
-            View the full calendar <span class="arrow" aria-hidden="true">→</span>
-          </a>
-        </div>
+        <ul class="home-partners reveal" aria-label="Partner organizations">
+          <li class="home-partner"><span class="home-partner__type">Animal Shelter</span><p class="home-partner__name">Ingham County Animal Control &amp; Shelter</p><p class="home-partner__loc">Mason, Michigan</p></li>
+          <li class="home-partner"><span class="home-partner__type">Humane Society</span><p class="home-partner__name">Capital Area Humane Society</p><p class="home-partner__loc">Lansing, Michigan</p></li>
+          <li class="home-partner"><span class="home-partner__type">Rescue &amp; Training</span><p class="home-partner__name">Canines for a Change</p><p class="home-partner__loc">Michigan</p></li>
+          <li class="home-partner"><span class="home-partner__type">Cat Rescue</span><p class="home-partner__name">Snaggletooth Cat Rescue</p><p class="home-partner__loc">Michigan</p></li>
+        </ul>
+        <a href="services.html" class="home-textlink reveal">Explore our partners <span aria-hidden="true">→</span></a>
       </div>
     </section>
 
-    <!-- FINAL CTA -->
-    <section class="hv2-final-cta" aria-labelledby="final-cta-title">
-      <div class="hv2-container">
-        <div class="hv2-final-cta__inner reveal">
+    <!-- 4. VOLUNTEER & UPCOMING OPPORTUNITIES (combined, side-by-side) -->
+    <section class="home-section" aria-labelledby="opps-title">
+      <div class="hv2-container home-split home-split--reverse">
+        <div class="home-split__intro reveal">
           <p class="hv2-eyebrow">Get involved</p>
-          <h2 id="final-cta-title">Help us make a greater impact</h2>
-          <p>Volunteer your time, partner with our team, or support programs that help animal welfare organizations serve their communities.</p>
-          <div class="hv2-final-cta__buttons">
-            <a href="involved.html" class="btn btn--primary">
-              Get Involved <span class="arrow" aria-hidden="true">→</span>
-            </a>
-            <a href="partner.html" class="btn btn--secondary">Partner With Us</a>
+          <h2 id="opps-title" class="home-h2">Find a way to make a difference</h2>
+          <p class="home-lead">Volunteer at a partner shelter, help with a supply drive, or bring a project to your school. See what's coming up on our calendar.</p>
+          <div class="home-btnrow">
+            <a href="volunteer.html" class="btn btn--primary">Volunteer with us <span class="arrow" aria-hidden="true">→</span></a>
+            <a href="events.html" class="btn btn--secondary">View events</a>
           </div>
+        </div>
+        <ul class="home-ways reveal" aria-label="Ways to help">
+          <li class="home-way"><h3>Volunteer days</h3><p>Help at partner shelters and community events.</p></li>
+          <li class="home-way"><h3>Supply drives</h3><p>Collect food, blankets, and toys for shelters and pet-food programs.</p></li>
+          <li class="home-way"><h3>School &amp; youth projects</h3><p>Lead an animal-welfare initiative in your school or club.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 5. GET INVOLVED CTA -->
+    <section class="home-cta" aria-labelledby="final-cta-title">
+      <div class="hv2-container home-cta__inner reveal">
+        <h2 id="final-cta-title" class="home-h2">Help us make a greater impact</h2>
+        <p class="home-lead home-lead--center">Volunteer your time, partner with our team, or support programs that help animal-welfare organizations serve their communities.</p>
+        <div class="home-btnrow home-btnrow--center">
+          <a href="involved.html" class="btn btn--primary">Get Involved <span class="arrow" aria-hidden="true">→</span></a>
+          <a href="donate.html" class="btn btn--secondary">Donate</a>
         </div>
       </div>
     </section>
