@@ -8077,3 +8077,99 @@ footer {
   z-index: auto;
 }
 body { padding-bottom: 0; }
+
+/* =========================================================================
+   SITE-WIDE LIGHT THEME (appended last so it wins)
+   Flips the design tokens to a warm, lively light palette and overrides the
+   few hardcoded dark structural pieces (header/footer #111, nav text, dropdown).
+   Components read var(--p-*) / var(--bg) / var(--text), so most flip for free.
+   ========================================================================= */
+:root {
+  /* Legacy aliases (drive the global body/header/footer !important swaps) */
+  --bg: #f7f8f5;
+  --text: #171c18;
+  --card-bg: #ffffff;
+  --card-text: #171c18;
+  --border-faint: rgba(17,24,20,.10);
+  --shadow-strong: 0 16px 40px rgba(20,28,22,.12);
+  --primary: #10b57e;
+
+  /* Modern palette → light */
+  --p-black:     #eef1ec;   /* was near-black; used as a light section tint now */
+  --p-bg:        #f7f8f5;
+  --p-surface:   #ffffff;
+  --p-surface-2: #f1f4ee;
+  --p-line:      rgba(17,24,20,.10);
+  --p-line-strong: rgba(17,24,20,.17);
+
+  --p-text:      #171c18;
+  --p-text-mute: #4c554e;
+  --p-text-dim:  #6b756c;
+
+  /* Accents — kept lively, nudged deeper for contrast on white */
+  --p-green:      #10b57e;
+  --p-green-2:    #0c9268;
+  --p-green-soft: rgba(16,181,126,.12);
+  --p-green-line: rgba(16,181,126,.34);
+
+  --p-pink:       #e24d97;
+  --p-pink-2:     #c93f84;
+  --p-pink-soft:  rgba(226,77,151,.12);
+  --p-pink-line:  rgba(226,77,151,.34);
+}
+
+/* ---- Structural overrides (beat hardcoded darks) ---- */
+header, footer { background: var(--bg) !important; color: var(--text) !important; }
+header { border-bottom: 1px solid var(--p-line); }
+footer { border-top: 1px solid var(--p-line); background: var(--p-surface-2) !important; }
+
+/* Nav + logo text on the now-light header */
+.logo { color: var(--text); }
+.nav-list > li > a { color: var(--text); }
+.nav-list > li > a:hover,
+.nav-list > li > a.active { color: var(--p-green); }
+
+/* Dropdown menu on light */
+.has-dd .dropdown { background: #ffffff !important; border: 1px solid var(--p-line) !important; box-shadow: 0 16px 40px rgba(20,28,22,.16) !important; }
+.has-dd .dropdown li a { color: var(--text) !important; }
+.has-dd .dropdown li a:hover { background: var(--p-green-soft) !important; color: var(--p-green-2) !important; }
+
+/* Hamburger + mobile menu surfaces */
+.hamburger { color: var(--text); }
+#primary-nav.open, .nav-list.open { background: #ffffff !important; }
+
+/* Footer text + links */
+footer p, .footer-note { color: var(--p-text-mute) !important; }
+footer .social a { color: var(--text); }
+footer .social a:hover, footer a:hover { color: var(--p-green); }
+footer a { color: var(--p-green-2); }
+
+/* ---- Homepage light two-column hero (lighter, livelier) ---- */
+.home-hero { position: relative; overflow: hidden; padding: clamp(2.25rem,5vw,4rem) 0 clamp(2rem,4vw,3.25rem); }
+.home-hero__wash {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(620px 320px at 12% -10%, var(--p-green-soft), transparent 60%),
+    radial-gradient(560px 320px at 100% 115%, var(--p-pink-soft), transparent 60%);
+}
+.home-hero__grid {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: minmax(0,1.05fr) minmax(0,.92fr);
+  gap: clamp(1.75rem,4vw,3.5rem); align-items: center;
+}
+@media (max-width: 900px) { .home-hero__grid { grid-template-columns: 1fr; } .home-hero__media { order: -1; } }
+.home-hero__title { font-size: clamp(2.1rem,5vw,3.5rem); font-weight: 800; line-height: 1.08; letter-spacing: -.02em; color: var(--p-text); margin: .4rem 0 0; }
+.home-hero .accent-green { color: var(--p-green); }
+.home-hero .accent-pink { color: var(--p-pink); }
+.home-hero__lead { font-size: clamp(1.05rem,1.4vw,1.2rem); line-height: 1.65; color: var(--p-text-mute); max-width: 54ch; margin: 1.1rem 0 0; }
+.home-hero__cta { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.6rem 0 0; }
+@media (max-width: 560px) { .home-hero__cta { flex-direction: column; } .home-hero__cta .btn { width: 100%; } }
+.home-hero__note { margin: 1rem 0 0; color: var(--p-text-mute); font-size: .92rem; }
+.home-hero__note a { color: var(--p-green-2); font-weight: 700; text-decoration: none; }
+.home-hero__note a:hover { text-decoration: underline; }
+.home-hero__media { margin: 0; border-radius: 20px; overflow: hidden; border: 1px solid var(--p-line); box-shadow: 0 30px 60px -30px rgba(20,28,22,.35); }
+.home-hero__media img { display: block; width: 100%; height: 100%; max-height: 440px; object-fit: cover; }
+
+/* Secondary button readable on the light theme (was light-on-dark) */
+.hv2 .btn--secondary { background: transparent; color: var(--p-text); border-color: var(--p-green-line); }
+.hv2 .btn--secondary:hover { background: var(--p-green-soft); border-color: var(--p-green); color: var(--p-green-2); }
