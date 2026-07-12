@@ -8320,3 +8320,27 @@ footer a { color: var(--p-green-2); }
   .preview:hover { transform: none; }
   .preview:hover .preview__media img { transform: none; }
 }
+
+/* =========================================================================
+   HOMEPAGE DENSITY TUNING (spacing/sizing only — no visual redesign)
+   Reduces dead space: wider content, tighter hero→grid gap, smaller row gaps,
+   less card padding, shorter About image, footer pulled closer.
+   ========================================================================= */
+/* Use more of the viewport on large monitors (less empty side margin) */
+.hv2-hero .hv2-container,
+.home-portal .hv2-container { max-width: 1320px; }
+
+/* Tighten hero→grid and the space above the footer */
+.home-portal { padding-top: clamp(1.5rem, 3vw, 2.25rem); padding-bottom: clamp(1.5rem, 3vw, 2.5rem); }
+
+/* Reduce the gaps between cards ~30% */
+.preview-grid { gap: clamp(.8rem, 1.4vw, 1.05rem); }
+
+/* Trim internal card padding so short cards don't feel hollow */
+.preview__body { padding: clamp(1.2rem, 2.1vw, 1.6rem); gap: .6rem; }
+
+/* Shorter About image → shorter row → less blank space in its row partner */
+.preview__media { aspect-ratio: 16 / 5.9; }
+
+/* Slightly shorter agenda embed to match the tighter rhythm */
+.preview__agenda iframe { height: 190px; }
