@@ -112,7 +112,7 @@
 
     <!-- =====================================================================
          MEET THE TEAM
-         (Executive Board → State Leadership Boards → Regional Chapter Leadership)
+         (Executive Board of Directors → State Boards)
          ===================================================================== -->
     <section class="ip-section ip-section--tight" id="state-board" aria-labelledby="team-title">
       <div class="ip-container">
@@ -156,247 +156,102 @@
           </div>
         </div>
 
-        <!-- ============== STATE LEADERSHIP BOARDS ============== -->
+        <!-- ============== STATE BOARDS ============== -->
         <div class="team-block team-block--centered ip-reveal">
           <div class="team-section-head">
-            <h3 class="team-section-head__title">State Leadership Boards</h3>
+            <h3 class="team-section-head__title">State Boards</h3>
             <p class="team-section-head__desc">
-              Each state board coordinates regional chapters, statewide initiatives, partnerships,
-              and volunteer engagement.
+              Each State Board leads volunteer engagement, fundraising, partnerships, outreach,
+              and community initiatives within its state.
             </p>
           </div>
 
-          <div class="team-boards">
+          <!-- HOW TO ADD MEMBERS
+               Inside a state's .state-card__inner, replace the .state-empty block with:
+
+               <div class="state-members">
+                 <article class="member-card">
+                   <div class="member-card__photo"><img src="images/photo.jpg" alt="Full Name" loading="lazy" /></div>
+                   <h5 class="member-card__name">Full Name</h5>
+                   <p class="member-card__role">Board Member</p>                <!- optional ->
+                   <p class="member-card__bio">One-line description.</p>       <!- optional ->
+                 </article>
+                 ... add as many member cards as needed — the grid wraps automatically ...
+               </div>
+
+               Remove the "Applications Open" badge from a state's summary once
+               that state is no longer recruiting. -->
+          <div class="state-accordion">
 
             <!-- MICHIGAN -->
-            <article class="board-card">
-              <h4 class="board-card__title">Michigan</h4>
-              <table class="board-table">
-                <tbody>
-                  <tr><th scope="row" class="pos">President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                  <tr><th scope="row" class="pos">Vice&nbsp;President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                  <tr><th scope="row" class="pos">Secretary</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                  <tr><th scope="row" class="pos">Treasurer</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                </tbody>
-              </table>
-            </article>
-
-            <!-- NEW JERSEY -->
-            <article class="board-card">
-              <h4 class="board-card__title">New Jersey</h4>
-              <table class="board-table">
-                <tbody>
-                  <tr><th scope="row" class="pos">President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                  <tr><th scope="row" class="pos">Vice&nbsp;President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                  <tr><th scope="row" class="pos">Secretary</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                  <tr><th scope="row" class="pos">Treasurer</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                </tbody>
-              </table>
-            </article>
-
-            <!-- FLORIDA -->
-            <article class="board-card">
-              <h4 class="board-card__title">Florida</h4>
-              <table class="board-table">
-                <tbody>
-                  <tr><th scope="row" class="pos">President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                  <tr><th scope="row" class="pos">Vice&nbsp;President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                  <tr><th scope="row" class="pos">Secretary</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                  <tr><th scope="row" class="pos">Treasurer</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                </tbody>
-              </table>
-            </article>
-
-            <!-- CONNECTICUT -->
-            <article class="board-card">
-              <h4 class="board-card__title">Connecticut</h4>
-              <table class="board-table">
-                <tbody>
-                  <tr><th scope="row" class="pos">President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                  <tr><th scope="row" class="pos">Vice&nbsp;President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                  <tr><th scope="row" class="pos">Secretary</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                  <tr><th scope="row" class="pos">Treasurer</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                </tbody>
-              </table>
-            </article>
-
-          </div>
-        </div>
-
-        <!-- ============== REGIONAL CHAPTER LEADERSHIP (accordion) ============== -->
-        <div class="team-block team-block--centered ip-reveal">
-          <div class="team-section-head">
-            <h3 class="team-section-head__title">Regional Chapter Leadership</h3>
-            <p class="team-section-head__desc">
-              Regional chapters lead local volunteer programs, outreach efforts, fundraising
-              initiatives, and community partnerships.
-            </p>
-          </div>
-
-          <div class="region-accordion">
-
-            <!-- MICHIGAN -->
-            <details class="region-state">
-              <summary class="region-state__head">
-                <span class="region-state__name">Michigan</span>
-                <span class="region-state__hint">View regions</span>
-                <svg class="region-state__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <details class="state-card">
+              <summary class="state-card__head">
+                <span class="state-card__name">Michigan</span>
+                <span class="state-card__badge">Applications Open</span>
+                <svg class="state-card__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </summary>
-              <div class="region-state__body">
-                <article class="board-card board-card--region">
-                  <h5 class="board-card__title">Greater Lansing Region</h5>
-                  <table class="board-table">
-                    <tbody>
-                      <tr><th scope="row" class="pos">President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Vice&nbsp;President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Secretary</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Treasurer</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                    </tbody>
-                  </table>
-                </article>
-                <article class="board-card board-card--region">
-                  <h5 class="board-card__title">Metro Detroit Region</h5>
-                  <table class="board-table">
-                    <tbody>
-                      <tr><th scope="row" class="pos">President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Vice&nbsp;President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Secretary</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Treasurer</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                    </tbody>
-                  </table>
-                </article>
+              <div class="state-card__body">
+                <div class="state-card__inner">
+                  <div class="state-empty">
+                    <p class="state-empty__title">No board members have been announced yet.</p>
+                    <p class="state-empty__desc">Applications are currently open to join the Michigan State Board.</p>
+                    <a href="jointheteam.html#state-board" class="btn btn--primary">Apply Now</a>
+                  </div>
+                </div>
               </div>
             </details>
 
             <!-- NEW JERSEY -->
-            <details class="region-state">
-              <summary class="region-state__head">
-                <span class="region-state__name">New Jersey</span>
-                <span class="region-state__hint">View regions</span>
-                <svg class="region-state__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <details class="state-card">
+              <summary class="state-card__head">
+                <span class="state-card__name">New Jersey</span>
+                <span class="state-card__badge">Applications Open</span>
+                <svg class="state-card__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </summary>
-              <div class="region-state__body">
-                <article class="board-card board-card--region">
-                  <h5 class="board-card__title">Central Jersey Region</h5>
-                  <table class="board-table">
-                    <tbody>
-                      <tr><th scope="row" class="pos">President</th><td class="val val--filled">Avinash Jadhav</td><td class="badge-slot"></td></tr>
-                      <tr><th scope="row" class="pos">Vice&nbsp;President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Secretary</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Treasurer</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                    </tbody>
-                  </table>
-                </article>
-                <article class="board-card board-card--region">
-                  <h5 class="board-card__title">Newark Region</h5>
-                  <table class="board-table">
-                    <tbody>
-                      <tr><th scope="row" class="pos">President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Vice&nbsp;President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Secretary</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Treasurer</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                    </tbody>
-                  </table>
-                </article>
-                <article class="board-card board-card--region">
-                  <h5 class="board-card__title">Jersey Shore Region</h5>
-                  <table class="board-table">
-                    <tbody>
-                      <tr><th scope="row" class="pos">President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Vice&nbsp;President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Secretary</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Treasurer</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                    </tbody>
-                  </table>
-                </article>
+              <div class="state-card__body">
+                <div class="state-card__inner">
+                  <div class="state-empty">
+                    <p class="state-empty__title">No board members have been announced yet.</p>
+                    <p class="state-empty__desc">Applications are currently open to join the New Jersey State Board.</p>
+                    <a href="jointheteam.html#state-board" class="btn btn--primary">Apply Now</a>
+                  </div>
+                </div>
               </div>
             </details>
 
             <!-- FLORIDA -->
-            <details class="region-state">
-              <summary class="region-state__head">
-                <span class="region-state__name">Florida</span>
-                <span class="region-state__hint">View regions</span>
-                <svg class="region-state__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <details class="state-card">
+              <summary class="state-card__head">
+                <span class="state-card__name">Florida</span>
+                <span class="state-card__badge">Applications Open</span>
+                <svg class="state-card__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </summary>
-              <div class="region-state__body">
-                <article class="board-card board-card--region">
-                  <h5 class="board-card__title">Gainesville Region</h5>
-                  <table class="board-table">
-                    <tbody>
-                      <tr><th scope="row" class="pos">President</th><td class="val val--filled">Dharish Kalaisenthil</td><td class="badge-slot"></td></tr>
-                      <tr><th scope="row" class="pos">Vice&nbsp;President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Secretary</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Treasurer</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                    </tbody>
-                  </table>
-                </article>
-                <article class="board-card board-card--region">
-                  <h5 class="board-card__title">Orlando Region</h5>
-                  <table class="board-table">
-                    <tbody>
-                      <tr><th scope="row" class="pos">President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Vice&nbsp;President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Secretary</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Treasurer</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                    </tbody>
-                  </table>
-                </article>
-                <article class="board-card board-card--region">
-                  <h5 class="board-card__title">Tampa Region</h5>
-                  <table class="board-table">
-                    <tbody>
-                      <tr><th scope="row" class="pos">President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Vice&nbsp;President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Secretary</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Treasurer</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                    </tbody>
-                  </table>
-                </article>
+              <div class="state-card__body">
+                <div class="state-card__inner">
+                  <div class="state-empty">
+                    <p class="state-empty__title">No board members have been announced yet.</p>
+                    <p class="state-empty__desc">Applications are currently open to join the Florida State Board.</p>
+                    <a href="jointheteam.html#state-board" class="btn btn--primary">Apply Now</a>
+                  </div>
+                </div>
               </div>
             </details>
 
             <!-- CONNECTICUT -->
-            <details class="region-state">
-              <summary class="region-state__head">
-                <span class="region-state__name">Connecticut</span>
-                <span class="region-state__hint">View regions</span>
-                <svg class="region-state__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <details class="state-card">
+              <summary class="state-card__head">
+                <span class="state-card__name">Connecticut</span>
+                <span class="state-card__badge">Applications Open</span>
+                <svg class="state-card__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </summary>
-              <div class="region-state__body">
-                <article class="board-card board-card--region">
-                  <h5 class="board-card__title">Hartford Region</h5>
-                  <table class="board-table">
-                    <tbody>
-                      <tr><th scope="row" class="pos">President</th><td class="val val--filled">Hanyasai Ram</td><td class="badge-slot"></td></tr>
-                      <tr><th scope="row" class="pos">Vice&nbsp;President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Secretary</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Treasurer</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                    </tbody>
-                  </table>
-                </article>
-                <article class="board-card board-card--region">
-                  <h5 class="board-card__title">New Haven Region</h5>
-                  <table class="board-table">
-                    <tbody>
-                      <tr><th scope="row" class="pos">President</th><td class="val val--filled">Akshada B</td><td class="badge-slot"></td></tr>
-                      <tr><th scope="row" class="pos">Vice&nbsp;President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Secretary</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Treasurer</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                    </tbody>
-                  </table>
-                </article>
-                <article class="board-card board-card--region">
-                  <h5 class="board-card__title">Fairfield County Region</h5>
-                  <table class="board-table">
-                    <tbody>
-                      <tr><th scope="row" class="pos">President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Vice&nbsp;President</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Secretary</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                      <tr><th scope="row" class="pos">Treasurer</th><td class="val is-tbd">TBD</td><td class="badge-slot"><span class="badge">Applications Open</span></td></tr>
-                    </tbody>
-                  </table>
-                </article>
+              <div class="state-card__body">
+                <div class="state-card__inner">
+                  <div class="state-empty">
+                    <p class="state-empty__title">No board members have been announced yet.</p>
+                    <p class="state-empty__desc">Applications are currently open to join the Connecticut State Board.</p>
+                    <a href="jointheteam.html#state-board" class="btn btn--primary">Apply Now</a>
+                  </div>
+                </div>
               </div>
             </details>
 
