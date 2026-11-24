@@ -1,182 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Volunteer | PAWS FOR A CAUSE</title>
-  <meta name="description" content="Volunteer for animal welfare with PAWS FOR A CAUSE. Join the volunteer list for future opportunities, or register for a specific volunteer event."/>
-  <meta name="theme-color" content="#f7f8f5"/>
-  <meta property="og:title" content="Volunteer | PAWS FOR A CAUSE"/>
-  <meta property="og:description" content="Find meaningful, organized ways to support shelters, rescues, and community programs in Michigan."/>
-  <meta property="og:type" content="website"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="assets/internal.css" />
-  <script src="scripts.js" defer></script>
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Give your time. | Paws for a Cause</title>
+<meta name="description" content="New to PAWS? Join the interest list. If you have already picked an event, use the event registration form.">
+<meta property="og:title" content="Give your time. | Paws for a Cause">
+<meta property="og:image" content="https://pawsforacausemi.org/assets/hero.webp">
+<meta name="theme-color" content="#143f35"><link rel="stylesheet" href="assets/site.css">
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <header>
-    <a href="index.html" class="logo">PAWS FOR A CAUSE</a>
-    <nav aria-label="Primary">
-      <ul class="nav-list" id="primary-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="team.html">About Us</a></li>
-        <li><a href="services.html">Our Work</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li class="has-dd">
-          <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
-          <ul class="dropdown" role="menu">
-            <li><a href="volunteer.html" class="active" aria-current="page" role="menuitem">Volunteer</a></li>
-            <li><a href="partner.html" role="menuitem">Become a Partner</a></li>
-            <li><a href="donate.html" role="menuitem">Donate</a></li>
-            <li><a href="jointheteam.html" role="menuitem">Join the Team</a></li>
-          </ul>
-        </li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </nav>
-    <a href="donate.html" class="btn-donate">Donate</a>
-    <div class="hamburger" aria-label="Toggle navigation">☰</div>
-  </header>
-
-  <main id="main">
-
-    <!-- HERO -->
-    <section class="ip-hero" style="padding-block: clamp(2.5rem,5vw,3.75rem) clamp(1rem,2.5vw,1.5rem);">
-      <span class="ip-hero__glow" aria-hidden="true"></span>
-      <div class="ip-container">
-        <div class="ip-hero__inner ip-reveal" style="max-width:64ch;">
-          <p class="ip-eyebrow">Volunteer</p>
-          <h1 class="ip-h1">Volunteer for <span class="ip-accent">Animal Welfare</span></h1>
-          <p class="ip-lede">
-            Find organized, age-appropriate ways to support shelters, rescues, and community programs.
-          </p>
-          <div class="ip-hero__cta vol-hero-cta">
-            <a href="#volunteer-list" class="btn btn--primary">Join Volunteer List
-              <svg class="ip-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a href="#event-volunteer" class="btn btn--secondary">Volunteer for an Event</a>
-          </div>
-          <p class="vol-helper">
-            <strong>Not sure where to start?</strong> Join the volunteer list and we'll notify you about future opportunities.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- VOLUNTEER OPTIONS — two side-by-side forms -->
-    <section class="ip-section ip-section--tight" aria-label="Volunteer options" style="padding-block: clamp(1rem,2vw,1.5rem) clamp(2rem,4vw,3rem);">
-      <div class="ip-container">
-        <div class="vol-forms">
-
-          <!-- CARD 1: Join the Volunteer List -->
-          <article class="vol-card vol-card--list ip-reveal" id="volunteer-list">
-            <span class="vol-card__badge">Recommended for first-time volunteers</span>
-            <h2 class="vol-card__title">Join the Volunteer List</h2>
-            <p class="vol-card__desc">Get notified about future volunteer opportunities, outreach projects, supply drives, and community events.</p>
-            <div class="form-embed" data-form-embed>
-              <div class="form-embed__loading" aria-hidden="true">
-                <span class="form-embed__spinner"></span>
-                <span>Loading form…</span>
-              </div>
-              <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLSczPN5gm5cPO7otlFD0GZcxKf_CjqAdITJY0X1P-42i_Vg1jQ/viewform?embedded=true"
-                title="Join the Volunteer List form"
-                width="100%" height="1132" frameborder="0" marginheight="0" marginwidth="0"
-                loading="lazy">
-                Loading…
-              </iframe>
-            </div>
-          </article>
-
-          <!-- CARD 2: Volunteer for an Event -->
-          <article class="vol-card vol-card--event ip-reveal d1" id="event-volunteer">
-            <span class="vol-card__badge">For confirmed event volunteers</span>
-            <h2 class="vol-card__title">Volunteer for an Event</h2>
-            <p class="vol-card__desc">Already found an event you'd like to attend? Register here for a specific volunteer event.</p>
-            <div class="form-embed" data-form-embed>
-              <div class="form-embed__loading" aria-hidden="true">
-                <span class="form-embed__spinner"></span>
-                <span>Loading form…</span>
-              </div>
-              <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLScRlluMC_P15YlJ8YREvoAvlVcvBfnvWP2SpZ8t_iiQHBNwPA/viewform?embedded=true"
-                title="Volunteer for an Event form"
-                width="100%" height="1380" frameborder="0" marginheight="0" marginwidth="0"
-                loading="lazy">
-                Loading…
-              </iframe>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="ip-section ip-section--tight ip-section--surface" aria-labelledby="vol-faq-title" style="padding-block: clamp(1.75rem,3.5vw,2.75rem);">
-      <div class="ip-container">
-        <div class="ip-split">
-          <div class="ip-reveal">
-            <div class="ip-rule" aria-hidden="true"></div>
-            <p class="ip-eyebrow ip-eyebrow--pink">FAQ</p>
-            <h2 id="vol-faq-title" class="ip-h2">What to know</h2>
-            <p class="ip-body">
-              Opportunities vary by partner organization. Each event lists its own requirements —
-              always review the specific event before you go.
-            </p>
-          </div>
-          <div class="ip-values ip-reveal d1" style="border-top:0;">
-            <details class="ip-value" open>
-              <summary><span class="ip-value__n">—</span><span class="ip-value__t">Who can volunteer?</span><svg class="ip-value__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-              <p class="ip-value__c">Students and community members are welcome. Some events have a minimum age set by the partner organization. Group and family volunteering is often available.</p>
-            </details>
-            <details class="ip-value">
-              <summary><span class="ip-value__n">—</span><span class="ip-value__t">Do I need experience?</span><svg class="ip-value__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-              <p class="ip-value__c">No. Most opportunities need no prior experience — just a willingness to help. Event leaders explain what to do when you arrive.</p>
-            </details>
-            <details class="ip-value">
-              <summary><span class="ip-value__n">—</span><span class="ip-value__t">Can students volunteer?</span><svg class="ip-value__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-              <p class="ip-value__c">Yes — we're a youth-led organization. Many opportunities can count toward school or club service-hour requirements; let us know what your school needs.</p>
-            </details>
-            <details class="ip-value">
-              <summary><span class="ip-value__n">—</span><span class="ip-value__t">Are parents required?</span><svg class="ip-value__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-              <p class="ip-value__c">When an event has an age minimum or requires guardian permission, it will be stated on the event. For some minors, a parent or guardian may need to provide consent and contact information.</p>
-            </details>
-            <details class="ip-value">
-              <summary><span class="ip-value__n">—</span><span class="ip-value__t">How do I find events?</span><svg class="ip-value__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-              <p class="ip-value__c">Browse the <a class="ip-textlink" href="events.html">events calendar</a> for upcoming shelter visits, fundraisers, supply drives, and community events — then register using the event volunteer form above.</p>
-            </details>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>&copy; <span data-year>2026</span> PAWS FOR A CAUSE | <a href="privacy.html">Privacy Policy</a></p>
-    <div class="social">
-      <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="PAWS FOR A CAUSE on Facebook (opens in new tab)">Facebook</a>
-      <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener noreferrer" aria-label="PAWS FOR A CAUSE on Instagram (opens in new tab)">Instagram</a>
-      <a href="mailto:pawsforacausemi@gmail.com" aria-label="Email PAWS FOR A CAUSE">Email</a>
-    </div>
-    <p class="footer-note">A youth-led 501(c)(3) nonprofit organization based in Michigan.</p>
-  </footer>
-
-  <script>
-  (function () {
-    document.querySelectorAll('[data-form-embed]').forEach(function (wrap) {
-      var iframe = wrap.querySelector('iframe');
-      if (!iframe) return;
-      iframe.addEventListener('load', function () { wrap.classList.add('is-loaded'); });
-      setTimeout(function () { wrap.classList.add('is-loaded'); }, 6000);
-    });
-  })();
-  </script>
-</body>
-</html>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="mast">
+<div class="bar">
+<a class="brand" href="index.html" aria-label="Paws for a Cause home"><span class="mark" aria-hidden="true">✳</span>Paws for a Cause</a>
+<nav class="wide" aria-label="Main"><a href="services.html">Our work</a><a href="team.html">About us</a><a href="events.html">Events</a><a href="involved.html">Get involved</a><a href="contact.html">Contact</a>
+</nav>
+<a class="button" href="donate.html">Donate</a>
+<details class="menu"><summary>Menu</summary>
+<nav aria-label="Mobile"><a href="services.html">Our work</a><a href="team.html">About us</a><a href="events.html">Events</a><a href="involved.html">Get involved</a><a href="contact.html">Contact</a><a class="" href="volunteer.html">Volunteer</a><a class="" href="team.html#chapters">Find a chapter</a>
+</nav>
+</details>
+</div>
+</header>
+<main id="main" class="wrap">
+<div class="intro">
+<p class="kicker">Volunteer</p>
+<h1>Give your time.</h1>
+<p class="lead">New to PAWS? Join the interest list. If you have already picked an event, use the event registration form.</p>
+</div>
+<div class="rows">
+<article id="volunteer-list">
+<div>
+<h3>Join the volunteer list</h3>
+<p>Tell us about your interests so we can share future opportunities.</p>
+</div>
+<a class="route" href="https://docs.google.com/forms/d/e/1FAIpQLSczPN5gm5cPO7otlFD0GZcxKf_CjqAdITJY0X1P-42i_Vg1jQ/viewform">Join the list</a>
+</article>
+<article id="event-volunteer">
+<div>
+<h3>Register for an event</h3>
+<p>Check the calendar for dates and requirements, then register for your event.</p>
+</div>
+<a class="route" href="https://docs.google.com/forms/d/e/1FAIpQLScRlluMC_P15YlJ8YREvoAvlVcvBfnvWP2SpZ8t_iiQHBNwPA/viewform">Register for an event</a>
+</article>
+</div>
+<section class="block">
+<h2>Before you sign up</h2>
+<p>Students, families, and community members are welcome. Minimum ages and guardian requirements vary by partner and event. Ask the organizer about service-hour verification if your school requires it.</p>
+<a class="button" href="events.html">Browse events</a>
+</section>
+</main>
+<footer>
+<div class="foot">
+<div>
+<a class="brand" href="index.html" aria-label="Paws for a Cause home"><span class="mark" aria-hidden="true">✳</span>Paws for a Cause</a>
+<p>Youth-led animal welfare · Okemos, Michigan</p>
+</div>
+<nav aria-label="Footer"><a href="services.html">Our work</a><a href="team.html">About us</a><a href="events.html">Events</a><a href="involved.html">Get involved</a><a href="contact.html">Contact</a><a class="" href="privacy.html">Privacy</a><a class="" href="https://www.instagram.com/pawsforacausemi">Instagram</a><a class="" href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr">Facebook</a>
+</nav>
+</div>
+</footer>
+</body></html>

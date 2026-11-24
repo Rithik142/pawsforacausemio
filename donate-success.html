@@ -1,99 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Thank You | PAWS FOR A CAUSE</title>
-  <meta name="description" content="Thank you for supporting PAWS FOR A CAUSE, a youth-led 501(c)(3) animal-welfare nonprofit in Michigan."/>
-  <meta name="theme-color" content="#f7f8f5"/>
-  <meta name="robots" content="noindex"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css"/>
-  <link rel="stylesheet" href="assets/donate.css"/>
-  <script src="scripts.js" defer></script>
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thank you for supporting PAWS. | Paws for a Cause</title>
+<meta name="description" content="Your gift helps students support local shelters and rescues. Look for a receipt from Stripe at the email address you entered at checkout.">
+<meta property="og:title" content="Thank you for supporting PAWS. | Paws for a Cause">
+<meta property="og:image" content="https://pawsforacausemi.org/assets/hero.webp">
+<meta name="theme-color" content="#143f35"><link rel="stylesheet" href="assets/site.css">
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <header>
-    <a href="index.html" class="logo">PAWS FOR A CAUSE</a>
-    <nav aria-label="Primary">
-      <ul class="nav-list" id="primary-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="team.html">About Us</a></li>
-        <li><a href="services.html">Our Work</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li class="has-dd">
-          <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
-          <ul class="dropdown" role="menu">
-            <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
-            <li><a href="partner.html" role="menuitem">Become a Partner</a></li>
-            <li><a href="donate.html" role="menuitem">Donate</a></li>
-            <li><a href="jointheteam.html" role="menuitem">Join the Team</a></li>
-          </ul>
-        </li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </nav>
-    <a href="donate.html" class="btn-donate">Donate</a>
-    <div class="hamburger" aria-label="Toggle navigation">☰</div>
-  </header>
-
-  <main id="main" class="donate">
-    <section class="donate-hero" aria-labelledby="ty-title">
-      <div class="donate-hero__inner" style="max-width:720px; text-align:center; margin:0 auto;">
-        <p class="donate-eyebrow" style="justify-content:center;">Thank you</p>
-        <h1 id="ty-title">Thank you for standing up for local animals.</h1>
-        <p class="donate-hero__lead" style="margin:0 auto;">
-          Your support helps PAWS FOR A CAUSE connect volunteers with shelters and rescues,
-          strengthen community programs, and expand animal-welfare outreach across Michigan.
-        </p>
-        <p class="donate-card__secure" style="margin-top:1.2rem;">
-          Stripe emails a receipt to the address you used at checkout. For monthly gifts, that email
-          includes a secure link to manage or cancel your recurring donation at any time.
-        </p>
-
-        <div class="donate-fallback__actions" style="justify-content:center; margin-top:2rem;">
-          <a class="donate-fallback__btn donate-fallback__btn--primary" href="events.html">View upcoming events</a>
-          <a class="donate-fallback__btn" href="volunteer.html">Volunteer with us</a>
-          <a class="donate-fallback__btn" href="index.html">Return home</a>
-        </div>
-
-        <p style="margin-top:1.5rem;">
-          <a id="manage-giving" class="other-card__link" href="#" hidden>Manage my monthly giving →</a>
-        </p>
-        <p style="margin-top:1rem;">
-          <a class="other-card__link"
-             href="https://www.instagram.com/pawsforacausemi"
-             target="_blank" rel="noopener noreferrer">
-            Share our work on Instagram <span aria-hidden="true">↗</span>
-          </a>
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; <span data-year>2026</span> PAWS FOR A CAUSE | <a href="privacy.html">Privacy Policy</a></p>
-    <div class="social">
-      <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="PAWS FOR A CAUSE on Facebook (opens in new tab)">Facebook</a>
-      <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener noreferrer" aria-label="PAWS FOR A CAUSE on Instagram (opens in new tab)">Instagram</a>
-      <a href="mailto:pawsforacausemi@gmail.com" aria-label="Email PAWS FOR A CAUSE">Email</a>
-    </div>
-    <p class="footer-note">A youth-led 501(c)(3) nonprofit organization based in Michigan.</p>
-  </footer>
-
-  <script src="assets/donate-config.js"></script>
-  <script>
-    /* Reveal the "Manage my monthly giving" link only when a Stripe Customer
-       Portal URL is configured. */
-    (function () {
-      var cfg = window.PAWS_DONATE || {};
-      var a = document.getElementById("manage-giving");
-      if (a && cfg.managePortalUrl) { a.href = cfg.managePortalUrl; a.target = "_blank"; a.rel = "noopener noreferrer"; a.hidden = false; }
-    })();
-  </script>
-</body>
-</html>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="mast">
+<div class="bar">
+<a class="brand" href="index.html" aria-label="Paws for a Cause home"><span class="mark" aria-hidden="true">✳</span>Paws for a Cause</a>
+<nav class="wide" aria-label="Main"><a href="services.html">Our work</a><a href="team.html">About us</a><a href="events.html">Events</a><a href="involved.html">Get involved</a><a href="contact.html">Contact</a>
+</nav>
+<a class="button" href="donate.html">Donate</a>
+<details class="menu"><summary>Menu</summary>
+<nav aria-label="Mobile"><a href="services.html">Our work</a><a href="team.html">About us</a><a href="events.html">Events</a><a href="involved.html">Get involved</a><a href="contact.html">Contact</a><a class="" href="volunteer.html">Volunteer</a><a class="" href="team.html#chapters">Find a chapter</a>
+</nav>
+</details>
+</div>
+</header>
+<main id="main" class="wrap">
+<div class="intro">
+<p class="kicker">Thank you</p>
+<h1>Thank you for supporting PAWS.</h1>
+<p class="lead">Your gift helps students support local shelters and rescues. Look for a receipt from Stripe at the email address you entered at checkout.</p>
+</div>
+<section class="block">
+<h2>Questions about your gift?</h2>
+<p>For help with a receipt or to change a monthly donation, reach the PAWS team.</p>
+<a class="button" href="contact.html">Contact PAWS</a>
+</section>
+<a class="button" href="services.html">Explore our work</a>
+</main>
+<footer>
+<div class="foot">
+<div>
+<a class="brand" href="index.html" aria-label="Paws for a Cause home"><span class="mark" aria-hidden="true">✳</span>Paws for a Cause</a>
+<p>Youth-led animal welfare · Okemos, Michigan</p>
+</div>
+<nav aria-label="Footer"><a href="services.html">Our work</a><a href="team.html">About us</a><a href="events.html">Events</a><a href="involved.html">Get involved</a><a href="contact.html">Contact</a><a class="" href="privacy.html">Privacy</a><a class="" href="https://www.instagram.com/pawsforacausemi">Instagram</a><a class="" href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr">Facebook</a>
+</nav>
+</div>
+</footer>
+</body></html>

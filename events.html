@@ -1,147 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Upcoming Events | PAWS FOR A CAUSE</title>
-  <meta name="description" content="Stay up to date with volunteer opportunities, fundraisers, community outreach events, and other PAWS FOR A CAUSE activities."/>
-  <meta name="theme-color" content="#f7f8f5"/>
-  <meta property="og:title" content="Upcoming Events | PAWS FOR A CAUSE"/>
-  <meta property="og:description" content="Volunteer opportunities, fundraisers, and community outreach events for PAWS FOR A CAUSE, a youth-led 501(c)(3) animal-welfare nonprofit in Michigan."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://pawsforacausemi.org/events.html"/>
-  <meta property="og:image" content="images/Homepage.jpg"/>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css"/>
-  <link rel="stylesheet" href="assets/internal.css"/>
-  <script src="scripts.js" defer></script>
-
-  <style>
-    /* Centered, responsive Google Calendar embed */
-    .pf-gcal {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      background: var(--p-surface, #10151a);
-      border: 1px solid var(--p-line, rgba(255,255,255,.09));
-      border-radius: 14px;
-      overflow: hidden;
-    }
-    .pf-gcal iframe {
-      display: block;
-      width: 100%;
-      height: 720px;
-      border: 0;
-      background: #fff;
-    }
-    @media (max-width: 768px) {
-      .pf-gcal iframe { height: 600px; }
-    }
-    .pf-gcal-cta {
-      max-width: 1200px;
-      margin: 1rem auto 0;
-      text-align: center;
-      color: var(--p-text-mute, #b9c2bd);
-      font-size: .9rem;
-    }
-  </style>
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find your next volunteer day. | Paws for a Cause</title>
+<meta name="description" content="Browse volunteer shifts, supply drives, and fundraisers. Calendar times are shown in Michigan time.">
+<meta property="og:title" content="Find your next volunteer day. | Paws for a Cause">
+<meta property="og:image" content="https://pawsforacausemi.org/assets/hero.webp">
+<meta name="theme-color" content="#143f35"><link rel="stylesheet" href="assets/site.css">
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <header>
-    <a href="index.html" class="logo">PAWS FOR A CAUSE</a>
-    <nav aria-label="Primary">
-      <ul class="nav-list" id="primary-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="team.html">About Us</a></li>
-        <li><a href="services.html">Our Work</a></li>
-        <li><a href="events.html" class="active" aria-current="page">Events</a></li>
-        <li class="has-dd">
-          <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
-          <ul class="dropdown" role="menu">
-            <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
-            <li><a href="partner.html"  role="menuitem">Become a Partner</a></li>
-            <li><a href="donate.html" role="menuitem">Donate</a></li>
-            <li><a href="jointheteam.html" role="menuitem">Join the Team</a></li>
-          </ul>
-        </li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </nav>
-    <a href="donate.html" class="btn-donate">Donate</a>
-    <div class="hamburger" aria-label="Toggle navigation">☰</div>
-  </header>
-
-  <main id="main">
-
-    <!-- Page hero -->
-    <section class="ip-hero" style="padding-block: clamp(2.5rem,5vw,3.75rem) clamp(1.25rem,2.5vw,1.75rem);">
-      <span class="ip-hero__glow" aria-hidden="true"></span>
-      <div class="ip-container">
-        <div class="ip-hero__inner ip-reveal" style="max-width:64ch;">
-          <p class="ip-eyebrow">Events</p>
-          <h1 class="ip-h1">Upcoming <span class="ip-accent">Events</span></h1>
-          <p class="ip-lede">
-            Stay up to date with volunteer opportunities, fundraisers, community outreach events,
-            and other PAWS FOR A CAUSE activities.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Full Google Calendar embed (with per-pageload cache-bust) -->
-    <section class="ip-section ip-section--tight" aria-labelledby="calendar-title" style="padding-block: clamp(0.5rem,1.5vw,1.25rem) clamp(2.5rem,5vw,4rem);">
-      <h2 id="calendar-title" class="ip-visually-hidden" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;">PAWS FOR A CAUSE calendar</h2>
-      <div class="ip-container ip-reveal">
-        <div class="pf-gcal">
-          <iframe
-            id="pf-gcal-iframe"
-            data-src="https://calendar.google.com/calendar/embed?src=92d116d8967f4db2a69264e1140c27968ca325aca1ca411cf076be4b2fd6fbf6%40group.calendar.google.com&amp;ctz=America%2FDetroit&amp;mode=MONTH&amp;showPrint=0&amp;showCalendars=0"
-            title="PAWS FOR A CAUSE calendar"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            scrolling="no">
-          </iframe>
-        </div>
-        <p class="pf-gcal-cta">
-          <a class="ip-textlink"
-             href="https://calendar.google.com/calendar/u/0?cid=OTJkMTE2ZDg5NjdmNGRiMmE2OTI2NGUxMTQwYzI3OTY4Y2EzMjVhY2ExY2E0MTFjZjA3NmJlNGIyZmQ2ZmJmNkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
-             target="_blank" rel="noopener noreferrer">
-            Open in Google Calendar
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </p>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>&copy; <span data-year>2026</span> PAWS FOR A CAUSE | <a href="privacy.html">Privacy Policy</a></p>
-    <div class="social">
-      <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="PAWS FOR A CAUSE on Facebook (opens in new tab)">Facebook</a>
-      <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener noreferrer" aria-label="PAWS FOR A CAUSE on Instagram (opens in new tab)">Instagram</a>
-      <a href="mailto:pawsforacausemi@gmail.com" aria-label="Email PAWS FOR A CAUSE">Email</a>
-    </div>
-    <p class="footer-note">A youth-led 501(c)(3) nonprofit organization based in Michigan.</p>
-  </footer>
-
-  <script>
-  /* Cache-bust the calendar iframe on every pageload so the embed never
-     serves a stale disk-cached snapshot. Google's calendar view itself
-     is live, but the wrapping HTML can be cached by some browsers. */
-  (function () {
-    var iframe = document.getElementById('pf-gcal-iframe');
-    if (!iframe) return;
-    var src = iframe.getAttribute('data-src');
-    if (!src) return;
-    var sep = src.indexOf('?') === -1 ? '?' : '&';
-    iframe.src = src + sep + '_t=' + Date.now();
-  })();
-  </script>
-</body>
-</html>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="mast">
+<div class="bar">
+<a class="brand" href="index.html" aria-label="Paws for a Cause home"><span class="mark" aria-hidden="true">✳</span>Paws for a Cause</a>
+<nav class="wide" aria-label="Main"><a href="services.html">Our work</a><a href="team.html">About us</a><a href="events.html" aria-current="page">Events</a><a href="involved.html">Get involved</a><a href="contact.html">Contact</a>
+</nav>
+<a class="button" href="donate.html">Donate</a>
+<details class="menu"><summary>Menu</summary>
+<nav aria-label="Mobile"><a href="services.html">Our work</a><a href="team.html">About us</a><a href="events.html" aria-current="page">Events</a><a href="involved.html">Get involved</a><a href="contact.html">Contact</a><a class="" href="volunteer.html">Volunteer</a><a class="" href="team.html#chapters">Find a chapter</a>
+</nav>
+</details>
+</div>
+</header>
+<main id="main" class="wrap">
+<div class="intro">
+<p class="kicker">Events</p>
+<h1>Find your next volunteer day.</h1>
+<p class="lead">Browse volunteer shifts, supply drives, and fundraisers. Calendar times are shown in Michigan time.</p>
+</div>
+<div class="actions">
+<a class="button" href="https://calendar.google.com/calendar/u/0?cid=OTJkMTE2ZDg5NjdmNGRiMmE2OTI2NGUxMTQwYzI3OTY4Y2EzMjVhY2ExY2E0MTFjZjA3NmJlNGIyZmQ2ZmJmNkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t">Open Google Calendar</a>
+<a class="quiet" href="https://docs.google.com/forms/d/e/1FAIpQLScRlluMC_P15YlJ8YREvoAvlVcvBfnvWP2SpZ8t_iiQHBNwPA/viewform">Register for an event</a>
+</div><iframe class="calendar" title="Upcoming PAWS events in agenda view" src="https://calendar.google.com/calendar/embed?src=92d116d8967f4db2a69264e1140c27968ca325aca1ca411cf076be4b2fd6fbf6%40group.calendar.google.com&amp;ctz=America%2FDetroit&amp;mode=AGENDA&amp;showPrint=0&amp;showCalendars=0"></iframe>
+<p>Looking for a future opportunity? <a class="" href="https://docs.google.com/forms/d/e/1FAIpQLSczPN5gm5cPO7otlFD0GZcxKf_CjqAdITJY0X1P-42i_Vg1jQ/viewform">Join the volunteer list</a>
+</p>
+</main>
+<footer>
+<div class="foot">
+<div>
+<a class="brand" href="index.html" aria-label="Paws for a Cause home"><span class="mark" aria-hidden="true">✳</span>Paws for a Cause</a>
+<p>Youth-led animal welfare · Okemos, Michigan</p>
+</div>
+<nav aria-label="Footer"><a href="services.html">Our work</a><a href="team.html">About us</a><a href="events.html" aria-current="page">Events</a><a href="involved.html">Get involved</a><a href="contact.html">Contact</a><a class="" href="privacy.html">Privacy</a><a class="" href="https://www.instagram.com/pawsforacausemi">Instagram</a><a class="" href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr">Facebook</a>
+</nav>
+</div>
+</footer>
+</body></html>

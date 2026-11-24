@@ -62,7 +62,7 @@
     } else if (opts.tier) {
       var annual = value * 12;
       btn.innerHTML =
-        (opts.featured ? '<span class="amt__badge">Most Popular</span>' : '') +
+        (opts.featured ? '<span class="amt__badge">Featured</span>' : '') +
         '<span class="amt__price">' + money(value) + '<span class="amt__per">/mo</span></span>' +
         '<span class="amt__annual">' + money(annual) + ' annually</span>' +
         '<span class="amt__name">' + opts.name + '</span>' +
@@ -78,7 +78,7 @@
   (CFG.monthlyTiers || []).forEach(function (t) {
     monthlyGroup.appendChild(makeOption(t.amount, { tier: true, name: t.name, desc: t.desc, featured: !!t.featured }));
   });
-  monthlyGroup.appendChild(makeOption(null, { custom: true }));
+  if (CFG.links.monthly.custom) monthlyGroup.appendChild(makeOption(null, { custom: true }));
 
   // One-time presets
   var presets = CFG.oneTimePresets || [];
