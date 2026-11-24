@@ -1,215 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Contact | PAWS FOR A CAUSE</title>
-  <meta name="description" content="Contact PAWS FOR A CAUSE about volunteering, events, partnerships, school collaboration, chapters, or donations. We're glad to hear from you."/>
-  <meta name="theme-color" content="#f7f8f5"/>
-  <meta property="og:title" content="Contact | PAWS FOR A CAUSE"/>
-  <meta property="og:description" content="Reach a youth-led 501(c)(3) animal-welfare nonprofit in Michigan."/>
-  <meta property="og:type" content="website"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css"/>
-  <link rel="stylesheet" href="assets/internal.css"/>
-  <script src="scripts.js" defer></script>
-
-  <style>
-    /* Contact info tiles — 3 columns on desktop, stack on mobile */
-    .contact-info {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: clamp(.85rem, 2vw, 1.25rem);
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    @media (max-width: 720px) { .contact-info { grid-template-columns: 1fr; } }
-    .contact-info__tile {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      align-items: center;
-      gap: .85rem;
-      padding: 1.1rem 1.2rem;
-      background: var(--p-surface, #10151a);
-      border: 1px solid var(--p-line, rgba(255,255,255,.08));
-      border-radius: 14px;
-      text-decoration: none;
-      color: inherit;
-      transition:
-        transform .25s cubic-bezier(.23,1,.32,1),
-        border-color .25s ease,
-        box-shadow .25s ease;
-    }
-    .contact-info__tile:hover,
-    a.contact-info__tile:focus-visible {
-      transform: translateY(-2px);
-      border-color: var(--p-green-line, rgba(32,214,154,.4));
-      box-shadow: 0 18px 32px -24px rgba(32,214,154,.22), 0 14px 24px -20px rgba(0,0,0,.65);
-      outline: none;
-    }
-    .contact-info__ico {
-      display: grid;
-      place-items: center;
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 10px;
-      background: linear-gradient(150deg, rgba(32,214,154,.18), rgba(241,91,166,.14));
-      border: 1px solid var(--p-line, rgba(255,255,255,.08));
-      color: var(--p-green, #20d69a);
-      flex: none;
-    }
-    .contact-info__ico svg { width: 1.2rem; height: 1.2rem; }
-    .contact-info__body { min-width: 0; }
-    .contact-info__label {
-      display: block;
-      font-size: .72rem;
-      font-weight: 800;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--p-text-dim, #8b96a0);
-      margin-bottom: .15rem;
-    }
-    .contact-info__value {
-      display: block;
-      font-size: .98rem;
-      color: var(--p-text, #f4f5f3);
-      font-weight: 600;
-      word-break: break-word;
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .contact-info__tile { transition: none !important; }
-      .contact-info__tile:hover, a.contact-info__tile:focus-visible { transform: none; }
-    }
-  </style>
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get in touch. | Paws for a Cause</title>
+<meta name="description" content="Reach our youth-led team in Okemos, Michigan, about donations, events, partnerships, or chapter questions.">
+<meta property="og:title" content="Get in touch. | Paws for a Cause">
+<meta property="og:image" content="https://pawsforacausemi.org/assets/hero.webp">
+<meta name="theme-color" content="#143f35"><link rel="stylesheet" href="assets/site.css">
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <header>
-    <a href="index.html" class="logo">PAWS FOR A CAUSE</a>
-    <nav aria-label="Primary">
-      <ul class="nav-list" id="primary-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="team.html">About Us</a></li>
-        <li><a href="services.html">Our Work</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li class="has-dd">
-          <a href="involved.html" aria-haspopup="true" aria-expanded="false">Get Involved ▾</a>
-          <ul class="dropdown" role="menu">
-            <li><a href="volunteer.html" role="menuitem">Volunteer</a></li>
-            <li><a href="partner.html" role="menuitem">Become a Partner</a></li>
-            <li><a href="donate.html" role="menuitem">Donate</a></li>
-            <li><a href="jointheteam.html" role="menuitem">Join the Team</a></li>
-          </ul>
-        </li>
-        <li><a href="contact.html" class="active" aria-current="page">Contact Us</a></li>
-      </ul>
-    </nav>
-    <a href="donate.html" class="btn-donate">Donate</a>
-    <div class="hamburger" aria-label="Toggle navigation">☰</div>
-  </header>
-
-  <main id="main">
-
-    <!-- HERO -->
-    <section class="ip-hero" style="padding-block: clamp(2.5rem,5vw,3.75rem) clamp(1rem,2.5vw,1.5rem);">
-      <span class="ip-hero__glow" aria-hidden="true"></span>
-      <div class="ip-container">
-        <div class="ip-hero__inner ip-reveal" style="max-width:64ch;">
-          <p class="ip-eyebrow">Contact</p>
-          <h1 class="ip-h1">Let's <span class="ip-accent">Talk</span></h1>
-          <p class="ip-lede">
-            Questions about volunteering, events, partnerships, schools, chapters, or donations?
-            Tell us a little about what you need and we'll point you in the right direction.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT INFORMATION -->
-    <section class="ip-section ip-section--tight" aria-label="Contact information" style="padding-block: 0 clamp(1rem,2.5vw,1.75rem);">
-      <div class="ip-container ip-reveal">
-        <div class="contact-info">
-          <a class="contact-info__tile" href="mailto:pawsforacausemi@gmail.com">
-            <span class="contact-info__ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-            <span class="contact-info__body">
-              <span class="contact-info__label">Email</span>
-              <span class="contact-info__value">pawsforacausemi@gmail.com</span>
-            </span>
-          </a>
-          <a class="contact-info__tile" href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener noreferrer">
-            <span class="contact-info__ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
-            </span>
-            <span class="contact-info__body">
-              <span class="contact-info__label">Instagram</span>
-              <span class="contact-info__value">@pawsforacausemi</span>
-            </span>
-          </a>
-          <div class="contact-info__tile">
-            <span class="contact-info__ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5-7-11a7 7 0 1114 0c0 6-7 11-7 11z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="2"/></svg>
-            </span>
-            <span class="contact-info__body">
-              <span class="contact-info__label">Location</span>
-              <span class="contact-info__value">Okemos, Michigan</span>
-            </span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EMBEDDED CONTACT FORM (Google Form) -->
-    <section class="ip-section ip-section--tight" aria-label="Contact form" style="padding-block: clamp(1rem,2vw,1.5rem) clamp(2.5rem,5vw,4rem);">
-      <div class="ip-container">
-        <div class="form-embed-wrap ip-reveal">
-          <div class="form-embed" id="formEmbed">
-            <div class="form-embed__loading" aria-hidden="true">
-              <span class="form-embed__spinner"></span>
-              <span>Loading contact form…</span>
-            </div>
-            <iframe
-              src="https://docs.google.com/forms/d/e/1FAIpQLSewFCi7B20WAArP7QkKsDfP4C39lodAa7Mwt4OcRk7NhIcL9A/viewform?embedded=true"
-              title="PAWS FOR A CAUSE contact form"
-              width="100%" height="1166" frameborder="0" marginheight="0" marginwidth="0"
-              loading="lazy">
-              Loading…
-            </iframe>
-          </div>
-
-          <div class="app-success" role="note">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 12l2 2 4-4M12 21a9 9 0 100-18 9 9 0 000 18z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <p>Thanks for reaching out. We're a youth-led team and typically reply within a few days.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>&copy; <span data-year>2026</span> PAWS FOR A CAUSE | <a href="privacy.html">Privacy Policy</a></p>
-    <div class="social">
-      <a href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="PAWS FOR A CAUSE on Facebook (opens in new tab)">Facebook</a>
-      <a href="https://www.instagram.com/pawsforacausemi" target="_blank" rel="noopener noreferrer" aria-label="PAWS FOR A CAUSE on Instagram (opens in new tab)">Instagram</a>
-      <a href="mailto:pawsforacausemi@gmail.com" aria-label="Email PAWS FOR A CAUSE">Email</a>
-    </div>
-    <p class="footer-note">A youth-led 501(c)(3) nonprofit organization based in Michigan.</p>
-  </footer>
-
-  <script>
-  (function () {
-    var wrap = document.getElementById('formEmbed');
-    if (!wrap) return;
-    var iframe = wrap.querySelector('iframe');
-    if (!iframe) return;
-    iframe.addEventListener('load', function () { wrap.classList.add('is-loaded'); });
-    setTimeout(function () { wrap.classList.add('is-loaded'); }, 6000);
-  })();
-  </script>
-</body>
-</html>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="mast">
+<div class="bar">
+<a class="brand" href="index.html" aria-label="Paws for a Cause home"><span class="mark" aria-hidden="true">✳</span>Paws for a Cause</a>
+<nav class="wide" aria-label="Main"><a href="services.html">Our work</a><a href="team.html">About us</a><a href="events.html">Events</a><a href="involved.html">Get involved</a><a href="contact.html" aria-current="page">Contact</a>
+</nav>
+<a class="button" href="donate.html">Donate</a>
+<details class="menu"><summary>Menu</summary>
+<nav aria-label="Mobile"><a href="services.html">Our work</a><a href="team.html">About us</a><a href="events.html">Events</a><a href="involved.html">Get involved</a><a href="contact.html" aria-current="page">Contact</a><a class="" href="volunteer.html">Volunteer</a><a class="" href="team.html#chapters">Find a chapter</a>
+</nav>
+</details>
+</div>
+</header>
+<main id="main" class="wrap">
+<div class="intro">
+<p class="kicker">Contact</p>
+<h1>Get in touch.</h1>
+<p class="lead">Reach our youth-led team in Okemos, Michigan, about donations, events, partnerships, or chapter questions.</p>
+</div>
+<div class="rows">
+<article id="email">
+<div>
+<h3>Email the team</h3>
+<p>pawsforacausemi@gmail.com</p>
+</div>
+<a class="route" href="mailto:pawsforacausemi@gmail.com">Write an email</a>
+</article>
+<article id="form">
+<div>
+<h3>Send an inquiry</h3>
+<p>Tell us what you need through our contact form. We typically reply within a few days.</p>
+</div>
+<a class="route" href="https://docs.google.com/forms/d/e/1FAIpQLSewFCi7B20WAArP7QkKsDfP4C39lodAa7Mwt4OcRk7NhIcL9A/viewform">Open contact form</a>
+</article>
+<article id="social">
+<div>
+<h3>Instagram</h3>
+<p>Find project photos and community updates.</p>
+</div>
+<a class="route" href="https://www.instagram.com/pawsforacausemi">Visit our Instagram</a>
+</article>
+</div>
+</main>
+<footer>
+<div class="foot">
+<div>
+<a class="brand" href="index.html" aria-label="Paws for a Cause home"><span class="mark" aria-hidden="true">✳</span>Paws for a Cause</a>
+<p>Youth-led animal welfare · Okemos, Michigan</p>
+</div>
+<nav aria-label="Footer"><a href="services.html">Our work</a><a href="team.html">About us</a><a href="events.html">Events</a><a href="involved.html">Get involved</a><a href="contact.html" aria-current="page">Contact</a><a class="" href="privacy.html">Privacy</a><a class="" href="https://www.instagram.com/pawsforacausemi">Instagram</a><a class="" href="https://www.facebook.com/share/1BhGDBvNin/?mibextid=wwXIfr">Facebook</a>
+</nav>
+</div>
+</footer>
+</body></html>
